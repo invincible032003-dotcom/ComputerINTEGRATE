@@ -1,0 +1,1114 @@
+@chapter 7
+@title Basic Concepts of Operating System
+@pages 294-307 308-318
+@codes C5 C7
+@default C5
+@themes 1 What an OS is · functions · components (kernel, shell, drivers, file system) · OS history milestones
+@themes 2 OS generations · batch · multiprogramming · time-sharing · real-time OS
+@themes 3 Network & distributed OS · UNIX · kernel types · UNIX file types · MS-DOS
+
+#1 p294 a308
+Q: What is an operating system?
+a) A collection of hardware components
+b) A programming language
+c) Software that manages computer hardware and software resources
+d) A graphical user interface
+K: c
+X: An operating system is system software that sits between the user and the hardware. It manages the CPU, memory, I/O devices and files, and provides services to application programs.
+S: OS = resource manager + user–hardware interface.
+
+#2 p294 a308
+Q: Which of the following is not an operating system?
+a) Windows
+b) Linux
+c) Microsoft Office
+d) macOS
+K: c
+X: Microsoft Office (Word, Excel, PowerPoint) is an application suite that runs on top of an operating system. Windows, Linux and macOS are operating systems.
+S: Office / Tally / browsers = application software, not OS.
+
+#3 p294 a308
+Q: What is the purpose of an operating system?
+a) To provide a user interface for interacting with the computer
+b) To manage and allocate computer resources
+c) To prevent unauthorized access to the system
+d) To create and edit documents
+K: b
+X: The core purpose is to manage and allocate resources (CPU time, memory, I/O devices, files) efficiently and fairly among programs and users. The user interface and security are important but secondary functions, and editing documents is an application task.
+S: Primary purpose of OS = resource management.
+
+#4 p294 a308
+Q: Which of the following is not a type of operating system?
+a) Single-user operating system
+b) Multi-user operating system
+c) Real-time operating system
+d) Web-based operating system
+K: d
+X: The traditional classes of OS are single-user, multi-user, batch, time-sharing, real-time, network and distributed. A "web-based OS" is a recent idea and is not one of the textbook types.
+S: Textbook OS types: batch · multiprogramming · time-sharing · real-time · network · distributed.
+
+#5 p294 a308
+Q: Which scheduling algorithm is used in most operating systems to determine the execution order of processes?
+a) Round-robin scheduling
+b) First-come, first-served (FCFS) scheduling
+c) Shortest Job Next (SJN) scheduling
+d) Priority-based scheduling
+K: a
+X: Round robin gives each ready process a fixed time slice (quantum) in turn, which makes it the standard algorithm for time-sharing systems. Modern desktop OSs actually combine priorities with round robin (multilevel feedback queues), but among these options the book's answer is round robin.
+S: Time slice / quantum → round robin.
+
+#6 p294 a308
+Q: What is virtual memory in an operating system?
+a) Memory that is physically installed in the computer
+b) Memory used for storing virtual machines
+c) A technique that allows the execution of processes that are not completely in memory
+d) Memory used exclusively for system processes
+K: c
+X: Virtual memory uses part of the disk as an extension of RAM. Only the pages a process currently needs are kept in main memory, so a program larger than physical RAM can still run. Pages move between RAM and disk by paging/swapping.
+S: Virtual memory = RAM + disk illusion; process need not be fully in RAM.
+
+#7 p294 a308
+Q: What is the role of the file system in an operating system?
+a) To manage the physical components of the computer
+b) To provide a user interface for interacting with files and directories
+c) To manage and organize files on storage devices
+d) To regulate network connections
+K: c
+X: The file system decides how files and directories are named, stored, organised and retrieved on disks and other storage devices (e.g. FAT32, NTFS, ext4).
+S: File system = organise files on storage.
+
+#8 p295 a309
+Q: Which of the following is an example of a multi-user operating system?
+a) Windows XP
+b) Ubuntu Server
+c) Android
+d) macOS High Sierra
+K: b
+X: Ubuntu Server is a Linux server OS built for many users logging in at the same time, locally or remotely. The other options are personal, single-user-oriented systems.
+S: Server editions of UNIX/Linux → multi-user.
+
+#9 p295 a309
+Q: What is the purpose of device drivers in an operating system?
+a) To provide a graphical user interface for the operating system
+b) To manage and control peripheral devices connected to the computer
+c) To execute user programs on the computer
+d) To allocate system resources to different processes
+K: b
+X: A device driver is a small program that translates the OS's generic commands into the specific signals a particular device (printer, graphics card, keyboard) understands.
+S: Driver = OS ↔ device translator.
+
+#10 p295 a309
+Q: Which of the following is an example of a real-time operating system?
+a) Windows 10
+b) iOS
+c) Android
+d) QNX
+K: d
+X: QNX is a real-time OS used in car infotainment, medical devices and industrial control, where tasks must finish within strict time limits. Other RTOS examples are VxWorks, FreeRTOS and RTLinux.
+S: RTOS names: QNX · VxWorks · FreeRTOS · RTLinux.
+
+#11 p295 a309
+Q: What is the primary function of an operating system?
+a) Managing computer hardware
+b) Providing a user interface
+c) Running applications
+d) Managing computer resources
+K: d
+X: "Managing computer resources" covers everything the OS manages: CPU, memory, storage, devices and files. Managing hardware is only part of that.
+S: Broadest correct option → resource management.
+
+#12 p295 a309
+Q: Which of the following is a function of an operating system related to memory management?
+a) Ensuring data security
+b) Managing file systems
+c) Allocating and deallocating memory for processes
+d) Managing network connections
+K: c
+X: Memory management tracks which parts of memory are in use, allocates memory to processes when they need it, frees it when they finish, and handles paging and virtual memory.
+S: Memory mgmt = allocate + deallocate + protect + virtual memory.
+
+#13 p295 a309
+Q: What is the role of the file management function in an operating system?
+a) Controlling peripheral devices
+b) Managing system backups
+c) Managing and organizing files and directories
+d) Managing system performance
+K: c
+X: File management creates, deletes, reads, writes and organises files and directories, and controls access to them.
+S: File mgmt = create · delete · organise · protect files.
+
+#14 p295 a309
+Q: Which of the following is a function of an operating system related to process management?
+a) Allocating disk space
+b) Providing network connectivity
+c) Managing and scheduling processes
+d) Managing system security
+K: c
+X: Process management creates and terminates processes, schedules them on the CPU, and handles synchronisation, communication and deadlocks.
+S: Process mgmt = create · schedule · synchronise · terminate.
+
+#15 p295 a309
+Q: What is the purpose of device driver management in an operating system?
+a) Managing system power
+b) Managing input/output devices
+c) Managing user accounts
+d) Managing file permissions
+K: b
+X: Device (driver) management controls the I/O devices through their drivers: allocating devices, buffering and handling interrupts.
+S: Device mgmt ↔ I/O devices.
+
+#16 p295 a309
+Q: Which function of an operating system is responsible for managing and controlling peripheral devices?
+a) File management
+b) Process management
+c) Device driver management
+d) Memory management
+K: c
+X: Peripheral devices (printers, scanners, disks) are handled by device management through the corresponding device drivers.
+S: Peripherals → device management.
+
+#17 p296 a309
+Q: What is the function of an operating system related to security and access control?
+a) Managing system resources
+b) Managing system backups
+c) Providing a user interface
+d) Ensuring system integrity and protecting against unauthorized access
+K: d
+X: The security function authenticates users (passwords, biometrics), enforces file permissions and keeps processes from interfering with one another.
+S: Security = authentication + authorisation + protection.
+
+#18 p296 a309
+Q: What is the purpose of the scheduling function in an operating system?
+a) Managing system resources
+b) Providing a graphical user interface
+c) Managing network connectivity
+d) Managing the execution order of processes
+K: d
+X: The scheduler decides which ready process gets the CPU next and for how long (FCFS, SJF, priority, round robin).
+S: Scheduling = who runs next.
+
+#19 p296 a310
+Q: Which function of an operating system is responsible for managing and coordinating input/output operations?
+a) Memory management
+b) File management
+c) Process management
+d) I/O management
+K: d
+X: I/O management coordinates data transfer between devices and main memory, using buffering, caching, spooling and interrupts.
+S: Spooling / buffering → I/O management.
+
+#20 p296 a310
+Q: What is the role of the virtualization function in an operating system?
+a) Providing network connectivity
+b) Managing system security
+c) Simulating multiple virtual environments
+d) Managing user authentication
+K: c
+X: Virtualisation lets one physical machine run several isolated virtual machines or environments, each behaving like a separate computer with its own OS.
+S: Virtualisation = many virtual machines on one host.
+
+#21 p296 a310
+Q: Which of the following is a component of an operating system responsible for managing memory resources?
+a) Kernel
+b) File system
+c) Device drivers
+d) Memory manager
+K: d
+X: The memory manager (a part of the kernel) allocates and frees memory and handles virtual memory. The question asks for the specific component, so the memory manager is a better answer than the kernel as a whole.
+S: Most specific component wins.
+
+#22 p296 a310
+Q: What is the role of the kernel in an operating system?
+a) Managing input/output devices
+b) Managing file systems
+c) Providing a user interface
+d) Core component responsible for managing system resources
+K: d
+X: The kernel is the core of the OS. It stays in memory and manages the CPU, memory, devices and system calls. The user interface is provided by the shell, not the kernel.
+S: Kernel = core; shell = interface.
+
+#23 p296 a310
+Q: Which component of an operating system is responsible for managing and controlling hardware devices?
+a) Kernel
+b) Shell
+c) File system
+d) Device drivers
+K: d
+X: Device drivers talk directly to the hardware devices on the kernel's behalf, each driver handling one type of device.
+S: Hardware device control → device drivers.
+
+#24 p296 a310
+Q: What is the purpose of the shell in an operating system?
+a) Managing memory resources
+b) Controlling user access and permissions
+c) Providing a command-line or graphical user interface
+d) Managing file systems
+K: c
+X: The shell is the outer layer that takes the user's commands and passes them to the kernel. It may be a command line (bash, `cmd.exe`) or graphical (Windows Explorer).
+S: Shell = command interpreter / user interface.
+
+#25 p297 a310
+Q: Which component of an operating system is responsible for managing file storage and organization?
+a) Shell
+b) Kernel
+c) File system
+d) Device drivers
+K: c
+X: The file system component organises files and directories on storage and manages their creation, reading, writing and deletion.
+S: File storage → file system.
+
+#26 p297 a310
+Q: What is the role of device drivers in an operating system?
+a) Managing file systems
+b) Managing input/output devices
+c) Providing user interfaces
+d) Controlling system security
+K: b
+X: Device drivers manage and control I/O devices such as printers, keyboards and disks.
+S: Drivers ↔ I/O devices.
+
+#27 p297 a310
+Q: Which component of an operating system is responsible for managing and scheduling processes?
+a) Kernel
+b) Shell
+c) Process manager
+d) Device drivers
+K: c
+X: The process manager creates, schedules and terminates processes. As at Q21, the specific component is preferred over the kernel as a whole.
+S: Processes → process manager.
+
+#28 p297 a310
+Q: What is the function of the user interface component in an operating system?
+a) Managing file systems
+b) Controlling system resources
+c) Interacting with users and providing a means to execute commands or operations
+d) Managing hardware devices
+K: c
+X: The user interface (CLI or GUI) lets users give commands and see results.
+S: UI = user ↔ OS.
+
+#29 p297 a310
+Q: Which component of an operating system is responsible for handling user requests and managing system resources?
+a) Shell
+b) Kernel
+c) Process manager
+d) Device drivers
+K: b
+X: The kernel services requests (system calls) from user programs and manages all system resources. The shell only passes the user's commands on to the kernel.
+S: System calls + resources → kernel.
+
+#30 p297 a310
+Q: What is the purpose of the file system component in an operating system?
+a) Managing memory resources
+b) Managing input/output devices
+c) Providing a user interface
+d) Managing file storage and organization
+K: d
+X: The file system handles the storage, naming, organisation and retrieval of files.
+S: File system = storage + organisation.
+
+#31 p297 a310
+Q: Which operating system is considered the first commercially successful microcomputer operating system?
+a) MS-DOS
+b) UNIX
+c) Windows
+d) Mac OS
+K: a
+X: Among these options the answer is MS-DOS (1981), which shipped with the IBM PC and dominated personal computing in the 1980s. Strictly, Digital Research's CP/M (1974) was the first commercially successful microcomputer OS, and MS-DOS was modelled on it.
+S: CP/M first (not an option) → MS-DOS dominant.
+
+#32 p297 a311
+Q: Which operating system was developed by Microsoft and served as the primary operating system for IBM-compatible personal computers?
+a) MS-DOS
+b) UNIX
+c) Windows
+d) Mac OS
+K: a
+X: MS-DOS (Microsoft Disk Operating System) was the standard OS of IBM PCs and compatibles in the 1980s and early 1990s. Early Windows versions ran on top of it.
+S: IBM PC 1981 + MS-DOS.
+
+#33 p297 a311
+Q: Which operating system was developed at Bell Labs in the 1970s and became widely used in academic and research environments?
+a) MS-DOS
+b) UNIX
+c) Windows
+d) Mac OS
+K: b
+X: UNIX was created at AT&T Bell Labs by Ken Thompson and Dennis Ritchie (1969–71), and rewritten in C in 1973. It spread through universities and research labs.
+S: Bell Labs + Thompson & Ritchie → UNIX (written in C).
+
+#34 p298 a311
+Q: Which operating system was the first to introduce a graphical user interface (GUI) for personal computers?
+a) MS-DOS
+b) UNIX
+c) Windows
+d) Mac OS
+K: d
+B: c
+X: Apple's Macintosh (January 1984) was the first commercially successful personal computer shipped with a GUI (windows, icons, menus, mouse), building on Xerox PARC's work and the Apple Lisa (1983). Windows 1.0 came later, in November 1985.
+S: GUI order: Xerox Alto/Star → Apple Lisa 1983 → Mac 1984 → Windows 1.0 1985.
+N: The book prints (c) Windows, claiming Windows 1.0 (1985) was first. The Macintosh GUI shipped in January 1984, almost two years earlier, so the key is (d) Mac OS.
+
+#35 p298 a311
+Q: Which operating system was developed by Apple Inc. and introduced in 1984?
+a) MS-DOS
+b) UNIX
+c) Windows
+d) Mac OS
+K: d
+X: The Macintosh system software, later called Mac OS, arrived in 1984 with the original Macintosh.
+S: 1984 → Macintosh.
+
+#36 p298 a311
+Q: Which operating system, released in 1995, marked a significant shift for Microsoft by providing a more user-friendly interface and enhanced multimedia capabilities?
+a) MS-DOS
+b) UNIX
+c) Windows 95
+d) Mac OS
+K: c
+X: Windows 95 introduced the Start button, taskbar, plug and play and long file names. It was a major step up in usability and multimedia over Windows 3.x.
+S: Start button + taskbar → Windows 95.
+
+#37 p298 a311
+Q: Which operating system, introduced by Apple Inc. in 2001, had a Unix-based architecture and was designed for both desktop and mobile devices?
+a) MS-DOS
+b) UNIX
+c) Windows XP
+d) Mac OS X
+K: d
+X: Mac OS X (2001) was built on a UNIX-based core (Darwin: the Mach kernel plus BSD). It was a desktop OS; Apple's mobile OS, iOS (2007), was later derived from it.
+S: Mac OS X = UNIX-based (Darwin).
+
+#38 p298 a311
+Q: Which operating system, released by Microsoft in 2001, brought improved stability, performance, and a redesigned user interface?
+a) MS-DOS
+b) UNIX
+c) Windows XP
+d) Mac OS X
+K: c
+X: Windows XP (2001) brought the stable Windows NT kernel to home users, with a new "Luna" interface.
+S: 2001 Microsoft → XP; 2001 Apple → Mac OS X.
+
+#39 p298 a311
+Q: Which operating system, released by Microsoft in 2009, aimed to address the shortcomings of Windows Vista and introduced several performance and security enhancements?
+a) MS-DOS
+b) UNIX
+c) Windows 7
+d) Mac OS X
+K: c
+X: Windows 7 (2009) fixed Vista's (2007) performance and compatibility complaints.
+S: Windows timeline: 95 (1995) · XP (2001) · Vista (2007) · 7 (2009) · 8 (2012) · 10 (2015) · 11 (2021).
+
+#40 p298 a311
+Q: Which operating system, released by Microsoft in 2015, introduced a range of new features and a unified platform for various devices including PCs, tablets, and smartphones?
+a) MS-DOS
+b) UNIX
+c) Windows 10
+d) Mac OS X
+K: c
+X: Windows 10 (2015) introduced the Universal Windows Platform, so that one app could run across PCs, tablets, phones and Xbox.
+S: 2015 + one platform for all devices → Windows 10.
+
+#41 p298 a311
+Q: Which operating system was developed for the first generation of computers, such as UNIVAC and ENIAC?
+a) Manchester Mark 1
+b) Fortran Monitor System
+c) GM-NAA I/O
+d) General Motors Operating System
+K: c
+X: GM-NAA I/O (General Motors and North American Aviation, 1956, for the IBM 704) is usually cited as the first real operating system. First-generation machines such as ENIAC and UNIVAC had no OS in the modern sense. Manchester Mark 1 is a computer, not an OS.
+S: First OS → GM-NAA I/O (1956, IBM 704).
+
+#42 p299 a311
+Q: Which operating system introduced the concept of batch processing, where multiple jobs are executed without user intervention?
+a) Manchester Mark 1
+b) Fortran Monitor System
+c) GM-NAA I/O
+d) General Motors Operating System
+K: b
+X: The book credits the Fortran Monitor System (FMS, IBM 709/7090) with batch processing. In such a monitor, jobs on tape run one after another without an operator stepping in. GM-NAA I/O was also a simple batch monitor; FMS and IBSYS are the textbook examples of early batch systems.
+S: Early batch monitors → FMS / IBSYS.
+
+#43 p299 a311
+Q: Which operating system, developed in the second generation, provided improved support for programming languages and introduced the concept of time-sharing?
+a) IBM OS/360
+b) MULTICS
+c) CTSS
+d) UNIVAC EXEC I
+K: c
+X: CTSS (Compatible Time-Sharing System, MIT, 1961) was the first time-sharing OS. It ran on the transistorised IBM 7090/7094. MULTICS came later and was built on its ideas.
+S: First time-sharing → CTSS (MIT, 1961).
+
+#44 p299 a312
+Q: Which operating system was designed for the IBM System/360 mainframe computers and became one of the most widely used operating systems of its time?
+a) IBM OS/360
+b) MULTICS
+c) CTSS
+d) UNIVAC EXEC I
+K: a
+X: OS/360 (1964–66) was written for IBM's System/360 family. It introduced multiprogramming on a range of compatible mainframes.
+S: System/360 → OS/360 (third generation, ICs).
+
+#45 p299 a312
+Q: Which operating system, developed in the third generation, introduced the concept of virtual memory and brought improvements in multitasking and file management?
+a) MULTICS
+b) CP/M
+c) VMS
+d) MVS
+K: a
+X: MULTICS (MIT, Bell Labs and GE, 1965–69) combined segmented, paged virtual memory with multitasking and the first hierarchical file system. It directly inspired UNIX. (Virtual memory itself first appeared on the Atlas computer in 1962.)
+S: MULTICS → UNIX's parent; virtual memory + tree file system.
+N: The book's option (a) and key read "UNIX". UNIX did not introduce virtual memory: paging reached UNIX only with 3BSD (1979). The third-generation system that pioneered virtual memory, multitasking and the hierarchical file system was UNIX's forerunner MULTICS, so option (a) has been corrected to MULTICS. Q46, which asks about UNIX itself, keeps the original options.
+
+#46 p299 a312
+Q: Which operating system, developed by Bell Labs, became popular among universities, research institutions, and later influenced the development of various Unix-like systems?
+a) UNIX
+b) CP/M
+c) VMS
+d) MVS
+K: a
+X: UNIX spread to universities through cheap source licences, gave rise to BSD, and inspired Linux and other Unix-like systems. CP/M was a microcomputer OS; VMS (DEC) and MVS (IBM) were proprietary.
+S: Bell Labs → UNIX → BSD, Linux, macOS lineage.
+
+#47 p299 a312
+Q: Which operating system, developed in the fourth generation, introduced a user-friendly graphical user interface (GUI) and became a dominant operating system for personal computers?
+a) MS-DOS
+b) Windows
+c) Mac OS
+d) Linux
+K: b
+X: The key word is "dominant": Windows brought a GUI to the IBM-compatible PC and became the most widely used personal computer OS. Mac OS had a GUI earlier (see Q34) but never dominated the market.
+S: GUI first → Mac; GUI dominant → Windows.
+
+#48 p299 a312
+Q: Which operating system, developed by Apple Inc., became known for its innovative design, ease of use, and integration with Apple's hardware?
+a) MS-DOS
+b) Windows
+c) Mac OS
+d) Linux
+K: c
+X: Mac OS runs only on Apple hardware. This tight hardware–software integration is known for design and ease of use.
+S: Apple → Mac OS.
+
+#49 p299 a312
+Q: Which operating system was developed by Microsoft as a successor to MS-DOS and became the foundation for the Windows operating system family?
+a) Windows 95
+b) Windows XP
+c) Windows 98
+d) Windows NT
+K: d
+X: Windows NT (1993) was a new 32-bit kernel, independent of DOS. Every Windows version from 2000 and XP onwards, up to Windows 11, is built on NT. Windows 95/98 still relied on MS-DOS underneath.
+S: NT kernel = base of XP, 7, 10, 11.
+
+#50 p300 a312
+Q: Which operating system was the first to introduce a multitasking graphical user interface (GUI) and revolutionized the personal computer industry?
+a) Mac OS
+b) Windows 3.1
+c) UNIX
+d) MS-DOS
+K: b
+X: The book credits Windows 3.x (3.0 in 1990, 3.1 in 1992): multitasking Windows applications on millions of IBM-compatible PCs transformed the industry. Strictly, earlier systems such as Windows 1.0 (1985) and the Amiga (1985) already multitasked in a GUI. Remember the book's answer.
+S: Book: multitasking GUI revolution → Windows 3.1.
+
+#51 p300 a312
+Q: What is the primary characteristic of a batch processing operating system?
+a) Real-time processing
+b) Interactive processing
+c) Sequential processing
+d) Parallel processing
+K: c
+X: In a batch system, jobs with similar needs are grouped into batches and run one after another. The user does not interact with a job while it runs.
+S: Batch = grouped jobs, sequential, no interaction.
+
+#52 p300 a312
+Q: In a batch processing operating system, how are jobs typically executed?
+a) In real-time as they arrive
+b) Interactively based on user inputs
+c) Sequentially without user intervention
+d) In parallel across multiple processors
+K: c
+X: Jobs are queued and run one after another, with no user intervention, e.g. payroll and bank-statement runs.
+S: Payroll / billing runs → batch.
+
+#53 p300 a312
+Q: Which component of a batch processing operating system is responsible for scheduling and managing the execution of jobs?
+a) Kernel
+b) File system
+c) Compiler
+d) Job scheduler
+K: d
+X: The job scheduler (long-term scheduler) picks jobs from the batch queue and loads them for execution.
+S: Job scheduler = long-term scheduler.
+
+#54 p300 a313
+Q: What is the role of a job scheduler in a batch processing operating system?
+a) Allocating memory resources to jobs
+b) Managing file systems and directories
+c) Handling user interactions and inputs
+d) Determining the order and priority of job execution
+K: d
+X: The job scheduler decides the order and priority in which queued jobs are admitted and run, keeping the system well used.
+S: Job scheduler = order + priority of jobs.
+
+#55 p300 a313
+Q: Which operating system is considered one of the earliest examples of a batch processing system?
+a) MS-DOS
+b) UNIX
+c) IBM OS/360
+d) Windows
+K: c
+X: OS/360 ran IBM mainframe workloads as batch jobs submitted with punched cards and JCL (Job Control Language). The other options are interactive systems.
+S: Mainframe + JCL → batch (OS/360).
+
+#56 p300 a313
+Q: In a batch processing system, what typically happens when one job completes its execution?
+a) The system waits for user input to start the next job
+b) The next job is automatically selected and executed
+c) The system pauses until the user manually starts the next job
+d) The system shuts down and requires a manual restart
+K: b
+X: Automatic job-to-job transition was the whole point of batch monitors, because it removed the idle set-up time between jobs.
+S: Batch = automatic job sequencing.
+
+#57 p301 a313
+Q: What is the primary goal of a multiprogramming operating system?
+a) Maximizing CPU utilization
+b) Minimizing memory usage
+c) Prioritizing real-time processing
+d) Optimizing input/output operations
+K: a
+X: Several programs are kept in memory at once. When one waits for I/O, the CPU switches to another, so it is never idle.
+S: Multiprogramming → max CPU utilisation.
+
+#58 p301 a313
+Q: What is the main advantage of a multiprogramming operating system?
+a) Increased security
+b) Enhanced user interface
+c) Improved system performance
+d) Greater hardware compatibility
+K: c
+X: Overlapping one program's I/O with another's computation raises throughput and CPU utilisation.
+S: Overlap CPU + I/O → higher throughput.
+
+#59 p301 a313
+Q: In a multiprogramming operating system, what is the term used for the small unit of work that can be scheduled for execution?
+a) Process
+b) Thread
+c) Task
+d) Job
+K: a
+X: A process is a program in execution, with its own code, data, stack and state. It is the basic unit the OS schedules. A thread is a lighter unit inside a process.
+S: Process = program in execution.
+
+#60 p301 a313
+Q: Which mechanism is used in a multiprogramming operating system to allocate CPU time among multiple processes?
+a) Time slicing
+b) Priority scheduling
+c) Round-robin scheduling
+d) Shortest job first scheduling
+K: c
+X: The book's answer is round-robin scheduling: each process gets a fixed time slice and the processes take turns in circular order. Compare Q66, where the same question for a time-sharing system is keyed "time slicing". Round robin is the scheduling algorithm that implements time slicing.
+S: Round robin = time slicing in circular order.
+
+#61 p301 a313
+Q: What is the purpose of context switching in a multiprogramming operating system?
+a) Loading a new program into memory
+b) Saving and restoring process state
+c) Handling input/output operations
+d) Allocating memory resources
+K: b
+X: A context switch saves the running process's state (program counter, registers) in its Process Control Block (PCB) and loads the saved state of the next process. It is pure overhead: no useful work is done during the switch.
+S: Context switch = save PCB + load PCB (overhead).
+
+#62 p301 a313
+Q: Which operating system is an example of a multiprogramming system that introduced the concept of time-sharing?
+a) Windows
+b) macOS
+c) UNIX
+d) Linux
+K: c
+X: UNIX is the classic multi-user time-sharing OS among these options: many users work at the same time from terminals. (Time-sharing was first shown by CTSS in 1961, see Q43; UNIX made it widespread.)
+S: Among modern names, time-sharing → UNIX.
+
+#63 p301 a314
+Q: What is the primary goal of a time-sharing operating system?
+a) Minimizing response time for interactive users
+b) Minimizing memory usage
+c) Prioritizing real-time processing
+d) Optimizing input/output operations
+K: a
+X: Time-sharing extends multiprogramming. The CPU switches rapidly among users (time slices) so that each user gets a quick response and feels they have the machine to themselves.
+S: Multiprogramming → max CPU use; time-sharing → min response time.
+N: The book's option (a) and key read "Maximizing CPU utilization", which is the goal of multiprogramming (Q57). The standard distinction is that time-sharing aims to minimise response time for interactive users, so option (a) has been reworded to that.
+
+#64 p301 a314
+Q: What is the main advantage of a time-sharing operating system?
+a) Increased security
+b) Enhanced user interface
+c) Improved system performance
+d) Greater hardware compatibility
+K: c
+X: Several users and processes share the CPU concurrently with quick response, so the system is used efficiently and interactive work stays fast.
+S: Time-sharing = many users + quick response.
+
+#65 p301 a314
+Q: In a time-sharing operating system, what is the term used for the small unit of work that can be scheduled for execution?
+a) Process
+b) Thread
+c) Task
+d) Job
+K: a
+X: As in multiprogramming, the schedulable unit is the process (a program in execution).
+S: Schedulable unit → process.
+
+#66 p302 a314
+Q: Which mechanism is used in a time-sharing operating system to allocate CPU time among multiple users or processes?
+a) Time slicing
+b) Priority scheduling
+c) Round-robin scheduling
+d) Shortest job first scheduling
+K: a
+X: Time slicing gives each user or process a fixed quantum of CPU time before switching to the next. This is the defining mechanism of time-sharing.
+S: Time-sharing ⇔ time slicing (quantum).
+
+#67 p302 a314
+Q: What is the purpose of context switching in a time-sharing operating system?
+a) Loading a new program into memory
+b) Saving and restoring process state
+c) Handling input/output operations
+d) Allocating memory resources
+K: b
+X: At the end of each time slice the OS saves the current process's state and restores the next one's, so every process resumes exactly where it stopped.
+S: Context switch = save + restore state.
+
+#68 p302 a314
+Q: Which operating system is widely regarded as one of the first successful time-sharing operating systems?
+a) Windows
+b) macOS
+c) UNIX
+d) Linux
+K: c
+X: Among these options, UNIX (1969–71) is the successful early multi-user time-sharing OS. CTSS and MULTICS came before it.
+S: Time-sharing lineage: CTSS → MULTICS → UNIX.
+
+#69 p302 a314
+Q: What is the primary characteristic of a real-time operating system (RTOS)?
+a) Maximizing CPU utilization
+b) Minimizing memory usage
+c) Prioritizing real-time processing
+d) Optimizing input/output operations
+K: c
+X: In an RTOS, a correct result delivered late is a failure. Tasks must meet their deadlines, so response is deterministic and predictable.
+S: RTOS = deadlines + determinism.
+
+#70 p302 a314
+Q: What is the main purpose of a real-time operating system?
+a) Providing a user-friendly interface
+b) Supporting multitasking capabilities
+c) Enabling real-time task scheduling and execution
+d) Enhancing system performance
+K: c
+X: An RTOS schedules and runs tasks within guaranteed time limits. It is used in missile guidance, pacemakers, industrial robots and air-traffic control.
+S: RTOS uses: defence · medical · industrial control · avionics.
+
+#71 p302 a314
+Q: In a real-time operating system, which type of tasks have strict timing requirements and deadlines?
+a) Periodic tasks
+b) Background tasks
+c) Interactive tasks
+d) Synchronous tasks
+K: a
+X: Periodic tasks recur at fixed intervals (e.g. read a sensor every 10 ms), and each instance has a hard deadline. Background tasks have no deadline.
+S: Fixed interval + deadline → periodic task.
+
+#72 p302 a314
+Q: Which scheduling algorithm is commonly used in real-time operating systems to ensure that tasks meet their deadlines?
+a) Round-robin scheduling
+b) First-Come, First-Served (FCFS) scheduling
+c) Earliest Deadline First (EDF) scheduling
+d) Shortest Job Next (SJN) scheduling
+K: c
+X: EDF always runs the ready task with the nearest deadline. Rate Monotonic Scheduling is the other classic real-time algorithm.
+S: RTOS scheduling → EDF / Rate Monotonic.
+
+#73 p302 a314
+Q: What is the main difference between hard real-time and soft real-time operating systems?
+a) Hard real-time systems have stricter timing constraints than soft real-time systems.
+b) Soft real-time systems are used in embedded devices, while hard real-time systems are used in general-purpose computers.
+c) Hard real-time systems can handle a higher number of tasks than soft real-time systems.
+d) Soft real-time systems prioritize input/output operations, while hard real-time systems prioritize CPU utilization.
+K: a
+X: In hard real-time systems a missed deadline is a failure (airbag, pacemaker). In soft real-time systems an occasional miss only lowers quality (video streaming, online gaming).
+S: Hard = miss is fatal; soft = miss degrades.
+
+#74 p303 a315
+Q: Which operating system is an example of a real-time operating system commonly used in embedded systems?
+a) Windows
+b) macOS
+c) Linux
+d) VxWorks
+K: d
+X: VxWorks (Wind River) is a widely used RTOS in aerospace, defence and industrial embedded systems. NASA's Mars rovers ran VxWorks.
+S: VxWorks → RTOS.
+
+#75 p303 a315
+Q: What is the primary purpose of a network operating system (NOS)?
+a) Managing computer hardware
+b) Enabling network connectivity and resource sharing
+c) Optimizing CPU utilization
+d) Providing a user-friendly interface
+K: b
+X: A NOS runs on a server and lets networked computers share files, printers and applications, with central user management and security.
+S: NOS = share resources over a network.
+
+#76 p303 a315
+Q: Which of the following is a characteristic of a client-server network operating system?
+a) All devices have equal capabilities and responsibilities.
+b) Network resources are centrally managed and controlled.
+c) Each device can act as both a client and a server.
+d) The network operates in a peer-to-peer fashion.
+K: b
+X: In the client-server model, dedicated servers centrally manage resources, users and security. Options a, c and d describe peer-to-peer networks.
+S: Central server → client-server; equals → peer-to-peer.
+
+#77 p303 a315
+Q: What is the role of a network operating system in file and print sharing?
+a) Ensuring data security and encryption
+b) Managing network protocols and data transfer rates
+c) Controlling access to shared files and printers
+d) Optimizing network bandwidth and latency
+K: c
+X: The NOS controls who can use which shared files and printers (permissions) and queues print jobs.
+S: NOS file/print sharing = access control.
+
+#78 p303 a315
+Q: Which network operating system is widely used in business environments and provides features such as directory services and centralized administration?
+a) Windows Server
+b) macOS
+c) Linux
+d) UNIX
+K: a
+X: Windows Server, with Active Directory, provides centralised user and computer management in enterprises. Novell NetWare was the historical rival.
+S: Active Directory → Windows Server.
+
+#79 p303 a315
+Q: In a network operating system, what is the function of a network file system (NFS)?
+a) Providing secure remote access to files
+b) Monitoring network traffic and bandwidth usage
+c) Managing network user accounts and permissions
+d) Enabling file sharing and access across different platforms
+K: d
+X: NFS (originally from Sun Microsystems) lets a client mount and use remote directories as if they were local, even across different operating systems.
+S: NFS = mount remote files as local.
+
+#80 p303 a315
+Q: Which network operating system protocol is commonly used for remote administration and file transfers?
+a) FTP (File Transfer Protocol)
+b) SMTP (Simple Mail Transfer Protocol)
+c) HTTP (Hypertext Transfer Protocol)
+d) SSH (Secure Shell)
+K: d
+X: SSH (port 22) gives an encrypted remote login for administration and also carries secure file transfer (SCP, SFTP). FTP transfers files but cannot administer a machine and sends passwords in plain text.
+S: Remote admin + secure transfer → SSH (port 22).
+
+#81 p304 a315
+Q: What is the primary goal of a distributed operating system (DOS)?
+a) Maximizing CPU utilization
+b) Minimizing memory usage
+c) Enabling communication and resource sharing among networked computers
+d) Optimizing input/output operations
+K: c
+X: A distributed OS makes a set of networked computers work as one system, sharing processors, memory and files, and hiding where each resource actually is.
+S: Distributed OS = many machines, one system image.
+
+#82 p304 a315
+Q: Which of the following is a characteristic of a distributed operating system?
+a) All processes run on a single computer.
+b) Resources are not shared among networked computers.
+c) Each computer operates independently without coordination.
+d) Computers work together as a unified system.
+K: d
+X: Transparency is the defining feature: users see a single unified system, not the separate machines behind it.
+S: NOS: users know the machines; distributed OS: machines are hidden.
+
+#83 p304 a315
+Q: In a distributed operating system, what is the purpose of a distributed file system (DFS)?
+a) Managing network protocols and data transfer rates
+b) Controlling access to shared files and directories
+c) Optimizing network bandwidth and latency
+d) Enabling file sharing and access across multiple computers
+K: d
+X: A DFS stores files across several machines but presents them as one file system, so users can reach any file from any node.
+S: DFS = one file tree over many machines.
+
+#84 p304 a316
+Q: Which distributed operating system is known for its scalability, fault tolerance, and high-performance computing capabilities?
+a) Windows
+b) macOS
+c) Linux
+d) Amoeba
+K: d
+X: Amoeba, a research distributed OS by Andrew Tanenbaum's group at Vrije Universiteit, makes a pool of processors look like one computer. Windows, macOS and Linux are single-machine OSs.
+S: Amoeba (Tanenbaum) → distributed OS.
+
+#85 p304 a316
+Q: What is the role of a distributed operating system in resource management?
+a) Ensuring data security and encryption
+b) Managing computer hardware and peripheral devices
+c) Coordinating and allocating resources among networked computers
+d) Providing a user-friendly interface
+K: c
+X: A distributed OS balances load and allocates CPUs, memory and storage across all the nodes.
+S: Distributed OS resource mgmt = across nodes.
+
+#86 p304 a316
+Q: Which communication model is commonly used in distributed operating systems to enable inter-process communication across networked computers?
+a) Message passing
+b) Shared memory
+c) Remote procedure call (RPC)
+d) Socket programming
+K: c
+X: RPC lets a process call a procedure on a remote machine as if it were a local function call, and it is the book's intended answer. RPC is itself built on message passing, which is the underlying mechanism of any distributed system. Shared memory only works within one machine.
+S: Call a remote function like a local one → RPC.
+
+#87 p304 a316
+Q: Which of the following statements is true about UNIX?
+a) UNIX is a graphical operating system.
+b) UNIX was developed by Microsoft.
+c) UNIX is known for its multi-user and multi-tasking capabilities.
+d) UNIX is primarily used on personal computers.
+K: c
+X: UNIX is a multi-user, multitasking, portable OS written in C and used mainly on servers and workstations. It was developed at AT&T Bell Labs, not Microsoft, and is command-line based.
+S: UNIX = multi-user + multitasking + portable (C).
+
+#88 p305 a316
+Q: Which organization is responsible for the development and maintenance of the original UNIX operating system?
+a) Microsoft Corporation
+b) Apple Inc.
+c) The Linux Foundation
+d) AT&T Bell Labs
+K: d
+X: UNIX was developed at AT&T Bell Labs (Thompson, Ritchie). The Linux Foundation maintains Linux, a Unix-like clone.
+S: UNIX ↔ AT&T Bell Labs.
+
+#89 p305 a316
+Q: What is the shell in the UNIX operating system?
+a) The graphical user interface (GUI)
+b) The hardware layer
+c) The command-line interpreter
+d) The file system manager
+K: c
+X: The UNIX shell (sh, bash, csh, ksh) reads the user's commands, interprets them and asks the kernel to execute them.
+S: Shell = command interpreter (sh, bash, csh, ksh).
+
+#90 p305 a316
+Q: Which of the following is not a feature of the UNIX operating system?
+a) Hierarchical file system
+b) Multi-tasking and process management
+c) Graphical user interface (GUI)
+d) Networking and inter-process communication
+K: c
+X: Core UNIX is command-line based. GUIs such as the X Window System are add-ons, not part of UNIX itself. The hierarchical file system, multitasking and networking/IPC are native features.
+S: UNIX core features: tree file system · multitasking · multi-user · pipes/IPC · portability.
+
+#91 p305 a316
+Q: Which command is commonly used in UNIX to display the contents of a file?
+a) copy
+b) delete
+c) edit
+d) cat
+K: d
+X: `cat file` displays a file. The name comes from "concatenate", since `cat f1 f2` joins files. The UNIX equivalents of the other options are `cp`, `rm` and editors such as `vi`.
+S: UNIX: `cat` show · `cp` copy · `mv` move/rename · `rm` delete · `ls` list.
+
+#92 p305 a316
+Q: Which popular derivative of UNIX is known for its open-source nature and widespread usage in servers and embedded systems?
+a) macOS
+b) Windows
+c) Linux
+d) FreeBSD
+K: c
+X: Linux (Linus Torvalds, 1991) is an open-source Unix-like OS that dominates servers, supercomputers, Android phones and embedded devices. FreeBSD is also open source, but it is far less widespread.
+S: Open source + servers + embedded → Linux.
+
+#93 p305 a316
+Q: What is the kernel in an operating system?
+a) The graphical user interface (GUI)
+b) The hardware layer
+c) The core component that manages system resources
+d) The file system manager
+K: c
+X: The kernel is the heart of the OS. It handles process, memory, device and file management and system calls, and it stays resident in memory.
+S: Kernel = heart of OS.
+
+#94 p305 a316
+Q: Which of the following is a responsibility of the kernel?
+a) Managing user applications
+b) Allocating memory and CPU resources
+c) Providing a user-friendly interface
+d) Controlling network connectivity
+K: b
+X: Allocating CPU time and memory to processes is a basic kernel job. The user-friendly interface belongs to the shell or GUI.
+S: Kernel → CPU + memory allocation.
+
+#95 p305 a316
+Q: Which of the following statements is true about the kernel?
+a) The kernel is a separate program that runs on top of the operating system.
+b) The kernel is responsible for managing peripheral devices.
+c) The kernel is loaded into memory when the computer boots up.
+d) The kernel is primarily responsible for executing user applications.
+K: c
+X: The bootloader loads the kernel into memory at start-up, and it stays resident until shutdown. The kernel is the core of the OS, not a program running on top of it. It does manage devices, through drivers, but option c is the property the book wants.
+S: Boot → kernel loaded, stays resident.
+
+#96 p306 a317
+Q: Which type of kernel provides direct access to the hardware and runs in privileged mode?
+a) Microkernel
+b) Monolithic kernel
+c) Hybrid kernel
+d) Exokernel
+K: b
+X: A monolithic kernel runs all OS services (drivers, file system, memory management) in one privileged kernel space with direct hardware access, e.g. Linux and traditional UNIX. It is fast, but one faulty driver can crash the whole system.
+S: Everything in kernel space → monolithic (Linux).
+
+#97 p306 a317
+Q: What is the role of the kernel scheduler?
+a) Managing file systems and directories
+b) Interpreting user commands and executing programs
+c) Allocating CPU time to different processes
+d) Handling input/output operations
+K: c
+X: The kernel's CPU scheduler (short-term scheduler) picks the next ready process and gives it CPU time.
+S: Short-term scheduler = CPU scheduler.
+
+#98 p306 a317
+Q: Which type of kernel design provides flexibility and modularity by moving non-essential components out of the kernel space?
+a) Microkernel
+b) Monolithic kernel
+c) Hybrid kernel
+d) Exokernel
+K: a
+X: A microkernel keeps only the essentials (scheduling, IPC, basic memory management) in kernel space and runs drivers and file systems as user-space servers, e.g. Mach, QNX, MINIX. Hybrid kernels (Windows NT, macOS XNU) mix the two designs.
+S: Minimal kernel + user-space services → microkernel.
+
+#99 p306 a317
+Q: Which type of file in the UNIX system contains executable code?
+a) Regular file
+b) Directory file
+c) Device file
+d) Symbolic link file
+K: a
+X: In UNIX, programs, text and data are all ordinary (regular) files. What makes one executable is its execute permission bit, not a separate file type.
+S: UNIX file types: regular (-) · directory (d) · device (c/b) · link (l) · pipe (p) · socket (s).
+
+#100 p306 a317
+Q: Which type of file in the UNIX system represents a directory or a folder?
+a) Regular file
+b) Directory file
+c) Device file
+d) Symbolic link file
+K: b
+X: A directory file holds the names and inode numbers of the files and subdirectories it contains.
+S: `ls -l` first char `d` → directory.
+
+#101 p306 a317
+Q: Which type of file in the UNIX system represents a hardware device or a peripheral?
+a) Regular file
+b) Directory file
+c) Device file
+d) Symbolic link file
+K: c
+X: UNIX treats devices as files, found under `/dev`. There are character special files (terminals) and block special files (disks).
+S: "Everything is a file" → devices in `/dev`.
+
+#102 p306 a317
+Q: Which type of file in the UNIX system is used for creating shortcuts or references to other files?
+a) Regular file
+b) Directory file
+c) Device file
+d) Symbolic link file
+K: d
+X: A symbolic (soft) link, created with `ln -s target name`, stores the path of another file, like a shortcut. A hard link is a second name for the same inode.
+S: Shortcut → symbolic link (`ln -s`).
+
+#103 p306 a317
+Q: Which type of file in the UNIX system represents a special file used for inter-process communication?
+a) Regular file
+b) Directory file
+c) Device file
+d) Symbolic link file
+K: c
+X: UNIX calls device files "special files". The IPC files, named pipes (FIFOs) and sockets, are also special files, and the book groups them under this heading. Strictly, FIFOs and sockets are separate file types (`p` and `s` in `ls -l`).
+S: IPC files = named pipe (FIFO) / socket, special files.
+
+#104 p306 a317
+Q: Which command in the UNIX system is used to identify the type of a file?
+a) ls
+b) rm
+c) cp
+d) mv
+K: a
+X: `ls -l` shows each file's type as the first character of the listing (`-`, `d`, `l`, `c`, `b`, `p`, `s`). The dedicated `file` command inspects contents (e.g. "ASCII text", "ELF executable"), but it is not among the options. `rm`, `cp` and `mv` delete, copy and move.
+S: File type among options → `ls -l` (dedicated tool: `file`).
+
+#105 p307 a317
+Q: What does MS-DOS stand for?
+a) Microsoft Data Operating System
+b) Micro System Disk Operating System
+c) Microsoft Disk Operating System
+d) Multiple System Disk Operating System
+K: c
+X: MS-DOS = Microsoft Disk Operating System, a single-user, single-tasking, command-line OS (1981).
+S: MS-DOS = Microsoft Disk OS; single-user, single-tasking, CLI.
+
+#106 p307 a317
+Q: Which company developed MS-DOS?
+a) Apple Inc.
+b) Microsoft Corporation
+c) IBM
+d) Hewlett-Packard (HP)
+K: b
+X: Microsoft bought 86-DOS from Seattle Computer Products, adapted it, and supplied it to IBM, which sold it as PC DOS. Microsoft sold its own version as MS-DOS.
+S: MS-DOS by Microsoft (IBM sold it as PC DOS).
+
+#107 p307 a317
+Q: What is the primary function of MS-DOS?
+a) Providing a graphical user interface (GUI)
+b) Managing computer hardware resources
+c) Running applications and programs
+d) Connecting to the internet
+K: b
+X: MS-DOS managed disks, files, memory and devices for the PC through a text-based command line. It had no GUI of its own.
+S: MS-DOS = CLI resource manager, no GUI.
+
+#108 p307 a317
+Q: Which command is used in MS-DOS to display the contents of a directory?
+a) DIR
+b) CD
+c) COPY
+d) FORMAT
+K: a
+X: `DIR` lists the files and subdirectories of a directory. `CD` changes directory, `COPY` copies files and `FORMAT` prepares a disk.
+S: DOS `DIR` ↔ UNIX `ls`; DOS `TYPE` ↔ UNIX `cat`.
+
+#109 p307 a318
+Q: Which file extension is commonly used for batch files in MS-DOS?
+a) .bat
+b) .exe
+c) .doc
+d) .txt
+K: a
+X: A batch file (`.bat`) holds a sequence of DOS commands that run one after another. `AUTOEXEC.BAT` ran automatically at start-up.
+S: `.bat` = batch; `.com`/`.exe` = executables; `AUTOEXEC.BAT` + `CONFIG.SYS` = start-up files.
+
+#110 p307 a318
+Q: What is the maximum file size supported by MS-DOS?
+a) 64 KB
+b) 2 GB
+c) 4 GB
+d) 16 TB
+K: b
+B: a
+X: Classic MS-DOS (3.31–6.22) used the FAT16 file system, where a file, and indeed a partition, can be at most 2 GB. The 64 KB figure is the size of one memory segment (the limit for a `.COM` program), not a file-size limit. Later FAT32 versions (MS-DOS 7.1 with Windows 95 OSR2) raised the limit to 4 GB − 1 byte.
+S: FAT16 → 2 GB · FAT32 → 4 GB · 64 KB = one segment / `.COM` size.
+N: The book prints (a) 64 KB. That is the 8086 segment size, which limits a `.COM` program, not a file on disk. MS-DOS on FAT16 stores files up to 2 GB, so the key is (b).
