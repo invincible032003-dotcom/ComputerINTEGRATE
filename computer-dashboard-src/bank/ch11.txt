@@ -1,0 +1,3982 @@
+@chapter 11
+@title Basics of C Programming
+@pages 402-453 454-465
+@codes C9
+@default C9
+@themes 1 C history · identifiers & keywords · data types · preprocessor · operators · first output questions
+@themes 2 Operators & expressions · side effects · conditional operator · if-else traps
+@themes 3 switch · for, while, do-while · break & continue · functions & arguments
+@themes 4 Pass by value vs pointer · arrays · pointer arithmetic · typedef · FILE streams
+@themes 5 stdout vs stderr · math & random functions · printf / scanf formatting · file I/O functions
+@themes 6 Library details · struct, union & sizeof · frontend vs backend · control structures · exceptions
+
+#1 p402 a454
+Q: Who is the father of C language?
+a) Steve Jobs
+b) James Gosling
+c) Dennis Ritchie
+d) Rasmus Lerdorf
+K: c
+X: Dennis Ritchie developed C at AT&T Bell Laboratories in 1972 to rewrite UNIX. James Gosling created Java, and Rasmus Lerdorf created PHP.
+S: C → Ritchie (Bell Labs, 1972); Java → Gosling; PHP → Lerdorf; C++ → Stroustrup.
+
+#2 p402 a454
+Q: Which of the following is not a valid C variable name?
+a) `int number;`
+b) `float rate;`
+c) `int variable_count;`
+d) `int $main;`
+K: d
+X: A C identifier may contain only letters, digits and the underscore, and must not start with a digit. `$` is not allowed by the standard. (GCC accepts it as an extension, but it is not portable.)
+S: Identifier = letters, digits, _ ; not starting with a digit.
+
+#3 p402 a454
+Q: All keywords in C are in ______
+a) LowerCase letters
+b) UpperCase letters
+c) CamelCase letters
+d) None of the mentioned
+K: a
+X: C keywords (int, while, return, static …) are all lowercase, and C is case-sensitive, so `INT` or `While` are ordinary identifiers.
+S: Keywords lowercase; C is case-sensitive.
+
+#4 p402 a454
+Q: Which of the following is true for variable names in C?
+a) They can contain alphanumeric characters as well as special characters
+b) It is not an error to declare a variable to be one of the keywords (like goto, static)
+c) Variable names cannot start with a digit
+d) Variable can be of any length
+K: c
+X: An identifier cannot begin with a digit (`2rate` is invalid). Special characters other than `_` are not allowed, and keywords cannot be used as names. Only a limited number of leading characters are guaranteed significant (31 for internal names in C99), so "any length" is not guaranteed.
+S: First char: letter or _ ; never a digit.
+
+#5 p402 a454
+Q: Which is valid C expression?
+a) `int my_num = 100,000;`
+b) `int my_num = 100000;`
+c) `int my num = 1000;`
+d) `int $my_num = 10000;`
+K: b
+X: Commas cannot be used inside a number (option a is a syntax error), names cannot contain spaces (c), and `$` is not a valid identifier character (d).
+S: No commas in numbers, no spaces or $ in names.
+
+#6 p402 a454
+Q: Which of the following cannot be a variable name in C?
+a) volatile
+b) true
+c) friend
+d) export
+K: a
+X: `volatile` is a C keyword, so it cannot be a name. `friend` and `export` are C++ keywords, not C ones. `true` is not a keyword in C89/C99 (it is a macro from `<stdbool.h>`); only C23 makes it a keyword.
+S: C keyword among C++-only words → volatile.
+
+#7 p402 a454
+Q: What is short int in C programming?
+a) The basic data type of C
+b) Qualifier
+c) Short is the qualifier and int is the basic data type
+d) All of the mentioned
+K: c
+X: `short` is a type modifier (qualifier) applied to the basic type `int`. `long`, `signed` and `unsigned` are the other such modifiers.
+S: short / long / signed / unsigned = modifiers of int.
+
+#8 p402 a454
+Q: Which of the following declaration is not supported by C language?
+a) `String str;`
+b) `char *str;`
+c) `float str = 3e2;`
+d) Both "String str;" and "float str = 3e2;"
+K: a
+X: C has no built-in `String` type (Java does). Strings in C are `char` arrays or `char *` pointers. `3e2` is a valid floating constant (300.0).
+S: No String type in C → char array / char *.
+
+#9 p402 a454
+Q: Which keyword is used to prevent any changes in the variable within a C program?
+a) immutable
+b) mutable
+c) const
+d) volatile
+K: c
+X: `const` makes a variable read-only after initialisation. `volatile` tells the compiler the value may change unexpectedly (e.g. hardware registers). `immutable` and `mutable` are not C keywords.
+S: Read-only → const; may change unexpectedly → volatile.
+
+#10 p403 a454
+Q: What is the result of logical or relational expression in C?
+a) True or False
+b) 0 or 1
+c) 0 if an expression is false and any positive number if an expression is true
+d) None of the mentioned
+K: b
+X: In C, relational (`<`, `==`) and logical (`&&`, `||`, `!`) operators always yield the int value 1 for true and 0 for false. When a value is tested, any non-zero value counts as true.
+S: Result is 0/1; any non-zero tests true.
+
+#11 p403 a454
+Q: Which of the following typecasting is accepted by C language?
+a) Widening conversions
+b) Narrowing conversions
+c) Widening & Narrowing conversions
+d) None of the mentioned
+K: c
+X: C allows both widening (int → double) and narrowing (double → int, with truncation) conversions, implicitly or by explicit cast.
+S: C allows both widening and narrowing.
+
+#12 p403 a454
+Q: Where in C the order of precedence of operators do not exist?
+a) Within conditional statements, if, else
+b) Within while, do-while
+c) Within a macro definition
+d) None of the mentioned
+K: d
+X: Operator precedence applies to every expression in C, wherever it appears. (Macros are expanded as text first, and the resulting expression then follows normal precedence.)
+S: Precedence applies everywhere.
+
+#13 p403 a454
+Q: Which of the following is NOT possible with any 2 operators in C?
+a) Different precedence, same associativity
+b) Different precedence, different associativity
+c) Same precedence, different associativity
+d) All of the mentioned
+K: c
+X: Operators at the same precedence level always share the same associativity. That is what lets the compiler group an expression unambiguously.
+S: Same level ⇒ same associativity.
+
+#14 p403 a454
+Q: What is an example of iteration in C?
+a) for
+b) while
+c) do-while
+d) All of the mentioned
+K: d
+X: C has three iteration (loop) statements: for, while and do-while.
+S: Loops: for · while · do-while.
+
+#15 p403 a454
+Q: Functions can return enumeration constants in C?
+a) True
+b) False
+c) Depends on the compiler
+d) Depends on the standard
+K: a
+X: Enumeration constants are ints, so a function can return one, e.g. `enum color f(void) { return RED; }`.
+S: enum constants are ints → returnable.
+
+#16 p403 a454
+Q: Functions in C Language are always ______
+a) Internal
+b) External
+c) Both Internal and External
+d) External and Internal are not valid terms for functions
+K: b
+B: c
+X: K&R: "functions themselves are always external, because C does not allow functions to be defined inside other functions." Every function is defined at file scope. (A `static` function has internal linkage, i.e. it is visible only in its own file, but it is still defined outside every other function.)
+S: No nested functions in C → functions are always external.
+N: The book prints (c) "Both Internal and External", mixing up linkage with where a function can be defined. In K&R's terminology functions are always external, and the source key is (b).
+
+#17 p403 a455
+Q: Which of following is not accepted in C?
+a) `static a = 10; //static as`
+b) `static int func (int); //parameter as static`
+c) `static static int a; //a static variable prefixed with static`
+d) All of the mentioned
+K: c
+X: A declaration can have only one storage-class specifier, so `static static` is an error. `static int func(int);` declares a file-local function, which is valid. `static a = 10;` relies on the old implicit int (accepted by C89, only warned about by later compilers).
+S: One storage class per declaration.
+
+#18 p403 a455
+Q: Property which allows to produce different executable for different platforms in C is called?
+a) File inclusion
+b) Selective inclusion
+c) Conditional compilation
+d) Recursive macros
+K: c
+X: Conditional compilation (`#if`, `#ifdef`, `#ifndef`, `#elif`, `#else`, `#endif`) lets the preprocessor include or skip code for each platform, e.g. `#ifdef _WIN32`.
+S: Platform-specific builds → #ifdef (conditional compilation).
+
+#19 p404 a455
+Q: What is `#include <stdio.h>`?
+a) Preprocessor directive
+b) Inclusion directive
+c) File inclusion directive
+d) None of the mentioned
+K: a
+X: Any line beginning with `#` is a preprocessor directive. `#include` in particular pastes the header file's contents in before compilation.
+S: # line = preprocessor directive.
+
+#20 p404 a455
+Q: C preprocessors can have compiler specific features.
+a) True
+b) False
+c) Depends on the standard
+d) Depends on the platform
+K: a
+X: `#pragma` is the standard way to give compiler-specific instructions, e.g. `#pragma once` or `#pragma pack`.
+S: Compiler-specific → #pragma.
+
+#21 p404 a455
+Q: Which of the following are C preprocessors?
+a) `#ifdef`
+b) `#define`
+c) `#endif`
+d) All of the mentioned
+K: d
+X: All three are preprocessor directives. Others are `#include`, `#undef`, `#if`, `#elif`, `#else`, `#error` and `#pragma`.
+S: Directives start with #.
+
+#22 p404 a455
+Q: The C-preprocessors are specified with ______ symbol.
+a) `#`
+b) `$`
+c) `" "`
+d) `&`
+K: a
+X: Every preprocessor directive begins with the hash symbol `#`.
+S: Preprocessor → #.
+
+#23 p404 a455
+Q: How is search done in `#include <somelibrary.h>` and `#include "somelibrary.h"` according to C standard?
+a) When former is used, current directory is searched and when latter is used, standard directory is searched
+b) When former is used, standard directory is searched and when latter is used, current directory is searched
+c) When former is used, search is done in implementation defined manner and when latter is used, current directory is searched
+d) For both, search for 'somelibrary' is done in implementation-defined places
+K: d
+B: b
+X: The C standard (§6.10.2) says both forms search implementation-defined places. The quoted form searches in an implementation-defined manner first and, if that fails, falls back to the `<>` search. In practice, compilers look in the current (source) directory for quotes and in the system include directories for angle brackets. That is option b, but it is common practice, not the standard's wording.
+S: Standard: both implementation-defined; practice: "" = local first, <> = system.
+N: The book prints (b), which describes typical compiler behaviour. The question asks "according to C standard", and the standard leaves both searches implementation-defined, so the key is (d). This is also the source question's key.
+
+#24 p404 a455
+Q: How many number of pointer (*) does C have against a pointer variable declaration?
+a) 7
+b) 127
+c) 255
+d) No limits
+K: d
+X: The language sets no fixed limit on levels of indirection (`int ********p;` is legal). The standard only requires compilers to support at least 12 pointer declarators.
+S: Levels of * → no fixed limit (min 12 guaranteed).
+
+#25 p404 a455
+Q: Which of the following is not possible statically in C language?
+a) Jagged Array
+b) Rectangular Array
+c) Cuboidal Array
+d) Multidimensional Array
+K: a
+X: A static C array is always rectangular: every row has the same length. A jagged array (rows of different lengths) needs an array of pointers with separately allocated rows.
+S: Jagged array → pointers + dynamic allocation.
+
+#26 p404 a455
+Q: Which of the following return-type cannot be used for a function in C?
+a) `char *`
+b) `struct`
+c) `void`
+d) None of the mentioned
+K: d
+X: A C function can return a pointer, a struct (by value) or nothing (`void`). The only things it cannot return are arrays and functions themselves.
+S: Can't return: arrays, functions.
+
+#27 p404 a455
+Q: The standard header ______ is used for variable list arguments (...) in C.
+a) `<stdio.h>`
+b) `<stdlib.h>`
+c) `<math.h>`
+d) `<stdarg.h>`
+K: d
+X: `<stdarg.h>` provides `va_list`, `va_start`, `va_arg` and `va_end`, which are used to write variadic functions like printf.
+S: Variadic → stdarg.h.
+
+#28 p405 a455
+Q: When a C program is started, O.S environment is responsible for opening file and providing pointer for that file?
+a) Standard input
+b) Standard output
+c) Standard error
+d) All of the mentioned
+K: d
+X: When the program starts, three streams are opened automatically: `stdin`, `stdout` and `stderr`.
+S: Auto-opened: stdin, stdout, stderr.
+
+#29 p405 a455
+Q: In C language, FILE is of which data type?
+a) int
+b) `char *`
+c) struct
+d) None of the mentioned
+K: c
+X: `FILE` is a typedef for a structure defined in `<stdio.h>`. It holds the buffer, position and flags of a stream. Programs use it through `FILE *`.
+S: FILE = typedef'd struct in stdio.h.
+
+#30 p405 a455
+Q: What is the sizeof(char) in a 32-bit C compiler?
+a) 1 bit
+b) 2 bits
+c) 1 Byte
+d) 2 Bytes
+K: c
+X: `sizeof(char)` is 1 by definition on every compiler, 32-bit or 64-bit. It is 1 byte, which is at least 8 bits.
+S: sizeof(char) ≡ 1 always.
+
+#31 p405 a455
+Q: Which of the following is not an operator in C?
+a) `,`
+b) `sizeof()`
+c) `~`
+d) None of the mentioned
+K: d
+X: All three are C operators: the comma operator (evaluate left, then right), `sizeof` (a compile-time unary operator, not a function) and `~` (bitwise NOT).
+S: sizeof is an operator, not a function.
+
+#32 p405 a455
+Q: scanf() is a predefined function in ______ header file.
+a) stdlib.h
+b) ctype.h
+c) stdio.h
+d) stdarg.h
+K: c
+X: `scanf` and `printf`, the standard input/output functions, are declared in `<stdio.h>`.
+S: printf / scanf → stdio.h.
+
+#33 p405 a455
+Q: What is meant by 'a' in the following C operation?
+```
+fp = fopen("Random.txt", "a");
+```
+a) Attach
+b) Append
+c) Apprehend
+d) Add
+K: b
+X: The mode "a" opens the file for appending: writes go to the end, and the file is created if it doesn't exist. The other modes are "r" read, "w" write (truncate), and "r+", "w+", "a+" for update.
+S: fopen modes: r read · w write (truncate) · a append.
+
+#34 p405 a455
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int y = 10000;
+    int y = 34;
+    printf("Hello World! %d\n", y);
+    return 0;
+}
+```
+a) Compile time error
+b) Hello World! 34
+c) Hello World! 1000
+d) Hello World! followed by a junk value
+K: a
+X: `y` is declared twice in the same scope, which is an error: "redefinition of 'y'". A variable may only be redeclared in an inner block, where it shadows the outer one.
+S: Same scope, same name twice → compile error.
+
+#35 p405 a455
+Q: What will happen if the following code is executed?
+```
+#include <stdio.h>
+int main()
+{
+    int main = 3;
+    printf("%d", main);
+    return 0;
+}
+```
+a) It will cause a compile-time error
+b) It will cause a run-time error
+c) It will run without any error and prints 3
+d) It will experience infinite looping
+K: c
+X: `main` is not a keyword, just an identifier. The local variable `main` hides the function name inside the block, so the program prints 3.
+S: main is an identifier, not a keyword.
+
+#36 p406 a456
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    signed char chr;
+    chr = 128;
+    printf("%d\n", chr);
+    return 0;
+}
+```
+a) 128
+b) -128
+c) Depends on the compiler
+d) None of the mentioned
+K: b
+X: A signed char holds −128 to +127. The value 128 is 1000 0000 in binary, which on two's-complement machines (all common ones) reads back as −128. Strictly, converting an out-of-range value to a signed type is implementation-defined.
+S: signed char range −128…127; 128 wraps to −128.
+
+#37 p406 a456
+Q: What will be the output of the following C code on a 64 bit machine?
+```
+#include <stdio.h>
+union Sti
+{
+    int nu;
+    char m;
+};
+int main()
+{
+    union Sti s;
+    printf("%d", sizeof(s));
+    return 0;
+}
+```
+a) 8
+b) 5
+c) 9
+d) 4
+K: d
+X: A union's size is the size of its largest member, rounded up for alignment. Here the largest is `int` (4 bytes), and the char shares the same storage. A struct with these members would be 8 bytes (4 + 1 + 3 padding).
+S: union = largest member; struct = sum + padding.
+
+#38 p406 a456
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+enum birds {SPARROW, PEACOCK, PARROT};
+enum animals {TIGER = 8, LION, RABBIT, ZEBRA};
+int main()
+{
+    enum birds m = TIGER;
+    int k;
+    k = m;
+    printf("%d\n", k);
+    return 0;
+}
+```
+a) 0
+b) Compile time error
+c) 1
+d) 8
+K: d
+X: Enumeration constants are just ints. C does not type-check between different enums, so `m` takes TIGER's value 8, which is printed. (C++ would reject this.)
+S: C enums = ints (no type checking).
+
+#39 p407 a456
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int const print()
+{
+    printf("Sanfoundry.com");
+    return 0;
+}
+void main()
+{
+    print();
+}
+```
+a) Error because function name cannot be preceded by const
+b) Sanfoundry.com
+c) Sanfoundry.com is printed infinite times
+d) Blank screen, no output
+K: b
+X: `int const` just qualifies the return type (and has no real effect on an rvalue), so the function compiles and prints once.
+S: const on a return type is harmless.
+
+#40 p407 a456
+Q: Will the following C code compile without any error?
+```
+#include <stdio.h>
+int main()
+{
+    for (int k = 0; k < 10; k++);
+    return 0;
+}
+```
+a) Yes
+b) No
+c) Depends on the C standard implemented by compilers
+d) Error
+K: c
+X: Declaring a variable inside the for header was introduced in C99. A C89/C90 compiler rejects it ("for loop initial declarations are only allowed in C99 mode"), while C99 and later accept it.
+S: for (int i …) → C99+ only.
+
+#41 p407 a456
+Q: What will be the final value of x in the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int x = 5 * 9 / 3 + 9;
+}
+```
+a) 3.75
+b) Depends on compiler
+c) 24
+d) 3
+K: c
+X: `*` and `/` have equal precedence and group left to right: 5 × 9 = 45, 45 / 3 = 15, then 15 + 9 = 24.
+S: * / before + − ; same level left → right.
+
+#42 p407 a456
+Q: What will be the output of the following C code? (Initial values: x = 7, y = 8)
+```
+#include <stdio.h>
+void main()
+{
+    float x;
+    int y;
+    printf("enter two numbers \n");
+    scanf("%f %f", &x, &y);
+    printf("%f, %d", x, y);
+}
+```
+a) 7.000000, 7
+b) Run time error
+c) 7.000000, junk
+d) Varies
+K: c
+X: x is read correctly as 7.000000. But `%f` writes a float's bit pattern into the int `y`, so y prints as a meaningless (junk) number. A mismatched format specifier is undefined behaviour.
+S: Wrong scanf specifier → garbage value.
+
+#43 p408 a456
+Q: What will be the output of the following C code considering the size of a short int is 2, char is 1 and int is 4 bytes?
+```
+#include <stdio.h>
+int main()
+{
+    short int i = 20;
+    char c = 97;
+    printf("%d, %d, %d\n", sizeof(i), sizeof(c), sizeof(c + i));
+    return 0;
+}
+```
+a) 2, 1, 2
+b) 2, 1, 1
+c) 2, 1, 4
+d) 2, 2, 8
+K: c
+X: In `c + i` both operands are promoted to int (integer promotion), so the expression has type int and size 4.
+S: char/short in arithmetic → promoted to int.
+
+#44 p408 a456
+Q: What is the difference between the following 2 C codes?
+```
+#include <stdio.h> //Program 1
+int main()
+{
+    int d, a = 1, b = 2;
+    d = a++ + ++b;
+    printf("%d %d %d", d, a, b);
+}
+
+#include <stdio.h> //Program 2
+int main()
+{
+    int d, a = 1, b = 2;
+    d = a++ +++b;
+    printf("%d %d %d", d, a, b);
+}
+```
+a) No difference as space doesn't make any difference, values of a, b, d are same in both the case
+b) Space does make a difference, values of a, b, d are different
+c) Program 1 has syntax error, program 2 is not
+d) Program 2 has syntax error, program 1 is not
+K: d
+X: The compiler reads the longest possible token each time (maximal munch). So `a++ +++b` is split as `a++ ++ +b`, which applies `++` to the non-lvalue `a++` and is a compile error. Program 1 is fine: d = 1 + 3 = 4, a = 2, b = 3.
+S: Maximal munch: +++ → ++ then +.
+
+#45 p409 a456
+Q: What will be the output of the following C code snippet?
+```
+#include <stdio.h>
+void main()
+{
+    1 < 2 ? return 1 : return 2;
+}
+```
+a) Returns 1
+b) Returns 2
+c) Varies
+d) Compile time error
+K: d
+X: The operands of `?:` must be expressions, and `return` is a statement. The code is a syntax error. (Besides, a void function cannot return a value.)
+S: No statements inside ?: .
+
+#46 p409 a456
+Q: What will be the value of the following assignment expression?
+```
+(x = foo()) != 1    /* considering foo() returns 2 */
+```
+a) 2
+b) True
+c) 1
+d) 0
+K: a
+X: The book's answer is the value of the assignment `x = foo()`, which is 2: an assignment expression has the value assigned. The whole relational expression `(x = foo()) != 1` compares 2 with 1 and evaluates to 1 (true).
+S: Assignment expression's value = value assigned.
+N: The question is ambiguous. If "the expression" means the whole line, the answer is 1 (option c), because `!=` yields 1. The book, like its source, means the assignment part (x = 2).
+
+#47 p409 a456
+Q: What will be the output of the following C function?
+```
+#include <stdio.h>
+void reverse(int i);
+int main()
+{
+    reverse(1);
+}
+void reverse(int i)
+{
+    if (i > 5)
+        return;
+    printf("%d ", i);
+    return reverse((i++, i));
+}
+```
+a) 1 2 3 4 5
+b) Segmentation fault
+c) Compilation error
+d) Undefined behaviour
+K: a
+X: `(i++, i)` is the comma operator: increment i, then pass the new value. The recursion prints 1 to 5 and stops when i reaches 6. (Returning a void expression from a void function draws a warning but works.)
+S: Comma operator → value of the right operand.
+
+#48 p409 a457
+Q: What will be the final values of i and j in the following C code?
+```
+#include <stdio.h>
+int x = 0;
+int f()
+{
+    if (x == 0)
+        return x + 1;
+    else
+        return x - 1;
+}
+int g()
+{
+    return x++;
+}
+int main()
+{
+    int i = (f() + g()) | g(); //bitwise or
+    int j = g() | (f() + g()); //bitwise or
+}
+```
+a) i value is 1 and j value is 1
+b) i value is 0 and j value is 0
+c) i value is 1 and j value is undefined
+d) i and j value are undefined
+K: d
+B: c
+X: The operands of `+` and bitwise `|` may be evaluated in any order, and f() and g() read and change the global x. For i, calling f, then the outer g, then the inner g gives (1 + 1) | 0 = 2, while left-to-right gives 1. So even i is not fixed, and j depends on the state left by i's calls. (GCC happens to give i = 1, j = 7.) With logical `||`, which is evaluated left to right with short-circuiting, the result would be defined.
+S: Bitwise | / + : operand order unspecified → side effects unpredictable.
+N: The book prints (c), claiming i is certainly 1. Trying the possible call orders shows i can also be 2, so neither value is fixed by the language. The key is (d).
+
+#49 p410 a457
+Q: Comment on the following C statement.
+```
+n = 1;
+printf("%d, %d\n", 3*n, n++);
+```
+a) Output will be 3, 2
+b) Output will be 3, 1
+c) Output will be 6, 1
+d) Output is compiler dependent
+K: d
+X: The order in which function arguments are evaluated is unspecified. Reading `n` in `3*n` while also modifying it in `n++` without a sequence point is undefined behaviour, so the output depends on the compiler.
+S: Modify + read same variable in one call → undefined.
+
+#50 p410 a457
+Q: How many times i value is checked in the following C program?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    while (i < 3)
+        i++;
+    printf("In while loop\n");
+}
+```
+a) 2
+b) 3
+c) 4
+d) 1
+K: c
+X: The condition is tested for i = 0, 1, 2 (true) and i = 3 (false), which is 4 checks. The loop body is only `i++`, so "In while loop" prints once, after the loop.
+S: n iterations → n + 1 condition checks.
+
+#51 p410 a457
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    do
+    {
+        i++;
+        if (i == 2)
+            continue;
+        printf("In while loop ");
+    } while (i < 2);
+    printf("%d\n", i);
+}
+```
+a) In while loop 2
+b) In while loop in while loop 3
+c) In while loop 3
+d) Infinite loop
+K: a
+X: With i = 1 it prints "In while loop " and the test 1 < 2 repeats the loop. With i = 2, `continue` jumps straight to the test (2 < 2 is false), so the loop ends and 2 is printed.
+S: continue in do-while → jumps to the condition.
+
+#52 p410 a457
+Q: What will be the data type returned for the following C function?
+```
+#include <stdio.h>
+int func()
+{
+    return (double)(char)5.0;
+}
+```
+a) char
+b) int
+c) double
+d) Multiple type-casting in return is illegal
+K: b
+X: Whatever the expression's type, the returned value is converted to the function's declared return type, which is int.
+S: Return type = declared type.
+
+#53 p411 a457
+Q: What is the problem in the following C declarations?
+```
+int func(int);
+double func(int);
+int func(float);
+```
+a) A function with same name cannot have different signatures
+b) A function with same name cannot have different return types
+c) A function with same name cannot have different number of parameters
+d) All of the mentioned
+K: d
+X: C has no function overloading, so a name may have only one type: same return type and same parameters. C++ allows overloading on parameters but still not on return type alone.
+S: No overloading in C.
+
+#54 p411 a457
+Q: Which option should be selected to work the following C expression?
+```
+string p = "HELLO";
+```
+a) `typedef char [] string;`
+b) `typedef char *string;`
+c) `typedef char [] string;` and `typedef char *string;`
+d) Such expression cannot be generated in C
+K: b
+X: `typedef char *string;` makes `string` an alias for `char *`, so `string p = "HELLO";` works. `typedef char [] string;` is invalid syntax; an array typedef would be `typedef char string[];`.
+S: typedef char *string; → string = char *.
+
+#55 p411 a457
+Q: What is the meaning of the following C statement?
+```
+printf("%10s", state);
+```
+a) 10 spaces before the string state is printed
+b) Print empty spaces if the string state is less than 10 characters
+c) Print the last 10 characters of the string
+d) None of the mentioned
+K: b
+X: `%10s` sets a minimum field width of 10. A shorter string is right-justified and padded with leading spaces (`%-10s` pads on the right). A longer string is printed in full.
+S: %10s = min width 10, right-justified.
+
+#56 p411 a457
+Q: What are the elements present in the array of the following C code?
+```
+int array[5] = {5};
+```
+a) 5, 5, 5, 5, 5
+b) 5, 0, 0, 0, 0
+c) 5, (garbage), (garbage), (garbage), (garbage)
+d) (garbage), (garbage), (garbage), (garbage), 5
+K: b
+X: In a partially initialised array, the elements without initialisers are set to zero.
+S: Partial initialiser → rest zero.
+
+#57 p411 a457
+Q: What will be the output of the following C function when EOF returns?
+```
+int fputs(char *line, FILE *fp)
+```
+a) '\0' character of array line is encountered
+b) '\n' character in array line is encountered
+c) '\t' character in array line is encountered
+d) When an error occurs
+K: d
+X: `fputs` returns a non-negative value on success and EOF on a write error. Reaching the string's terminating `'\0'` is simply the normal end of output.
+S: fputs → EOF only on error.
+
+#58 p412 a457
+Q: Which part of the program address space is p stored in the following C code?
+```
+#include <stdio.h>
+int *p;
+int main()
+{
+    int i = 0;
+    p = &i;
+    return 0;
+}
+```
+a) Code/text segment
+b) Data segment
+c) Bss segment
+d) Stack
+K: c
+X: `p` is a global with no initialiser, so it goes in the BSS segment (zero-initialised). Initialised globals go in the data segment, local `i` is on the stack, and the machine code is in the text segment.
+S: Uninitialised global → BSS; initialised → data; local → stack.
+
+#59 p412 a457
+Q: Which of the following sequences are unaccepted in C language?
+a) `#if … #else … #endif`
+b) `#if … #elif … #endif`
+c) `#if … #if … #endif`
+d) `#if … #undef … #endif`
+K: c
+X: Every `#if` needs its own `#endif`. Two `#if`s with one `#endif` leave a conditional unterminated.
+S: Each #if needs a matching #endif.
+
+#60 p412 a457
+Q: What is the output of this C code?
+```
+#include <stdio.h>
+main()
+{
+    if (sizeof(int) > -1)
+        printf("True");
+    else
+        printf("False");
+}
+```
+a) True
+b) False
+K: b
+X: `sizeof` yields an unsigned `size_t`. In the comparison, −1 is converted to unsigned, which makes it the largest possible value, so 4 > that is false.
+S: Signed vs unsigned compare: −1 becomes huge.
+
+#61 p412 a457
+Q: What is the output of this C code?
+```
+#include <stdio.h>
+main()
+{
+    char *p = "Sanfoundry C-Test";
+    p[0] = 'a';
+    p[1] = 'b';
+    printf("%s", p);
+}
+```
+a) abnfoundry C-Test
+b) Sanfoundry C-Test
+c) Compile time error
+d) Run time error
+K: d
+X: `p` points to a string literal, which is stored in read-only memory. Modifying it is undefined behaviour and usually crashes with a segmentation fault. Declaring `char p[] = "…";` would make a modifiable copy.
+S: String literal is read-only; use char p[] to modify.
+
+#62 p413 a457
+Q: What is the output of this C code?
+```
+#include <stdio.h>
+int main()
+{
+    float f = 0.1;
+    if (f == 0.1)
+        printf("True");
+    else
+        printf("False");
+}
+```
+a) True
+b) False
+K: b
+X: 0.1 cannot be stored exactly in binary. The float `f` holds a less precise approximation than the double constant 0.1, so the two differ and the output is False. With `0.1f`, or with `f` declared as double, it would print True.
+S: Never compare floats with ==.
+
+#63 p413 a457
+Q: What is the output of this C code?
+```
+#include <stdio.h>
+main()
+{
+    int n = 0, m = 0;
+    if (n > 0)
+        if (m > 0)
+            printf("True");
+    else
+        printf("False");
+}
+```
+a) True
+b) False
+c) No Output will be printed
+d) Run Time Error
+K: c
+X: This is the dangling-else rule: an `else` belongs to the nearest unmatched `if`, here `if (m > 0)`, whatever the indentation suggests. Since n > 0 is false, the whole inner if-else is skipped and nothing is printed.
+S: else binds to the nearest if.
+
+#64 p413 a457
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int x = 0;
+    if (x = 0)
+        printf("Its zero\n");
+    else
+        printf("Its not zero\n");
+}
+```
+a) Its not zero
+b) Its zero
+c) Run time error
+d) None
+K: a
+X: `x = 0` is an assignment, not a comparison. Its value is 0 (false), so the else branch runs.
+S: if (x = 0) is always false; use ==.
+
+#65 p413 a457
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int k = 8;
+    int x = 0 == 1 && k++;
+    printf("%d%d\n", x, k);
+}
+```
+a) 0 9
+b) 0 8
+c) 1 8
+d) 1 9
+K: b
+X: `0 == 1` is 0, so `&&` short-circuits and `k++` never runs. x = 0 and k = 8, printed as "08".
+S: && stops at the first false.
+
+#66 p414 a457
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    char a = 'a';
+    int x = (a % 10)++;
+    printf("%d\n", x);
+}
+```
+a) 6
+b) Junk value
+c) Compile time error
+d) 7
+K: c
+X: `(a % 10)` is a value, not a variable (it is not an lvalue), so it cannot be incremented. The compiler reports "lvalue required as increment operand".
+S: ++ needs a variable (lvalue).
+
+#67 p414 a457
+Q: What will be the output of the following C code snippet?
+```
+#include <stdio.h>
+void main()
+{
+    1 < 2 ? return 1 : return 2;
+}
+```
+a) Returns 1
+b) Returns 2
+c) Varies
+d) Compile time error
+K: d
+X: As in Q45: `return` is a statement and cannot be an operand of the conditional operator, so this is a syntax error.
+S: ?: takes expressions only.
+
+#68 p414 a458
+Q: What will be the output of the following C code snippet?
+```
+#include <stdio.h>
+void main()
+{
+    unsigned int x = -5;
+    printf("%d", x);
+}
+```
+a) Run time error
+b) Varies
+c) -5
+d) 5
+K: c
+X: −5 is stored as the unsigned bit pattern 4294967291. `%d` reinterprets those same bits as a signed int, so −5 is printed. (`%u` would print 4294967291.)
+S: Same bits: %d → −5, %u → 4294967291.
+
+#69 p414 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int x = 2, y = 1;
+    x *= x + y;
+    printf("%d\n", x);
+    return 0;
+}
+```
+a) 5
+b) 6
+c) Undefined behaviour
+d) Compile time error
+K: b
+X: A compound assignment evaluates its whole right side first: `x *= x + y` means `x = x * (x + y)` = 2 × 3 = 6, not `x * x + y` = 5.
+S: x op= e ≡ x = x op (e).
+
+#70 p415 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int x = 2, y = 2;
+    x /= x / y;
+    printf("%d\n", x);
+    return 0;
+}
+```
+a) 2
+b) 1
+c) 0.5
+d) Undefined behaviour
+K: a
+X: `x /= x / y` means `x = x / (x / y)` = 2 / (2 / 2) = 2 / 1 = 2.
+S: Evaluate the right side first.
+
+#71 p415 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int x = 1, y = 0;
+    x &&= y;
+    printf("%d\n", x);
+}
+```
+a) Compile time error
+b) 1
+c) 0
+d) Undefined behaviour
+K: a
+X: C has no `&&=` operator. Compound assignment exists only for arithmetic and bitwise operators (`+=`, `-=`, `*=`, `/=`, `%=`, `&=`, `|=`, `^=`, `<<=`, `>>=`).
+S: No &&= or ||= in C.
+
+#72 p415 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int x = 2, y = 0;
+    int z = (y++) ? y == 1 && x : 0;
+    printf("%d\n", z);
+    return 0;
+}
+```
+a) 0
+b) 1
+c) Undefined behaviour
+d) Compile time error
+K: a
+X: `y++` yields the old value 0 (false), so the conditional takes the third operand, 0. The increment happens, but the middle operand is never evaluated.
+S: Postfix ++ → old value is tested.
+
+#73 p415 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int x = 1;
+    int y = x == 1 ? getchar() : 2;
+    printf("%d\n", y);
+}
+```
+a) Compile time error
+b) Whatever character getchar function returns
+c) ASCII value of character getchar function returns
+d) 2
+K: c
+X: x == 1, so `y = getchar()`. getchar returns the character's code as an int, and `%d` prints that number, e.g. 65 for 'A'.
+S: getchar returns int code; %d shows the number.
+
+#74 p416 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int x = 1;
+    short int i = 2;
+    float f = 3;
+    if (sizeof((x == 2) ? f : i) == sizeof(float))
+        printf("float\n");
+    else if (sizeof((x == 2) ? f : i) == sizeof(short int))
+        printf("short int\n");
+}
+```
+a) float
+b) short int
+c) Undefined behaviour
+d) Compile time error
+K: a
+X: The type of a conditional expression is fixed at compile time by the usual arithmetic conversions of its 2nd and 3rd operands: float and short give float. So sizeof gives sizeof(float), whichever branch would be chosen at run time.
+S: ?: type = common type of both branches.
+
+#75 p416 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int a = 2;
+    int b = 0;
+    int y = (b == 0) ? a : (a > b) ? (b = 1) : a;
+    printf("%d\n", y);
+}
+```
+a) Compile time error
+b) 1
+c) 2
+d) Undefined behaviour
+K: c
+B: a
+X: The conditional operator groups right to left: `(b == 0) ? a : ((a > b) ? (b = 1) : a)`. Since b == 0, y = a = 2. Nested conditionals and an assignment in the middle operand are perfectly legal C. Compiling and running it prints 2.
+S: Nested ?: groups right to left.
+N: The book prints (a), compile-time error, but the statement is valid C. It compiles and prints 2, which is also the source question's key, so the key is (c).
+
+#76 p416 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int y = 1, x = 0;
+    int l = (y++, x++) ? y : x;
+    printf("%d\n", l);
+}
+```
+a) 1
+b) 2
+c) Compile time error
+d) Undefined behaviour
+K: a
+X: The comma expression evaluates `y++` (y becomes 2), then `x++`, whose value is the old x, 0. The test is therefore false and l = x, which is now 1.
+S: (a, b) → value of b; postfix gives the old value.
+
+#77 p416 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int k = 8;
+    int m = 7;
+    int z = k < m ? k++ : m++;
+    printf("%d", z);
+}
+```
+a) 7
+b) 8
+c) Run time error
+d) 15
+K: a
+X: 8 < 7 is false, so z = `m++` = 7 (the old value), and m then becomes 8.
+S: False → third operand; postfix → old value.
+
+#78 p417 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int k = 8;
+    int m = 7;
+    int z = k < m ? k = m : m++;
+    printf("%d", z);
+}
+```
+a) Run time error
+b) 7
+c) 8
+d) Depends on compiler
+K: b
+X: The middle operand of `?:` may be any expression, including an assignment. The condition is false, so z = `m++` = 7.
+S: Middle operand can be an assignment.
+
+#79 p417 a458
+Q: What will be the output of the following C code snippet?
+```
+#include <stdio.h>
+void main()
+{
+    1 < 2 ? return 1 : return 2;
+}
+```
+a) Returns 1
+b) Returns 2
+c) Varies
+d) Compile time error
+K: d
+X: This repeats Q45: statements such as `return` cannot be operands of `?:`.
+S: ?: needs expressions.
+
+#80 p417 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int x = 5;
+    if (x < 1)
+        printf("hello");
+    if (x == 5)
+        printf("hi");
+    else
+        printf("no");
+}
+```
+a) hi
+b) hello
+c) no
+d) Compile time error
+K: a
+X: The first if is false, so nothing is printed. The second if is true and prints "hi". The else belongs only to the second if.
+S: Two separate ifs; else pairs with the second.
+N: The book prints only three options for this question. Option (d) was added so that it fits the four-option format.
+
+#81 p417 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int x;
+void main()
+{
+    if (x)
+        printf("hi");
+    else
+        printf("how are u");
+}
+```
+a) hi
+b) how are you
+c) Compile time error
+d) Error
+K: b
+X: Global variables are zero-initialised, so x is 0 (false) and the else branch prints "how are u". (The book's option spells it "how are you".)
+S: Globals start at 0.
+
+#82 p418 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int x = 5;
+    if (true);
+        printf("hello");
+}
+```
+a) It will display hello
+b) It will throw an error
+c) Nothing will be displayed
+d) Compiler dependent
+K: b
+X: Before C23, `true` is not a keyword. It comes only from `<stdbool.h>`, which is not included, so the compiler reports "'true' undeclared". (Under C23, where true is a keyword, the code would print hello, because the `;` makes the if's body empty.)
+S: true/false need stdbool.h (pre-C23).
+
+#83 p418 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int x = 0;
+    if (x == 0)
+        printf("hi");
+    else
+        printf("how are u");
+    printf("hello");
+}
+```
+a) hi
+b) how are you
+c) hello
+d) hihello
+K: d
+X: "hi" is printed by the if. The last printf is not part of the else, because there are no braces, so "hello" always follows: "hihello".
+S: Without braces, only one statement belongs to else.
+
+#84 p418 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int x = 5;
+    if (x < 1);
+        printf("Hello");
+}
+```
+a) Nothing
+b) Run time error
+c) Hello
+d) Varies
+K: c
+X: The semicolon after `if (x < 1)` is an empty statement that forms the if's body. The printf is an independent statement, so it always runs.
+S: if (…); → empty body; next line always runs.
+
+#85 p419 a458
+Q: What will be the output of the following C code? (Assuming that we have entered the value 1 in the standard input)
+```
+#include <stdio.h>
+void main()
+{
+    double ch;
+    printf("enter a value between 1 to 2:");
+    scanf("%lf", &ch);
+    switch (ch)
+    {
+        case 1:
+            printf("1");
+            break;
+        case 2:
+            printf("2");
+            break;
+    }
+}
+```
+a) Compile time error
+b) 1
+c) 2
+d) Varies
+K: a
+X: The controlling expression of a switch must have an integer type (int, char, long, enum). A double gives "switch quantity not an integer".
+S: switch → integer types only (no float/double/string).
+
+#86 p419 a458
+Q: What will be the output of the following C code? (Assuming that we have entered the value 1 in the standard input)
+```
+#include <stdio.h>
+void main()
+{
+    char *ch;
+    printf("enter a value between 1 to 3:");
+    scanf("%s", ch);
+    switch (ch)
+    {
+        case "1":
+            printf("1");
+            break;
+        case "2":
+            printf("2");
+            break;
+    }
+}
+```
+a) 1
+b) 2
+c) Compile time error
+d) No Compile time error
+K: c
+X: A switch cannot test strings. `ch` is a pointer, and case labels must be integer constant expressions, not string literals, so the code does not compile. (It would also write through an uninitialised pointer.)
+S: No string switch in C → use strcmp with if-else.
+
+#87 p419 a458
+Q: What will be the output of the following C code? (Assuming that we have entered the value 1 in the standard input)
+```
+#include <stdio.h>
+void main()
+{
+    int ch;
+    printf("enter a value between 1 to 2:");
+    scanf("%d", &ch);
+    switch (ch)
+    {
+        case 1:
+            printf("1\n");
+        default:
+            printf("2\n");
+    }
+}
+```
+a) 1
+b) 2
+c) 1 2
+d) Run time error
+K: c
+X: Without a `break`, execution falls through from case 1 into default, so both "1" and "2" are printed.
+S: No break → fall-through.
+
+#88 p420 a458
+Q: What will be the output of the following C code? (Assuming that we have entered the value 2 in the standard input)
+```
+#include <stdio.h>
+void main()
+{
+    int ch;
+    printf("enter a value between 1 to 2:");
+    scanf("%d", &ch);
+    switch (ch)
+    {
+        case 1:
+            printf("1\n");
+            break;
+            printf("Hi");
+        default:
+            printf("2\n");
+    }
+}
+```
+a) 1
+b) Hi 2
+c) Run time error
+d) 2
+K: d
+X: For input 2 control jumps straight to default and prints "2". `printf("Hi")` comes after the break in case 1 and can never be reached.
+S: Code after break (before next label) is dead.
+
+#89 p420 a458
+Q: What will be the output of the following C code? (Assuming that we have entered the value 1 in the standard input)
+```
+#include <stdio.h>
+void main()
+{
+    int ch;
+    printf("enter a value between 1 to 2:");
+    scanf("%d", &ch);
+    switch (ch, ch + 1)
+    {
+        case 1:
+            printf("1\n");
+            break;
+        case 2:
+            printf("2");
+            break;
+    }
+}
+```
+a) 1
+b) 2
+c) 3
+d) Run time error
+K: b
+X: `(ch, ch + 1)` is a comma expression whose value is `ch + 1` = 2, so case 2 runs.
+S: switch on a comma expression → last value.
+
+#90 p421 a458
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+const int a = 1, b = 2;
+int main()
+{
+    int x = 1;
+    switch (x)
+    {
+        case a:
+            printf("yes ");
+        case b:
+            printf("no\n");
+            break;
+    }
+}
+```
+a) yes no
+b) yes
+c) no
+d) Compile time error
+K: d
+X: In C, a `const int` variable is not an integer constant expression, so it cannot be a case label ("case label does not reduce to an integer constant"). C++ allows it. Use `#define` or an enum instead.
+S: case labels: literals, #define, enum — not const variables (C).
+
+#91 p421 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+#define max(a) a
+int main()
+{
+    int x = 1;
+    switch (x)
+    {
+        case max(2):
+            printf("yes\n");
+        case max(1):
+            printf("no\n");
+            break;
+    }
+}
+```
+a) yes no
+b) yes
+c) no
+d) Compile time error
+K: c
+X: The macro expands before compilation to `case 2:` and `case 1:`, both valid constants. x = 1 jumps to case 1 and prints "no".
+S: Macros expand to constants → valid labels.
+
+#92 p421 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    switch (printf("Do"))
+    {
+        case 1:
+            printf("First\n");
+            break;
+        case 2:
+            printf("Second\n");
+            break;
+        default:
+            printf("Default\n");
+            break;
+    }
+}
+```
+a) Do
+b) DoFirst
+c) DoSecond
+d) DoDefault
+K: c
+X: `printf` prints "Do" and returns the number of characters printed, 2, so case 2 prints "Second": "DoSecond".
+S: printf returns number of characters printed.
+
+#93 p422 a459
+Q: Comment on the output of the following C code.
+```
+#include <stdio.h>
+int main()
+{
+    int a = 1;
+    switch (a)
+    case 1:
+        printf("%d", a);
+    case 2:
+        printf("%d", a);
+    case 3:
+        printf("%d", a);
+    default:
+        printf("%d", a);
+}
+```
+a) No error, output is 1111
+b) No error, output is 1
+c) Compile time error, no break statements
+d) Compile time error, case label outside switch statement
+K: d
+X: With no braces, the switch's body is just the one statement `case 1: printf(...);`. The later `case 2:`, `case 3:` and `default:` labels are outside any switch, which is an error.
+S: switch without { } covers one statement only.
+
+#94 p422 a459
+Q: Which datatype can accept the switch statement?
+a) int
+b) char
+c) long
+d) All of the mentioned
+K: d
+X: switch works on any integer type: char, short, int, long (and enum). It does not work on float, double or strings.
+S: switch: integral types only.
+
+#95 p422 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int a = 1;
+    switch (a)
+    {
+        case a:
+            printf("Case A ");
+        default:
+            printf("Default");
+    }
+}
+```
+a) Output: Case A
+b) Output: Default
+c) Output: Case A Default
+d) Compile time error
+K: d
+X: `case a:` uses a variable as a label. Case labels must be integer constant expressions, so this is a compile error.
+S: Variable as case label → error.
+
+#96 p423 a459
+Q: Which of the following is equivalent to this C code?
+```
+switch (ch)
+{
+    case 'a':
+    case 'A':
+        printf("true");
+}
+```
+a) `if (ch == 'a' && ch == 'A') printf("true");`
+b) `if (ch == 'a') if (ch == 'a') printf("true");`
+c) `if (ch == 'a' || ch == 'A') printf("true");`
+d) None of the mentioned
+K: c
+X: The empty `case 'a':` falls through into `case 'A':`, so "true" prints for either value. That is a logical OR. Option a can never be true, since ch cannot equal both at once.
+S: Stacked cases = OR.
+N: The book's stem reads "What will be the output of the following C code?", but the options are equivalent if-statements. The stem has been reworded to match the options (this is also how the source question reads).
+
+#97 p423 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    double k = 0;
+    for (k = 0.0; k < 3.0; k++);
+    printf("%lf", k);
+}
+```
+a) 2.000000
+b) 4.000000
+c) 3.000000
+d) Run time error
+K: c
+X: The `;` after the for header makes the body empty. k counts 0.0, 1.0, 2.0 and stops at 3.0, which is then printed once as 3.000000.
+S: for (…); → empty loop; prints final value.
+
+#98 p423 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int k;
+    for (k = -3; k < -5; k++)
+        printf("Hello");
+}
+```
+a) Hello
+b) Infinite hello
+c) Run time error
+d) Nothing
+K: d
+X: The condition −3 < −5 is false on the very first check, so the body never runs.
+S: Condition false at start → zero iterations.
+
+#99 p423 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    for (; ; ;)
+        printf("In for loop\n");
+    printf("After loop\n");
+}
+```
+a) Compile time error
+b) Infinite loop
+c) After loop
+d) Undefined behaviour
+K: a
+X: A for header has exactly two semicolons. `for (;;)` is a legal infinite loop, but `for (; ; ;)` has three and is a syntax error.
+S: for (;;) ✓ infinite; for (;;;) ✗ error.
+
+#100 p424 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    for (i++; i == 1; i = 2)
+        printf("In for loop ");
+    printf("After loop\n");
+}
+```
+a) In for loop After loop
+b) After loop
+c) Compile time error
+d) Undefined behaviour
+K: a
+X: The initialisation `i++` makes i 1, so the test i == 1 is true and the body prints once. The update sets i to 2, the test fails, and "After loop" follows.
+S: Any expression may be the init/update part.
+
+#101 p424 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    for (foo(); i == 1; i = 2)
+        printf("In for loop\n");
+    printf("After loop\n");
+}
+int foo()
+{
+    return 1;
+}
+```
+a) After loop
+b) In for loop after loop
+c) Compile time error
+d) Infinite loop
+K: a
+X: `foo()` is only called as the initialisation, and its return value is ignored. i is still 0, so i == 1 is false and only "After loop" prints. (Calling foo before its definition relies on an implicit declaration, which C89 accepts and newer compilers warn about.)
+S: Init expression's value is discarded.
+
+#102 p424 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int *p = NULL;
+    for (foo(); p; p = 0)
+        printf("In for loop\n");
+    printf("After loop\n");
+}
+```
+a) In for loop after loop
+b) Compile time error
+c) Infinite loop
+d) Depends on the value of NULL
+K: b
+X: `foo` is neither declared nor defined anywhere in this program. A C99 compiler rejects the implicit declaration, and even an old compiler fails at the link stage ("undefined reference to foo"), so the program cannot be built.
+S: Calling an undefined function → build error.
+
+#103 p425 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    for (int i = 0; i < 1; i++)
+        printf("In for loop\n");
+}
+```
+a) Compile time error
+b) In for loop
+c) Depends on the standard compiler implements
+d) Run time error
+K: c
+X: Declaring `int i` inside the for header is allowed from C99 onwards. A C89 compiler rejects it, and a C99+ compiler prints "In for loop" (same as Q40).
+S: for-loop declarations → C99.
+
+#104 p425 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    char *str = "";
+    do
+    {
+        printf("hello");
+    } while (str);
+}
+```
+a) Nothing
+b) Run time error
+c) Varies
+d) Hello is printed infinite times
+K: d
+X: `str` points to an empty string, but the pointer itself is non-NULL, so `while (str)` is always true. (Testing `*str` would be false.)
+S: Empty string ≠ NULL pointer.
+
+#105 p425 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    while (i < 10)
+    {
+        i++;
+        printf("hi\n");
+        while (i < 8)
+        {
+            i++;
+            printf("hello\n");
+        }
+    }
+}
+```
+a) Hi is printed 8 times, hello 7 times and then hi 2 times
+b) Hi is printed 10 times, hello 7 times
+c) Hi is printed once, hello 7 times
+d) Hi is printed once, hello 7 times and then hi 2 times
+K: d
+X: First pass: i = 1, "hi", then the inner loop prints "hello" for i = 2 to 8 (7 times). The outer loop then runs twice more (i = 9, 10), printing "hi" each time, while the inner condition stays false.
+S: Trace i: hi(1) · hello×7 (2–8) · hi(9) · hi(10).
+
+#106 p425 a459
+Q: What is an example of iteration in C?
+a) for
+b) while
+c) do-while
+d) All of the mentioned
+K: d
+X: for, while and do-while are all iteration statements. The first two test before the body (entry-controlled), and do-while tests after it (exit-controlled).
+S: Entry-controlled: for, while; exit-controlled: do-while.
+
+#107 p426 a459
+Q: How many times while loop condition is tested in the following C code snippets, if i is initialized to 0 in both the cases?
+```
+while (i < n)
+    i++;
+————-
+do
+    i++;
+while (i <= n);
+```
+a) n, n
+b) n, n+1
+c) n+1, n
+d) n+1, n+1
+K: d
+X: The while loop tests i = 0 … n, which is n + 1 tests (the last one fails). The do-while tests after each increment, for i = 1 … n + 1, also n + 1 tests.
+S: Both → n + 1 tests.
+
+#108 p426 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    while (i = 0)
+        printf("True\n");
+    printf("False\n");
+}
+```
+a) True (infinite time)
+b) True (1 time) False
+c) False
+d) Compiler dependent
+K: c
+X: `i = 0` assigns 0, so the condition is false from the start and the loop body never runs. Only "False" is printed.
+S: while (i = 0) → never runs.
+
+#109 p426 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0, j = 0;
+    while (i < 5, j < 10)
+    {
+        i++;
+        j++;
+    }
+    printf("%d, %d\n", i, j);
+}
+```
+a) 5, 5
+b) 5, 10
+c) 10, 10
+d) Syntax error
+K: c
+X: With the comma operator only the last expression, `j < 10`, controls the loop. `i < 5` is evaluated and ignored, so both counters reach 10.
+S: while (a, b) → only b decides.
+
+#110 p426 a459
+Q: Which loop is most suitable to first perform the operation and then test the condition?
+a) for loop
+b) while loop
+c) do-while loop
+d) None of the mentioned
+K: c
+X: A do-while loop runs its body first and tests afterwards (exit-controlled), so the body always executes at least once.
+S: At least once → do-while.
+
+#111 p426 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    if (i == 0)
+    {
+        printf("Hello");
+        continue;
+    }
+}
+```
+a) Hello is printed infinite times
+b) Hello
+c) Varies
+d) Compile time error
+K: d
+X: `continue` is only allowed inside a loop. An if block is not a loop, so the compiler reports "continue statement not within a loop".
+S: continue → loops only.
+
+#112 p427 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    if (i == 0)
+    {
+        printf("Hello");
+        break;
+    }
+}
+```
+a) Hello is printed infinite times
+b) Hello
+c) Varies
+d) Compile time error
+K: d
+X: `break` is only allowed inside a loop or a switch. An if alone doesn't qualify, so this is a compile error.
+S: break → loops and switch only.
+
+#113 p427 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    do
+    {
+        i++;
+        if (i == 2)
+            continue;
+        printf("In while loop ");
+    } while (i < 2);
+    printf("%d\n", i);
+}
+```
+a) In while loop 2
+b) In while loop in while loop 3
+c) In while loop 3
+d) Infinite loop
+K: a
+X: This repeats Q51. `continue` at i = 2 goes to the test, 2 < 2 fails, and 2 is printed after one "In while loop".
+S: continue → straight to the condition.
+
+#114 p427 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0, j = 0;
+    for (i; i < 2; i++){
+        for (j = 0; j < 3; j++)
+        {
+            printf("1\n");
+            break;
+        }
+        printf("2\n");
+    }
+    printf("after loop\n");
+}
+```
+a) 1 2 after loop
+b) 1 after loop
+c) 1 2 1 2 after loop
+d) 1 1 2 after loop
+K: c
+X: `break` leaves only the inner loop. Each of the 2 outer iterations prints "1" (then breaks) and "2", giving 1 2 1 2 and then "after loop".
+S: break exits the innermost loop only.
+
+#115 p428 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    while (i < 2)
+    {
+        if (i == 1)
+            break;
+        i++;
+        if (i == 1)
+            continue;
+        printf("In while loop\n");
+    }
+    printf("After loop\n");
+}
+```
+a) In while loop After loop
+b) After loop
+c) In while loop In while loop After loop
+d) In while loop
+K: b
+X: i = 0: not 1, so i becomes 1, and `continue` skips the printf. Next pass: i == 1, so break. The only output is "After loop".
+S: Trace carefully: continue skips, break exits.
+
+#116 p429 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    char c = 'a';
+    while (i < 2)
+    {
+        i++;
+        switch (c)
+        {
+            case 'a':
+                printf("%c ", c);
+                break;
+                break;
+        }
+    }
+    printf("after loop\n");
+}
+```
+a) a after loop
+b) a a after loop
+c) after loop
+d) Error
+K: b
+X: `break` inside a switch exits only the switch, not the enclosing while. The loop runs twice, printing "a " each time. The second break is unreachable but legal.
+S: break in switch ≠ break out of loop.
+
+#117 p429 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    printf("before continue ");
+    continue;
+    printf("after continue\n");
+}
+```
+a) Before continue after continue
+b) Before continue
+c) After continue
+d) Compile time error
+K: d
+X: `continue` appears outside any loop, so the program doesn't compile and nothing is printed.
+S: continue outside loop → compile error.
+
+#118 p429 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    if (i == 0)
+    {
+        printf("Hello");
+        continue;
+    }
+}
+```
+a) Hello is printed infinite times
+b) Hello
+c) Varies
+d) Compile time error
+K: d
+X: This repeats Q111: `continue` inside an if with no enclosing loop is a compile error.
+S: continue needs a loop.
+
+#119 p430 a459
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    if (i == 0)
+    {
+        printf("Hello");
+        break;
+    }
+}
+```
+a) Hello is printed infinite times
+b) Hello
+c) Varies
+d) Compile time error
+K: d
+X: This repeats Q112: `break` without an enclosing loop or switch is a compile error.
+S: break needs loop/switch.
+
+#120 p430 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    do
+    {
+        i++;
+        if (i == 2)
+            continue;
+        printf("In while loop ");
+    } while (i < 2);
+    printf("%d\n", i);
+}
+```
+a) In while loop 2
+b) In while loop in while loop 3
+c) In while loop 3
+d) Infinite loop
+K: a
+X: Same as Q51 and Q113: one "In while loop", then 2.
+S: continue in do-while → test.
+
+#121 p430 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0, j = 0;
+    for (i; i < 2; i++){
+        for (j = 0; j < 3; j++)
+        {
+            printf("1\n");
+            break;
+        }
+        printf("2\n");
+    }
+    printf("after loop\n");
+}
+```
+a) 1 2 after loop
+b) 1 after loop
+c) 1 2 1 2 after loop
+d) 1 1 2 after loop
+K: c
+X: Same as Q114: the inner break runs once per outer iteration, giving 1 2 1 2, then "after loop".
+S: Inner break → outer continues.
+
+#122 p431 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    while (i < 2)
+    {
+        if (i == 1)
+            break;
+        i++;
+        if (i == 1)
+            continue;
+        printf("In while loop\n");
+    }
+    printf("After loop\n");
+}
+```
+a) In while loop After loop
+b) After loop
+c) In while loop In while loop After loop
+d) In while loop
+K: b
+X: Same as Q115: the printf is always skipped, then break, so only "After loop" is printed.
+S: Trace i step by step.
+
+#123 p431 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    char c = 'a';
+    while (i < 2)
+    {
+        i++;
+        switch (c)
+        {
+            case 'a':
+                printf("%c ", c);
+                break;
+                break;
+        }
+    }
+    printf("after loop\n");
+}
+```
+a) a after loop
+b) a a after loop
+c) after loop
+d) Error
+K: b
+X: Same as Q116: the switch's break doesn't end the loop, so "a " is printed twice.
+S: switch break stays inside the loop.
+
+#124 p432 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    printf("before continue ");
+    continue;
+    printf("after continue\n");
+}
+```
+a) Before continue after continue
+b) Before continue
+c) After continue
+d) Compile time error
+K: d
+X: Same as Q117: `continue` outside a loop is a compile error.
+S: continue outside loop → error.
+
+#125 p432 a460
+Q: Which of the following can never be sent by call-by-value?
+a) Variable
+b) Array
+c) Structures
+d) Both Array and Structures
+K: b
+X: An array argument decays to a pointer to its first element, so the function always receives the address, never a copy of the array. Structures, by contrast, are copied when passed by value.
+S: Array arg → pointer (never copied); struct → copied.
+
+#126 p432 a460
+Q: Which type of variables can have the same name in a different function?
+a) Global variables
+b) Static variables
+c) Function arguments
+d) Both static variables and function arguments
+K: d
+X: Parameters and static locals have block scope, so each function can reuse the same names. Global variables share one file scope, so two globals cannot have the same name.
+S: Locals (static or not) & params → reusable names.
+
+#127 p432 a460
+Q: Arguments that take input by user before running a program are called?
+a) Main function arguments
+b) Main arguments
+c) Command-Line arguments
+d) Parameterized arguments
+K: c
+X: Command-line arguments are typed after the program name and received in `main(int argc, char *argv[])`: argc is the count, and argv holds the strings (argv[0] is the program name).
+S: argc = count; argv = strings.
+
+#128 p432 a460
+Q: What is the maximum number of arguments that can be passed in a single function?
+a) 127
+b) 253
+c) 361
+d) No limits in number of arguments
+K: a
+B: b
+X: The C standard (C99/C11 §5.2.4.1, translation limits) guarantees at least 127 parameters in a function definition and 127 arguments in a call. That is the portable limit every conforming compiler must support. Real compilers often allow more, but 253 has no basis in the C standard.
+S: C99 translation limit: 127 parameters / arguments (C89: 31).
+N: The book prints (b) 253, a figure not found in the C standard. The standard's guaranteed limit is 127 (§5.2.4.1), so the key is (a).
+
+#129 p432 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void m(int *p, int *q)
+{
+    int temp = *p; *p = *q; *q = temp;
+}
+void main()
+{
+    int a = 6, b = 5;
+    m(&a, &b);
+    printf("%d %d\n", a, b);
+}
+```
+a) 5 6
+b) 6 5
+c) 5 5
+d) 6 6
+K: a
+X: The addresses of a and b are passed (call by reference using pointers), so the function swaps the original variables: a = 5, b = 6.
+S: Swap works only via pointers.
+
+#130 p433 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void m(int *p)
+{
+    int i = 0;
+    for(i = 0;i < 5; i++)
+        printf("%d\t", p[i]);
+}
+void main()
+{
+    int a[5] = {6, 5, 3};
+    m(&a);
+}
+```
+a) 0 0 0 0 0
+b) 6 5 3 0 0
+c) Run time error
+d) 6 5 3 junk junk
+K: b
+X: The unlisted elements a[3] and a[4] are zero-initialised. `&a` has the same address as `a` (with a different type, so there is a warning), so the function prints 6 5 3 0 0.
+S: Partial array init → trailing zeros.
+
+#131 p433 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void m(int p, int q)
+{
+    int temp = p;
+    p = q;
+    q = temp;
+}
+void main()
+{
+    int a = 6, b = 5;
+    m(a, b);
+    printf("%d %d\n", a, b);
+}
+```
+a) 5 6
+b) 5 5
+c) 6 5
+d) 6 6
+K: c
+X: With call by value, the function swaps its own copies p and q. The caller's a and b are unchanged: 6 5.
+S: Call by value → caller unchanged.
+
+#132 p433 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void m(int p, int q)
+{
+    printf("%d %d\n", p, q);
+}
+void main()
+{
+    int a = 6, b = 5;
+    m(a);
+}
+```
+a) 6
+b) 6 5
+c) 6 junk value
+d) Compile time error
+K: d
+X: `m` is prototyped with two parameters, so calling it with one argument is an error: "too few arguments to function 'm'".
+S: Prototype mismatch in argument count → error.
+
+#133 p434 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void m(int p)
+{
+    printf("%d\n", p);
+}
+void main()
+{
+    int a = 6, b = 5;
+    m(a, b);
+    printf("%d %d\n", a, b);
+}
+```
+a) 6
+b) 6 5
+c) 6 junk value
+d) Compile time error
+K: d
+X: The call passes two arguments to a function prototyped with one: "too many arguments to function 'm'".
+S: Too many arguments → error.
+
+#134 p434 a460
+Q: What will be output of the following C code where we copy an array 'a' into array 'b' and then the array 'b' into 'a'?
+```
+#include<stdio.h>
+#include<string.h>
+main()
+{
+    char a[] = "hell";
+    char b[] = "hello";
+    strcpy(b, a);
+    strcpy(a, b);
+    printf("%s, %s", a, b);
+}
+```
+a) hello, hello
+b) hell, hell
+c) hell, hello
+d) Runtime Error
+K: b
+X: `strcpy(b, a)` copies "hell" plus its '\0' into b, so b becomes "hell". Copying b back into a leaves a as "hell". Output: "hell, hell".
+S: strcpy(dest, src) copies up to and including '\0'.
+
+#135 p434 a460
+Q: Which keyword is used to make the array size optional in C language during array declaration?
+a) auto
+b) static
+c) extern
+d) register
+K: c
+X: `extern int arr[];` declares an array defined in another file, so its size can be omitted. Arrays with an initialiser, such as `int a[] = {1, 2};`, may also omit the size.
+S: extern int a[]; → size optional.
+
+#136 p435 a460
+Q: Which of the following is the correct syntax to send an array as a parameter to a C function?
+a) Both func(&array) and func(*array);
+b) Both func(#array) and func(&array);
+c) Both func(array) and func(&array);
+d) Both func(array[size]) and func(*array);
+K: c
+X: `func(array)` passes a pointer to the first element, and `func(&array)` passes the same address (as a pointer-to-array). `*array` passes only the first element's value, and `array[size]` passes one element that is out of bounds.
+S: Pass array → func(array).
+
+#137 p435 a460
+Q: What are the different ways to initialize an array with all elements as zero?
+a) `int array[5] = {};`
+b) `int array[5] = {0};`
+c) `int a = 0, b = 0, c = 0; int array[5] = {a, b, c};`
+d) All of the mentioned
+K: d
+X: All three leave every element zero. Any elements not initialised become 0, and variables may initialise a local array. Note: the empty `{}` initialiser is standard only from C23 (earlier it is a GNU extension). `{0}` is the classic portable form.
+S: Portable zero-fill → {0}.
+
+#138 p435 a460
+Q: What are the elements present in the array of the following C code?
+```
+int array[5] = {5};
+```
+a) 5, 5, 5, 5, 5
+b) 5, 0, 0, 0, 0
+c) 5, (garbage), (garbage), (garbage), (garbage)
+d) (garbage), (garbage), (garbage), (garbage), 5
+K: b
+X: Only the first element is given. The remaining elements are zero-initialised (same as Q56).
+S: {5} → 5, 0, 0, 0, 0.
+
+#139 p435 a460
+Q: Which of the following declaration is illegal?
+a) `int a = 0, b = 1, c = 2; int array[3] = {a, b, c};`
+b) `int size = 3; int array[size];`
+c) `int size = 3; int array[size] = {1, 2, 3};`
+d) All of the mentioned
+K: c
+X: `int array[size]` with a variable size is a variable-length array (C99), which is legal (b). But a VLA cannot have an initialiser, so c is illegal. Option a is fine for a local array.
+S: VLA ✓, VLA with initialiser ✗.
+
+#140 p435 a460
+Q: An array of similar data types which themselves are a collection of dissimilar data type are ______
+a) Linked Lists
+b) Trees
+c) Array of Structure
+d) All of the mentioned
+K: c
+X: An array needs elements of one type. A struct groups members of different types, so an array of structs is an array of identical elements that each contain mixed data.
+S: Array (same type) of struct (mixed types).
+
+#141 p435 a460
+Q: Comment on an array of the void data type.
+a) It can store any data-type
+b) It only stores element of similar data type to first element
+c) It acquires the data type with the highest precision in it
+d) You cannot have an array of void data type
+K: d
+X: `void` is an incomplete type with no size, so `void arr[10];` is illegal. An array of `void *` pointers is allowed.
+S: void arr[] ✗; void *arr[] ✓.
+
+#142 p435 a460
+Q: An array in C cannot be initialized by which of the following statement?
+a) `char a[] = "Hello";`
+b) `char a[6] = {};`
+c) `char a[6] = {0};`
+d) `char a[6]; a = "Hello";`
+K: d
+X: An array name is not assignable, so `a = "Hello";` after the declaration is an error. Use `strcpy(a, "Hello")`, or initialise it in the declaration.
+S: Arrays can be initialised, never assigned.
+
+#143 p435 a460
+Q: What is the data type of the array passed from the command line into the main() function in C?
+a) `char arr[];`
+b) `char *arr[];`
+c) `char **arr[];`
+d) `char arr[][];`
+K: b
+X: `argv` is an array of pointers to char, `char *argv[]` (equivalently `char **argv`), with one string per argument.
+S: argv : char *argv[].
+
+#144 p436 a460
+Q: Which of the following C statement will calculate the correct size of an array of 10 integers? (Assuming the declaration as int a[10];)
+a) `sizeof(a[10]);`
+b) `sizeof(*a);`
+c) `sizeof(a);`
+d) `sizeof(&a);`
+K: c
+X: `sizeof(a)` gives the whole array, 10 × sizeof(int) = 40 bytes. `sizeof(*a)` and `sizeof(a[10])` give one int, and `sizeof(&a)` gives the size of a pointer. The element count is `sizeof(a) / sizeof(a[0])`.
+S: Array length = sizeof(a) / sizeof(a[0]).
+
+#145 p436 a460
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    char *s = "hello";
+    char *p = s * 3;
+    printf("%c\t%c", *p, s[1]);
+}
+```
+a) h e
+b) l e
+c) Compile time error
+d) l h
+K: c
+X: Pointers cannot be multiplied ("invalid operands to binary *"). Only adding or subtracting an integer, and subtracting two pointers, are allowed.
+S: Pointer arithmetic: ± integer, pointer − pointer only.
+
+#146 p436 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+void main()
+{
+    char *s = "hello";
+    char *p = s + 2;
+    printf("%c\t%c", *p, s[1]);
+}
+```
+a) l e
+b) h e
+c) l l
+d) h l
+K: a
+X: `s + 2` points to the third character, 'l', and `s[1]` is 'e'.
+S: s + k → (k+1)th char; s[k] same element.
+
+#147 p436 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    void *p;
+    int a[4] = {1, 2, 3, 8};
+    p = &a[3];
+    int *ptr = &a[2];
+    int n = p - ptr;
+    printf("%d\n", n);
+}
+```
+a) 1
+b) Compile time error
+c) Segmentation fault
+d) 4
+K: b
+X: `p - ptr` subtracts an `int *` from a `void *`. Pointer subtraction needs both operands to point to the same (compatible) type, so this is an error ("invalid operands to binary -"). Casting `(int *)p` fixes it, as in Q148.
+S: Pointer − pointer needs compatible types.
+
+#148 p437 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    void *p;
+    int a[4] = {1, 2, 3, 4};
+    p = &a[3];
+    int *ptr = &a[2];
+    int n = (int*)p - ptr;
+    printf("%d\n", n);
+}
+```
+a) 1
+b) Compile time error
+c) Segmentation fault
+d) 4
+K: a
+X: After the cast both are `int *`. Pointer difference counts elements, not bytes: &a[3] − &a[2] = 1.
+S: Pointer difference = element count.
+
+#149 p437 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int a[4] = {1, 2, 3, 4};
+    int b[4] = {1, 2, 3, 4};
+    int n = &b[3] - &a[2];
+    printf("%d\n", n);
+}
+```
+a) -3
+b) 5
+c) 4
+d) Compile time error
+K: a
+X: The book's answer, −3, is what you get when b is placed on the stack directly below a (b[3] is then the element just before a[0]). But subtracting pointers into two different arrays is undefined behaviour: the result depends on how the compiler lays out the arrays.
+S: Pointer subtraction is valid only within the same array.
+N: This is undefined behaviour in standard C. Clang prints −3 (the book's key), while GCC prints 5 (option b). Remember the rule rather than a number.
+
+#150 p437 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int a[4] = {1, 2, 3, 4};
+    int *p = &a[1];
+    int *ptr = &a[2];
+    ptr = ptr * 1;
+    printf("%d\n", *ptr);
+}
+```
+a) 2
+b) 1
+c) Compile time error
+d) Undefined behaviour
+K: c
+X: Multiplying a pointer is not allowed, even by 1. The operands of `*` must be arithmetic types.
+S: No pointer × or ÷.
+
+#151 p437 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int a[4] = {1, 2, 3, 4};
+    int *ptr = &a[2];
+    float n = 1;
+    ptr = ptr + n;
+    printf("%d\n", *ptr);
+}
+```
+a) 4
+b) 3
+c) Compile time error
+d) Undefined behaviour
+K: c
+X: A pointer can only be offset by an integer. `ptr + n` with a float n is "invalid operands to binary +". With `int n = 1` it would print 4.
+S: Pointer + integer only (not float).
+
+#152 p438 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    int a[4] = {1, 2, 3, 4};
+    void *p = &a[1];
+    void *ptr = &a[2];
+    int n = 1;
+    n = ptr - p;
+    printf("%d\n", n);
+}
+```
+a) 1
+b) 4
+c) Compile time error
+d) Depends on the compiler
+K: b
+X: GCC treats `void *` arithmetic as if on `char *`, i.e. bytes. The two addresses are one int (4 bytes) apart, so it prints 4, which is the book's answer.
+S: void * arithmetic = bytes (GCC extension).
+N: Strictly, ISO C does not allow arithmetic on `void *`, and strict compilers such as MSVC, or GCC with `-pedantic-errors`, reject it. So (d) "Depends on the compiler" is also defensible. The book's (b) is the GCC result.
+
+#153 p438 a461
+Q: Which is the correct syntax to use typedef for struct?
+a) `typedef struct temp { int a; } TEMP;`
+b) `typedef struct { int a; } TEMP;`
+c) `struct temp { int a; }; typedef struct temp TEMP;`
+d) All of the mentioned
+K: d
+X: All three are valid. Either give the typedef along with the definition (tagged or anonymous), or define the struct first and add the typedef afterwards.
+S: All three typedef-struct forms are valid.
+
+#154 p438 a461
+Q: Which option should be selected to work the following C expression?
+```
+string p = "HELLO";
+```
+a) `typedef char [] string;`
+b) `typedef char *string;`
+c) `typedef char [] string;` and `typedef char *string;`
+d) Such expression cannot be generated in C
+K: b
+X: This repeats Q54: `typedef char *string;` makes `string` a pointer-to-char type.
+S: string ≡ char *.
+
+#155 p438 a461
+Q: Which of the given option is the correct method for initialization?
+```
+typedef char *string;
+```
+a) `*string *p = "Hello";`
+b) `string p = "Hello";`
+c) `*string p = 'A';`
+d) Not more than one space should be given when using typedef
+K: b
+X: `string` already means `char *`, so `string p = "Hello";` declares a char pointer to the literal. The other forms are malformed.
+S: Use the typedef name like a type.
+
+#156 p439 a461
+Q: Which of the following is false about typedef?
+a) typedef follow scope rules
+b) typedef defined substitutes can be redefined again. (Eg: typedef char a; typedef int a;)
+c) You cannot typedef a typedef with other term
+d) All of the mentioned
+K: b
+X: A typedef name cannot be redefined as a different type in the same scope, so `typedef char a; typedef int a;` is an error. (C11 allows repeating it only with the same type.) Typedefs do follow scope rules.
+S: typedef name can't be re-typedef'd to another type.
+
+#157 p439 a461
+Q: Which of the following may create problem in the typedef program?
+a) ;
+b) printf/scanf
+c) Arithmetic operators
+d) All of the mentioned
+K: d
+X: The book's (source) answer. A typedef name hides nothing magical, but misuse around it (a missing or extra semicolon in the typedef line, format specifiers that don't match the real underlying type in printf/scanf, and arithmetic on typedef'd pointer types) are common sources of errors.
+S: Book: all of the mentioned.
+
+#158 p439 a461
+Q: `typedef int (*PFI)(char *, char *)` creates ______
+a) type PFI, for pointer to function (of two char * arguments) returning int
+b) Error
+c) type PFI, function (of two char * arguments) returning int
+d) type PFI, for pointer
+K: a
+X: Read it from the name outwards: PFI is a pointer (`*PFI`) to a function taking (char *, char *) and returning int. This example is from K&R, used for comparison functions like strcmp.
+S: (*PFI)(…) → pointer to function.
+
+#159 p439 a461
+Q: What is typedef declaration?
+a) Does not create a new type
+b) It merely adds a new name for some existing type
+c) Does not create a new type, It merely adds a new name for some existing type
+d) None of the mentioned
+K: c
+X: A typedef creates an alias, not a new type. The compiler treats the alias exactly like the original type.
+S: typedef = alias, not a new type.
+
+#160 p439 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+typedef struct student
+{
+    char *a;
+}stu;
+void main()
+{
+    stu s;
+    s.a = "hi";
+    printf("%s", s.a);
+}
+```
+a) Compile time error
+b) Varies
+c) hi
+d) h
+K: c
+B: a
+X: `stu` is a typedef for `struct student`, so `stu s;` is a valid declaration. Assigning a string literal's address to `char *a` is fine, and the program prints "hi". Writing `struct stu s;` would be an error, because stu is a typedef name, not a struct tag.
+S: typedef name: stu s ✓; struct stu s ✗.
+N: The book prints (a), compile-time error. That key belongs to the source question, which declares `struct stu s;`. The code as printed in the book declares `stu s;`, which compiles and prints "hi", so the key is (c) for the code shown.
+
+#161 p439 a461
+Q: Which of the following fopen() statements are illegal?
+a) `fp = fopen("abc.txt", "r");`
+b) `fp = fopen("/home/user1/abc.txt", "w");`
+c) `fp = fopen("abc", "w");`
+d) None of the mentioned
+K: d
+X: All three are legal. The file name may be relative or absolute and needn't have an extension, and "r" and "w" are valid modes. (fopen may still fail at run time and return NULL.)
+S: Any path/name is legal; check for NULL at run time.
+
+#162 p439 a461
+Q: What does the following segment of C code do?
+```
+fprintf(fp, "Copying!");
+```
+a) It writes "Copying!" into the file pointed by fp
+b) It reads "Copying!" from the file and prints on display
+c) It writes as well as reads "Copying!" to and from the file and prints it
+d) None of the mentioned
+K: a
+X: `fprintf` is printf for a stream. It writes the formatted text to the file that fp refers to.
+S: fprintf = printf to a file.
+
+#163 p440 a461
+Q: What is FILE reserved word?
+a) A structure tag declared in stdio.h
+b) One of the basic data types in C
+c) Pointer to the structure defined in stdio.h
+d) It is a type name defined in stdio.h
+K: d
+X: `FILE` is a typedef name (for an implementation-specific struct) declared in `<stdio.h>`. It is not a keyword or basic type, and not itself a pointer (we use `FILE *`).
+S: FILE = typedef'd type from stdio.h.
+
+#164 p440 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp = stdin;
+    int n;
+    fprintf(fp, "%d", 45);
+}
+```
+a) Compilation error
+b) 45
+c) Nothing
+d) Depends on the standard
+K: c
+X: `stdin` is an input stream opened for reading. Writing to it fails (fprintf returns −1) and nothing appears on the screen. The code compiles fine.
+S: Writing to stdin → nothing.
+
+#165 p440 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    FILE *fp = stdout;
+    int n;
+    fprintf(fp, "%d", 45);
+}
+```
+a) Compilation error
+b) 45
+c) Nothing
+d) Depends on the standard
+K: b
+X: `fprintf(stdout, …)` is exactly `printf(…)`, so 45 is displayed.
+S: fprintf(stdout, …) ≡ printf(…).
+
+#166 p440 a461
+Q: stdout, stdin and stderr are ______
+a) File pointers
+b) File descriptors
+c) Streams
+d) Structure
+K: a
+X: In C they are predefined `FILE *` values (file pointers) declared in stdio.h. The underlying OS file descriptors are 0, 1 and 2.
+S: stdin/stdout/stderr = FILE * (fd 0, 1, 2).
+
+#167 p440 a461
+Q: Which of the following statements about stdout and stderr are true?
+a) Same
+b) Both connected to screen always
+c) Both connected to screen by default
+d) stdout is line buffered but stderr is unbuffered
+K: c
+X: By default both go to the terminal, but either can be redirected, e.g. `2> err.txt`, so "always" is wrong.
+S: stdout & stderr → screen by default, redirectable.
+N: Option (d) is also true when stdout is a terminal: stdout is line-buffered and stderr unbuffered, which is exactly what Q168–Q170 rely on. The book's intended answer is (c).
+
+#168 p440 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp = stdout;
+    int n;
+    fprintf(fp, "%d ", 45);
+    fprintf(stderr, "%d ", 65);
+    return 0;
+}
+```
+a) 45 65
+b) 65 45
+c) 65
+d) Compilation error
+K: b
+X: "45 " goes into stdout's buffer, with no newline to flush it. stderr is unbuffered, so "65 " appears at once, and 45 appears only when stdout is flushed at program exit.
+S: stderr unbuffered → can jump ahead of stdout.
+
+#169 p441 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp = stdout;
+    int n;
+    fprintf(fp, "%d\n ", 45);
+    fprintf(stderr, "%d ", 65);
+    return 0;
+}
+```
+a) 45 65
+b) 65 45
+c) 65
+d) Compilation error
+K: a
+X: On a terminal stdout is line-buffered, so the `\n` flushes "45" immediately, before stderr prints 65. (If stdout were redirected to a file it would be fully buffered and the order could change.)
+S: \n flushes a line-buffered stdout.
+
+#170 p441 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    FILE *fp = stdout;
+    int n;
+    fprintf(fp, "%d ", 45);
+    fflush(stdout);
+    fprintf(stderr, "%d", 65);
+    return 0;
+}
+```
+a) 45 65
+b) 65 45
+c) 45
+d) Compilation error
+K: a
+X: `fflush(stdout)` forces "45 " out before stderr writes 65.
+S: fflush forces buffered output out.
+
+#171 p441 a461
+Q: Which of the following mathematical function requires 2 parameter for successful function call?
+a) fmod();
+b) div();
+c) atan2();
+d) All of the mentioned
+K: d
+X: `fmod(x, y)` gives the floating remainder, `div(num, den)` returns quotient and remainder in a `div_t`, and `atan2(y, x)` gives the angle of the point (x, y). All three take two arguments.
+S: Two-argument: fmod, div, atan2, pow.
+
+#172 p441 a461
+Q: Which mathematical function among the following does NOT require int parameters?
+a) div(x, y);
+b) srand(x);
+c) sqrt(x);
+d) All of the mentioned
+K: c
+X: `sqrt` takes and returns a double. `div` takes ints, and `srand` takes an unsigned int seed.
+S: math.h functions work on double.
+
+#173 p441 a461
+Q: What will sin(x) return?
+a) Sine of x where x is in radians
+b) Sine of x where x is in degree
+c) Cosine of x where x is in radians
+d) Cosine of x where x is in degree
+K: a
+X: The C trigonometric functions take angles in radians. To use degrees, convert first: radians = degrees × π / 180.
+S: C trig functions → radians.
+
+#174 p442 a461
+Q: What will cos(x) return?
+a) Sine of x where x is in radians
+b) Sine of x where x is in degree
+c) Cosine of x where x is in radians
+d) Cosine of x where x is in degree
+K: c
+X: `cos(x)` returns the cosine of x, with x in radians.
+S: cos(x): x in radians.
+
+#175 p442 a461
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+#include <math.h>
+void main()
+{
+    int k = pow(2, 3);
+    printf("%d\n", k);
+}
+```
+a) 9
+b) 8
+c) -1
+d) 6
+K: b
+X: `pow(2, 3)` = 2³ = 8.0, which is converted to int 8.
+S: pow(x, y) = x^y (returns double).
+
+#176 p442 a462
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+#include <math.h>
+void main()
+{
+    int k = fabs(-87);
+    printf("%d\n", k);
+}
+```
+a) -87
+b) 87
+c) 78
+d) Error
+K: b
+X: `fabs` returns the absolute value of a double: 87.0, stored as the int 87. (`abs` is the int version, in stdlib.h.)
+S: fabs → double abs; abs → int abs.
+
+#177 p442 a462
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+#include <math.h>
+void main()
+{
+    int k = sqrt(-4);
+    printf("%d\n", k);
+}
+```
+a) -2
+b) 2
+c) Compile time error
+d) An unpredictable integer (sqrt(-4) is NaN, which an int cannot hold)
+K: d
+X: `sqrt(-4)` is a domain error and returns NaN (not a number). Converting NaN to int is undefined behaviour. GCC on x86 prints −2147483648, and the program cannot print "NaN" through `%d` at all.
+S: sqrt(negative) → NaN (domain error).
+N: The book's option (d) reads "NaN". sqrt(−4) does produce NaN, but the result is stored in an int and printed with %d, so "NaN" is never displayed. Option (d) has been reworded to describe what actually happens. It remains the keyed answer.
+
+#178 p442 a462
+Q: Which among the following mathematical function do not have a "double" return-type?
+a) srand(x);
+b) ceil(x);
+c) floor(x);
+d) Both ceil(x) and floor(x);
+K: a
+X: `srand` (stdlib.h) returns void: it only seeds the generator. `ceil` and `floor` return double.
+S: srand → void; ceil/floor → double.
+
+#179 p442 a462
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    printf("%d\n", rand() % 1000);
+    return 0;
+}
+```
+a) Compile time error
+b) An integer between 0-1000
+c) An integer between 0-999 including 0 and 999
+d) An integer between 0-1000 including 1000
+K: c
+X: `x % 1000` is always in the range 0 to 999, whatever non-negative value rand() returns.
+S: rand() % n → 0 … n−1.
+
+#180 p443 a462
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    srand(9000);
+    printf("%d\n", rand());
+    return 0;
+}
+```
+a) Compile time error
+b) An integer in the range 0 to RAND_MAX
+c) A double in the range 0 to 1
+d) A float in the range 0 to 1
+K: b
+X: `rand()` returns an int from 0 to RAND_MAX (at least 32767). `srand` only sets the starting seed.
+S: rand() → int in [0, RAND_MAX].
+
+#181 p443 a462
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    printf("%d\n", srand(9000));
+    return 0;
+}
+```
+a) Compile time error
+b) An integer in the range 0 to 9000
+c) A float in the range 0 to 1
+d) A double in the range 0 to 9000
+K: a
+X: `srand` returns void, and a void value cannot be passed to printf as an argument ("invalid use of void expression").
+S: void result can't be used as a value.
+
+#182 p443 a462
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+int main()
+{
+    srand(time(NULL));
+    printf("%d\n", rand());
+    return 0;
+}
+```
+a) Compile time error
+b) An integer in the range 0 to RAND_MAX
+c) A double in the range 0 to 1
+d) A float in the range 0 to 1
+K: b
+X: Seeding with the current time gives a different sequence on each run, but rand() still returns an int in [0, RAND_MAX]. (Missing headers only produce implicit-declaration warnings on older compilers.)
+S: srand(time(NULL)) → new sequence each run.
+
+#183 p443 a462
+Q: In the below C program, every time program is run different numbers are generated.
+```
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    printf("%d\n", rand());
+    return 0;
+}
+```
+a) True
+b) False
+c) Depends on the platform
+d) Depends on the compiler
+K: b
+X: Without `srand`, the generator starts from the default seed 1 on every run, so the same "random" sequence repeats. rand() is a deterministic pseudo-random generator.
+S: No srand → same sequence every run.
+
+#184 p444 a462
+Q: In the following C program, every time program is run different numbers are generated.
+```
+#include <stdio.h>
+int main()
+{
+    srand(time(NULL));
+    printf("%d\n", rand());
+    return 0;
+}
+```
+a) True
+b) False
+c) Depends on the platform
+d) Depends on the compiler
+K: a
+X: `time(NULL)` changes every second, so each run seeds the generator differently and gets different numbers (unless two runs start within the same second).
+S: Seed with time → varies per run.
+
+#185 p444 a462
+Q: Which of these is a correct way to generate numbers between 0 to 1 (inclusive) randomly?
+a) rand() / RAND_MAX
+b) rand() % 2
+c) rand(0, 1)
+d) None of the mentioned
+K: a
+X: Dividing by RAND_MAX scales rand() into the range 0 to 1 inclusive. In real code at least one operand must be floating, e.g. `(double)rand() / RAND_MAX`, otherwise integer division gives 0 almost always. `rand() % 2` gives only the integers 0 or 1, and `rand(0, 1)` is not valid C.
+S: Uniform [0,1] → (double)rand() / RAND_MAX.
+
+#186 p444 a462
+Q: If by mistake you specify more number of arguments, the excess arguments will ______
+a) be ignored
+b) produce compile error
+c) produce run-time error
+d) produce logical error
+K: a
+X: printf uses only as many arguments as the format string asks for, and extra arguments are evaluated and ignored. (Too few arguments is the dangerous case: undefined behaviour.)
+S: Extra printf args ignored; missing args → UB.
+
+#187 p444 a462
+Q: What happens when zero flag is used with left justification?
+a) Data is padded with zeros
+b) Zero flag is ignored
+c) Data is padded with blank spaces
+d) Will give error
+K: b
+X: With the `-` flag (left justification), the `0` flag is ignored: padding goes on the right, and zeros there would change the value, e.g. `%-05d` of 42 prints "42   ".
+S: %-0… → 0 ignored.
+
+#188 p444 a462
+Q: For floating point numbers, the precision flag specifies the number of decimal places to be printed. When no precision modifier is specified, printf() prints ______
+a) Six decimal positions
+b) Five decimal positions
+c) Four decimal positions
+d) Three decimal positions
+K: a
+X: `%f` defaults to 6 digits after the decimal point, e.g. `printf("%f", 3.5)` prints 3.500000. `%.2f` would give 3.50.
+S: %f default precision = 6.
+
+#189 p444 a462
+Q: What will the given code result in?
+```
+printf("\n you are\"awesome \" ");
+```
+a) Compile error
+b) Run-time error
+c) you are "awesome "
+d) you are awesome
+K: c
+X: `\"` is the escape sequence for a double-quote character inside a string, so the quotes are printed: you are "awesome ".
+S: \" prints a quote.
+
+#190 p444 a462
+Q: What will be the output for the given code?
+```
+printf("\n The number is %07d", 1212);
+```
+a) The number is 0001212
+b) The number is 1212
+c) The number is 1212 (followed by three spaces)
+d) The number is 1212000
+K: a
+X: `%07d` means a width of 7, padded on the left with zeros: 1212 → 0001212.
+S: %0wd → zero-padded to width w.
+N: In the book, options (b) and (c) are printed identically as "The number is 1212". Option (c) is shown here as the space-padded form, so the four choices stay distinct.
+
+#191 p445 a462
+Q: What will be the output of the following code?
+```
+char t = 'N';
+printf("\n %c \n %3c \n %5c", t, t, t);
+```
+a) Three N's on separate lines, each indented less than the one before
+b) Three N's on separate lines, each indented more than the one before (field widths 1, 3, 5)
+c) Three N's on separate lines, aligned one below the other
+d) N N N on a single line
+K: b
+X: Each `\n` starts a new line. `%c`, `%3c` and `%5c` print N right-justified in fields 1, 3 and 5 wide, so the N moves further right on each line, like a staircase.
+S: %wc → char right-justified in width w.
+
+#192 p445 a462
+Q: Select the right explanation to the given code.
+```
+printf("%*.*f", 5, 4, 5700);
+```
+a) The minimum field width has to be 4, the precision is given to be 5, and the value to be displayed is 5700
+b) The minimum field width is 5, the precision is 4, and the value to be displayed is 5700
+c) Compile error
+d) Run-time error
+K: b
+X: A `*` in the width or precision takes that number from the argument list, in order: width 5, precision 4, then the value. (Here 5700 should be a floating value, e.g. `5700.0`, for `%f` to print 5700.0000 correctly.)
+S: %*.*f → width, precision taken from args.
+
+#193 p445 a462
+Q: What will be the output of the following C code?
+```
+char str[] = "Hello Nancy";
+printf("\n %.7s", str);
+```
+a) Hello Nan
+b) Hello
+c) Hello N
+d) Hello Nancy
+K: c
+X: For strings, the precision is the maximum number of characters printed. `%.7s` prints the first 7, "Hello N" (the space counts).
+S: %.ns → at most n characters.
+
+#194 p445 a462
+Q: What will be the output of the following C code?
+```
+char str[] = "Too Good";
+printf("\n %7s", str);
+```
+a) Too Good
+b) Too G
+c) Too Go
+d) Too
+K: a
+X: Width is only a minimum. "Too Good" has 8 characters, more than 7, so it is printed in full without truncation.
+S: Width never truncates; precision does.
+
+#195 p445 a463
+Q: What will be the output of the following C code?
+```
+printf("\n Output: %5d \t %x \t %#x", 234, 234, 234);
+```
+a) Output:234EA0xEA
+b) Output:00234 EA 0xEA
+c) Output:   234 EA 0xEA
+d) ERROR
+K: c
+X: `%5d` pads 234 to width 5 with spaces, `\t` inserts tabs, `%x` prints hexadecimal ea, and `%#x` adds the 0x prefix: 0xea. (The letters are lowercase with `%x`; `%X` gives uppercase EA.)
+S: %x hex · %#x with 0x · %X uppercase.
+
+#196 p445 a463
+Q: Select the correct value of i from given options.
+```
+i = scanf("%d %d", &a, &b);
+```
+a) 1
+b) 2
+c) 3
+d) No value assigned
+K: b
+X: scanf returns the number of items successfully read and stored, here 2 if both ints are read. It returns EOF if input ends first.
+S: scanf returns count of items assigned.
+
+#197 p446 a463
+Q: If the user enters 1 3.2 s, what value will be returned by the scanf()?
+```
+scanf("%d %f %c", &s1, &s2, &s3);
+```
+a) 1
+b) 2
+c) 3
+d) No return value
+K: c
+X: All three conversions succeed: 1 goes to %d, 3.2 to %f and 's' to %c, so scanf returns 3.
+S: All matched → returns 3.
+
+#198 p446 a463
+Q: If the user enters 1s 3.2, what value will be returned by the scanf()?
+```
+scanf("%d %f %c", &a, &b, &c);
+```
+a) 1
+b) 2
+c) 3
+d) No return value
+K: a
+X: `%d` reads 1 and stops at 's'. `%f` then meets 's', which cannot start a number, so scanf stops and returns 1.
+S: scanf stops at the first mismatch.
+
+#199 p446 a463
+Q: What error will be generated on using incorrect specifier for the datatype being read?
+a) Compile error
+b) Run-time error
+c) Logical error
+d) No error
+K: b
+X: The book's answer is a run-time error: the program compiles, but the wrong specifier makes scanf store bytes in the wrong format, so values are corrupted when it runs. Strictly this is undefined behaviour, and modern compilers can warn with `-Wformat`.
+S: Wrong format specifier → wrong values at run time (UB).
+
+#200 p446 a463
+Q: What is the prototype of scanf function?
+a) scanf("controlstring", arg1, arg2, arg3, …, argn);
+b) scanf("control string", variable list);
+c) scanf(" variable list,", control string);
+d) scanf("arg1, arg2, arg3, …, argn", control string);
+K: a
+X: The control (format) string comes first, followed by the addresses of the variables. The formal declaration is `int scanf(const char *format, ...);`.
+S: scanf(format, &var1, &var2 …).
+
+#201 p446 a463
+Q: Control string specifies the type and format of the data that has to be obtained from the keyboard.
+a) True
+b) False
+K: a
+X: The format (control) string tells scanf what to expect, e.g. `%d`, `%f`, `%s`, and how to convert it before storing it at the given addresses.
+S: Control string = expected input format.
+
+#202 p446 a463
+Q: What is the qualifying input for the type specifier G?
+a) Floating point numbers
+b) Floating point numbers in exponential format
+c) Floating point numbers in the shorter of exponential format
+d) Not a type specifier
+K: c
+X: `%g` / `%G` prints a floating-point number in whichever of `%f` or `%e` (`%E` for G) is shorter, dropping trailing zeros.
+S: %g = shorter of %f / %e.
+
+#203 p446 a463
+Q: scanf() is a predefined function in ______ header file.
+a) stdlib.h
+b) ctype.h
+c) stdio.h
+d) stdarg.h
+K: c
+X: `scanf` and `printf` are declared in `<stdio.h>` (same as Q32).
+S: I/O → stdio.h.
+
+#204 p446 a463
+Q: What does the C statement given below say?
+```
+scanf("%7s", ch);
+```
+a) Read string with minimum 7 characters
+b) Read string with maximum 7 characters
+c) Read string exactly to 7 characters
+d) Read string with any number of characters
+K: b
+X: In scanf, the width is the maximum number of characters to read, so `%7s` reads at most 7 non-space characters. The buffer needs 8 bytes, to leave room for the '\0'.
+S: scanf width = max chars (guards overflow).
+
+#205 p447 a463
+Q: What is the meaning of the following C statement?
+```
+scanf("%[^\n]s", ch);
+```
+a) Read all characters except new line
+b) Read all characters
+c) Read only new line character
+d) Syntax error
+K: a
+X: `%[^\n]` is a scanset that matches every character except newline, so it reads a whole line including spaces. The trailing `s` in the format is just a literal that is matched (and is redundant).
+S: %[^\n] → read full line with spaces.
+
+#206 p447 a463
+Q: What is the function of fputs()?
+a) Read a line from a file
+b) Read a character from a file
+c) Write a character to a file
+d) Write a line to a file
+K: d
+X: `int fputs(const char *str, FILE *stream)` writes a string to a stream, without adding a newline. `fgets` reads a line, and `fputc` / `putc` write a single character.
+S: fgets read line · fputs write line · fgetc/fputc char.
+
+#207 p447 a464
+Q: What does the following C code snippet mean?
+```
+char *gets(char *s)
+```
+a) Reads the next input line into the array s
+b) Writes the line into the array s
+c) Reads the next input character into the array s
+d) Write a character into the array
+K: a
+X: `gets` reads the next line from stdin into s and replaces the newline with '\0'. It cannot limit the input length, which risks buffer overflow, so it was removed in C11. Use `fgets` instead.
+S: gets → unsafe, removed in C11; use fgets.
+
+#208 p447 a464
+Q: Which function will return the current file position for stream?
+a) fgetpos()
+b) fseek()
+c) ftell()
+d) fsetpos()
+K: c
+X: `ftell(fp)` returns the current file position as a long (−1L on error). `fseek` moves the position, and `fgetpos`/`fsetpos` save and restore it through an `fpos_t` object.
+S: ftell → position; fseek → move; rewind → start.
+
+#209 p447 a464
+Q: Select the right explanation for the following C code snippet.
+```
+int fgetpos(FILE *stream, fpos_t *s)
+```
+a) Records the current position in stream in *s
+b) Sets the file position for stream in *s
+c) Positions stream at the position recorded in *s
+d) Reads from stream into the array ptr
+K: a
+X: `fgetpos` stores the current position in `*s` so that `fsetpos` can return to it later. Option c describes fsetpos.
+S: fgetpos saves; fsetpos restores.
+
+#210 p447 a464
+Q: Which of these functions is used to test the error indicator of a stream?
+a) fseek()
+b) ftell()
+c) ferror()
+d) fsetpos()
+K: c
+X: `ferror(fp)` returns non-zero if the stream's error indicator is set (`clearerr` resets it). Strictly, ferror is declared in `<stdio.h>`. The `<errno.h>` header provides `errno` and the error-code macros.
+S: ferror → stream error flag; errno.h → errno.
+N: The book's stem asks "Which functions is declared in <errno.h>?" None of the options is: all four are `<stdio.h>` functions. The stem has been reworded to match the key (ferror), which is the book's intended error-handling function.
+
+#211 p447 a464
+Q: setvbuf() and setbuf() function controls buffering for the stream.
+a) True
+b) False
+K: a
+X: `setvbuf` chooses the buffering mode (full `_IOFBF`, line `_IOLBF`, none `_IONBF`) and the buffer. `setbuf(fp, NULL)` turns buffering off.
+S: setvbuf/setbuf → control stream buffering.
+
+#212 p447 a464
+Q: The functions vprintf(), vfprintf(), and vsprintf() are not equivalent to the corresponding printf() functions except the variable argument list.
+a) True
+b) False
+K: b
+X: The standard says the opposite: vprintf, vfprintf and vsprintf are equivalent to printf, fprintf and sprintf, except that the variable argument list is replaced by a `va_list` argument. The statement is false.
+S: v…printf = printf with a va_list.
+
+#213 p447 a464
+Q: The ______ function reads at most one less than the number of characters specified by size from the given stream and it is stored in the string str.
+a) fget()
+b) fgets()
+c) fput()
+d) fputs()
+K: b
+X: `fgets(str, size, fp)` reads at most size − 1 characters, stopping after a newline, and always adds '\0', which makes it the safe replacement for gets.
+S: fgets reads ≤ size−1 chars + '\0'.
+
+#214 p448 a464
+Q: What does the following C code snippet mean?
+```
+int ungetc(int c, FILE *stream)
+```
+a) Pushes c back onto a stream
+b) Deletes c from the stream
+c) Reads frequency of c in stream
+d) No action is taken by the command
+K: a
+X: `ungetc` pushes the character c back onto the input stream, so the next read returns it. Only one character of push-back is guaranteed.
+S: ungetc = push back one char.
+
+#215 p448 a464
+Q: Choose the correct difference between getc() and fgetc().
+a) If it is not a macro, it may evaluate stream more than once
+b) If it is a macro, it may not evaluate stream more than once
+c) If it is a macro, it may evaluate stream more than once
+d) No difference between fgetc() and getc()
+K: c
+X: `getc` is equivalent to `fgetc`, except that it may be implemented as a macro and may therefore evaluate its stream argument more than once. So never pass it an argument with side effects. fgetc is always a true function.
+S: getc may be a macro; fgetc is a function.
+
+#216 p448 a464
+Q: Which among the following is never possible in C when members are different in a structure and union?
+```
+//Let P be a structure
+//Let Q be a union
+```
+a) sizeof(P) is greater than sizeof(Q)
+b) sizeof(P) is less than sizeof(Q)
+c) sizeof(P) is equal to sizeof(Q)
+d) None of the mentioned
+K: d
+X: With different members, any relation is possible: the struct may hold small members while the union holds one big one, or the other way round. So none of the three cases is impossible.
+S: Different members → any size relation possible.
+
+#217 p448 a464
+Q: Which among the following is never possible in C when members in a structure are the same as that in a union?
+```
+//Let P be a structure
+//Let Q be a union
+```
+a) sizeof(P) is greater than sizeof(Q)
+b) sizeof(P) is equal to sizeof(Q)
+c) sizeof(P) is less than sizeof(Q)
+d) None of the mentioned
+K: c
+X: With the same members, a union takes the size of its largest member (plus padding), while a struct holds all of them. The struct can be bigger than or equal to the union, but never smaller.
+S: Same members: struct ≥ union.
+
+#218 p448 a464
+Q: What will be the size of the following C structure?
+```
+#include <stdio.h>
+struct temp
+{
+    int a[10];
+    char p;
+};
+```
+a) 5
+b) 11
+c) 41
+d) 44
+K: d
+X: 10 ints take 40 bytes and the char takes 1, making 41. The struct is then padded to a multiple of int's alignment (4), giving 44.
+S: Struct size rounds up to its alignment.
+
+#219 p448 a464
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+main()
+{
+    int a = 1;
+    printf("size of a is %d, ", sizeof(++a));
+    printf("value of a is %d", a);
+};
+```
+a) size of a is 4, value of a is 1
+b) size of a is 4, value of a is 2
+c) size of a is 2, value of a is 1
+d) size of a is 2, value of a is 2
+K: a
+X: `sizeof` is evaluated at compile time from the operand's type, and its operand is never executed (except for variable-length arrays). So `++a` does not run: size 4, and a is still 1.
+S: sizeof doesn't evaluate its operand.
+
+#220 p449 a464
+Q: Which among the following statement is right?
+a) sizeof(struct stemp*) > sizeof(union utemp*) > sizeof(char *)
+b) sizeof(struct stemp*) < sizeof(union utemp*) < sizeof(char *)
+c) sizeof(struct stemp*) = sizeof(union utemp*) = sizeof(char *)
+d) The order depends on the compiler
+K: c
+X: A pointer's size depends on the machine, not on what it points to. On mainstream platforms all data pointers have the same size (4 bytes on 32-bit, 8 on 64-bit).
+S: All data pointers same size (per platform).
+
+#221 p449 a465
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+printf("%d", sizeof(strlen("HELLOWORLD")));
+```
+a) Output, 4
+b) Output, 10
+c) Output, 16
+d) Error, sizeof cannot evaluate size of a function
+K: a
+X: `strlen` is never called here. sizeof gives the size of its return type `size_t`, which is 4 on a 32-bit compiler (the book's assumption). On a 64-bit system it is 8.
+S: sizeof(func call) = sizeof(return type).
+N: The answer 4 assumes a 32-bit compiler. On today's 64-bit systems `size_t` is 8 bytes, so it prints 8, which is not among the options.
+
+#222 p449 a465
+Q: Which of the following cannot be used inside sizeof?
+a) Pointers
+b) Functions
+c) Macro definition
+d) None of the mentioned
+K: d
+X: The book's answer: sizeof accepts a pointer, a function-call expression (giving the size of the return type, as in Q221) and anything a macro expands to (Q223). Strictly, ISO C forbids applying sizeof to a function designator itself, e.g. `sizeof(main)`, although GCC allows it as an extension.
+S: sizeof works on pointers, calls, macro expansions.
+
+#223 p449 a465
+Q: What will be the output of the following C code?
+```
+#include <stdio.h>
+(sizeof double = 8, float = 4, void = 1)
+#define PI 3.14
+int main()
+{
+    printf("%d", sizeof(PI));
+}
+```
+a) Output is 8
+b) Output is 4
+c) Output is 1
+d) Error, we can't use sizeof on macro-definitions
+K: a
+X: The macro expands to `sizeof(3.14)`. An unsuffixed floating constant is a double, so the size is 8. (`3.14f` would be a float, size 4.)
+S: 3.14 → double (8); 3.14f → float (4).
+
+#224 p449 a465
+Q: What is the primary focus of frontend development?
+a) Server configuration
+b) User interface and user experience
+c) Database design
+d) Back-end optimization
+K: b
+C: C10
+X: The frontend is the part of an application that users see and interact with in the browser: layout, UI controls and user experience (UI/UX).
+S: Frontend = client side (UI/UX).
+
+#225 p449 a465
+Q: Which programming languages are commonly used for frontend development?
+a) Python and Ruby
+b) JavaScript, HTML, and CSS
+c) Java and C++
+d) PHP and SQL
+K: b
+C: C10
+X: The browser understands HTML (structure), CSS (style) and JavaScript (behaviour). Frameworks such as React, Angular and Vue are built on them.
+S: Frontend trio: HTML · CSS · JavaScript.
+
+#226 p450 a465
+Q: What does HTML stand for?
+a) Hyper Transfer Markup Language
+b) Hyper Text Markup Language
+c) High-Level Text Markup Language
+d) Home Tool Markup Language
+K: b
+C: C10
+X: HTML = HyperText Markup Language, the standard markup language for the structure and content of web pages.
+S: HTML = HyperText Markup Language.
+
+#227 p450 a465
+Q: Which technology is used for adding interactivity and dynamic behavior to web pages?
+a) HTML
+b) CSS
+c) JavaScript
+d) PHP
+K: c
+C: C10
+X: JavaScript runs in the browser, handling events, form validation, animation and live updates. PHP runs on the server.
+S: Interactivity (client) → JavaScript.
+
+#228 p450 a465
+Q: What is the purpose of CSS (Cascading Style Sheets) in frontend development?
+a) To define the structure of a web page
+b) To manage server-side logic
+c) To style and format web page elements
+d) To store data in a database
+K: c
+C: C10
+X: CSS controls presentation (fonts, colours, layout, positioning), keeping it separate from HTML's structure.
+S: CSS = presentation.
+
+#229 p450 a465
+Q: What is the primary responsibility of the backend in a web application?
+a) Handling user interface design
+b) Managing client-side scripting
+c) Processing server-side logic and data
+d) Storing static files
+K: c
+C: C10
+X: The backend (server side) runs the business logic, talks to the database, handles authentication and serves APIs.
+S: Backend = server + logic + database.
+
+#230 p450 a465
+Q: Which programming languages are commonly used for backend development?
+a) HTML and CSS
+b) JavaScript and TypeScript
+c) Python, Ruby, and PHP
+d) Java and C#
+K: c
+C: C10
+X: Python, Ruby and PHP are classic server-side languages. Java and C# are also widely used on the backend, and so is Node.js (JavaScript). HTML and CSS are frontend only. The book's answer is (c).
+S: Backend: Python · PHP · Ruby · Java · C# · Node.js.
+
+#231 p450 a465
+Q: What is a common database management system (DBMS) used in backend development?
+a) MongoDB
+b) AngularJS
+c) React
+d) Bootstrap
+K: a
+C: C10
+X: MongoDB is a NoSQL document database used on the backend. AngularJS and React are frontend JavaScript frameworks, and Bootstrap is a CSS framework.
+S: MongoDB = DB; Angular/React/Bootstrap = frontend.
+
+#232 p450
+Q: What does REST stand for in the context of backend services?
+a) Reliable State Transfer
+b) Representational State Transfer
+c) Remote Server Testing
+d) Rapid Environment Setup and Testing
+K: b
+C: C10
+X: REST (Representational State Transfer, Roy Fielding, 2000) is an architectural style for web APIs. It uses the HTTP methods GET, POST, PUT and DELETE on resources identified by URLs.
+S: REST = Representational State Transfer.
+N: The book prints no answers after Q231. The keys for Q232–Q253 are supplied here.
+
+#233 p450
+Q: Which of the following is NOT a typical task of a backend developer?
+a) Creating API endpoints
+b) Designing user interfaces
+c) Handling authentication and authorization
+d) Managing server infrastructure
+K: b
+C: C10
+X: Designing user interfaces is frontend (UI/UX) work. APIs, authentication and servers are backend work.
+S: UI design → frontend.
+N: The book prints no answer for this question. The key is supplied.
+
+#234 p451
+Q: What is the purpose of control structures in programming?
+a) To control the flow of electricity
+b) To manage the physical structure of a computer
+c) To specify the order of execution of statements
+d) To control the design of the user interface
+K: c
+X: Control structures (sequence, selection, iteration) decide which statements run, and in what order.
+S: Control structures = order of execution.
+N: The book prints no answer for this question. The key is supplied.
+
+#235 p451
+Q: Which control structure allows a block of code to be executed repeatedly as long as a certain condition is true?
+a) If-else statement
+b) Switch statement
+c) For loop
+d) Function declaration
+K: c
+X: A loop repeats while its condition stays true. Of these options only the for loop is a loop; if-else and switch run their code at most once.
+S: Repetition → loop.
+N: The book prints no answer for this question. The key is supplied.
+
+#236 p451
+Q: In programming, what does "conditional branching" refer to?
+a) Executing code sequentially
+b) Choosing different paths in code execution based on conditions
+c) Jumping randomly between code segments
+d) Running code concurrently
+K: b
+X: Conditional branching (if, if-else, switch) picks one path out of several, depending on whether a condition is true.
+S: Branching = choose a path by condition.
+N: The book prints no answer for this question. The key is supplied.
+
+#237 p451
+Q: Which of the following control structures is used for making decisions based on a condition?
+a) While loop
+b) Function call
+c) If-else statement
+d) For loop
+K: c
+X: if-else is the decision (selection) structure. Loops repeat, and a function call transfers control to a function.
+S: Decision → if-else.
+N: The book prints no answer for this question. The key is supplied.
+
+#238 p451
+Q: What does a "break" statement do within a loop?
+a) Terminates the program
+b) Exits the current loop prematurely
+c) Skips the next iteration of the loop
+d) Restarts the loop from the beginning
+K: b
+X: `break` ends the innermost loop (or switch) immediately, and execution continues after it. `continue` skips the rest of the current iteration.
+S: break = exit loop; continue = next iteration.
+N: The book prints no answer for this question. The key is supplied.
+
+#239 p451
+Q: Which control structure allows you to define a group of statements that will execute at least once, regardless of the condition?
+a) For loop
+b) If-else statement
+c) Switch statement
+d) Do-while loop
+K: d
+X: A do-while loop tests its condition after the body, so the body always runs at least once.
+S: At least once → do-while.
+N: The book prints no answer for this question. The key is supplied.
+
+#240 p451
+Q: What is the purpose of the "switch" statement in programming?
+a) To execute a block of code repeatedly
+b) To handle exceptions and errors
+c) To select one of many code blocks to be executed
+d) To define custom functions
+K: c
+X: switch compares one expression with several constant case labels and runs the matching block. It is a multi-way selection.
+S: switch = multi-way selection.
+N: The book prints no answer for this question. The key is supplied.
+
+#241 p452
+Q: What is an "else if" statement used for in programming?
+a) To check if a variable is undefined
+b) To handle errors and exceptions
+c) To provide an alternative condition to check when the initial condition is false
+d) To declare a new function
+K: c
+X: else-if chains test further conditions in turn, but only when all the earlier ones were false (the if-else-if ladder).
+S: else if = next condition in the ladder.
+N: The book prints no answer for this question. The key is supplied.
+
+#242 p452
+Q: In a "for" loop, what are the three components typically specified within the parentheses?
+a) Condition, initialization, and increment
+b) Start, end, and condition
+c) Counter, termination, and increment
+d) Iterator, step size, and condition
+K: a
+X: The three components are initialisation, condition and increment (update). They are written in that order in C: `for (init; condition; update)`. Option a lists the right three parts, though not in syntax order.
+S: for (init ; condition ; update).
+N: The book prints no answer for this question. The key is supplied.
+
+#243 p452
+Q: Which control structure is most suitable for iterating through elements in an array?
+a) While loop
+b) For loop
+c) If-else statement
+d) Switch statement
+K: b
+X: A for loop puts the index's start, bound and step in one line, e.g. `for (i = 0; i < n; i++)`, which is ideal for walking through an array.
+S: Array traversal → for loop.
+N: The book prints no answer for this question. The key is supplied.
+
+#244 p452
+Q: What is an exception in computer programming?
+a) An unusual hardware malfunction
+b) A runtime error or abnormal condition
+c) A standard computer operation
+d) A type of debugging tool
+K: b
+X: An exception is an abnormal condition that arises at run time and interrupts the normal flow, e.g. division by zero, a missing file or an array index out of bounds.
+S: Exception = run-time abnormal event.
+N: The book prints no answer for this question. The key is supplied.
+
+#245 p452
+Q: Which part of a program is responsible for handling exceptions?
+a) The compiler
+b) The operating system
+c) The exception handler
+d) The user interface
+K: c
+X: The exception handler, e.g. a catch or except block, contains the code that responds to an exception.
+S: Handles exceptions → exception handler (catch).
+N: The book prints no answer for this question. The key is supplied.
+
+#246 p452
+Q: In most programming languages, what keyword is used to raise or throw an exception explicitly?
+a) Catch
+b) Try
+c) Raise
+d) Throw
+K: d
+X: Java, C++, C# and JavaScript use `throw`. Python uses `raise` instead, which is why "most" languages is the key word. `try` marks the protected block and `catch` handles the exception.
+S: throw (Java/C++/JS) · raise (Python).
+N: The book prints no answer for this question. The key is supplied.
+
+#247 p453
+Q: What is the purpose of the "try" block in exception handling?
+a) To define the exception
+b) To enclose code that may raise an exception, so that it can be caught and handled
+c) To specify the default exception handler
+d) To declare variables
+K: b
+X: The try block wraps the risky code. If an exception is thrown inside it, control passes to the matching catch block, which does the actual handling.
+S: try = monitor; catch = handle; finally = always runs.
+N: The book prints no answer for this question. Its option (b) read "To catch and handle exceptions", which is the catch block's job. It has been reworded to describe what the try block actually does.
+
+#248 p453
+Q: In exception handling, what is the role of the "catch" block?
+a) To throw an exception
+b) To handle exceptions by specifying how they should be managed
+c) To terminate the program
+d) To define a variable
+K: b
+X: A catch block names the exception type it handles and contains the code that deals with it.
+S: catch = handler.
+N: The book prints no answer for this question. The key is supplied.
+
+#249 p453
+Q: What is a "checked exception" in Java and similar languages?
+a) An exception that occurs at runtime
+b) An exception that must be explicitly caught or declared
+c) An exception related to hardware failures
+d) An exception that is automatically handled
+K: b
+X: A checked exception (e.g. IOException) must be caught or declared with `throws`, and the compiler enforces this. Unchecked exceptions (RuntimeException subclasses such as NullPointerException) need not be.
+S: Checked = compiler-enforced catch/declare.
+N: The book prints no answer for this question. The key is supplied.
+
+#250 p453
+Q: Which of the following is NOT a common category of exceptions?
+a) Arithmetic exceptions
+b) Logic exceptions
+c) Input/output exceptions
+d) Null pointer exceptions
+K: b
+X: Arithmetic (divide by zero), I/O (file not found) and null-pointer exceptions are standard run-time exception categories, e.g. Java's ArithmeticException, IOException and NullPointerException. Logic errors are bugs in reasoning, usually not raised as exceptions. (C++ does have a `std::logic_error` class, but the book's intended answer is (b).)
+S: Logic error = wrong result, not an exception.
+N: The book prints no answer for this question. The key is supplied.
+
+#251 p453
+Q: What is the purpose of the "finally" block in exception handling?
+a) To raise an exception
+b) To catch exceptions
+c) To specify the order of execution
+d) To ensure that certain code is always executed, regardless of whether an exception occurs
+K: d
+X: `finally` runs whether or not an exception was thrown or caught. It is typically used for cleanup, such as closing files or releasing locks.
+S: finally = always runs (cleanup).
+N: The book prints no answer for this question. The key is supplied.
+
+#252 p453
+Q: What is the term for preventing exceptions by checking for potential issues in advance?
+a) Exception handling
+b) Error propagation
+c) Exception prevention
+d) Defensive programming
+K: d
+X: Defensive programming checks inputs and conditions before acting (e.g. testing a divisor for zero or a pointer for NULL), so that errors are prevented rather than handled after they occur.
+S: Check first → defensive programming.
+N: The book prints no answer for this question. The key is supplied.
+
+#253 p453
+Q: What does the acronym "OOP" stand for in the context of exceptions?
+a) Object-Oriented Programming
+b) Operation of Procedures
+c) Out-of-Place Exception
+d) Overflow and Overrun Protection
+K: a
+X: OOP = Object-Oriented Programming. Languages such as Java and C++ represent exceptions as objects of exception classes arranged in an inheritance hierarchy.
+S: OOP = Object-Oriented Programming.
+N: The book prints no answer for this question. The key is supplied.
