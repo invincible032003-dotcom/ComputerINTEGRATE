@@ -4,7 +4,7 @@
 @codes C4 C1
 @default C4
 @themes 1 AND, OR and NOT gates · NAND · outputs · expressions · truth tables
-@themes 2 NOR, XOR and XNOR gates · universal gates + 10 ISS Boosters (De Morgan, adders, flip-flops, Boolean laws)
+@themes 2 NOR, XOR and XNOR gates · universal gates · De Morgan · adders · flip-flops · Boolean laws
 
 #1 p243 a253
 Q: What is the output of an AND gate if both inputs are 1?
@@ -621,7 +621,7 @@ c) 1
 d) X (undefined)
 K: a
 X: XOR-ing a value twice with the same operand restores it: (A ⊕ B) ⊕ B = A — the basis of XOR encryption and parity tricks.
-S: Double NOT = original (A″ = A).
+S: XOR twice with the same operand cancels: (A ⊕ B) ⊕ B = A.
 
 #60 p250 a259
 Q: What is the truth table representation of an XOR gate with two inputs?
@@ -727,7 +727,7 @@ c) 1
 d) X (undefined)
 K: a
 X: XNOR-ing twice with the same operand restores the value: (A ⊙ B) ⊙ B = A.
-S: Double NOT = original (A″ = A).
+S: XNOR twice with the same operand cancels: (A ⊙ B) ⊙ B = A.
 
 #70 p251 a260
 Q: What is the truth table representation of an XNOR gate with two inputs?

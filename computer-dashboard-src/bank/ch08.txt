@@ -24,7 +24,7 @@ b) Universal Routing Language
 c) Universal Remote Link
 d) Uniform Retrieval Language
 K: a
-X: A URL (Uniform Resource Locator) is the address of a resource on the web, e.g. `https://www.upsc.gov.in/index.html`.
+X: A URL (Uniform Resource Locator) is the address of a resource on the web, e.g. `https://www.example.com/index.html`: scheme, host, then path.
 S: URL = Uniform Resource Locator.
 
 #3 p319 a336
@@ -124,7 +124,7 @@ b) 1976
 c) 1983
 d) 1991
 K: a
-X: The book takes 1969, when ARPANET linked its first nodes (UCLA to Stanford) and sent the first message. Some sources instead cite 1 January 1983, when ARPANET switched to TCP/IP. 1991 is the year the World Wide Web went public.
+X: 1969 is taken as the internet's birth year: ARPANET linked its first nodes (UCLA to Stanford) and sent the first message. Some sources cite 1 January 1983, when ARPANET switched to TCP/IP; 1991 is when the World Wide Web went public.
 S: 1969 ARPANET · 1983 TCP/IP · 1989 WWW proposed · 1991 WWW public.
 
 #13 p320 a337
@@ -255,7 +255,7 @@ b) HTML
 c) JavaScript
 d) Flash
 K: d
-X: The book's answer is Adobe Flash, the browser plug-in that brought rich multimedia (animation, audio, video) to the web in the late 1990s and 2000s. Images were already shown by HTML's `<img>` tag. Today HTML5's `<video>` and `<audio>` tags do this natively, and Flash was retired in 2020.
+X: Adobe Flash was the browser plug-in that brought rich multimedia — animation, audio, video — to web pages in the late 1990s and 2000s, so it is the expected answer. Images alone were already shown by HTML's `<img>` tag; today HTML5's `<video>` and `<audio>` do it natively (Flash was retired in 2020).
 S: Old multimedia plug-in → Flash; today → HTML5.
 
 #26 p321 a338
@@ -305,7 +305,7 @@ b) 1991
 c) 1993
 d) 1995
 K: c
-X: The book's answer is 1993: on 30 April 1993 CERN put the WWW software in the public domain, royalty-free, and the Mosaic browser appeared the same year. Note that Berners-Lee had already opened the web to the public outside CERN in August 1991. If an exam offers 1991 but not 1993, pick 1991.
+X: On 30 April 1993 CERN released the WWW software into the public domain, royalty-free, and the Mosaic browser appeared the same year — so 1993 is the answer. Berners-Lee had opened the web to users outside CERN in August 1991, so pick 1991 only if 1993 is not offered.
 S: 1989 proposed · 1991 opened to public · 1993 royalty-free + Mosaic.
 
 #31 p322 a338
@@ -426,7 +426,7 @@ b) HTTP
 c) TCP/IP
 d) HTML
 K: a
-X: The TLD is the last label of a domain name, e.g. `.com` in `google.com` or `.in` in `upsc.gov.in`.
+X: The TLD is the last label of a domain name, e.g. `.com` in `google.com` or `.in` in `india.gov.in`.
 S: TLD = rightmost part of domain name.
 
 #43 p323 a339
@@ -587,7 +587,7 @@ b) Host
 c) Path
 d) Query string
 K: d
-X: The query string follows `?` and carries name=value pairs joined by `&`, e.g. `?q=iss&page=2`.
+X: The query string follows `?` and carries name=value pairs joined by `&`, e.g. `?q=computer&page=2`.
 S: After `?` → query string.
 
 #59 p325 a340
@@ -858,7 +858,7 @@ b) DSL
 c) Satellite Internet
 d) Wireless Broadband Internet
 K: d
-X: Wireless broadband (fixed wireless, Wi-Fi hotspots, WiMAX, 4G/5G) carries data over radio links. The book's intended answer is option d, although satellite is also a wireless link.
+X: Wireless broadband (fixed wireless, Wi-Fi hotspots, WiMAX, 4G/5G) carries data over radio links, so option (d) — the one named "wireless" — is the answer. Satellite is also a wireless link, but it is its own category.
 S: "Wireless" in the option → that one.
 
 #86 p328 a342
@@ -888,7 +888,7 @@ b) DSL
 c) Satellite Internet
 d) Cable Modem Broadband
 K: a
-X: Modern leased lines are usually delivered over dedicated fibre-optic cable, which is why the book picks them here. DSL uses copper phone lines and cable broadband uses coaxial cable (hybrid fibre-coax networks do use fibre in the core).
+X: Modern leased lines are usually delivered over dedicated fibre-optic cable, which makes them the fibre answer here. DSL runs on copper phone lines and cable broadband on coaxial cable (hybrid fibre-coax networks use fibre only in the core).
 S: Among these, fibre → leased line.
 
 #89 p328 a342
@@ -1250,7 +1250,7 @@ b) By examining the email's subject line
 c) By opening every email received
 d) By checking the email for spelling errors and grammar mistakes
 K: b
-X: The book's answer is to examine the subject line: urgent, alarming or too-good-to-be-true subjects ("Invoice attached", "You won!") are warning signs. Spelling and grammar errors (option d) are also recognised red flags for phishing. Checking the sender's email address, not a physical address, is another. Opening every email (option c) is the one clearly wrong choice.
+X: An urgent, alarming or too-good-to-be-true subject line ("Invoice attached", "You won!") is the first warning sign, so examining the subject line is the expected answer. Spelling and grammar errors (d) are also recognised phishing red flags; opening every email (c) is the one clearly wrong choice.
 S: Red flags: odd subject · unknown sender · bad spelling · unexpected attachment.
 
 #125 p333 a344
@@ -1407,8 +1407,8 @@ c) Windows Mobile
 d) BlackBerry OS
 K: b
 C: C5
-X: The book's answer is iOS: a closed ecosystem, App Store review, sandboxing and app-tracking controls. (BlackBerry was also famous for security in enterprise email, but the book's answer is iOS.)
-S: Privacy focus (book) → iOS.
+X: iOS is known for its privacy and security focus: a closed ecosystem, App Store review, app sandboxing and app-tracking controls. (BlackBerry was famous for secure enterprise email, but iOS is the answer here.)
+S: Privacy-focused mobile OS → iOS.
 
 #140 p335 a345
 Q: Which mobile operating system has the largest market share worldwide?

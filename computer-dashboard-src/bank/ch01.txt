@@ -111,8 +111,8 @@ b) Second generation
 c) Third generation
 d) Fourth generation
 K: d
-X: In the standard classification AI and massive parallel processing are the aims of the fifth generation. The book limits the options to four generations and keys the fourth, the only one listed in which parallel processors and AI research actually grew.
-S: Textbook answer is 5G (AI, ULSI, parallel processing); if 5G is not offered, pick the latest generation listed.
+X: AI, natural-language interfaces and massively parallel processing define the fifth generation. With no "fifth" option, the fourth is the best choice: VLSI microprocessors are what made parallel machines and practical AI research possible.
+S: AI / parallel processing / ULSI → 5th; if 5th isn't offered, choose the latest generation listed.
 N: If an option "Fifth generation" were present it would be the answer; among the four options given, (d) is the closest.
 
 #11 p12 a43
@@ -242,7 +242,7 @@ b) Random Access Memory (RAM)
 c) Hard Disk Drive (HDD)
 d) Solid State Drive (SSD)
 K: c
-X: A hard disk drive is non-volatile secondary storage: data and programs stay on it when power is off, unlike RAM, which is volatile.
+X: A hard disk drive is non-volatile secondary storage: data and programs stay on it after power-off, unlike RAM, which is volatile. An SSD is non-volatile too; the HDD is simply the classic example.
 S: Volatile = RAM (lost at power-off); non-volatile = ROM, HDD, SSD, flash.
 N: An SSD is also non-volatile, so (d) is equally true. The book keys (c), the hard disk, as the standard example of secondary storage.
 
@@ -367,7 +367,7 @@ b) Solid State Drive (SSD)
 c) Optical Drive
 d) USB Flash Drive
 K: c
-X: An optical drive uses a laser to read and write CDs, DVDs and Blu-ray discs.
+X: An optical drive reads and writes CDs, DVDs and Blu-ray discs with a laser — red for CD/DVD, blue-violet for Blu-ray — detecting the pits and lands on the disc surface.
 S: Laser + CD/DVD/Blu-ray → optical drive.
 
 #36 p14 a46
@@ -428,7 +428,7 @@ c) Arithmetic Logic Unit (ALU)
 d) Control Unit (CU)
 K: b
 X: The program counter holds the memory address of the next instruction and is incremented after each fetch. The instruction register holds the instruction currently being executed.
-S: PC → address of NEXT instruction; IR → CURRENT instruction (asked in ISS 2022).
+S: PC → address of the NEXT instruction; IR → the CURRENT instruction.
 
 #42 p15 a47
 Q: Which part of the CPU performs arithmetic and logical operations?
@@ -477,7 +477,7 @@ b) Number of instructions executed per second
 c) Number of cache memory accesses per second
 d) Number of registers in the CPU
 K: a
-X: The book measures processing power by clock frequency — clock cycles per second, in MHz or GHz. Throughput is also quoted in MIPS (millions of instructions per second) or FLOPS, but clock speed is the figure printed on every processor.
+X: Processing power is quoted as clock frequency — cycles per second, in MHz or GHz. Throughput can also be given in MIPS (millions of instructions per second) or FLOPS, but clock speed is the headline figure on every processor.
 S: Clock speed → Hz (MHz/GHz); throughput → MIPS/FLOPS; capacity → bytes.
 
 #47 p16 a48
@@ -527,7 +527,7 @@ b) Hard disk drive (HDD)
 c) Random access memory (RAM)
 d) Solid-state drive (SSD)
 K: c
-X: The book keys RAM, the working memory that holds data and programs while they are being processed. Strictly, RAM sits outside the CPU; inside the CPU the registers (and cache) hold values during processing.
+X: RAM is the working memory that holds data and programs while they are being processed. Strictly, RAM sits outside the CPU; inside it, the registers (and cache) hold the values being worked on at that instant.
 S: Working/temporary store while a program runs → RAM; permanent store → HDD/SSD.
 
 #52 p16 a48
@@ -617,8 +617,8 @@ b) Number of instructions executed per second.
 c) Number of cache memory accesses per second.
 d) Number of registers in the CPU.
 K: a
-X: The book again keys clock frequency (cycles per second, in GHz). Instruction throughput (MIPS) is a second common measure of computing power.
-S: Same question as Q46 → clock cycles per second.
+X: Processing power is expressed as clock frequency — cycles per second, in GHz. Instruction throughput (MIPS) is the other common measure, but "clock cycles per second" is the standard answer.
+S: Processing power → clock speed (Hz/GHz); throughput → MIPS/FLOPS.
 
 #61 p18 a50
 Q: What is the purpose of a memory unit in a computer?
@@ -770,7 +770,7 @@ b) By the size of cache memory
 c) By the number of instructions executed per second
 d) By the capacity of primary memory
 K: c
-X: The book measures overall performance by throughput — instructions executed per second (MIPS) — which reflects how well the processor and memory system work together.
+X: Overall performance is measured by throughput — the number of instructions executed per second (MIPS) — which reflects how well the processor and memory system work together.
 S: Throughput measure → MIPS (instructions per second).
 
 #76 p20 a52
@@ -780,7 +780,7 @@ b) Cache number
 c) Memory location
 d) Address index
 K: d
-X: Each memory location is identified by a unique sequential number, its address (the book calls it the address index); the CPU uses it to read or write that location.
+X: Each memory location is identified by a unique sequential number, its address (address index). The CPU puts this number on the address bus to read or write that location.
 S: Location = the cell; address (index) = the number that names the cell.
 
 #77 p20 a52
@@ -943,7 +943,7 @@ b) Faster access time in primary memory
 c) Smaller word size in the CPU
 d) Larger word size in the CPU
 K: b
-X: Faster primary-memory access means the CPU waits less for instructions and data, so programs run faster. A larger secondary memory only adds capacity, and a smaller word size lowers performance.
+X: Faster primary-memory access means the CPU waits less for instructions and data, so programs run faster. A larger word size also helps; a bigger disk only adds capacity, and a smaller word size lowers performance.
 S: Performance ↑ with faster memory, higher clock, larger word, more cache — never with a smaller word.
 N: A larger word size (d) also raises performance; the book keys (b), faster primary-memory access.
 
@@ -1096,7 +1096,7 @@ b) Secondary memory
 c) Cache memory
 d) Register memory
 K: a
-X: Primary memory (RAM) needs continuous power and loses its contents at switch-off. Secondary memory is non-volatile.
+X: Primary memory (RAM) needs continuous power and loses its contents at switch-off. Cache and registers are volatile too — RAM is simply the standard example; secondary memory is non-volatile.
 S: Volatile = needs power to remember → RAM (and cache, registers).
 N: Cache and registers are also volatile, so (c) and (d) are true as well; the book keys (a), primary memory (RAM), as the standard example.
 
@@ -1108,7 +1108,7 @@ c) To increase the word size of the CPU
 d) To logically access data from the memory
 K: d
 X: The interface circuit connects the memory to the system bus and lets the processor access stored data logically through addresses and read/write signals.
-S: Same idea as Q96 — interface = logical access.
+S: Interface circuit = logical access to memory (bus ↔ memory cells).
 
 #109 p23 a56
 Q: Which unit is used to express the memory capacity of a computer system?
@@ -1177,7 +1177,7 @@ b) Slow access time and nonvolatile storage
 c) Small capacity and fast access time
 d) Non-volatile storage and high cost
 K: c
-X: Cache is small and fast (and expensive and volatile).
+X: Cache is small and fast — and, because it is built from costly SRAM, expensive per byte and volatile.
 S: Cache = small + fast + costly + volatile.
 
 #116 p24 a57
@@ -1187,7 +1187,7 @@ b) Cache memory
 c) Secondary memory
 d) Virtual memory
 K: c
-X: HDDs and SSDs are secondary (auxiliary) storage devices.
+X: HDDs and SSDs are secondary (auxiliary) storage: large, non-volatile and slower than RAM, holding files and installed programs permanently.
 S: Any "drive" → secondary storage.
 
 #117 p24 a58
@@ -1369,8 +1369,8 @@ b) Power supply unit
 c) Central processing unit
 d) Motherboard
 K: b
-X: The book keys the power supply unit, which powers the system fans (and has its own fan). In practice fan speed is regulated by the motherboard's hardware monitor using temperature sensors.
-S: Book answer: PSU powers the cooling fans.
+X: The PSU powers the system fans (and cools itself with its own fan), so it is the expected answer. In practice fan speed is regulated by the motherboard's hardware monitor using temperature sensors.
+S: Fans run on PSU power → PSU (fan-speed control itself lives on the motherboard).
 
 #134 p26 a59
 Q: Which bus type carries memory addresses?
@@ -1500,7 +1500,7 @@ c) Initialize the hardware and start the operating system
 d) Connect the motherboard to the CPU
 K: c
 X: The BIOS is firmware in ROM/flash on the motherboard. At power-on it runs the POST (power-on self-test), initialises the hardware and loads the bootstrap loader that starts the operating system.
-S: BIOS → POST → boot loader → OS (ISS 2024 asked all three BIOS functions).
+S: BIOS = test (POST) → initialise hardware → load the boot loader → OS starts.
 
 #147 p28 a61
 Q: The form factor of a motherboard refers to:
@@ -1519,7 +1519,7 @@ b) Southbridge
 c) BIOS chip
 d) Clock generator
 K: c
-X: The book keys the BIOS chip: the BIOS setup values (date, time, boot order) are kept in a small battery-backed CMOS memory that works with the BIOS. On modern boards this CMOS RAM is built into the chipset's real-time clock.
+X: The expected answer is the BIOS chip: BIOS setup values (date, time, boot order) are kept in a small battery-backed CMOS memory that works with the BIOS. On modern boards this CMOS RAM is built into the chipset's real-time clock.
 S: BIOS settings live in battery-backed CMOS; remove the battery → settings reset.
 
 #149 p28 a61
@@ -1783,8 +1783,8 @@ b) RDRAM (Rambus Dynamic RAM)
 c) DDR RAM (Double Data Rate RAM)
 d) SRAM (Static RAM)
 K: b
-X: The book's answer is RDRAM, which in the early 2000s was promoted for high-performance PCs because of its high transfer rate. It was later abandoned; today's PCs use DDR SDRAM (DDR4/DDR5).
-S: Book answer: RDRAM (historical high-end choice). Today's main memory = DDR SDRAM.
+X: RDRAM is the expected answer: around 2000 it was the premium memory for high-performance PCs (Pentium 4) because of its high transfer rate. It was later abandoned; today's PCs use DDR SDRAM (DDR4/DDR5).
+S: High-performance PC RAM of the Pentium 4 era → RDRAM; today → DDR4/DDR5 SDRAM.
 
 #175 p31 a64
 Q: What does DDR stand for in DDR RAM?
@@ -1826,7 +1826,7 @@ b) Virtual memory
 c) Secondary memory
 d) ROM (Read-Only Memory)
 K: d
-X: ROM keeps its contents permanently without power; it holds firmware such as the BIOS.
+X: ROM keeps its contents permanently without power; it holds firmware such as the BIOS. Secondary storage is non-volatile too, but among the memories listed ROM is the classic non-volatile one.
 S: Non-volatile semiconductor memory → ROM (PROM, EPROM, EEPROM, flash).
 N: Secondary memory (c) is also non-volatile; the book keys (d), ROM, the non-volatile member of primary memory.
 
@@ -1889,7 +1889,7 @@ b) Smaller capacity
 c) Non-removability
 d) Higher cost
 K: a
-X: The book stresses speed: floppy drives have much slower access and transfer rates than hard disks. (Their tiny capacity — 1.44 MB for a 3.5-inch disk — is the other major drawback.)
+X: Speed is the key drawback: floppy drives have far slower access and transfer rates than hard disks. Their tiny capacity — 1.44 MB for a 3.5-inch disk — is the other.
 S: Floppy: slow + small (1.44 MB) but removable.
 
 #185 p32 a65
@@ -1931,7 +1931,7 @@ b) Kilobytes (KB)
 c) Gigabytes (GB)
 d) Terabytes (TB)
 K: c
-X: The book keys gigabytes; hard-disk capacities run to hundreds of gigabytes, and today's drives are often sold in terabytes.
+X: Hard-disk capacity is quoted in gigabytes — typically hundreds of GB — and today's drives are often sold in terabytes. Megabytes and kilobytes are far too small.
 S: HDD capacity → GB/TB; floppy → MB (1.44 MB).
 
 #189 p32 a65
@@ -1981,7 +1981,7 @@ b) Floppy disk
 c) CD-ROM
 d) USB flash drive
 K: b
-X: A floppy disk is inserted into and removed from its drive, unlike a fixed internal hard disk.
+X: A floppy disk is inserted into and removed from its drive, unlike a fixed internal hard disk. CDs and pen drives are removable too; the floppy is simply the classic example.
 S: Fixed → internal hard disk; removable → floppy, CD, pen drive.
 N: CD-ROMs and USB flash drives are removable as well, so (c) and (d) are also true; the book keys (b), the floppy disk.
 
@@ -2104,7 +2104,7 @@ b) The synthetic resin
 c) The presence of pits and bumps
 d) The sensor receiving the reflection
 K: d
-X: The book keys the sensor: the photodetector receives the reflected laser light and, from changes in that reflection as pits and lands pass, decides whether each bit is a 1 or a 0.
+X: The sensor (photodetector) receives the reflected laser light. From the changes in reflection as pits and lands pass under the beam, it decides whether each bit is a 1 or a 0.
 S: Pits/lands encode; the sensor decodes (reflection change → 1).
 
 #206 p34 a67
@@ -2165,8 +2165,8 @@ b) CD-R drive
 c) CD-RW drive
 d) CD-Writer drive
 K: b
-X: The book's answer is the CD-R (recordable) drive, which can both read discs and write CD-Rs. Older PCs shipped with read-only CD-ROM drives and later PCs with CD-RW/DVD writers.
-S: Book answer: CD-R drive (reads and records).
+X: The expected answer is the CD-R (recordable) drive, which both reads discs and writes CD-Rs. Older PCs shipped with read-only CD-ROM drives, later ones with CD-RW/DVD writers.
+S: Reads + records once → CD-R drive.
 
 #212 p35 a67
 Q: What happens when a CD-R is "burned"?
@@ -2185,8 +2185,8 @@ b) Synthetic resin
 c) Laser diode
 d) Microscopic pits on the surface
 K: c
-X: The book keys the laser diode: its beam writes the data marks on the disc and reads them back for playback. The pits themselves are the stored code.
-S: Book answer: laser diode (writes and reads the disc).
+X: The laser diode is what makes a CD work: its beam writes the data marks and reads them back for playback. The pits are only the stored code; the laser is what records and plays them.
+S: Writes and reads the disc → laser diode.
 
 #214 p35 a67
 Q: What enables a CD to be read by a CD-ROM drive?
@@ -2235,8 +2235,8 @@ b) Laser diode
 c) Reflective material
 d) Infrared heat
 K: b
-X: The book keys the laser diode, whose beam scans the track; the reflected light is then picked up by the sensor, which decides each bit.
-S: Book answer: laser diode (with the sensor as its partner).
+X: The laser diode's beam scans the spiral track and is reflected by the pits and lands; a sensor turns those reflections into bits. The laser diode is the reading component asked for.
+S: Reading component → laser diode (the sensor decodes its reflection).
 
 #219 p35 a68
 Q: What property of CD-RW discs allows them to be reused?
@@ -2277,7 +2277,7 @@ b) To manage system resources and allocate them to programs
 c) To perform data processing tasks
 d) To provide security for the computer system
 K: a
-X: The book keys the OS as the interface between the user and the hardware, which hides hardware details from the user. Resource management (b) is the OS's other core role.
+X: The OS is the interface between the user and the hardware: it hides hardware details behind commands, windows and system calls. Resource management (b) is its other core role — pick (a) when "interface" is the focus of the options.
 S: OS = interface (user ↔ hardware) + resource manager.
 
 #223 p36 a68
@@ -2348,7 +2348,7 @@ c) Managing file operations
 d) Allocating CPU time to processes
 K: a
 X: The kernel is the core of the OS that sits directly on the hardware, managing the CPU, memory and devices; the user interface (shell/GUI) sits on top of it.
-S: Kernel = core, touches hardware; shell = outer layer, talks to the user (kernel as core of UNIX: ISS 2018, 2023).
+S: Kernel = core, talks to the hardware; shell = outer layer, talks to the user.
 
 #230 p37 a69
 Q: When a computer boots up, it first goes through:
@@ -2507,7 +2507,7 @@ b) Icons, menus, and mouse movements
 c) Graphs and charts
 d) Web-based applications
 K: b
-X: The book keys the graphical interface of modern operating systems, where users work through icons, menus, windows and the mouse. Text commands are the older command-line style.
+X: Modern operating systems offer a graphical user interface, where users work through icons, menus, windows and the mouse. Typed text commands are the older command-line style.
 S: Modern OS UI = GUI (icons, menus, pointer).
 
 #246 p38 a70
@@ -2557,8 +2557,8 @@ b) Solaris and Mac
 c) MS Windows and Linux
 d) UNIX and MS-DOS
 K: c
-X: The book's example is MS Windows and Linux, whose interfaces and ways of working (desktop environments, shells, commands) differ widely.
-S: Book example pair: MS Windows vs Linux.
+X: MS Windows and Linux are the standard example of very different ways of interacting: Windows' single desktop GUI versus Linux's many desktop environments, shells and text commands.
+S: Different interfaces example → MS Windows vs Linux.
 
 #251 p39 a71
 Q: In some digital devices like small appliances and handheld devices, where is the operating system typically stored?
@@ -2668,7 +2668,7 @@ c) Load, decode, execute, write
 d) Load, process, store, write
 K: b
 X: The machine (instruction) cycle is fetch → decode → execute → store (write-back), repeated for every instruction.
-S: F-D-E-S: Fetch, Decode, Execute, Store (ISS 2022 and 2024).
+S: F-D-E-S: Fetch → Decode → Execute → Store.
 
 #262 p40 a72
 Q: Which register keeps track of the next instruction to be executed?
@@ -2678,7 +2678,7 @@ c) Address Register (AR)
 d) Control Unit Register (CUR)
 K: a
 X: The program counter holds the address of the next instruction to fetch; it is incremented during each fetch or changed by jumps and branches.
-S: Next instruction → PC (ISS 2022).
+S: Next instruction → PC; current instruction → IR.
 
 #263 p40 a72
 Q: What happens during the fetch step of the instruction cycle?
@@ -2757,6 +2757,6 @@ b) Three steps
 c) Four steps
 d) Five steps
 K: c
-X: The book's instruction cycle has four steps: fetch, decode, execute and store. (Some texts group it as fetch–execute, or add an operand-fetch step.)
+X: The standard instruction cycle has four steps: fetch, decode, execute and store (write back). Some texts compress it to fetch–execute or add an operand-fetch step, but four is the expected count.
 S: Four steps: F-D-E-S.
 

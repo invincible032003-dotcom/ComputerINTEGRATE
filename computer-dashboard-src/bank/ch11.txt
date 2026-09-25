@@ -605,7 +605,7 @@ b) True
 c) 1
 d) 0
 K: a
-X: The book's answer is the value of the assignment `x = foo()`, which is 2: an assignment expression has the value assigned. The whole relational expression `(x = foo()) != 1` compares 2 with 1 and evaluates to 1 (true).
+X: The expected answer is the value of the assignment `x = foo()`, which is 2: an assignment expression has the value assigned. The whole relational expression `(x = foo()) != 1` compares 2 with 1 and evaluates to 1 (true).
 S: Assignment expression's value = value assigned.
 N: The question is ambiguous. If "the expression" means the whole line, the answer is 1 (option c), because `!=` yields 1. The book, like its source, means the assignment part (x = 2).
 
@@ -991,7 +991,7 @@ b) Returns 2
 c) Varies
 d) Compile time error
 K: d
-X: As in Q45: `return` is a statement and cannot be an operand of the conditional operator, so this is a syntax error.
+X: `return` is a statement and cannot be an operand of the conditional operator, so this is a syntax error.
 S: ?: takes expressions only.
 
 #68 p414 a458
@@ -1228,7 +1228,7 @@ b) Returns 2
 c) Varies
 d) Compile time error
 K: d
-X: This repeats Q45: statements such as `return` cannot be operands of `?:`.
+X: Statements such as `return` cannot be operands of `?:` — its operands must be expressions — so this is a syntax error.
 S: ?: needs expressions.
 
 #80 p417 a458
@@ -1273,7 +1273,7 @@ b) how are you
 c) Compile time error
 d) Error
 K: b
-X: Global variables are zero-initialised, so x is 0 (false) and the else branch prints "how are u". (The book's option spells it "how are you".)
+X: Global variables are zero-initialised, so x is 0 (false) and the else branch prints "how are u" (shown as "how are you" in the options).
 S: Globals start at 0.
 
 #82 p418 a458
@@ -1770,7 +1770,7 @@ b) In for loop
 c) Depends on the standard compiler implements
 d) Run time error
 K: c
-X: Declaring `int i` inside the for header is allowed from C99 onwards. A C89 compiler rejects it, and a C99+ compiler prints "In for loop" (same as Q40).
+X: Declaring `int i` inside the for header is allowed from C99 onwards. A C89 compiler rejects it; a C99+ compiler prints "In for loop".
 S: for-loop declarations → C99.
 
 #104 p425 a459
@@ -1968,7 +1968,7 @@ b) In while loop in while loop 3
 c) In while loop 3
 d) Infinite loop
 K: a
-X: This repeats Q51. `continue` at i = 2 goes to the test, 2 < 2 fails, and 2 is printed after one "In while loop".
+X: `continue` at i = 2 goes to the test, 2 < 2 fails, and 2 is printed after one "In while loop".
 S: continue → straight to the condition.
 
 #114 p427 a459
@@ -2092,7 +2092,7 @@ b) Hello
 c) Varies
 d) Compile time error
 K: d
-X: This repeats Q111: `continue` inside an if with no enclosing loop is a compile error.
+X: `continue` is only legal inside a loop; inside an if with no enclosing loop it is a compile error.
 S: continue needs a loop.
 
 #119 p430 a459
@@ -2114,7 +2114,7 @@ b) Hello
 c) Varies
 d) Compile time error
 K: d
-X: This repeats Q112: `break` without an enclosing loop or switch is a compile error.
+X: `break` needs an enclosing loop or switch; without one it is a compile error.
 S: break needs loop/switch.
 
 #120 p430 a460
@@ -2139,7 +2139,7 @@ b) In while loop in while loop 3
 c) In while loop 3
 d) Infinite loop
 K: a
-X: Same as Q51 and Q113: one "In while loop", then 2.
+X: With i = 1 the body prints "In while loop" and the loop repeats; with i = 2, `continue` jumps to the test, 2 < 2 fails, and 2 is printed.
 S: continue in do-while → test.
 
 #121 p430 a460
@@ -2165,7 +2165,7 @@ b) 1 after loop
 c) 1 2 1 2 after loop
 d) 1 1 2 after loop
 K: c
-X: Same as Q114: the inner break runs once per outer iteration, giving 1 2 1 2, then "after loop".
+X: `break` leaves only the inner loop, so it runs once per outer iteration: each of the 2 outer passes prints 1 and 2, giving 1 2 1 2, then "after loop".
 S: Inner break → outer continues.
 
 #122 p431 a460
@@ -2192,7 +2192,7 @@ b) After loop
 c) In while loop In while loop After loop
 d) In while loop
 K: b
-X: Same as Q115: the printf is always skipped, then break, so only "After loop" is printed.
+X: Pass 1: i becomes 1 and `continue` skips the printf. Pass 2: i == 1, so `break` exits the loop. The printf never runs; only "After loop" is printed.
 S: Trace i step by step.
 
 #123 p431 a460
@@ -2222,7 +2222,7 @@ b) a a after loop
 c) after loop
 d) Error
 K: b
-X: Same as Q116: the switch's break doesn't end the loop, so "a " is printed twice.
+X: A `break` inside a switch ends only the switch, not the loop around it, so the loop keeps going and "a " is printed twice.
 S: switch break stays inside the loop.
 
 #124 p432 a460
@@ -2241,7 +2241,7 @@ b) Before continue
 c) After continue
 d) Compile time error
 K: d
-X: Same as Q117: `continue` outside a loop is a compile error.
+X: `continue` is legal only inside a loop. Here it sits directly in main, so the program does not compile.
 S: continue outside loop → error.
 
 #125 p432 a460
@@ -2465,7 +2465,7 @@ b) 5, 0, 0, 0, 0
 c) 5, (garbage), (garbage), (garbage), (garbage)
 d) (garbage), (garbage), (garbage), (garbage), 5
 K: b
-X: Only the first element is given. The remaining elements are zero-initialised (same as Q56).
+X: Only the first element is given. The remaining elements are zero-initialised.
 S: {5} → 5, 0, 0, 0, 0.
 
 #139 p435 a460
@@ -2585,7 +2585,7 @@ b) Compile time error
 c) Segmentation fault
 d) 4
 K: b
-X: `p - ptr` subtracts an `int *` from a `void *`. Pointer subtraction needs both operands to point to the same (compatible) type, so this is an error ("invalid operands to binary -"). Casting `(int *)p` fixes it, as in Q148.
+X: `p - ptr` subtracts an `int *` from a `void *`. Pointer subtraction needs both operands to point to the same (compatible) type, so this is an error ("invalid operands to binary -"). Casting `(int *)p` fixes it.
 S: Pointer − pointer needs compatible types.
 
 #148 p437 a461
@@ -2627,7 +2627,7 @@ b) 5
 c) 4
 d) Compile time error
 K: a
-X: The book's answer, −3, is what you get when b is placed on the stack directly below a (b[3] is then the element just before a[0]). But subtracting pointers into two different arrays is undefined behaviour: the result depends on how the compiler lays out the arrays.
+X: −3 is what you get when b is placed on the stack directly below a (b[3] is then the element just before a[0]). But subtracting pointers into two different arrays is undefined behaviour: the result depends on how the compiler lays out the arrays.
 S: Pointer subtraction is valid only within the same array.
 N: This is undefined behaviour in standard C. Clang prints −3 (the book's key), while GCC prints 5 (option b). Remember the rule rather than a number.
 
@@ -2692,7 +2692,7 @@ b) 4
 c) Compile time error
 d) Depends on the compiler
 K: b
-X: GCC treats `void *` arithmetic as if on `char *`, i.e. bytes. The two addresses are one int (4 bytes) apart, so it prints 4, which is the book's answer.
+X: GCC treats `void *` arithmetic as if on `char *`, i.e. in bytes. The two addresses are one int (4 bytes) apart, so it prints 4.
 S: void * arithmetic = bytes (GCC extension).
 N: Strictly, ISO C does not allow arithmetic on `void *`, and strict compilers such as MSVC, or GCC with `-pedantic-errors`, reject it. So (d) "Depends on the compiler" is also defensible. The book's (b) is the GCC result.
 
@@ -2716,7 +2716,7 @@ b) `typedef char *string;`
 c) `typedef char [] string;` and `typedef char *string;`
 d) Such expression cannot be generated in C
 K: b
-X: This repeats Q54: `typedef char *string;` makes `string` a pointer-to-char type.
+X: `typedef char *string;` makes `string` a pointer-to-char type, so `string s;` declares a `char *`.
 S: `typedef char *string;` → string now means `char *`.
 
 #155 p438 a461
@@ -2749,8 +2749,8 @@ b) printf/scanf
 c) Arithmetic operators
 d) All of the mentioned
 K: d
-X: The book's (source) answer. A typedef name hides nothing magical, but misuse around it (a missing or extra semicolon in the typedef line, format specifiers that don't match the real underlying type in printf/scanf, and arithmetic on typedef'd pointer types) are common sources of errors.
-S: Book: all of the mentioned.
+X: A typedef name is only an alias, but mistakes around it cause errors: a missing or extra semicolon in the typedef line, printf/scanf format specifiers that don't match the real underlying type, and arithmetic on typedef'd pointer types. So all of the mentioned can create problems.
+S: typedef pitfalls: semicolon · format specifier · pointer arithmetic → all.
 
 #158 p439 a461
 Q: `typedef int (*PFI)(char *, char *)` creates ______
@@ -2951,7 +2951,7 @@ b) 65 45
 c) 45
 d) Compilation error
 K: a
-X: `fflush(stdout)` forces "45 " out before stderr writes 65.
+X: stdout is buffered but stderr is not; `fflush(stdout)` forces "45 " out before stderr writes 65, so the order is guaranteed: 45 65.
 S: fflush forces buffered output out.
 
 #171 p441 a461
@@ -3357,7 +3357,7 @@ b) Run-time error
 c) Logical error
 d) No error
 K: b
-X: The book's answer is a run-time error: the program compiles, but the wrong specifier makes scanf store bytes in the wrong format, so values are corrupted when it runs. Strictly this is undefined behaviour, and modern compilers can warn with `-Wformat`.
+X: The program compiles, but the wrong specifier makes scanf store bytes in the wrong format, so values are corrupted at run time — hence "run-time error". Strictly this is undefined behaviour, and modern compilers warn with `-Wformat`.
 S: Wrong format specifier → wrong values at run time (UB).
 
 #200 p446 a463
@@ -3395,7 +3395,7 @@ b) ctype.h
 c) stdio.h
 d) stdarg.h
 K: c
-X: `scanf` and `printf` are declared in `<stdio.h>` (same as Q32).
+X: `scanf` and `printf` are declared in `<stdio.h>`.
 S: printf / scanf / FILE → stdio.h; malloc / rand → stdlib.h; sqrt → math.h.
 
 #204 p446 a463
@@ -3616,7 +3616,7 @@ b) Output, 10
 c) Output, 16
 d) Error, sizeof cannot evaluate size of a function
 K: a
-X: `strlen` is never called here. sizeof gives the size of its return type `size_t`, which is 4 on a 32-bit compiler (the book's assumption). On a 64-bit system it is 8.
+X: `strlen` is never called here. sizeof gives the size of its return type `size_t`, which is 4 on a 32-bit compiler (the assumption here). On a 64-bit system it is 8.
 S: sizeof(func call) = sizeof(return type).
 N: The answer 4 assumes a 32-bit compiler. On today's 64-bit systems `size_t` is 8 bytes, so it prints 8, which is not among the options.
 
@@ -3627,7 +3627,7 @@ b) Functions
 c) Macro definition
 d) None of the mentioned
 K: d
-X: The book's answer: sizeof accepts a pointer, a function-call expression (giving the size of the return type, as in Q221) and anything a macro expands to (Q223). Strictly, ISO C forbids applying sizeof to a function designator itself, e.g. `sizeof(main)`, although GCC allows it as an extension.
+X: sizeof accepts a pointer, a function-call expression (giving the size of the return type) and anything a macro expands to, so none of them is excluded. Strictly, ISO C forbids sizeof on a bare function designator such as `sizeof(main)`, although GCC allows it as an extension.
 S: sizeof works on pointers, calls, macro expansions.
 
 #223 p449 a465
@@ -3723,7 +3723,7 @@ c) Python, Ruby, and PHP
 d) Java and C#
 K: c
 C: C10
-X: Python, Ruby and PHP are classic server-side languages. Java and C# are also widely used on the backend, and so is Node.js (JavaScript). HTML and CSS are frontend only. The book's answer is (c).
+X: Python, Ruby and PHP are classic server-side languages, so (c) is the answer. Java and C# are also widely used on the backend, and so is Node.js (JavaScript); HTML and CSS are frontend only.
 S: Backend: Python · PHP · Ruby · Java · C# · Node.js.
 
 #231 p450 a465
@@ -3944,7 +3944,7 @@ b) Logic exceptions
 c) Input/output exceptions
 d) Null pointer exceptions
 K: b
-X: Arithmetic (divide by zero), I/O (file not found) and null-pointer exceptions are standard run-time exception categories, e.g. Java's ArithmeticException, IOException and NullPointerException. Logic errors are bugs in reasoning, usually not raised as exceptions. (C++ does have a `std::logic_error` class, but the book's intended answer is (b).)
+X: Arithmetic (divide by zero), I/O (file not found) and null-pointer exceptions are standard run-time exception categories, e.g. Java's ArithmeticException, IOException and NullPointerException. Logic errors are bugs in reasoning, usually not raised as exceptions. (C++ does have a `std::logic_error` class, but (b) is the intended answer.)
 S: Logic error = wrong result, not an exception.
 N: The book prints no answer for this question. The key is supplied.
 

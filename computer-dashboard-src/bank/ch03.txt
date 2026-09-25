@@ -77,7 +77,7 @@ b) Control Unit
 c) Input/Output (I/O) Unit
 d) Secondary Storage Unit
 K: a
-X: The ALU (arithmetic logic unit) performs arithmetic (+ − × ÷) and logic (AND, OR, NOT, comparisons). ISS 2025 asked exactly where AND/OR happen: in the logic unit of the ALU. The control unit only directs.
+X: The ALU (arithmetic logic unit) performs arithmetic (+ − × ÷) and logic (AND, OR, NOT, comparisons); AND/OR happen in its logic unit. The control unit only directs.
 S: Arithmetic + logic → ALU (AND/OR live here).
 
 #8 p138 a168
@@ -98,7 +98,7 @@ c) Random Access Memory (RAM)
 d) Input/Output (I/O) Unit
 K: c
 B: b
-X: The book keys RAM, the only storage unit among the options. Strictly, data and programs not in current use are kept in secondary storage, as the book itself keys at Q20 when that option is offered.
+X: RAM is the only storage unit among the options, so it is the answer. Strictly, data and programs not in current use are kept in secondary storage — choose that whenever it is offered.
 S: If "secondary storage" is offered, choose it; here RAM is the only memory listed.
 N: The book prints (b) ALU, but its own explanation describes RAM, so (c) RAM is kept. Strictly, data and programs not currently in use live in secondary storage (see Q20), which is not an option here.
 
@@ -219,7 +219,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: c
-X: The book keys the control unit, which fetches, decodes and sequences each instruction and coordinates the units that carry it out.
+X: The control unit fetches, decodes and sequences each instruction and coordinates the units that carry it out, so it is the unit that "controls execution".
 S: Coordinating instructions → control unit.
 
 #22 p140 a169
@@ -299,8 +299,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The book keys the I/O controller, which manages data transfers between devices and the CPU/memory (including DMA transfers).
-S: Device ↔ CPU/memory traffic → I/O controller (book answer).
+X: The I/O controller manages data transfers between devices and the CPU/memory, including DMA transfers that bypass the CPU.
+S: Device ↔ CPU/memory traffic → I/O controller.
 
 #30 p141 a170
 Q: Which unit of a computer system is responsible for permanently storing the computer's firmware and BIOS?
@@ -329,7 +329,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: b
-X: The book keys RAM. Inside the CPU, results first land in registers such as the accumulator (ISS 2026: results of the ALU are stored in the accumulator), and are then written back to RAM. Of these options, RAM is the only store.
+X: Among the options, RAM is the only store. Inside the CPU, results first land in registers such as the accumulator (which holds ALU results) and are then written back to RAM.
 S: ALU result → accumulator (register) → RAM.
 
 #33 p141 a170
@@ -399,7 +399,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The I/O controller manages the communication between peripherals and the CPU and memory. It also enables DMA transfers, so the CPU need not handle every byte (ISS 2026: DMA).
+X: The I/O controller manages communication between peripherals and the CPU and memory. It also enables DMA (direct memory access), so the CPU need not handle every byte.
 S: Peripherals ↔ CPU/memory → I/O controller (+ DMA).
 
 #40 p142 a171
@@ -469,7 +469,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: Allocating and freeing memory for processes is done by the operating system's memory manager (with paging and virtual memory, ISS 2019). The control unit only sequences instructions.
+X: Allocating and freeing memory for processes is done by the operating system's memory manager (with paging and virtual memory). The control unit only sequences instructions.
 S: Allocate / free memory → OS memory management.
 
 #47 p143 a172
@@ -489,7 +489,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Motherboard
 K: d
-X: The book keys the motherboard, whose chipset and buses carry and manage communication among the CPU, memory and other internal components.
+X: The motherboard's chipset and buses carry and manage communication among the CPU, memory and other internal components, so the motherboard is the expected answer.
 S: Internal communication backbone → motherboard (chipset + buses).
 
 #49 p143 a172
@@ -519,7 +519,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: Allocating resources, scheduling tasks and controlling peripherals are the core functions of the operating system (process, memory and device management; ISS 2019, 2024).
+X: Allocating resources, scheduling tasks and controlling peripherals are the core functions of the operating system (process, memory and device management).
 S: Allocate + schedule + devices → OS.
 
 #52 p143
@@ -653,7 +653,7 @@ c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
 X: The MMU (memory management unit) translates logical (virtual) addresses from the CPU into physical RAM addresses, using page tables and the TLB, and enforces memory protection.
-S: Logical → physical address = MMU (paging, ISS 2021/2023).
+S: Logical → physical address = MMU (paging).
 
 #65 p145 a174
 Q: Which unit of a computer system is responsible for storing frequently accessed data to improve system performance?
@@ -662,7 +662,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache memory (fast SRAM) keeps copies of frequently used data next to the CPU, so most accesses avoid slower RAM. It is checked first (ISS 2021), and its effectiveness is measured by the hit rate (ISS 2023).
+X: Cache memory (fast SRAM) keeps copies of frequently used data next to the CPU, so most accesses avoid slower RAM. It is checked first, and its effectiveness is measured by the hit rate.
 S: Frequently used → cache (checked first; judged by hit rate).
 
 #66 p145 a174
@@ -672,8 +672,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Execution Unit
 K: a
-X: The book keys the CPU: its execution unit (the ALU and registers) carries out the instructions that the control unit decodes.
-S: Book answer: CPU (via its execution unit).
+X: The CPU carries out instructions through its execution unit — the ALU and registers — which acts on what the control unit decodes.
+S: Executes instructions → CPU (its execution unit).
 
 #67 p145 a174
 Q: Which unit of a computer system is responsible for storing data and instructions that are currently being processed by the CPU?
@@ -742,7 +742,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Clock Generator
 K: d
-X: The book keys the clock generator, whose regular pulses time and step every operation in the system. (The control unit uses these pulses to sequence each instruction — see Q93.)
+X: The clock generator's regular pulses time and step every operation in the system; the control unit uses these pulses to sequence each instruction.
 S: Clock pulses → timing of all operations.
 
 #74 p146 a175
@@ -842,8 +842,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Accumulator
 K: d
-X: The accumulator is the CPU register that holds one operand and receives the result of ALU operations, so it stores intermediate results. ISS 2026 asked which register stores the ALU's results.
-S: ALU results → accumulator (ISS 2026).
+X: The accumulator is the CPU register that holds one operand and receives the result of ALU operations, so it stores intermediate results.
+S: ALU results → accumulator.
 
 #84 p147 a176
 Q: Which unit of a computer system is responsible for controlling the interaction between the CPU and the main memory?
@@ -902,7 +902,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The I/O controller manages the flow of data between the CPU and peripheral devices. With DMA it can even move blocks to memory without the CPU (ISS 2026).
+X: The I/O controller manages the flow of data between the CPU and peripheral devices. With DMA it can even move blocks to memory without the CPU.
 S: Peripheral data flow → I/O controller / DMA.
 
 #90 p147 a176
@@ -932,7 +932,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: With the OS absent from the options, the book keys the MMU, the hardware that maps and protects memory pages; the allocation decisions themselves are made by the OS memory manager (as at Q46).
+X: With the OS absent from the options, the MMU is the answer: the hardware that maps and protects memory pages. The allocation decisions themselves are made by the OS memory manager.
 S: OS listed → OS; OS not listed → MMU.
 
 #93 p148 a177
@@ -1122,8 +1122,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Program Counter
 K: d
-X: The program counter (PC) holds the address of the next instruction to fetch and is incremented after each fetch (ISS 2022). The instruction register holds the current instruction.
-S: PC = next address (ISS 2022); IR = current instruction.
+X: The program counter (PC) holds the address of the next instruction to fetch and is incremented after each fetch. The instruction register holds the current instruction.
+S: PC = next address; IR = current instruction.
 
 #112 p150 a179
 Q: Which unit of a computer system is responsible for managing the execution of instructions in a pipelined processor?
@@ -1152,7 +1152,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: The operating system is not an option, so the book keys the MMU: the hardware that maps and protects memory for each process. Strictly, allocation decisions are made by the OS memory manager and enforced through the MMU.
+X: The operating system is not an option, so the MMU is the answer: the hardware that maps and protects memory for each process. Strictly, allocation decisions are made by the OS memory manager and enforced through the MMU.
 S: OS decides allocation; MMU enforces mapping.
 
 #115 p150 a179
@@ -1252,7 +1252,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache memory stores frequently used instructions and data between the CPU and RAM. It is faster than RAM but slower than registers, and always smaller than RAM (ISS 2023).
+X: Cache memory stores frequently used instructions and data between the CPU and RAM. It is faster than RAM but slower than registers, and always smaller than RAM.
 S: Registers > cache > RAM (speed); cache < RAM (size).
 
 #125 p151 a180
@@ -1274,7 +1274,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Decoder
 K: d
-X: The book keys the instruction decoder, the part of the control unit that decodes the opcode and triggers the matching control signals.
+X: The instruction decoder is the part of the control unit that decodes the opcode and triggers the matching control signals.
 S: Most specific part named → instruction decoder.
 
 #127 p151 a180
@@ -1324,7 +1324,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: The MMU translates the virtual (logical) addresses a program uses into physical RAM addresses, using page tables. Its TLB caches recent translations. This translation is what makes paging and virtual memory possible (ISS 2021, 2023, 2025).
+X: The MMU translates the virtual (logical) addresses a program uses into physical RAM addresses, using page tables. Its TLB caches recent translations. This translation is what makes paging and virtual memory possible.
 S: Virtual → physical = MMU (+ TLB); the technique = paging.
 
 #132 p152 a181
@@ -1427,7 +1427,7 @@ c) Control Unit
 d) System Unit
 K: c
 B: d
-X: The control unit manages instruction execution and coordinates all other units. The "system unit" is merely the cabinet that houses the components, as the book's own explanation notes.
+X: The control unit manages instruction execution and coordinates all other units. The "system unit" is merely the cabinet that houses the components.
 S: Coordinates all units → control unit; system unit = the cabinet.
 N: The book prints (d) System Unit while explaining that the system unit is the computer's enclosure. The unit that manages execution and coordinates the others is the control unit, so the key is (c).
 
@@ -1438,7 +1438,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache memory temporarily stores frequently accessed data between the CPU and RAM. The CPU looks there first (ISS 2021); a hit avoids a slow RAM access.
+X: Cache memory temporarily stores frequently accessed data between the CPU and RAM. The CPU looks there first; a hit avoids a slow RAM access.
 S: Frequently used → cache (looked at first).
 
 #143 p153 a182
@@ -1459,7 +1459,7 @@ c) Control Unit
 d) Instruction Control Unit
 K: c
 B: d
-X: The control unit controls the sequence and timing of instructions within the CPU, driven by the clock. The book's "instruction control unit" is just a descriptive name for part of it.
+X: The control unit controls the sequence and timing of instructions within the CPU, driven by the clock. "Instruction control unit" is just a descriptive name for this part of it.
 S: Sequence + timing → control unit.
 N: The book prints (d) "Instruction Control Unit" while stating that this is not a standard unit and that the control unit does this job. The key is (c).
 
@@ -1470,7 +1470,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Optical Drive Controller
 K: d
-X: The optical drive controller manages reading and writing on CDs, DVDs and Blu-ray discs, which use laser light (ISS 2026) to read the pits and lands.
+X: The optical drive controller manages reading and writing on CDs, DVDs and Blu-ray discs, which use laser light to read the pits and lands.
 S: CD/DVD/Blu-ray → optical drive controller (laser).
 
 #146 p154 a182
@@ -1560,7 +1560,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: The operating system is not among the options, so the book keys the MMU, the hardware that maps and protects memory for each process. Choose the OS if it is offered, because it makes the allocation decisions.
+X: The operating system is not among the options, so the MMU is the answer: the hardware that maps and protects memory for each process. Choose the OS whenever it is offered, because it makes the allocation decisions.
 S: OS allocates (if offered); MMU maps/protects.
 
 #155 p155 a183
@@ -1600,7 +1600,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Cache
 K: d
-X: The book keys the instruction cache — the part of the CPU cache that keeps frequently used instructions ready for fast fetching.
+X: The instruction cache is the part of the CPU cache that keeps frequently used instructions ready for fast fetching (split L1: I-cache for instructions, D-cache for data).
 S: Cache (here: instruction cache).
 
 #159 p155 a184
@@ -1630,7 +1630,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Scheduler
 K: d
-X: The OS scheduler allocates CPU time to processes using FCFS, SJF, priority or Round Robin (a fixed time slice, ISS 2025). The control unit only executes whatever instruction stream it is given.
+X: The OS scheduler allocates CPU time to processes using FCFS, SJF, priority or Round Robin (a fixed time slice). The control unit only executes whatever instruction stream it is given.
 S: Who gets the CPU next → scheduler (Round Robin = time slice).
 
 #162 p156 a184
@@ -1660,7 +1660,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache stores frequently used data and instructions so that the CPU seldom waits on main memory. It is measured by its hit ratio (ISS 2023).
+X: Cache stores frequently used data and instructions so that the CPU seldom waits on main memory. It is measured by its hit ratio.
 S: Cut RAM access time → cache.
 
 #165 p157 a185
@@ -1690,7 +1690,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Execution Unit
 K: d
-X: The book keys the instruction execution unit: the part of the CPU that carries out decoded instructions (the "EU" in the 8086, alongside the bus interface unit).
+X: The instruction execution unit is the part of the CPU that carries out decoded instructions (the "EU" in the 8086, working alongside the bus interface unit).
 S: Executes decoded instructions → execution unit (8086 EU).
 
 #168 p157 a185
@@ -1770,8 +1770,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Program Counter
 K: d
-X: The program counter holds the address of the next instruction to be executed and is incremented after each fetch (ISS 2022).
-S: Next instruction's address → PC (ISS 2022).
+X: The program counter holds the address of the next instruction to be executed and is incremented after each fetch.
+S: Next instruction's address → PC.
 
 #176 p158 a186
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and communication devices such as network cards and modems?
@@ -1780,7 +1780,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Communication Interface Unit
 K: d
-X: A communication interface unit connects network cards and modems to the CPU. A modem converts digital ↔ analog (ISS 2023).
+X: A communication interface unit connects network cards and modems to the CPU. A modem converts digital ↔ analog.
 S: Network card / modem link → communication interface unit.
 
 #177 p158 a186
@@ -1860,8 +1860,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: d
-X: The ALU executes arithmetic and logic operations. AND and OR belong to its logic unit (ISS 2025).
-S: Arithmetic + logic → ALU (ISS 2025).
+X: The ALU executes arithmetic and logic operations. AND and OR belong to its logic unit.
+S: Arithmetic + logic → ALU.
 
 #185 p159 a187
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the system clock?
@@ -1890,8 +1890,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Accumulator
 K: d
-X: The accumulator receives the result of arithmetic and logic operations. This is exactly what ISS 2026 asked ("used for storing results produced by the ALU").
-S: ALU result → accumulator (ISS 2026).
+X: The accumulator receives the result of arithmetic and logic operations — it is the register "used for storing results produced by the ALU".
+S: ALU result → accumulator.
 
 #188 p159 a187
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the network interface card?
@@ -1900,8 +1900,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Network Interface Controller
 K: d
-X: The network interface controller (NIC) handles network communication for the CPU. A NIC is needed to connect a computer to the internet (ISS 2023).
-S: Network → NIC (ISS 2023).
+X: The network interface controller (NIC) handles network communication for the CPU. A NIC is needed to connect a computer to the internet.
+S: Network → NIC.
 
 #189 p159 a188
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and external devices such as printers and scanners?
@@ -1910,7 +1910,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Printer Interface Unit
 K: d
-X: The book keys the printer interface unit, which handles the CPU's communication with printers (and similar devices such as scanners).
+X: The printer interface unit handles the CPU's communication with printers (and similar devices such as scanners), passing data and status signals between them.
 S: Printer link → printer interface unit.
 
 #190 p160 a188
@@ -1960,7 +1960,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Optical Drive Controller
 K: d
-X: The optical drive controller manages reading and writing on CDs, DVDs and Blu-ray discs, which work with laser light (ISS 2026). CD-R is write-once; CD-RW is rewritable.
+X: The optical drive controller manages reading and writing on CDs, DVDs and Blu-ray discs, which work with laser light. CD-R is write-once; CD-RW is rewritable.
 S: Optical = laser; CD-R once, CD-RW many.
 
 #195 p160 a188
@@ -1970,7 +1970,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Touch Interface Unit
 K: d
-X: The touch interface unit handles a touchscreen, which is both an input device (touch) and an output device (display). ISS 2024 described the touchscreen as a pointing device used by touching the screen directly.
+X: The touch interface unit handles a touchscreen, which is both an input device (touch) and an output device (display) — a pointing device used by touching the screen directly.
 S: Touchscreen = input + output (pointing device).
 
 #196 p160 a188
@@ -1990,7 +1990,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Video Capture Interface Unit
 K: d
-X: The video capture interface unit manages webcams and capture cards, which are input devices. Webcam video quality depends on frame rate and resolution (ISS 2024).
+X: The video capture interface unit manages webcams and capture cards, which are input devices. Webcam video quality depends on frame rate and resolution.
 S: Webcam = input (frame rate + resolution decide quality).
 
 #198 p160 a189
@@ -2000,7 +2000,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Modem Interface Unit
 K: d
-X: The modem interface unit handles the modem, which converts digital data to analog signals and back (MOdulator-DEModulator, ISS 2023) for internet connectivity over telephone or cable lines.
+X: The modem interface unit handles the modem, which converts digital data to analog signals and back (MOdulator-DEModulator) for internet connectivity over telephone or cable lines.
 S: Modem = digital ↔ analog (modulate/demodulate).
 
 #199 p161 a189
@@ -2090,8 +2090,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) VR Interface Unit
 K: d
-X: A VR interface connects head-mounted displays and motion trackers. VR is built with multimedia and engages sight, hearing and touch (ISS 2025).
-S: VR = immersive multimedia (ISS 2025).
+X: A VR interface connects head-mounted displays and motion trackers. VR is built with multimedia and engages sight, hearing and touch.
+S: VR = immersive multimedia.
 
 #208 p162 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the smart card readers for secure authentication?
@@ -2110,7 +2110,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Camera Controller
 K: d
-X: A camera controller manages image and video capture from a digital camera (an input device). The photos are usually stored on flash memory cards (ISS 2019).
+X: A camera controller manages image and video capture from a digital camera (an input device). The photos are usually stored on flash memory cards.
 S: Digital camera = input; its storage = flash.
 
 #210 p162 a190
@@ -2150,8 +2150,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Wi-Fi Interface Unit
 K: d
-X: The Wi-Fi interface provides wireless LAN connectivity under IEEE 802.11 (ISS 2020, 2025). Among common standards, 802.11ad has the highest data rate (ISS 2026).
-S: Wi-Fi = IEEE 802.11 (ISS favourite).
+X: The Wi-Fi interface provides wireless LAN connectivity under IEEE 802.11. Among common standards, 802.11ad has the highest data rate.
+S: Wi-Fi = IEEE 802.11.
 
 #214 p162 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the FireWire devices for high-speed data transfer?
@@ -2170,7 +2170,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Network Switch Controller
 K: d
-X: The book keys a network switch controller for the link to the network switch. A switch forwards frames by MAC address (layer 2), whereas a hub repeats to every port.
+X: A network switch controller manages the link to a network switch. A switch forwards frames by MAC address (layer 2), whereas a hub repeats every frame to every port.
 S: Switch = MAC-based forwarding; hub = broadcast to all.
 
 #216 p163 a190
@@ -2251,7 +2251,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) MicroSD Interface Unit
 K: d
-X: The microSD interface reads and writes microSD cards, which are flash memory: non-volatile and electrically erasable (ISS 2019: flash suits phones and cameras).
+X: The microSD interface reads and writes microSD cards, which are flash memory: non-volatile and electrically erasable, ideal for phones and cameras.
 S: microSD = flash memory.
 
 #224 p164 a191
@@ -2341,8 +2341,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Joystick Interface Unit
 K: d
-X: The joystick interface reads joystick position and buttons. A joystick is a pointing input device that moves the cursor in the direction it is pushed (ISS 2024).
-S: Joystick = pointing input (ISS 2024).
+X: The joystick interface reads joystick position and buttons. A joystick is a pointing input device that moves the cursor in the direction it is pushed.
+S: Joystick = pointing input.
 
 #233 p165 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the microphone for audio input?
@@ -2361,7 +2361,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Webcam Interface Unit
 K: d
-X: The webcam interface captures video input. A webcam is an input device (ISS 2021 listed it as not an output device; ISS 2024).
+X: The webcam interface captures video input. A webcam is an input device, never an output device.
 S: Webcam = input (not output!).
 
 #235 p165 a192
@@ -2401,8 +2401,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Speaker Interface Unit
 K: d
-X: The speaker interface sends audio output (through a DAC and amplifier) to the speakers, which are output devices (ISS 2021).
-S: Speaker = output (ISS 2021).
+X: The speaker interface sends audio output (through a DAC and amplifier) to the speakers, which are output devices.
+S: Speaker = output.
 
 #239 p165 a193
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the touch-sensitive display for input and output?
@@ -2421,7 +2421,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Storage Interface Unit
 K: d
-X: The storage interface handles backup and retrieval on storage devices. For large backups, magnetic tape is the classic cheap auxiliary medium (ISS 2018).
+X: The storage interface handles backup and retrieval on storage devices. For large backups, magnetic tape is the classic cheap auxiliary medium.
 S: Backup medium → tape (cheap, sequential).
 
 #241 p166 a193
@@ -2462,7 +2462,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Stylus Interface Unit
 K: d
-X: The stylus interface reads pen position and pressure for precise drawing. Its older relative, the light pen, is an electro-optical pointing device used on the screen (ISS 2024).
+X: The stylus interface reads pen position and pressure for precise drawing. Its older relative, the light pen, is an electro-optical pointing device used on the screen.
 S: Stylus / light pen = precise pointing input.
 
 #245 p166 a193
@@ -2472,7 +2472,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Network Interface Controller
 K: d
-X: The NIC connects the computer to a network or the internet (ISS 2023). Each NIC has a unique 48-bit MAC (hardware) address; the IP address is logical, not hardware (ISS 2023).
+X: The NIC connects the computer to a network or the internet. Each NIC has a unique 48-bit MAC (hardware) address; the IP address is logical, not hardware.
 S: NIC → MAC = hardware address; IP = logical.
 
 #246 p166
@@ -2482,7 +2482,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Printer Interface Unit
 K: d
-X: The printer interface sends documents and images to the printer. Laser printers are measured in dpi: 1200 dpi on an 8 × 10 in page gives 115.2 million dots (ISS 2026).
+X: The printer interface sends documents and images to the printer. Laser printers are measured in dpi: 1200 dpi on an 8 × 10 in page gives 115.2 million dots.
 S: Dots = (dpi × w) × (dpi × h).
 N: The book's answer for this question is missing from the scan; the key follows the pattern of every other question in this block, where the named interface unit (d) is correct.
 
@@ -2523,6 +2523,6 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Modem Interface Unit
 K: d
-X: The modem interface manages the modem used for internet access. A modem is both an input and an output device, converting digital ↔ analog (ISS 2023).
+X: The modem interface manages the modem used for internet access. A modem is both an input and an output device, converting digital ↔ analog.
 S: Modem = MOdulator-DEModulator.
 

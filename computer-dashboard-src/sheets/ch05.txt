@@ -1,3 +1,11 @@
+## 60-second recap
+- ★ **AND** 1 only if all 1 · **OR** 0 only if all 0 · **NOT** flips · **NAND/NOR** = inverted AND/OR · **XOR** 1 if inputs differ · **XNOR** 1 if equal.
+- ★ **NAND and NOR are universal.** With NAND: NOT 1 · AND 2 · OR 3 · XOR 4 gates.
+- ★ **De Morgan:** (A + B)' = A'·B' and (A·B)' = A' + B' — "break the bar, change the sign".
+- ★ **Absorption:** A + AB = A; A(A + B) = A. **Rule:** A + A'B = A + B.
+- ★ **Half adder:** Sum = A ⊕ B, Carry = A·B. **Flip-flop** stores 1 bit (sequential); MUX, decoder, adder are combinational.
+- ★ n inputs → **2ⁿ** truth-table rows.
+
 ## Basic gates (truth in one line)
 - **AND:** 1 only if **all** inputs are 1. Symbol: D-shape. Y = A·B.
 - **OR:** 0 only if **all** inputs are 0. Symbol: curved shield. Y = A + B.
@@ -21,19 +29,20 @@
 
 ## Truth tables and bit operations
 - n inputs → **$2^n$ rows** (3 variables → 8, 4 → 16).
-- **Bitwise AND/OR/XOR on binary numbers:** work column by column. 100101 AND 101101 = 100101 (ISS 2021).
+- ★ **Bitwise AND/OR/XOR on binary numbers:** work column by column. 100101 AND 101101 = 100101.
 - Masking: AND with 0 clears a bit, OR with 1 sets a bit, XOR with 1 toggles a bit.
 
 ## Combinational vs sequential circuits
 - **Combinational** (output depends on present inputs only): adders, multiplexer, demultiplexer, encoder, decoder, comparator.
-- **Sequential** (has memory): flip-flops, latches, registers, counters. A **flip-flop stores 1 bit** (ISS 2020).
+- ★ **Sequential** (has memory): flip-flops, latches, registers, counters. A **flip-flop stores 1 bit**.
 - **Half adder:** Sum = A ⊕ B, Carry = A·B. **Full adder:** adds a carry-in as well (built from 2 half adders + 1 OR gate).
 - **Multiplexer:** $2^n$ inputs → 1 output, chosen by n select lines. **Decoder:** n inputs → $2^n$ outputs.
 
-## PYQ: What ISS asked (2018–2026)
-- **2021 Q58** Which number gives 100101 when AND-ed with 101101 → **100101** (an AND can only keep or clear 1s).
-- **2020 Q58** A sequential circuit that stores 1 bit → **flip-flop**.
-- Logic gates also appear inside ALU questions: **AND/OR operations belong to the logic unit** (ISS 2025).
+## ★ Most-tested facts
+- A number that gives 100101 when AND-ed with 101101 → **100101** (AND can only keep or clear 1s).
+- A sequential circuit that stores 1 bit → **flip-flop**.
+- AND/OR operations inside the CPU belong to the **logic unit of the ALU**.
+- NAND and NOR are universal; the output of XOR is 1 when the inputs **differ**; the dual of A + 0 = A is **A·1 = A**.
 
 ## Traps to avoid
 - **XOR ≠ OR:** for 1,1 XOR gives 0 but OR gives 1.

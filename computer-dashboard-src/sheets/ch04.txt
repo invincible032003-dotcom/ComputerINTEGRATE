@@ -1,51 +1,60 @@
+## 60-second recap
+- ★ **Base r uses digits 0 … r−1**; any digit ≥ r makes the number invalid (G in hex, 8 in octal).
+- ★ **Grouping:** 1 octal digit = 3 bits, 1 hex digit = 4 bits; group from the point outwards. Octal ↔ hex always via binary.
+- ★ **Decimal → base r:** integers divide (remainders bottom-up); fractions multiply (integer parts top-down).
+- ★ **2's complement** = flip + 1 (or copy up to the first 1 from the right, flip the rest). Range: $-2^{n-1}$ … $2^{n-1}-1$; single zero.
+- ★ **Weighted codes:** 8421 (BCD), 2421, 5211. **Non-weighted:** Gray, Excess-3. Gray = one bit changes per step.
+- ★ **Powers of 2:** 2⁴ = 16 · 2⁸ = 256 · 2¹⁰ = 1024 · 2¹⁶ = 65,536. n bits all 1s = 2ⁿ − 1.
+
 ## Number systems at a glance
-- **Base (radix) r uses digits 0 … r−1.** The highest digit is **one less than the base** (ISS 2022). A digit ≥ base (e.g. G in hex, 8 in octal) makes the number invalid (ISS 2020: 15F6G is not hex).
+- ★ **Base (radix) r uses digits 0 … r−1.** The highest digit is **one less than the base**. A digit ≥ base (e.g. G in hex, 8 in octal) makes the number invalid (15F6G is not hex).
 - Binary (2): 0–1 · Octal (8): 0–7 · Decimal (10) · Hexadecimal (16): 0–9, A=10 … F=15.
 - **Grouping shortcut:** 1 octal digit = **3 bits**, 1 hex digit = **4 bits**. Group from the point outwards, padding with zeros at both ends.
-- **Any base → decimal:** sum of digit × $r^{position}$ (fraction positions −1, −2 …). $(325.12)_8$ = 213 + 1/8 + 2/64 = **213.15625** (ISS 2018).
+- ★ **Any base → decimal:** sum of digit × $r^{position}$ (fraction positions −1, −2 …). $(325.12)_8$ = 213 + 1/8 + 2/64 = **213.15625**.
 
 ## Conversion toolkit
 - **Decimal → base r (integer part):** divide by r repeatedly and read the remainders **bottom-up**.
 - **Decimal → base r (fraction):** multiply by r repeatedly and read the integer parts **top-down**.
-- **Octal ↔ hex:** go through binary. $(6251)_8$ = 110 010 101 001 → 1100 1010 1001 = **CA9** (ISS 2021, 2023).
-- $(32FC.75)_{16}$ → binary → regroup in 3s → **$(31374.352)_8$** (ISS 2022).
-- $(111110111.110101)_2$ = 1 1111 0111 . 1101 0100 = **1F7.D4** (ISS 2020).
-- $(366)_8$ = **0F6** hex; $(A53)_{16}$ = **2643** decimal (ISS 2025). $45796_{10}$ = **131344** octal; $(365)_8$ = **0F5** hex (ISS 2026).
-- **Unknown base:** $(110)_X = (1100)_2 = 12$, so $X^2 + X = 12$ and **X = 3** (ISS 2023).
+- ★ **Octal ↔ hex:** go through binary. $(6251)_8$ = 110 010 101 001 → 1100 1010 1001 = **CA9**.
+- ★ $(32FC.75)_{16}$ → binary → regroup in 3s → **$(31374.352)_8$**.
+- ★ $(111110111.110101)_2$ = 1 1111 0111 . 1101 0100 = **1F7.D4**.
+- ★ $(366)_8$ = **0F6** hex; $(A53)_{16}$ = **2643** decimal. $45796_{10}$ = **131344** octal; $(365)_8$ = **0F5** hex.
+- ★ **Unknown base:** $(110)_X = (1100)_2 = 12$, so $X^2 + X = 12$ and **X = 3**.
 
 ## Binary arithmetic
 - **Addition:** 0+0=0, 0+1=1, 1+1=10 (write 0, carry 1), 1+1+1=11.
 - **Subtraction:** 0−1 = 1 with a borrow of 1. In practice, add the 2's complement.
-- **Division check:** 217 ÷ 12 → quotient 18 = **10010**, remainder 1 = **0001** (ISS 2019).
-- **AND / OR / XOR of binaries:** do it bit by bit. 100101 AND 101101 = **100101** (ISS 2021).
+- ★ **Division check:** 217 ÷ 12 → quotient 18 = **10010**, remainder 1 = **0001**.
+- ★ **AND / OR / XOR of binaries:** do it bit by bit. 100101 AND 101101 = **100101**.
 
 ## Complements and signed numbers
 - **1's complement:** flip every bit. **2's complement:** 1's complement + 1 (or copy bits up to and including the first 1 from the right, then flip the rest).
-- **−59 in 8-bit 2's complement:** 59 = 00111011 → flip → 11000100 → +1 → **11000101** (ISS 2022, 2024).
-- **n-bit signed range (2's complement):** $-2^{n-1}$ to $2^{n-1}-1$. The largest in an 8-bit word is **127** (ISS 2018); in general $2^{n-1}-1$ (ISS 2018).
-- 2's complement is preferred because it has a single zero (so more numbers fit), faster arithmetic (subtraction = addition) and easy negatives (ISS 2018: all three reasons).
-- **r's and (r−1)'s complement in decimal:** 9's complement of 47 = 52, and **10's complement of 47 = 53** (ISS 2024).
+- ★ **−59 in 8-bit 2's complement:** 59 = 00111011 → flip → 11000100 → +1 → **11000101**.
+- ★ **n-bit signed range (2's complement):** $-2^{n-1}$ to $2^{n-1}-1$. The largest in an 8-bit word is **127**; in general $2^{n-1}-1$.
+- ★ 2's complement is preferred because it has a single zero (so more numbers fit), faster arithmetic (subtraction = addition) and easy negatives (all three reasons).
+- ★ **r's and (r−1)'s complement in decimal:** 9's complement of 47 = 52, and **10's complement of 47 = 53**.
 
 ## Codes
-- **Weighted codes:** BCD **8421**, 2421, 5211 (ISS 2019, 2020). **Non-weighted:** Gray, Excess-3, ASCII.
-- **BCD:** each decimal digit becomes 4 bits. 0101 0010 0001 . 0110 = **521.6** (ISS 2020). The 4-bit BCD code is the **8421 code** (ISS 2018).
+- ★ **Weighted codes:** BCD **8421**, 2421, 5211. **Non-weighted:** Gray, Excess-3, ASCII.
+- ★ **BCD:** each decimal digit becomes 4 bits. 0101 0010 0001 . 0110 = **521.6**. The 4-bit BCD code is the **8421 code**.
 - **Excess-3** = BCD + 3 (0011). It is self-complementing.
-- **Binary → Gray:** keep the MSB, then XOR each adjacent pair. 01010010 → **01111011** (ISS 2023).
-- **Gray → binary:** keep the MSB, then each binary bit = previous binary bit XOR the current Gray bit. 10101110 → **11001011** (ISS 2021).
+- ★ **Binary → Gray:** keep the MSB, then XOR each adjacent pair. 01010010 → **01111011**.
+- ★ **Gray → binary:** keep the MSB, then each binary bit = previous binary bit XOR the current Gray bit. 10101110 → **11001011**.
 - Gray code: successive values differ in **one bit** (used in encoders and K-maps). ASCII = 7-bit (128 characters); Unicode for all scripts.
 
 ## Floating point
-- **Normalised form:** mantissa with its leading digit just after the point. 11.234 → **.11234E+2** (ISS 2018).
+- ★ **Normalised form:** mantissa with its leading digit just after the point. 11.234 → **.11234E+2**.
 - IEEE 754 single precision = 1 sign + 8 exponent (bias 127) + 23 mantissa bits; double = 1 + 11 (bias 1023) + 52.
 
-## PYQ: What ISS asked (2018–2026)
-- **2018 Q62** $(325.12)_8$ → 213.15625. **2018 Q66** 11.234 → .11234E+2. **2018 Q67/74** max integer: 127 and $2^{n-1}-1$.
-- **2019 Q42 / 2020 Q43** weighted codes → **BCD / 8421 only**. **2019 Q43** 217 ÷ 12 → 10010 r 0001.
-- **2020 Q45** negatives → **2's complement**. **2020 Q50** → 1F7.D4. **2020 Q51** BCD → 521.6. **2020 Q59** invalid hex → 15F6G.
-- **2021 Q76** Gray 10101110 → 11001011. **2021 Q78 / 2023 Q79** $(6251)_8$ → CA9.
-- **2022 Q35 / 2024 Q46** −59 → 11000101. **2022 Q39** → $(31374.352)_8$.
-- **2023 Q67** X = 3 ✓ and Gray 01111011 ✓ → both. **2024 Q54** 355 hex ✓, 10's complement 53 ✓ → both.
-- **2025 Q35** 0F6 ✓, 2643 ✓ → both. **2026 Q63** 131344 ✓, 0F5 ✓ → both.
+## ★ Most-tested facts
+- $(325.12)_8$ = **213.15625**; 11.234 normalised → **.11234E+2**.
+- Largest signed integer in an 8-bit word → **127**; in n bits → $2^{n-1}-1$.
+- Weighted code among the options → **BCD / 8421 only**; 217 ÷ 12 in binary → quotient **10010**, remainder **0001**.
+- Negative numbers are stored in **2's complement**; −59 in 8 bits → **11000101**.
+- $(111110111.110101)_2$ → **1F7.D4**; BCD 0101 0010 0001 . 0110 → **521.6**; invalid hex → **15F6G**.
+- Gray 10101110 → binary **11001011**; binary 01010010 → Gray **01111011**.
+- $(6251)_8$ → **CA9**; $(32FC.75)_{16}$ → $(31374.352)_8$; $(366)_8$ → **0F6**; $(A53)_{16}$ → **2643**; $45796_{10}$ → **131344**₈.
+- $(110)_X = (1100)_2$ → **X = 3**; 10's complement of 47 → **53**.
 
 ## Traps to avoid
 - Read fraction digits **top-down** when converting; integer remainders are read **bottom-up**.

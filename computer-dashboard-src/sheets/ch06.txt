@@ -1,45 +1,56 @@
+## 60-second recap
+- ★ **1GL** machine (binary) · **2GL** assembly (mnemonics + assembler) · **3GL** high-level (C, COBOL, Java) · **4GL** SQL/reports · **5GL** AI/logic (Prolog).
+- ★ **Compiler** = whole program → object code, lists all errors, fast run. **Interpreter** = line by line, stops at the first error, no object file.
+- ★ **Build chain:** source → compiler → object → **linker** (+ libraries) → executable → **loader** → RAM → run.
+- ★ **Lexical analysis → tokens**; syntax → parse tree; then semantic, intermediate code, optimisation, code generation.
+- ★ **Logical error** = runs but wrong answer; **syntax error** = won't compile.
+- ★ **System software** (OS, translators, drivers, utilities) vs **application** (word processor). Antivirus = utility.
+
 ## Generations of languages
 - **1GL machine language:** binary, machine-dependent, fastest, error-prone, needs no translator.
-- **2GL assembly:** mnemonics (MOV, ADD) and labels. It needs an **assembler** and is still machine-dependent (a low-level language).
-- **3GL high-level:** English-like, portable, procedural (FORTRAN, COBOL, C, Pascal, BASIC, Java). Needs a compiler or interpreter.
-- **4GL:** non-procedural, database, query and report oriented (**SQL**, report generators, form builders). Means rapid application development.
-- **5GL:** constraint and logic based, used for AI (**Prolog**, Mercury, OPS5).
-- Abstraction rises and hardware dependence falls from 1GL to 5GL.
+- **2GL assembly:** mnemonics (MOV, ADD) and labels; needs an **assembler**; still machine-dependent (low-level). Statement = [label] opcode operands.
+- **3GL high-level:** English-like, portable, mostly procedural (FORTRAN, COBOL, C, Pascal, BASIC, Java). Needs a compiler or interpreter.
+- **4GL:** non-procedural, database, query and report oriented (**SQL**, report generators, form builders) — rapid application development.
+- **5GL:** constraint and logic based, used for AI and natural language processing (**Prolog**, Mercury, OPS5).
+- Abstraction rises and hardware dependence falls from 1GL to 5GL. If "5th" is not an option for AI, pick the latest listed.
 
 ## Translators and the build chain
-- **Assembler:** assembly → machine code. **Compiler:** the whole HLL program → object code. **Interpreter:** translates and runs **line by line** (ISS 2018).
+- ★ **Assembler:** assembly → machine code. **Compiler:** the whole HLL program → object code. **Interpreter:** translates and runs **line by line**.
 - A compiler reports all syntax errors after a full scan and makes a fast executable. An interpreter stops at the first error, runs more slowly and is needed at every run.
-- **Compiler phases:** lexical (→ **tokens**, ISS 2021) → syntax (parse tree) → semantic → intermediate code → optimisation → code generation.
-- **Linker:** combines object files and **library routines** (e.g. `exp()` from the math library, ISS 2023) into one executable (ISS 2019, 2025).
+- ★ **Compiler phases:** lexical (→ **tokens**) → syntax (parse tree) → semantic → intermediate code → optimisation → code generation.
+- ★ **Linker:** combines object files and **library routines** (e.g. `exp()` from the math library) into one executable, resolving external symbols via symbol tables.
 - **Loader:** puts the executable into RAM, allocates memory and starts it. **Relocation** adjusts addresses to the load location.
-- **Absolute loader:** the assembler/programmer does allocation, linking and relocation. The loader only loads (ISS 2026: allocation is done by the assembler).
+- ★ **Absolute loader:** the assembler/programmer does allocation, linking and relocation; the loader only loads.
 - **Dynamic linking:** libraries (`.dll`, `.so`) are linked at load or run time and shared in memory.
 
 ## Errors
-- **Syntax (grammatical) error:** caught by the compiler. A compiler diagnoses **grammatical errors only** (ISS 2018).
-- **Logical error:** the program runs but gives wrong results. A program can run successfully despite one (ISS 2018).
-- **Run-time error:** crashes during execution (divide by zero, invalid memory access).
+- ★ **Syntax (grammatical) error:** caught by the compiler. A compiler diagnoses **grammatical errors only**.
+- ★ **Logical error:** the program runs but gives wrong results — only testing finds it.
+- **Run-time error:** crashes during execution (divide by zero, invalid memory access). **Linker error:** an undefined external symbol.
 
 ## Software classes
-- **System software:** OS, device drivers, translators, linkers, loaders, utilities. A **word processor is NOT system software** (ISS 2021).
-- **Utility software:** antivirus (ISS 2019), backup, compression, disk cleanup, **encryption, data recovery** (ISS 2024 counted four utility tasks; search-and-replace is an editor feature).
-- **Firmware:** software in ROM, such as the BIOS (ISS 2018). **Middleware:** software connecting applications to each other or to databases.
-- **Runtime environment** (JVM, CLR): manages memory allocation, **garbage collection** and other run-time tasks (ISS 2025).
+- ★ **System software:** OS, device drivers, translators, linkers, loaders, utilities. A **word processor is not system software**.
+- ★ **Utility software:** antivirus, backup, compression, disk cleanup, **encryption, data recovery**. Search-and-replace is an editor feature, not a utility.
+- ★ **Firmware:** software in ROM, such as the BIOS. **Middleware:** connects applications to each other or to databases. Freeware = free; shareware = try before you buy.
+- ★ **Runtime environment** (JVM, CLR): manages memory allocation, **garbage collection** and exceptions while the program runs.
 
-## Languages ISS likes
-- **C:** Dennis Ritchie, 1972, Bell Labs. **UNIX is written in C** (ISS 2026).
-- **C#:** Microsoft, for the **.NET** platform (ISS 2020). **Java:** Sun (Gosling), "write once run anywhere" via bytecode and the JVM.
-- **Python:** interpreted, **platform-independent**, used for web apps (ISS 2026). The statement "Python is platform-dependent" is false (ISS 2021).
+## Languages worth remembering
+- ★ **C:** Dennis Ritchie, 1972, Bell Labs. **UNIX is written in C** (1973).
+- ★ **C#:** Microsoft, for the **.NET** platform. **Java:** Sun (Gosling), "write once, run anywhere" via bytecode and the JVM. **Swift:** Apple.
+- ★ **Python:** interpreted, **platform-independent**, used for web apps (Django, Flask). "Python is platform-dependent" is false.
 - Classification pairs: high/low level · procedural/object-oriented · compiled/interpreted · imperative (how) / declarative (what).
+- **OOP pillars:** encapsulation · inheritance · polymorphism · abstraction.
 
-## PYQ: What ISS asked (2018–2026)
-- **2018 Q70** Interpreter translates and executes simultaneously. **2018 Q76** Compiler → grammatical errors only.
-- **2018 Q78** Runs despite a **logical error**. **2018 Q80** Low-level → **machine language**.
-- **2019 Q44** Joins object code of all modules → **linker**. **2021 Q80** Lexical analyser output → **tokens**.
-- **2024 Q47** Both translate HLL ✓; interpreter translates the whole program first ✗ → **I only**.
-- **2025 Q72** Linker's purpose → **combine object files and libraries into an executable**.
+## ★ Most-tested facts
+- A translator that translates and executes simultaneously → **interpreter**.
+- A compiler diagnoses **grammatical (syntax) errors only**; a program can run despite a **logical error**.
+- The low-level language that needs no translation → **machine language**.
+- Joins the object code of all modules into one program → **linker** (object files + libraries → executable).
+- Output of the lexical analyser → **tokens**.
+- "Both compiler and interpreter translate HLL" ✓; "an interpreter translates the whole program first" ✗.
 
 ## Traps to avoid
-- An **interpreter produces no object file**, so a compiled program runs without its compiler but an interpreted one needs the interpreter every time.
-- **Linker ≠ loader:** the linker joins files, the loader puts the result in memory.
+- An **interpreter produces no object file**: a compiled program runs without its compiler, an interpreted one needs the interpreter every time.
+- **Linker ≠ loader:** the linker joins files, the loader puts the result in memory. The linker works on **object** files, not source files.
 - 4GL = SQL (database); 5GL = Prolog (AI). Don't swap them.
+- Assembly is easier than machine code but **equally machine-dependent** — never "portable".

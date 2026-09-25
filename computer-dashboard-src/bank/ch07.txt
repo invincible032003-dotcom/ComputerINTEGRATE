@@ -5,7 +5,7 @@
 @default C5
 @themes 1 What an OS is · functions · kernel, shell, drivers, file system · OS history (MS-DOS to Windows 10)
 @themes 2 OS generations · batch · multiprogramming · time-sharing · real-time · network OS
-@themes 3 Distributed OS · UNIX · kernel types · UNIX files · MS-DOS + 10 ISS Boosters (deadlock, paging, process states)
+@themes 3 Distributed OS · UNIX · kernel types · UNIX files · MS-DOS · deadlock · paging · process states
 
 #1 p294 a308
 Q: What is an operating system?
@@ -44,8 +44,8 @@ b) Multi-user operating system
 c) Real-time operating system
 d) Web-based operating system
 K: d
-X: The traditional classes of OS are single-user, multi-user, batch, time-sharing, real-time, network and distributed. A "web-based OS" is a recent idea and is not one of the textbook types.
-S: Textbook OS types: batch · multiprogramming · time-sharing · real-time · network · distributed.
+X: The classic classes of OS are single-user, multi-user, batch, time-sharing, real-time, network and distributed. A "web-based OS" is a recent idea and is not one of the standard types.
+S: Classic OS types: batch · multiprogramming · time-sharing · real-time · network · distributed.
 
 #5 p294 a308
 Q: Which scheduling algorithm is used in most operating systems to determine the execution order of processes?
@@ -54,7 +54,7 @@ b) First-come, first-served (FCFS) scheduling
 c) Shortest Job Next (SJN) scheduling
 d) Priority-based scheduling
 K: a
-X: Round robin gives each ready process a fixed time slice (quantum) in turn, which makes it the standard algorithm for time-sharing systems. Modern desktop OSs actually combine priorities with round robin (multilevel feedback queues), but among these options the book's answer is round robin.
+X: Round robin gives each ready process a fixed time slice (quantum) in turn, which makes it the standard algorithm for time-sharing systems. Modern desktop OSs combine priorities with round robin (multilevel feedback queues), but among these options round robin is the answer.
 S: Time slice / quantum → round robin.
 
 #6 p294 a308
@@ -274,7 +274,7 @@ b) Shell
 c) Process manager
 d) Device drivers
 K: c
-X: The process manager creates, schedules and terminates processes. As at Q21, the specific component is preferred over the kernel as a whole.
+X: The process manager creates, schedules and terminates processes. The question asks for the specific component, so it beats "kernel", which is the whole core.
 S: Processes → process manager.
 
 #28 p297 a310
@@ -426,7 +426,7 @@ b) Fortran Monitor System
 c) GM-NAA I/O
 d) General Motors Operating System
 K: b
-X: The book credits the Fortran Monitor System (FMS, IBM 709/7090) with batch processing. In such a monitor, jobs on tape run one after another without an operator stepping in. GM-NAA I/O was also a simple batch monitor; FMS and IBSYS are the textbook examples of early batch systems.
+X: The Fortran Monitor System (FMS, IBM 709/7090) is the classic early batch system: jobs on tape ran one after another without an operator stepping in. GM-NAA I/O was also a simple batch monitor; FMS and IBSYS are the standard examples.
 S: Early batch monitors → FMS / IBSYS.
 
 #43 p299 a311
@@ -477,7 +477,7 @@ b) Windows
 c) Mac OS
 d) Linux
 K: b
-X: The key word is "dominant": Windows brought a GUI to the IBM-compatible PC and became the most widely used personal computer OS. Mac OS had a GUI earlier (see Q34) but never dominated the market.
+X: The key word is "dominant": Windows brought a GUI to the IBM-compatible PC and became the most widely used personal computer OS. Mac OS had a GUI earlier but never dominated the market.
 S: GUI first → Mac; GUI dominant → Windows.
 
 #48 p299 a312
@@ -507,8 +507,8 @@ b) Windows 3.1
 c) UNIX
 d) MS-DOS
 K: b
-X: The book credits Windows 3.x (3.0 in 1990, 3.1 in 1992): multitasking Windows applications on millions of IBM-compatible PCs transformed the industry. Strictly, earlier systems such as Windows 1.0 (1985) and the Amiga (1985) already multitasked in a GUI. Remember the book's answer.
-S: Book: multitasking GUI revolution → Windows 3.1.
+X: Windows 3.x (3.0 in 1990, 3.1 in 1992) brought multitasking graphical applications to millions of IBM-compatible PCs and transformed the industry, so it is the expected answer. Strictly, Windows 1.0 and the Amiga (both 1985) already multitasked in a GUI.
+S: Multitasking GUI that revolutionised PCs → Windows 3.1.
 
 #51 p300 a312
 Q: What is the primary characteristic of a batch processing operating system?
@@ -607,7 +607,7 @@ b) Priority scheduling
 c) Round-robin scheduling
 d) Shortest job first scheduling
 K: c
-X: The book's answer is round-robin scheduling: each process gets a fixed time slice and the processes take turns in circular order. Compare Q66, where the same question for a time-sharing system is keyed "time slicing". Round robin is the scheduling algorithm that implements time slicing.
+X: Round-robin scheduling gives each process a fixed time slice and the processes take turns in circular order — it is the algorithm that implements time slicing. When "time slicing" itself is the option (time-sharing questions), choose that.
 S: Round robin = time slicing in circular order.
 
 #61 p301 a313
@@ -627,7 +627,7 @@ b) macOS
 c) UNIX
 d) Linux
 K: c
-X: UNIX is the classic multi-user time-sharing OS among these options: many users work at the same time from terminals. (Time-sharing was first shown by CTSS in 1961, see Q43; UNIX made it widespread.)
+X: UNIX is the classic multi-user time-sharing OS among these options: many users work at the same time from terminals. Time-sharing was first shown by CTSS (MIT, 1961); UNIX made it widespread.
 S: Among modern names, time-sharing → UNIX.
 
 #63 p301 a314
@@ -880,7 +880,7 @@ c) Remote procedure call (RPC)
 d) Socket programming
 K: c
 C: C7
-X: RPC lets a process call a procedure on a remote machine as if it were a local function call, and it is the book's intended answer. RPC is itself built on message passing, which is the underlying mechanism of any distributed system. Shared memory only works within one machine.
+X: RPC lets a process call a procedure on a remote machine as if it were a local function call, which makes it the standard communication model in distributed OSs. RPC itself runs on message passing; shared memory only works within one machine.
 S: Call a remote function like a local one → RPC.
 
 #87 p304 a316
@@ -970,7 +970,7 @@ b) The kernel is responsible for managing peripheral devices.
 c) The kernel is loaded into memory when the computer boots up.
 d) The kernel is primarily responsible for executing user applications.
 K: c
-X: The bootloader loads the kernel into memory at start-up, and it stays resident until shutdown. The kernel is the core of the OS, not a program running on top of it. It does manage devices, through drivers, but option c is the property the book wants.
+X: The bootloader loads the kernel into memory at start-up, and it stays resident until shutdown. The kernel is the core of the OS, not a program running on top of it. It does manage devices through drivers, but being loaded at boot and staying resident is the defining statement here.
 S: Boot → kernel loaded, stays resident.
 
 #96 p306 a317
@@ -1050,7 +1050,7 @@ b) Directory file
 c) Device file
 d) Symbolic link file
 K: c
-X: UNIX calls device files "special files". The IPC files, named pipes (FIFOs) and sockets, are also special files, and the book groups them under this heading. Strictly, FIFOs and sockets are separate file types (`p` and `s` in `ls -l`).
+X: UNIX calls device files "special files", and the IPC files — named pipes (FIFOs) and sockets — are special files too, so this is the closest option. Strictly, FIFOs and sockets are separate file types (`p` and `s` in `ls -l`).
 S: IPC files = named pipe (FIFO) / socket, special files.
 
 #104 p306 a317
@@ -1224,7 +1224,7 @@ c) 1 and 3 only
 d) 1, 2 and 3
 K: d
 R: ISS 2025 Q36 (also 2023 Q69)
-X: Linux is a Unix-like OS: multi-user, multitasking, multiprocessor-capable and open source under the GPL. It is general-purpose, not a real-time OS (ISS 2021 Q55).
+X: Linux is a Unix-like OS: multi-user, multitasking, multiprocessor-capable and open source under the GPL. It is general-purpose, not a real-time OS.
 S: Linux = multi-user + multitasking + open source, not an RTOS.
 
 #120 iss

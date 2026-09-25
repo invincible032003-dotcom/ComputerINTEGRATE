@@ -6,7 +6,7 @@
 @themes 1 DBMS basics · features & components · keys & integrity · SQL clauses · data models · views
 @themes 2 ROLLUP, OLAP & RAID · schema vs instance · relational terms · super, candidate, primary & foreign keys
 @themes 3 Relational algebra · DDL vs DML · char vs varchar · set operations · LIKE, NULL & three-valued logic
-@themes 4 Core SQL commands · ACID · normalization · NoSQL · views, indexes, transactions + 4 ISS Boosters (SQL, client–server, media formats)
+@themes 4 Core SQL commands · ACID · normalization · NoSQL · views, indexes, transactions · client–server
 
 #1 p346 a369
 Q: What is the full form of DBMS?
@@ -391,7 +391,7 @@ c) All of the mentioned
 d) None of the mentioned
 K: b
 B: a
-X: The book's answer follows the classic textbook view that a spreadsheet saves its data as a text file on disk, and that the DBMS cannot use it directly without importing (loading) it. Modern formats (`.xlsx`) are zipped XML, and the plain-text exchange format is CSV.
+X: In the classic view, a spreadsheet saves its data as a file on disk that the DBMS cannot use directly — it must first be imported (loaded). Modern formats (`.xlsx`) are zipped XML, and the plain-text exchange format is CSV.
 S: Spreadsheet → export as text/CSV → load into DBMS.
 N: The book prints (a), but its explanation describes the ASCII text format, which is option (b). The source question's key is "stored on disk in an ASCII text format", and the book reordered the options without updating the letter.
 
@@ -445,8 +445,8 @@ b) Concatenation
 c) Relational-and
 d) All of the mentioned
 K: b
-X: In a large database, attributes (fields) can be combined by concatenation into a single value for display or as a composite key, e.g. first-name ‖ last-name. This is the book's (source) answer.
-S: Book: large db attributes → concatenation.
+X: In a large database, attributes (fields) are best represented by combining them through concatenation into a single value — for display or as a composite key, e.g. first-name ‖ last-name.
+S: Large db attributes → concatenation.
 
 #43 p351 a374
 Q: Which of the following is the subset of SQL commands used to manipulate Oracle structures, including tables?
@@ -536,8 +536,8 @@ b) Physical
 c) Hierarchical
 d) Relational
 K: a
-X: The book's answer is network: Bachman's IDS (early 1960s), the first DBMS, used a network (navigational) structure. The hierarchical model (IBM's IMS, 1966–68) followed closely, and many textbooks call it the oldest, so check the options carefully. The relational model came in 1970.
-S: Book: network (IDS) oldest; relational newest of the three.
+X: The network model is the oldest here: Bachman's IDS (early 1960s), the first DBMS, used a network (navigational) structure. The hierarchical model (IBM's IMS, 1966–68) followed closely — many texts call it the oldest, so read the options carefully. The relational model came in 1970.
+S: Network (IDS) oldest → hierarchical (IMS) → relational (1970).
 
 #52 p353 a375
 Q: Evaluate the statements issued by the DBA in the given sequence if OE and SCOTT are the users and the ORDERS table is owned by OE. What would be the outcome after executing the statements?
@@ -633,7 +633,7 @@ b) Column
 c) Tuple
 d) Key
 K: b
-X: An attribute is a column of the relation, holding one property of every tuple.
+X: An attribute is a column of the relation, holding one property of every tuple. A row is a tuple (record), and a key is an attribute or set of attributes that identifies rows.
 S: Attribute = column.
 
 #61 p354 a376
@@ -785,7 +785,7 @@ c) Referenced relation
 d) Referred relation
 K: b
 B: c
-X: The relation that carries another relation's primary key as an ordinary attribute (the foreign key) is the referencing relation, also called the child. Q74 asked for the other side, the referenced relation.
+X: The relation that carries another relation's primary key as an ordinary attribute (the foreign key) is the referencing relation, also called the child. The other side, whose primary key is referenced, is the referenced (parent) relation.
 S: Has the FK → referencing (child); has the PK → referenced (parent).
 N: The book prints (c) Referenced relation, which is the same answer it gave for Q74. Korth defines the relation that includes the foreign key as the referencing relation, so the key is (b).
 
@@ -796,7 +796,7 @@ b) Referencing
 c) Specific
 d) Primary
 K: a
-X: This is the definition of referential integrity (a foreign-key constraint).
+X: This is the definition of referential integrity: values of the foreign key in the referencing (child) relation must appear in the referenced (parent) relation's key. "Referencing" names a relation, not the constraint.
 S: Referencing → referenced match → referential integrity.
 
 #77 p356 a377
@@ -866,7 +866,7 @@ b) Projection
 c) Select
 d) Union
 K: c
-X: The book's answer is select (σ), the operation used to pick out the tuples (rows) that satisfy a condition. Don't be misled by the word "projecting" in the stem: the projection operation (π) picks columns (attributes), not tuples.
+X: Select (σ) is the operation that picks out the tuples (rows) satisfying a condition. Don't be misled by the word "projecting" in the stem: projection (π) picks columns (attributes), not tuples.
 S: σ select → rows; π project → columns.
 
 #84 p357 a377
@@ -1252,7 +1252,7 @@ b) Network
 c) Relational
 d) Dynamic
 K: d
-X: Hierarchical, network, relational (and object-oriented) are the standard data models, which the book calls DBMS types. "Dynamic" is not one of them. (In the strict sense, DBMS architectures are 1-tier, 2-tier and 3-tier.)
+X: Hierarchical, network, relational (and object-oriented) are the standard data models, often called DBMS types. "Dynamic" is not one of them. (In the strict sense, DBMS architectures are 1-tier, 2-tier and 3-tier.)
 S: Data models: hierarchical · network · relational · object-oriented.
 
 #119 p363 a380
@@ -1283,7 +1283,7 @@ c) To combine rows from two or more tables based on a related column
 d) To create a new table
 K: c
 X: JOIN combines rows from several tables that share a related column.
-S: JOIN ↔ related column.
+S: Combine tables on a related column → JOIN (plain JOIN = INNER).
 
 #122 p363 a380
 Q: Which type of relationship exists between two tables when one record in the first table corresponds to multiple records in the second table?
@@ -1472,8 +1472,8 @@ b) Accuracy, Control, Isolation, Data
 c) Analysis, Commitment, Integrity, Design
 d) All Columns Indexed, Data Stored
 K: a
-X: ACID = Atomicity, Consistency, Isolation, Durability.
-S: ACID = Atomicity · Consistency · Isolation · Durability.
+X: ACID = Atomicity (all or nothing), Consistency (valid state to valid state), Isolation (concurrent transactions don't interfere) and Durability (committed changes survive crashes).
+S: ACID = all-or-nothing · valid · isolated · permanent.
 
 #141 p365 a382
 Q: Which type of database is most suitable for handling unstructured or semi-structured data, such as social media posts or sensor data?

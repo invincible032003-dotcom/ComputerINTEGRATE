@@ -1,51 +1,68 @@
+## 60-second recap
+- ★ **IPOS:** Input → Process → Output → Storage. "For future use" → storage; "data comes in" → input.
+- ★ **Input:** keyboard, mouse, scanner, microphone, **webcam**. **Output:** monitor, printer, **plotter**, speaker. **Both:** touchscreen, modem.
+- ★ **OCR** reads characters · **OMR** reads marks · **MICR** reads magnetic ink (cheques) · barcode reader at shops.
+- ★ **Northbridge** = fast (CPU, RAM, graphics); **southbridge** = slow I/O (USB, SATA, audio, BIOS). CMOS = settings + clock.
+- ★ **RISC:** few simple fixed-length (32-bit) instructions, ~1 cycle each, load/store, pipelining, low power (ARM). **CISC:** many variable-length multi-cycle instructions, compact code (x86).
+- ★ **Audio:** WAV uncompressed · FLAC lossless · MP3/AAC/OGG lossy · MIDI = instructions. **Video:** MP4, AVI, MKV, MOV.
+
 ## IPOS cycle and data flow
 - **Input → Process → Output → Storage.** Every computing task fits this cycle, and the storage step feeds back into later processing.
-- **Encoding:** converting data into codes (ASCII, Unicode). **Digitisation:** turning analog signals into digital samples (ADC).
-- **Buffering:** a temporary memory area that evens out speed differences between devices (e.g. keyboard buffer, video buffer).
-- **Upload** = local → remote server; **download** = remote → local.
+- **Encoding:** converting data into codes (ASCII, Unicode). **Decoding:** codes back into human-readable form. **Digitisation:** analog → digital samples (ADC).
+- **Buffering:** a temporary memory area that evens out speed differences between devices (keyboard buffer, video buffer). **Spooling** queues whole jobs on disk.
+- **Upload** = local → remote server; **download** = remote → local; **streaming** = play while receiving.
+- **Modulation** = digital → analog carrier (modem); **demodulation** = analog → digital. Audio D→A is done by a **DAC**.
 
 ## Input and output devices
-- **Input:** keyboard, mouse, scanner, microphone, **webcam** (ISS 2024), joystick, light pen, touchscreen, OCR, OMR, MICR, barcode reader.
-- **Output:** monitor, printer, **plotter**, speaker, projector. A **terminal** = keyboard + display monitor (ISS 2020).
+- ★ **Input:** keyboard, mouse, scanner, microphone, **webcam**, joystick, light pen, touchscreen, graphics tablet, OCR, OMR, MICR, barcode reader.
+- ★ **Output:** monitor, printer, **plotter**, speaker, projector. A **terminal** = keyboard + display monitor.
 - **Both (I/O):** touchscreen, modem, network card, headset.
-- **OCR** reads printed text and **OMR** reads marked bubbles (OMR sheets); both are optical recognition (ISS 2020). **MICR** reads magnetic-ink cheque numbers (banks).
-- **Light pen:** electro-optical pointer used on the screen. **Joystick:** moves the cursor in a pointed direction (ISS 2024: all three statements true).
-- **Webcam** video quality depends on **frame rate and resolution**. Smooth, clear video needs both high, not "max frame rate, min resolution" (ISS 2024).
-- **Printer resolution:** dots = (dpi × width) × (dpi × height). 1200 dpi on 8 × 10 in → 9600 × 12000 = **115.2 million dots** (ISS 2026).
-- **DMA** (direct memory access) lets a device move data to and from memory without constant CPU involvement (ISS 2026).
+- ★ **OCR** reads printed text and **OMR** reads marked bubbles (OMR sheets) — both optical. **MICR** reads magnetic-ink cheque numbers (banks).
+- ★ **Light pen:** electro-optical pointer used on the screen. **Joystick:** moves the cursor in the direction it is pushed. **Touchscreen:** a pointing device used by touching the screen.
+- ★ **Webcam** video quality depends on **frame rate and resolution** — smooth, clear video needs both high.
+- ★ **Printer resolution:** dots = (dpi × width) × (dpi × height). 1200 dpi on 8 × 10 in → 9600 × 12000 = **115.2 million dots**.
+- ★ **DMA** (direct memory access) lets a device move data to and from memory without constant CPU involvement.
+- **CRT monitor** internals: electron gun, deflection coils, phosphor screen. **Flatbed plotter:** a pen moving too fast distorts lines.
 
 ## Motherboard and interconnects
 - **Chipset:** northbridge (fast: CPU ↔ RAM ↔ GPU) and southbridge (slower I/O: USB, SATA, audio, BIOS). Modern CPUs have absorbed the northbridge.
-- **VRM** regulates CPU voltage; **CMOS battery** keeps the clock and BIOS settings; **BIOS/UEFI** chip holds the start-up firmware.
-- **Buses and slots:** PCIe (graphics, NVMe), SATA (drives), USB (peripherals), M.2 (SSD form factor).
-- **Expansion card** = a plug-in board that adds a function (graphics, sound, network).
+- **VRM** steps the PSU's 12 V down to the CPU core voltage; **CMOS battery** keeps the clock and BIOS settings; **EEPROM/flash** holds the BIOS code.
+- **Buses and slots:** PCIe (graphics, NVMe), SATA (drives), USB (peripherals, hot-plug), M.2 (SSD form factor), FSB (old CPU ↔ northbridge link).
+- **Buses:** data (two-way) · address (one-way, CPU → memory) · control (read/write, interrupt, clock) · expansion (cards and peripherals).
+- **Bridge** (networking) joins LAN segments by MAC address; **Ethernet** is the wired LAN standard (IEEE 802.3).
 
 ## RISC vs CISC
-- **RISC:** small, simple instruction set, **fixed-length (32-bit) instructions** (ISS 2026), one instruction per cycle, load/store design, many registers, pipelining and parallelism. Examples: **ARM**, MIPS, RISC-V.
-- **CISC:** large instruction set, **variable-length instructions**, multi-cycle complex instructions, memory operands. Example: **Intel x86**.
-- ISS 2023: CISC variable length ✓, RISC supports parallel processing ✓, ARM is RISC ✓ → **all three**.
-- ISS 2023: RISC preferred for **compact size + small instruction set**. "Executing multiple clock cycles" is a CISC trait → **1 and 2 only**.
+- ★ **RISC:** small, simple instruction set, **fixed-length (32-bit) instructions**, ~one instruction per cycle, load/store design, many registers, hard-wired control, pipelining. Examples: **ARM**, MIPS, RISC-V.
+- ★ **CISC:** large instruction set, **variable-length instructions**, multi-cycle complex instructions, memory operands, many addressing modes, microcode. Example: **Intel x86**.
+- **CPU time = instructions × cycles per instruction × cycle time.** RISC cuts CPI (more instructions); CISC cuts instruction count (higher CPI).
+- **RISC pros:** fast, simple, cheap, **low power** (phones). **Con:** longer programs, more memory. **CISC pros:** compact code, memory-efficient, huge software base. **Cons:** complex, power-hungry.
+- ★ True together: CISC instructions are variable length, RISC supports parallel processing, ARM is a RISC design.
+- ★ RISC is preferred for **compact chip size and a small instruction set**; "executing multiple clock cycles per instruction" is a CISC trait.
+- **EPIC** (Intel Itanium) = explicitly parallel instructions bundled by the compiler.
 
 ## Media and file formats
-- **Audio:** MP3 (lossy), AAC, WMA, WAV (uncompressed), FLAC (lossless), MIDI (instructions, not sound).
-- **Video:** MP4, AVI, MKV, MOV, WMV, **MPEG** (also counts as audio in ISS 2023).
-- **Raster images:** JPEG, PNG, GIF, BMP, TIFF. **Vector:** SVG, EPS, AI (ISS 2021/2022: SVG is not raster).
-- **Compression:** lossless (ZIP, PNG, FLAC: exact restore) vs lossy (JPEG, MP3: some detail discarded for size).
+- **Audio:** MP3 (lossy, common), AAC/M4A (Apple), OGG (open, patent-free), WAV (uncompressed), AIFF (Apple uncompressed), FLAC (lossless), MIDI (instructions), AC3 (DVD 5.1), Opus (VoIP).
+- ★ **Video:** MP4 (web), AVI, MKV (flexible, 3D), MOV (QuickTime), WMV, WebM (YouTube), 3GP (mobile), MPEG-2 (DVD), H.264/AVC (Blu-ray). **MPEG** covers both audio and video.
+- ★ **Raster images:** JPEG, PNG, GIF (animation), BMP, TIFF. **Vector:** SVG, EPS, AI — **SVG is not raster**.
+- **Compression:** lossless (ZIP, PNG, FLAC: exact restore) vs lossy (JPEG, MP3: detail discarded for size).
+- **Copyright** protects creative works (recordings); **trademark** protects brands; **patent** protects inventions.
 
 ## Processing operations
-- **Sorting** orders records; **indexing** builds a lookup structure for fast search; **merging** combines sorted files.
-- **Encryption** makes data unreadable without a key; **compression** reduces size. They are different goals.
-- **Streaming:** media is played while it is still downloading (buffered), without storing the whole file first.
+- **Sorting** orders records; **indexing** builds a lookup structure for fast search; **aggregation** combines data into summaries; **replication** keeps live copies.
+- **Encryption** makes data unreadable without a key; **compression** reduces size. Different goals.
+- **Control operation** = compare-and-branch decisions (a virus scan is the standard example); arithmetic belongs to the ALU.
 
-## PYQ: What ISS asked (2018–2026)
-- **2020 Q41** Terminal = **keyboard + display monitor**. **2020 Q48** Input device's job → **providing data to the computer**.
-- **2020 Q49** CRT internals → **electron gun, deflection coils, screen**: all three.
-- **2021 Q59** Output devices → **printer, speaker, plotter** (a webcam is input).
-- **2023 Q75** Character recognition at supermarkets → **OCR device**.
-- **2023 Q61 / Q76** RISC–CISC statements (see above). **2026 Q66** RISC instruction length → **32 bits**.
-- **2026 Q72** Flatbed plotter pen too fast → **lines may be distorted**.
+## ★ Most-tested facts
+- A **terminal** = keyboard + display monitor. The job of an input device is **providing data to the computer**.
+- CRT monitor parts: **electron gun, deflection coils and screen** — all three.
+- Output devices: **printer, speaker, plotter**; a webcam is input.
+- Character recognition at supermarket counters → **OCR device**.
+- RISC instructions are **32 bits** long; statements "CISC variable length, RISC parallel, ARM is RISC" are **all true**.
+- A flatbed plotter whose pen moves too fast → **lines may be distorted**.
 
 ## Traps to avoid
 - **Webcam and scanner are input**, a **plotter is output**, a **modem is both**.
 - **OMR ≠ OCR:** OMR detects marks, OCR reads characters, and **MICR** is magnetic (not optical).
-- A RISC program needs **more but simpler** instructions, each finishing in about one cycle. A CISC instruction does more work over several cycles.
+- A RISC program needs **more but simpler** instructions, each finishing in about one cycle; a CISC instruction does more work over several cycles.
+- "Controls and coordinates all hardware" → **CPU**, not the motherboard.
+- **AVI is video**, not audio; **RAR is an archive**, not audio.

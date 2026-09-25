@@ -139,7 +139,7 @@ b) Output
 c) Processing
 d) Fetching
 K: d
-X: The book calls reading information from a storage device into main memory "fetching" (loading); it must be in memory before the CPU can use it.
+X: Reading information from a storage device into main memory is called fetching (loading): data must be in memory before the CPU can use it. Input brings data from outside the computer; this is an internal transfer.
 S: Storage → memory = fetch/load; memory → storage = save/write.
 
 #14 p75 a106
@@ -221,7 +221,7 @@ b) RAM
 c) Hard Drive
 d) GPU
 K: a
-X: AND, OR and NOT are logical operations performed by the ALU inside the CPU. ISS 2025 asked exactly this: AND/OR belong to the logic unit. RAM stores, and the GPU is for graphics.
+X: AND, OR and NOT are logical operations performed by the ALU (its logic unit) inside the CPU. RAM only stores data, the hard drive stores it permanently, and the GPU is specialised for graphics.
 S: AND / OR / NOT → ALU (logic unit) of the CPU.
 
 #22 p76 a107
@@ -241,7 +241,7 @@ b) Output
 c) Storage
 d) Decoding
 K: d
-X: Decoding converts coded (binary) data back into a form people can read, e.g. binary to characters on screen. The book treats it separately from output, which is the presentation step.
+X: Decoding converts coded (binary) data back into a form people can read — e.g. binary codes into characters on screen. It is distinct from output, which is only the presentation step.
 S: Encode = human → machine; decode = machine → human.
 
 #24 p76 a107
@@ -271,7 +271,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: b
-X: Cache memory is the small, fast SRAM store for data the CPU accesses frequently. It sits between the CPU and RAM and is checked first (ISS 2021).
+X: Cache memory is the small, fast SRAM store for data the CPU accesses frequently. It sits between the CPU and RAM and is checked first; a hit avoids the slower trip to RAM.
 S: "Frequently accessed" → cache (checked first).
 
 #27 p76 a107
@@ -331,7 +331,7 @@ b) Speaker
 c) Webcam
 d) Monitor
 K: c
-X: A webcam captures video and sends it into the computer, so it is an input device (ISS 2021 and 2024: a webcam is not an output device). Printer, speaker and monitor are output devices.
+X: A webcam captures video and sends it into the computer, so it is an input device (never an output device). Printer, speaker and monitor are output devices.
 S: Webcam / microphone / scanner → input.
 
 #33 p77 a108
@@ -351,7 +351,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: d
-X: Virtual memory extends RAM by using part of the disk (a swap or page file) as if it were main memory. The OS manages it through paging (ISS 2021, 2023). It gives a large address space, not extra disk space (ISS 2025).
+X: Virtual memory extends RAM by using part of the disk (a swap or page file) as if it were main memory; the OS manages it through paging. It gives programs a larger address space — it does not add disk space.
 S: RAM overflow onto disk → virtual memory (paging).
 
 #35 p77 a108
@@ -403,7 +403,7 @@ b) Checking for software updates
 c) Performing a comparison between two values
 d) Opening a web browser
 K: c
-X: The book counts comparing two values as a control operation, because the result of the comparison decides which instruction runs next (a branch). The comparison itself is done by the ALU's logic section.
+X: Comparing two values is treated as a control operation because the result of the comparison decides which instruction runs next (a branch). The comparison itself is carried out by the ALU's logic section.
 S: Compare → decide next step = control of program flow.
 
 #40 p78 a109
@@ -423,7 +423,7 @@ b) RAM
 c) Motherboard
 d) Hard Drive
 K: c
-X: The book keys the motherboard: its chipset (northbridge/southbridge) and buses route and control the data traffic between the CPU and memory, drives and peripherals.
+X: The motherboard's chipset (northbridge/southbridge) and buses route and control the data traffic between the CPU and memory, drives and peripherals, so the motherboard is the expected answer here.
 S: CPU ↔ devices traffic → motherboard chipset and buses.
 
 #42 p78 a109
@@ -433,7 +433,7 @@ b) Scanner
 c) Speaker
 d) Keyboard
 K: c
-X: A speaker converts electrical audio signals (through a DAC and amplifier) into sound, so it is an output device (ISS 2021). Printers output on paper; scanners and keyboards are input.
+X: A speaker converts electrical audio signals (via a DAC and an amplifier) into sound, so it is an output device. Printers output on paper; scanners and keyboards are input devices.
 S: Sound out → speaker; sound in → microphone.
 
 #43 p78 a109
@@ -563,7 +563,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: Allocating system resources (CPU time, memory, devices) is the operating system's job. The CPU executes, the motherboard connects and the hard drive stores (ISS 2024: the OS manages resources).
+X: Allocating system resources — CPU time, memory, devices — is the operating system's job. The CPU executes, the motherboard connects and the hard drive stores.
 S: Allocate resources → OS.
 
 #56 p79 a111
@@ -605,8 +605,8 @@ b) Running a virus scan
 c) Performing arithmetic calculations
 d) Saving a file
 K: b
-X: Following the book's pattern (Q79 and Q93 of this chapter), a virus scan is its example of a control operation: the CPU repeatedly compares data with virus signatures and branches on the result. Arithmetic calculation is an ALU operation, not a control one.
-S: Arithmetic is never the "control" answer; in this book "virus scan" is.
+X: A virus scan is the standard example of a control operation: the CPU repeatedly compares data with virus signatures and branches on each result. Arithmetic is an ALU operation, gaming and saving are not control tasks.
+S: Arithmetic is never the "control" answer; a virus scan (compare-and-branch) is.
 N: The book prints no answer for this question; the key follows the book's own answer to the identical question at Q79 and Q93.
 
 #60 p80 a111
@@ -666,7 +666,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: The OS manages input and output devices through device drivers, handling buffering, spooling and access control (ISS 2019: device management is an OS function).
+X: The OS manages input and output devices through device drivers, handling buffering, spooling and access control. Device management is one of the core OS functions.
 S: I/O device management → OS (drivers).
 
 #66 p80 a112
@@ -676,8 +676,8 @@ b) Output
 c) Storage
 d) Analogization
 K: b
-X: The book treats digital-to-analog conversion as part of output: the computer's digital results are turned into analog signals (sound, video) for output devices such as speakers. The circuit that does it is a DAC.
-S: Book logic: digital → analog happens on the way out → output (DAC).
+X: Digital-to-analog conversion is part of output: the computer's digital results are turned into analog signals (sound, video) for devices such as speakers. The circuit that does it is a DAC.
+S: Digital → analog happens on the way out → output (DAC).
 
 #67 p80 a112
 Q: Which component of a computer is responsible for storing permanent data and programs even when the power is turned off?
@@ -706,7 +706,7 @@ b) Scanning a barcode
 c) Playing a music file
 d) Opening a web browser
 K: c
-X: The book's answer: to play a music file the CPU decodes the compressed audio data (e.g. MP3) into samples for the sound card — a processing task. Printing is output and scanning is input.
+X: To play a music file the CPU decodes the compressed audio data (e.g. MP3) into samples for the sound card — a processing task. Printing is output and scanning is input.
 S: Decode/transform data → processing.
 
 #70 p81 a112
@@ -766,7 +766,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: The operating system is the resource manager: it coordinates memory, processors and devices (ISS 2024: the OS is the principal system software, managing resources and providing the interface).
+X: The operating system is the resource manager: it coordinates memory, processors and devices among programs, and it is the principal piece of system software.
 S: Resource manager → OS.
 
 #76 p81 a113
@@ -776,7 +776,7 @@ b) Output
 c) Decryption
 d) Compression
 K: c
-X: Decryption uses the key to turn ciphertext back into the original plaintext. Encryption goes the other way (ISS 2023: encryption does not convert ciphertext into plaintext).
+X: Decryption uses the key to turn ciphertext back into the original plaintext. Encryption goes the other way — it never converts ciphertext into plaintext.
 S: Ciphertext → plaintext = decryption.
 
 #77 p81 a113
@@ -806,8 +806,8 @@ b) Running a virus scan
 c) Editing a document
 d) Browsing the internet
 K: b
-X: The book's answer: in a virus scan the CPU runs the antivirus program's checks, comparing data with signatures and deciding what to do next — its example of control (decision-making) operations.
-S: Book's "control operation" example → virus scan.
+X: In a virus scan the CPU runs the antivirus program's checks, comparing data with signatures and deciding what to do next — the standard example of a control (decision-making) operation.
+S: "Control operation" example → virus scan (compare and branch).
 
 #80 p82 a114
 Q: The process of transferring data from an external device or network to a computer's memory for access or storage is called:
@@ -908,7 +908,7 @@ b) Scanning a document
 c) Playing a music file
 d) Sending an email
 K: c
-X: The book's answer, as at Q69: decoding a music file for playback is processing. Printing is output and scanning is input.
+X: Decoding a music file for playback transforms the compressed data into audio samples, so it is processing. Printing is output, scanning is input and sending email is communication.
 S: Decoding media → processing.
 
 #90 p83 a115
@@ -948,7 +948,7 @@ b) Output
 c) Networking
 d) Transferring
 K: c
-X: The book calls data exchange between computers over a network "networking" — connecting computers so they can share data and resources.
+X: Exchanging data between computers over a network or the internet is networking — connecting computers so they can share data and resources.
 S: Computer-to-computer data exchange → networking.
 
 #94 p83 a115
@@ -1010,8 +1010,8 @@ b) Running a virus scan
 c) Editing a document
 d) Sending a message
 K: b
-X: As in Q79, the book's example of a control operation is running a virus scan, in which the CPU keeps comparing data and branching on the result.
-S: Book's "control operation" → virus scan.
+X: Running a virus scan is the standard example of a control operation: the CPU keeps comparing data with signatures and branching on the result.
+S: "Control operation" → virus scan.
 
 #100 p84 a116
 Q: The process of transmitting audio or video content over the internet in real-time is called:
@@ -1080,7 +1080,7 @@ b) Output
 c) Demodulation
 d) Synchronization
 K: b
-X: The book files digital-to-analog conversion for analog devices (speakers, analog displays) under output. Demodulation is the reverse direction (analog → digital) and is wrong here.
+X: Converting digital signals into analog form for analog devices (speakers, analog displays) is part of output. Demodulation is the reverse direction (analog → digital), so it is wrong here.
 S: Digital → analog for a device = output (DAC); demodulation = analog → digital.
 
 #107 p84 a117
@@ -1170,7 +1170,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: Memory is allocated to processes by the operating system's memory manager, using paging and virtual memory (ISS 2019).
+X: Memory is allocated to processes by the operating system's memory manager, using techniques such as paging and virtual memory.
 S: Memory to processes → OS memory manager.
 
 #116 p85 a118
@@ -1180,7 +1180,7 @@ b) Output
 c) Modulation
 d) Synchronization
 K: c
-X: Here the book keys modulation — converting digital data into an analog signal — the operation a modem performs before sending data over analog lines.
+X: Modulation converts digital data into an analog signal on a carrier wave — the operation a modem performs before sending data over analog lines. Demodulation is the reverse.
 S: D→A on a carrier = modulation (modem); A→D = demodulation.
 
 #117 p85 a118
@@ -1232,8 +1232,8 @@ b) GPU
 c) RAM
 d) Motherboard
 K: a
-X: Fetch, decode and execute are the stages of the CPU's instruction (machine) cycle. ISS 2024 lists fetch, decode, execute and store as the CPU's main operations.
-S: Machine cycle: fetch → decode → execute → store (ISS 2022, 2024).
+X: Fetch, decode and execute are the stages of the CPU's instruction (machine) cycle, followed by store; the CPU repeats them for every instruction.
+S: Machine cycle: fetch → decode → execute → store.
 
 #122 p86 a119
 Q: Which of the following is an example of an output device that displays images and videos on a large screen?
@@ -1272,7 +1272,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: Here the book keys the operating system, which manages the data flow between the CPU and devices in software through device drivers, buffering and interrupts. (At the hardware level the transfers run over the motherboard's buses.)
+X: The operating system manages the flow of data between the CPU and devices in software — through device drivers, buffering and interrupts. The physical transfers run over the motherboard's buses.
 S: Software control of I/O data flow → OS (drivers).
 
 #126 p86 a119
@@ -1282,7 +1282,7 @@ b) Output
 c) Conversion
 d) Analogization
 K: a
-X: With no "digitisation" option, the book classifies bringing analog signals into the computer in digital form as input (done by an ADC in the input device or sound card).
+X: With no "digitisation" option, bringing an analog signal into the computer in digital form counts as input — the conversion is done by an ADC in the input device or sound card.
 S: Analog signal entering the computer → input (ADC).
 
 #127 p86 a119
@@ -1346,7 +1346,7 @@ b) Scanner
 c) Touchscreen
 d) Keyboard
 K: c
-X: A touchscreen detects touches and gestures on the display surface, so it is both input and output (ISS 2024: a touchscreen is a pointing device).
+X: A touchscreen detects touches and gestures on the display surface, so it is both an input (pointing) device and an output device.
 S: Touch → touchscreen (input + output).
 
 #133 p87 a120
@@ -1356,8 +1356,8 @@ b) Output
 c) Formatting
 d) Networking
 K: c
-X: The book calls it formatting: data is structured into the format a network needs — packets with headers, encoding and framing — before transmission.
-S: Book answer: formatting (packetising) data for transmission.
+X: Before transmission, data is formatted for the network: split into packets with headers, encoded and framed according to the protocol. "Formatting" is the expected answer; networking is the wider activity.
+S: Prepare data for the wire (packets, headers, framing) → formatting.
 
 #134 p87 a120
 Q: Which type of computer memory is used to store frequently accessed instructions and data that are not currently in the main memory?
@@ -1366,7 +1366,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: b
-X: The book keys cache memory, the fast store that holds frequently accessed instructions and data so the CPU does not have to go to main memory for them.
+X: Cache memory holds frequently accessed instructions and data so the CPU does not have to go to main memory for them. Virtual memory would be the answer for data that does not fit in RAM at all.
 S: Frequently accessed → cache.
 
 #135 p87 a120
@@ -1386,7 +1386,7 @@ b) Output
 c) Modulation
 d) Synchronization
 K: c
-X: As at Q116, the book keys modulation for converting digital data into an analog signal. A modem modulates for transmission (ISS 2023); in audio the same job is called D/A conversion (a DAC).
+X: Modulation converts digital data into an analog signal on a carrier wave — what a modem does before sending data over analog lines. In audio hardware the same job is called D/A conversion (a DAC).
 S: Transmission: modulation (modem); audio: DAC.
 
 #137 p87 a121
@@ -1456,8 +1456,8 @@ b) Output
 c) Transformation
 d) Encoding
 K: c
-X: The book's answer is transformation — converting data into another representation (format, unit, structure) without changing what it means.
-S: Book answer: transformation.
+X: Transformation converts data into another representation — format, unit or structure — without changing what it means (e.g. CSV → JSON, °C → °F). Encoding is a narrower term for code conversion.
+S: Same meaning, new representation → transformation.
 
 #144 p88 a122
 Q: Which type of computer memory is non-volatile and retains its data even when the power is turned off?
@@ -1526,8 +1526,8 @@ b) Downloading
 c) Archiving
 d) Sharing
 K: a
-X: The book keys uploading, since the data is sent from the computer to a remote location. When the purpose is long-term retention, the same activity is also described as archiving.
-S: Computer → remote = upload (book answer).
+X: Uploading is the expected answer, since the data is sent from the computer to a remote location. When the purpose is long-term retention, the activity is also described as archiving.
+S: Computer → remote = upload.
 
 #151 p89 a123
 Q: Which component of a computer is responsible for storing frequently accessed data and instructions for faster processing?
@@ -1566,7 +1566,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: d
-X: Virtual memory extends main memory with disk space managed by the OS through paging. It gives each program a larger address space than physical RAM (ISS 2025).
+X: Virtual memory extends main memory with disk space managed by the OS through paging. It gives each program a larger address space than physical RAM — it is not extra disk storage.
 S: Extension of RAM → virtual memory.
 
 #155 p89 a123
@@ -1598,7 +1598,7 @@ b) RAM
 c) Power Supply
 d) Motherboard
 K: d
-X: The BIOS/UEFI firmware lives in a flash (EEPROM) chip mounted on the motherboard. It runs the POST and boots the system (ISS 2024).
+X: The BIOS/UEFI firmware lives in a flash (EEPROM) chip mounted on the motherboard. It runs the POST and boots the system.
 S: BIOS chip sits on the motherboard (POST + boot).
 
 #158 p90 a124
@@ -1618,8 +1618,8 @@ b) Scanning a document
 c) Playing a music file
 d) Opening a web browser
 K: c
-X: The book's answer: playing a music file requires reading and decoding (processing) the audio data before it is sent to the speakers.
-S: Decode media → processing (book pattern).
+X: Playing a music file requires reading and decoding the compressed audio data (processing) before the samples are sent to the speakers. Printing is output, scanning is input.
+S: Decode media → processing.
 
 #160 p90 a124
 Q: The process of transferring data from a remote location or storage medium to a computer system is called:
@@ -1710,7 +1710,7 @@ b) BIOS
 c) Audio codec
 d) Northbridge
 K: c
-X: The book keys the audio codec, the on-board chip that provides sound (converting between digital and analog audio). On-board video, where present, comes from integrated graphics.
+X: The audio codec is the on-board chip that provides sound, converting between digital and analog audio. On-board video, where present, comes from integrated graphics.
 S: On-board sound → audio codec.
 
 #169 p91 a125
@@ -1922,7 +1922,7 @@ c) Control bus
 d) Expansion bus
 K: c
 X: The control bus carries control and timing signals (read, write, interrupt, clock) that coordinate the components.
-S: Control signals → control bus (ISS 2019: control bus).
+S: Control signals (read, write, interrupt, clock) → control bus.
 
 #190 p93 a127
 Q: Which type of bus is used to connect peripheral devices, such as printers and keyboards, to a computer?
@@ -2104,7 +2104,7 @@ b) Complex Instruction Set Architecture (CISC)
 c) Both RISC and CISC
 d) Neither RISC nor CISC
 K: a
-X: RISC's uniform, single-cycle instructions are what make pipelining efficient; the book therefore keys RISC. (Modern CISC chips also pipeline by translating instructions into RISC-like micro-operations.)
+X: RISC's uniform, single-cycle instructions are what make pipelining efficient, so RISC is the answer. (Modern CISC chips also pipeline, but only by first translating their instructions into RISC-like micro-operations.)
 S: Pipelining is the hallmark of RISC.
 
 #208 p95 a129
@@ -2166,7 +2166,7 @@ c) Consume less power
 d) Execute instructions more quickly
 K: c
 X: Fewer transistors and simpler logic mean lower power consumption and longer battery life, which is why phones and tablets use ARM (RISC) chips.
-S: Battery devices → RISC (ARM) for low power (ISS 2023: ARM is RISC).
+S: Battery devices → RISC (ARM) for low power; ARM is a RISC design.
 
 #214 p96 a130
 Q: Which of the following is a disadvantage of RISC processors?
@@ -2185,7 +2185,7 @@ b) More memory efficiency
 c) Simpler instructions
 d) Slower execution
 K: d
-X: The book keys slower execution: complex instructions take several cycles to decode and execute. Reduced code size and memory efficiency are CISC advantages, not results of slowness.
+X: Complex instructions take several cycles to decode and execute, so CISC is slower per instruction. The same complexity gives CISC its advantages — smaller code and memory efficiency — but the drawback asked for is slower execution.
 S: CISC con → multi-cycle, slower per instruction.
 N: Complex instructions also reduce code size (a) and improve memory efficiency (b) — these are CISC advantages; the book's key is the disadvantage, slower execution.
 
@@ -2209,7 +2209,7 @@ c) More memory efficiency
 d) Lower power consumption
 K: b
 B: d
-X: CISC's advantage is compact code: complex instructions reduce the number of instructions and so the program size. Lower power consumption is an advantage of RISC, not CISC.
+X: CISC's advantage is compact code: complex instructions reduce the number of instructions, and so the program size (memory efficiency follows from the same property). Lower power consumption is a RISC advantage.
 S: CISC advantage → reduced code size (and memory efficiency).
 N: The book prints (d) Lower power consumption, which contradicts its own Q220 (higher power consumption is a CISC disadvantage). Reduced code size is the CISC advantage; (c) memory efficiency is a consequence of the same property.
 
@@ -2290,7 +2290,7 @@ b) CISC
 c) EPIC
 d) FPGA
 K: a
-X: RISC uses a small set of simple, uniform (fixed 32-bit, ISS 2026) instructions, most executing in one clock cycle. EPIC is Intel's Itanium approach, and an FPGA is reconfigurable hardware.
+X: RISC uses a small set of simple, uniform, fixed-length (typically 32-bit) instructions, most executing in one clock cycle. EPIC is Intel's Itanium approach, and an FPGA is reconfigurable hardware.
 S: One cycle + simple → RISC.
 
 #226 p97 a132
@@ -2301,7 +2301,7 @@ c) EPIC
 d) FPGA
 K: b
 X: CISC offers a large set of instructions of variable length and many addressing modes (x86 instructions are 1 to 15 bytes long).
-S: Hundreds of variable-length instructions → CISC (ISS 2023: CISC instructions are variable length).
+S: Hundreds of variable-length instructions → CISC (x86: 1–15 bytes).
 
 #227 p97 a132
 Q: Which microprocessor architecture combines the best features of RISC and CISC?
@@ -2310,7 +2310,7 @@ b) CISC
 c) EPIC
 d) FPGA
 K: c
-X: EPIC (Explicitly Parallel Instruction Computing, Intel IA-64/Itanium) is presented in the book as combining RISC and CISC strengths, with the compiler scheduling several operations to run in parallel.
+X: EPIC (Explicitly Parallel Instruction Computing, Intel IA-64/Itanium) combines RISC and CISC strengths: the compiler bundles independent operations so that several execute in parallel.
 S: EPIC = explicit parallelism (Itanium).
 
 #228 p97 a132
@@ -2330,7 +2330,7 @@ b) CISC
 c) EPIC
 d) FPGA
 K: b
-X: The book keys CISC: its powerful instructions reduce program size, and fewer instructions have to be fetched from memory.
+X: CISC's powerful instructions reduce program size, and because fewer instructions have to be fetched from memory, overall execution can be faster. That combination points to CISC.
 S: Smaller programs → CISC.
 
 #230 p98 a132
@@ -2472,8 +2472,8 @@ b) MP3
 c) AAC
 d) AIFF
 K: d
-X: The book keys AIFF, an uncompressed PCM format (Apple's counterpart of WAV) that stores CD-quality audio tracks. CD audio itself is raw 16-bit, 44.1 kHz PCM, which WAV can hold equally well.
-S: CD-quality uncompressed → AIFF / WAV (book answer: AIFF).
+X: AIFF is an uncompressed PCM format (Apple's counterpart of WAV) that stores CD-quality audio tracks. CD audio is raw 16-bit, 44.1 kHz PCM, which WAV can hold equally well, but AIFF is the expected answer.
+S: CD-quality uncompressed → AIFF (or WAV).
 
 #244 p99 a133
 Q: Which audio file format supports multichannel audio and is commonly used for DVDs?
@@ -2622,8 +2622,8 @@ b) WAV
 c) OGG
 d) AAC
 K: c
-X: The book keys OGG, the open, royalty-free format adopted for HTML5 audio. (Today MP3 plays in every major browser as well.)
-S: Book answer: OGG (open web audio).
+X: OGG is the open, royalty-free format adopted early for HTML5 audio, so it is the expected answer. (Today MP3 plays in every major browser as well.)
+S: Open web audio format → OGG.
 
 #259 p100 a135
 Q: Which sound file format is commonly used for MIDI (Musical Instrument Digital Interface) files?
@@ -2672,8 +2672,8 @@ b) AVI
 c) MOV
 d) FLV
 K: c
-X: The book keys MOV, Apple's QuickTime container, which can hold very high-quality (even lossless) codecs and is widely used for editing.
-S: QuickTime → MOV (editing/high quality).
+X: MOV, Apple's QuickTime container, can hold very high-quality — even lossless — codecs and is widely used in editing. MP4 and FLV are distribution formats, and AVI is an old Windows container.
+S: QuickTime → MOV (editing, high quality).
 
 #264 p101 a135
 Q: Which video file format is specifically designed for DVDs and supports menu navigation?
@@ -2722,8 +2722,8 @@ b) AVI
 c) MKV
 d) SBS
 K: c
-X: The book keys MKV (Matroska), a flexible container that can store stereoscopic 3D as well as HD video. SBS (side-by-side) is a frame layout used inside such files, not a file format.
-S: Book answer: MKV (flexible container, supports 3D).
+X: MKV (Matroska) is a flexible container that can store stereoscopic 3D as well as HD video, subtitles and multiple audio tracks. SBS (side-by-side) is a frame layout used inside such files, not a file format.
+S: Flexible container for 3D/HD → MKV.
 
 #269 p102 a136
 Q: Which video file format is specifically designed for video playback on mobile devices?
@@ -2805,7 +2805,7 @@ b) Fixed-length instructions
 c) Simple instruction execution units
 d) Large and variable-length instruction sets
 K: d
-X: CISC processors have large instruction sets with variable-length instructions (ISS 2023). RISC instructions are fixed-length (32-bit, ISS 2026).
+X: CISC processors have large instruction sets with variable-length instructions (x86: 1–15 bytes). RISC instructions are fixed-length, typically 32 bits.
 S: CISC = large + variable-length; RISC = small + fixed 32-bit.
 
 #277 p102 a136
@@ -2851,7 +2851,7 @@ S: Power-efficient → RISC (ARM in phones).
 #281 p103 a137
 Q: Which of the following is a characteristic of RISC architecture?
 a) Large instruction set
-b) Variable-length instructions
+b) Fixed-length instructions
 c) Complex instruction execution units
 d) Emphasis on optimizing for code size
 K: b
@@ -2908,7 +2908,7 @@ b) Fixed-length instructions
 c) Emphasis on optimizing for code size
 d) Support for complex addressing modes
 K: d
-X: CISC supports many complex addressing modes (indirect, indexed, memory-to-memory). It also optimises for code size, so (c) is true as well; the book keys the addressing modes.
+X: CISC supports many complex addressing modes (indirect, indexed, memory-to-memory). It also optimises for code size, so (c) is true as well, but complex addressing modes are its defining feature.
 S: Many addressing modes → CISC.
 
 #287 p104 a137
@@ -2918,8 +2918,8 @@ b) CISC
 c) Both RISC and CISC have similar programming complexity
 d) Programming complexity is not related to architecture type
 K: a
-X: The book's view: RISC's small, regular instruction set and predictable timing make it easier to program for, especially for compilers. (Some texts argue that CISC's rich instructions make hand-written assembly shorter.)
-S: Book answer: RISC (small, regular instruction set).
+X: RISC's small, regular instruction set and predictable timing make it easier to program for, especially for compilers. (Some texts argue that CISC's rich instructions make hand-written assembly shorter.)
+S: Small, regular instruction set → RISC easier to program.
 
 #288 p104 a137
 Q: Which of the following is true about RISC processors?
@@ -2938,8 +2938,8 @@ b) CISC
 c) Both RISC and CISC are equally suitable
 d) Neither RISC nor CISC is suitable for high-performance applications
 K: a
-X: The book keys RISC: streamlined instructions, pipelining and power efficiency give high performance per watt.
-S: Performance + efficiency → RISC (book answer).
+X: Streamlined instructions, deep pipelining and power efficiency give RISC high performance per watt, which is why it is preferred for performance-plus-efficiency workloads.
+S: Performance + efficiency → RISC.
 
 #290 p104 a137
 Q: Which of the following is a disadvantage of RISC architecture?

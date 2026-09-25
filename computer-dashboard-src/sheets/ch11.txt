@@ -1,3 +1,11 @@
+## 60-second recap
+- ★ **C:** Dennis Ritchie, Bell Labs, 1972, for UNIX. Identifiers: letters, digits, `_`, never a leading digit; keywords lowercase.
+- ★ **sizeof** is a compile-time operator; `sizeof(char)` = 1 always; its operand is not executed.
+- ★ **Right-to-left:** unary, `?:`, assignment. **Short-circuit:** `&&` stops at 0, `||` stops at 1.
+- ★ **switch** on integers with constant labels; no `break` → fall through. `break` in loops/switch, `continue` in loops only.
+- ★ **Call by value** can't swap; pointers can. `int a[5] = {5};` → 5 0 0 0 0. Array arguments decay to pointers.
+- ★ `printf` returns characters printed; `scanf` returns items assigned. `%05d` zero-pads; `%-5d` left-justifies; `%.2f` two decimals.
+
 ## C language basics
 - **C:** Dennis Ritchie, Bell Labs, **1972**, created to write UNIX. It is a middle-level, structured, portable, compiled language.
 - **Identifiers:** letters, digits and `_`, never starting with a digit, no spaces or `$` (standard C). **Keywords are lowercase** and C is case-sensitive.
@@ -5,9 +13,9 @@
 - `sizeof` is an **operator**, evaluated at compile time. Its operand is **not executed**: `sizeof(++a)` leaves a unchanged.
 - **Integer promotion:** char and short become int in arithmetic, so `sizeof(c + i)` is `sizeof(int)`. `3.14` is a double; `3.14f` is a float.
 
-## Operators (ISS favourites)
-- **Bitwise:** `&` `|` `^` `~` `<<` `>>`. **Logical:** `&&` `||` `!`. `%` is arithmetic (ISS 2018: `&&`, `!` and `%` are not bitwise).
-- **Right-to-left associativity:** unary, conditional `?:` and assignment (`a = b = c`). Everything else groups left to right (ISS 2018).
+## Operators
+- ★ **Bitwise:** `&` `|` `^` `~` `<<` `>>`. **Logical:** `&&` `||` `!`. `%` is arithmetic (`&&`, `!` and `%` are not bitwise).
+- ★ **Right-to-left associativity:** unary, conditional `?:` and assignment (`a = b = c`). Everything else groups left to right.
 - Same precedence always means the same associativity. Relational and logical results are **0 or 1**.
 - **Short-circuit:** `0 && f()` never calls f; `1 || f()` never calls f.
 - `x *= a + b` means `x = x * (a + b)`. There is **no** `&&=` operator. `a+++b` is read as `a++ + b` (maximal munch).
@@ -23,7 +31,7 @@
 ## Functions, arrays, pointers
 - C has **no function overloading** and no nested function definitions (functions are always "external"). A function returns **one** value.
 - **Call by value** copies arguments, so a swap inside the function has no effect. **Call by reference (pointers)** changes the caller's variables.
-- **Arrays** hold elements of one type (ISS 2018). A string is a char array ending in `'\0'`, 1 byte per character. `int a[5] = {5};` gives 5, 0, 0, 0, 0.
+- ★ **Arrays** hold elements of one type. A string is a char array ending in `'\0'`, 1 byte per character. `int a[5] = {5};` gives 5, 0, 0, 0, 0.
 - Array length = `sizeof(a) / sizeof(a[0])`. An array argument **decays to a pointer**, so it is never copied.
 - **Pointer arithmetic:** adding or subtracting an integer, or subtracting two pointers into the **same** array, is allowed. Multiplying, dividing or adding a float is not. The difference counts elements.
 - A string literal is **read-only**: `char *p = "hi"; p[0] = 'a';` crashes. Declare `char p[] = "hi";` to be able to modify it.
@@ -43,13 +51,15 @@
 - **math.h:** functions take and return double, angles in radians. `pow(2, 3)` = 8, `fabs`, `sqrt(-4)` = NaN. `rand()` gives 0 … RAND_MAX; seed it with `srand(time(NULL))`.
 
 ## Building a C program
-- Source → **preprocessor** → compiler → **object code** → **linker** (adds library code such as `exp()` from the math library, ISS 2023) → executable → **loader**.
-- The steps are the same whatever the operating system (ISS 2023). **Logical errors** survive compilation; syntax errors don't.
+- ★ Source → **preprocessor** → compiler → **object code** → **linker** (adds library code such as `exp()` from the math library) → executable → **loader**.
+- ★ The steps are the same whatever the operating system. **Logical errors** survive compilation; syntax errors don't.
 
-## PYQ: What ISS asked (2018–2026)
-- **2018 Q68** Not bitwise → `&&`, `!` and `%`. **2018 Q75** Right-to-left → **unary and assignment**.
-- **2018 Q72** Arrays hold one type ✓, strings are char arrays with 1 byte per character ✓ → **1 and 2 only**.
-- **2018 Q71** Subtraction loop → **GCD**. **2023 Q78** Same steps on every OS ✓, `exp()` linked from the math library ✓ → **both**.
+## ★ Most-tested facts
+- Not bitwise operators → `&&`, `!` and `%` (bitwise: `&` `|` `^` `~` `<<` `>>`).
+- Right-to-left associativity → **unary and assignment** (and the conditional `?:`).
+- Arrays hold elements of one type ✓; a string is a char array with 1 byte per character ✓.
+- A loop that repeatedly subtracts the smaller of x, y from the larger leaves the **GCD**.
+- Building a C program follows the same steps on every OS ✓; `exp()` is linked in from the math library ✓.
 
 ## Traps to avoid
 - `sizeof(char)` is **1** on every compiler. `sizeof` is not a function call.

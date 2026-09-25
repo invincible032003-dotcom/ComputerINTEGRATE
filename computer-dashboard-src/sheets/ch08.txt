@@ -1,44 +1,55 @@
+## 60-second recap
+- ★ **ARPANET 1969** → TCP/IP 1983 → **WWW** (Berners-Lee, CERN, 1989; public 1991). Web = HTML + HTTP + URL.
+- ★ **Ports:** HTTP 80 · HTTPS 443 · FTP 20/21 · SMTP 25 (send) · POP3 110 · IMAP 143 (receive) · DNS 53 · SSH 22 · Telnet 23.
+- ★ **DNS** name → IP · **DHCP** gives IP · **ARP** IP → MAC. IP = logical address; MAC = hardware address.
+- ★ **Hub** repeats · **switch** forwards by MAC · **router** by IP · **gateway** joins dissimilar networks · **modem** D↔A.
+- ★ **Fibre** = fastest, highest bandwidth, EMI-immune. **Wi-Fi** = IEEE 802.11.
+- ★ **Virus** needs a host · **worm** self-spreads · **Trojan** disguised · **ransomware** encrypts · **phishing** fake site/mail.
+
 ## Internet foundations
-- **ARPANET (1969, US DoD):** the first packet-switched network and forerunner of the internet. The switch to **TCP/IP** happened on 1 January 1983. **NICNET** is the Government of India's network, built by NIC (ISS 2019).
-- **WWW:** Tim Berners-Lee, CERN, proposed 1989, public 1991. It uses HTML + HTTP + URLs. The **first browser was WorldWideWeb**; the first popular graphical one was Mosaic.
+- ★ **ARPANET (1969, US DoD):** the first packet-switched network and forerunner of the internet. The switch to **TCP/IP** happened on 1 January 1983. **NICNET** is the Government of India's network, built by NIC.
+- **WWW:** Tim Berners-Lee, CERN, proposed 1989, public 1991, royalty-free 1993. The **first browser was WorldWideWeb**; the first popular graphical one was Mosaic.
 - **IPv4** = 32-bit, dotted decimal; **IPv6** = 128-bit, hexadecimal with colons. The move to IPv6 is driven by **address exhaustion**.
 - **ICANN/IANA:** names and numbers. **IETF:** protocol standards (RFCs). **W3C:** web standards. **IEEE 802:** LAN and Wi-Fi.
-- An **IP address** is a logical address. A **MAC address** is the hardware address (ISS 2023: "IP = hardware address" is false).
+- ★ An **IP address** is a logical address; a **MAC address** is the hardware address ("IP = hardware address" is false).
 
 ## Protocols and ports
-- **Application layer:** HTTP (80), **HTTPS (443, TLS)**, FTP (20/21), **SMTP (25, sending mail)**, **POP3 (110)**, **IMAP (143, retrieval)**, DNS (53), DHCP, Telnet (23), SSH (22) (ISS 2024: 25, 110, 143).
-- **Transport:** TCP (connection-oriented, reliable) and UDP (connectionless, fast). **Network/internet layer:** IP, **ICMP, ARP** (ISS 2024). **ARP** finds the MAC address for an IP address (ISS 2021, 2026). ARP is **not** an application protocol (ISS 2020).
-- **DNS** turns names into IP addresses (ISS 2019). **DHCP** assigns IP addresses automatically.
-- Network protocols handle **error detection and correction, initiation and termination, message formatting** and the type of physical connection (ISS 2019).
+- ★ **Application layer:** HTTP (80), **HTTPS (443, TLS)**, FTP (20/21), **SMTP (25, sending mail)**, **POP3 (110)**, **IMAP (143, retrieval)**, DNS (53), DHCP, Telnet (23), SSH (22).
+- ★ **Transport:** TCP (connection-oriented, reliable) and UDP (connectionless, fast). **Network/internet layer:** IP, **ICMP, ARP**. ARP finds the MAC address for an IP address and is **not** an application protocol.
+- ★ **DNS** turns names into IP addresses; **DHCP** assigns IP addresses automatically.
+- ★ Network protocols handle **error detection and correction, initiation and termination, message formatting** and the type of physical connection.
 
 ## Network hardware and topologies
-- **Hub** (repeats to all ports; the centre of a star, ISS 2025) · **switch** (forwards by MAC address) · **router** (connects networks and forwards IP packets by destination address, ISS 2025: all three statements true) · **bridge** · **repeater** · **gateway** (joins dissimilar networks and converts protocols).
-- **Modem** converts digital ↔ analog (ISS 2023). **NIC** connects a computer to a network or the internet (ISS 2023).
-- **Topologies:** **bus** (single backbone cable, ISS 2025) · **star** (a hub failure brings down everything; easy fault detection, ISS 2021) · ring · **mesh** (most robust). The failure of one computer doesn't affect the others in **bus, star and mesh** (ISS 2022).
-- **Media:** twisted pair < coaxial < **optical fibre** (fastest, highest bandwidth, immune to EMI, ISS 2019). Wireless: **Wi-Fi = IEEE 802.11** (ISS 2020, 2025); **802.11ad** has the highest data rate among the common options (ISS 2026). Bluetooth = 802.15.1.
+- ★ **Hub** (repeats to all ports; the centre of a star) · **switch** (forwards by MAC address) · **router** (connects networks and forwards IP packets by destination address) · **bridge** (joins LAN segments) · **repeater** (regenerates signal) · **gateway** (joins dissimilar networks and converts protocols).
+- ★ **Modem** converts digital ↔ analog; **NIC** connects a computer to a network or the internet.
+- ★ **Topologies:** **bus** (single backbone cable) · **star** (hub failure brings down everything; easy fault detection) · ring · **mesh** (most robust). One computer failing doesn't affect the others in **bus, star and mesh**.
+- ★ **Media:** twisted pair < coaxial < **optical fibre** (fastest, highest bandwidth, immune to EMI). Wireless: **Wi-Fi = IEEE 802.11**, **802.11ad** fastest of the common standards; Bluetooth = 802.15.1.
 
 ## Connections and services
-- Dial-up (≤ 56 kbps) < DSL (over the phone line, always on) < cable (coaxial) < fibre. **Leased line** = dedicated, always on, symmetric (ISS 2022). **Satellite** reaches remote areas but has high latency.
-- **URL** = scheme :// host / path ? query. Search engines crawl, index and rank (Google's PageRank). **Cookies** are small text files that remember the user's session.
-- **E-mail:** SMTP to send, POP3/IMAP to receive. **VPN** = an encrypted tunnel over the public internet. **Cloud storage:** Dropbox, Drive, OneDrive.
-- **IPsec:** application-independent security at the IP layer (ISS 2022). Router-to-router IPsec is called **tunnelling** (ISS 2024).
+- ★ Dial-up (≤ 56 kbps) < DSL (phone line, always on) < cable (coaxial) < fibre. **Leased line** = dedicated, always on, symmetric, low latency. **Satellite** reaches remote areas but has high latency and rain fade.
+- **URL** = scheme :// host / path ? query # fragment. Search engines crawl, index and rank (Google's PageRank). **Cookies** are small text files that remember the user.
+- **E-mail:** SMTP to send, POP3/IMAP to receive (Ray Tomlinson, 1971, the @ sign). **VPN** = an encrypted tunnel over the public internet. **Cloud storage:** Dropbox, Drive, OneDrive.
+- ★ **IPsec:** application-independent security at the IP layer; router-to-router IPsec is called **tunnelling**.
+- **Mobile OS:** Android (Google, Linux kernel, open source, largest share) · iOS (Apple, privacy focus).
 
 ## Security and malware
-- **Virus:** needs a host program and user action. **Worm:** spreads by itself with no user interaction (ISS 2026). **Trojan:** disguised as useful software. **Polymorphic virus:** changes its code on each infection (ISS 2026).
-- **Spyware:** gathers data secretly (ISS 2019). Adware shows ads, ransomware encrypts and demands payment (WannaCry), a keylogger records keystrokes, a botnet is a network of zombie machines (DDoS), a logic bomb has a trigger condition.
-- **Phishing:** a fake e-mail or site steals credentials (ISS 2026). **Eavesdropping:** wiretap listening (ISS 2019). **Steganography:** data hidden inside images (ISS 2020).
-- **Cryptography:** symmetric = one secret key (**DES**, AES; ISS 2022); asymmetric = public + private key (RSA); **digital signature** uses a private/public key pair. Encryption turns plaintext into ciphertext, not the reverse (ISS 2023).
-- **Non-repudiation:** neither sender nor receiver can deny a message (ISS 2024). **Firewall** terms: gateway, proxy server, screening router (ISS 2023). A **packet-filter firewall** checks every IP packet (ISS 2025).
-- **ISO/IEC 27001** is the standard for information security management (ISS 2020, 2026). **Antivirus** is **utility** software (ISS 2019).
+- ★ **Virus:** needs a host program and user action. **Worm:** spreads by itself with no user interaction. **Trojan:** disguised as useful software, doesn't replicate. **Polymorphic virus:** changes its code on each infection.
+- ★ **Spyware** gathers data secretly · **adware** shows ads · **ransomware** encrypts and demands payment (WannaCry) · **keylogger** records keystrokes · **botnet** = zombie machines (DDoS) · **logic bomb** waits for a trigger · **rootkit** hides admin access.
+- ★ **Phishing:** a fake e-mail or site steals credentials. **Eavesdropping:** wiretap listening. **Steganography:** data hidden inside images.
+- ★ **Cryptography:** symmetric = one secret key (**DES**, AES); asymmetric = public + private key (RSA); a **digital signature** uses a private/public key pair. Encryption turns plaintext into ciphertext, not the reverse.
+- ★ **Non-repudiation:** neither sender nor receiver can deny a message. **Firewall** terms: gateway, proxy server, screening router; a **packet-filter firewall** checks every IP packet.
+- ★ **ISO/IEC 27001** is the standard for information security management. **Antivirus** is **utility** software. India: **IT Act, 2000**.
 
-## PYQ: What ISS asked (2018–2026)
-- **2019 Q50** Send mail → **SMTP**. **2021 Q54** Retrieve mail → **IMAP**. **2024 Q50** Ports → **25, 110, 143**.
-- **2020 Q44** Not an application protocol → **ARP**. **2023 Q64** Application layer → **SMTP, FTP, DHCP** (not IP or TCP).
-- **2020 Q53** Not a web browser → **Apple iOS**. **2019 Q64/67** Fastest medium / highest bandwidth → **fibre optic**.
-- **2024 Q55** "Network layer protocols" keyed as HTTP, FTP, SMTP. Note that these are really application-layer protocols; the key follows the paper.
-- **2024 Q56** Network connecting devices → **repeater, bridge, hub** (not Bluetooth).
+## ★ Most-tested facts
+- Send mail → **SMTP**; retrieve mail → **IMAP** (or POP3); mail ports → **25, 110, 143**.
+- Not an application-layer protocol → **ARP**; application layer → **SMTP, FTP, DHCP** (not IP or TCP).
+- Not a web browser → **Apple iOS** (an operating system).
+- Fastest medium / highest bandwidth → **optical fibre**.
+- Devices that connect networks → **repeater, bridge, hub** (Bluetooth is a wireless standard, not a device).
+- A router connects networks and forwards packets by destination IP address.
 
 ## Traps to avoid
 - **SMTP sends; POP3/IMAP receive.** IMAP keeps mail on the server, POP3 downloads it.
-- A **firewall filters traffic**; it is not an antivirus. **HTTPS ≠ HTTP + password**; it is HTTP over TLS encryption.
+- A **firewall filters traffic**; it is not an antivirus. **HTTPS** is HTTP over TLS encryption, not "HTTP + password".
 - The worm vs virus difference is **user interaction**: a worm needs none.
+- **URL** starts with **Uniform**, not "Universal".

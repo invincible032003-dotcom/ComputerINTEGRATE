@@ -1,25 +1,33 @@
+## 60-second recap
+- ★ **Algorithm** = finite, definite, effective steps with input and output (al-Khwarizmi).
+- ★ **Flowchart:** oval = start/stop · parallelogram = I/O · rectangle = process · diamond = decision · circle = connector.
+- ★ **Three constructs:** sequence · selection · iteration. **do-while** runs at least once (exit-controlled).
+- ★ **Stack = LIFO**, **queue = FIFO**. Subroutine calls use the **stack**.
+- ★ **Big-O:** O(1) < O(log n) < O(n) < O(n log n) < O(n²). **Stable sorts:** bubble, insertion, merge.
+- ★ **Testing finds failures; debugging fixes causes.** Breakpoint = pause for inspection. V(G) = E − N + 2.
+
 ## Algorithms
 - An **algorithm** is a finite, step-by-step procedure. The word comes from **al-Khwarizmi**.
 - **Properties (Knuth):** input, output, **finiteness** (terminates), **definiteness** (unambiguous), effectiveness (each step is doable).
 - Algorithms can be represented as plain-language steps, **pseudocode**, **flowcharts** or programs. "Syntax" is not a representation.
-- **Complexity:** time = number of steps; **space = memory needed** (ISS 2025). Big-O gives the worst-case growth.
+- ★ **Complexity:** time = number of steps; **space = memory needed**. Big-O gives the worst-case growth.
 - **Common orders:** O(1) < O(log n) (binary search) < O(n) (linear search) < O(n log n) (merge/heap sort, average quick sort) < O($n^2$) (bubble, insertion, selection).
-- **Stable sorts:** bubble, insertion, merge. **Unstable:** quick, heap, selection (ISS 2023).
-- **Euclid's GCD:** `while (x != y) { if (x > y) x -= y; else y -= x; }` leaves the **GCD** (ISS 2018).
+- ★ **Stable sorts:** bubble, insertion, merge. **Unstable:** quick, heap, selection.
+- ★ **Euclid's GCD:** `while (x != y) { if (x > y) x -= y; else y -= x; }` leaves the **GCD**.
 
 ## Flowchart symbols
 - **Oval / rounded rectangle:** terminal (Start/Stop) · **parallelogram:** input/output · **rectangle:** process · **diamond:** decision (two exits).
 - **Circle:** on-page connector · pentagon (home plate): off-page connector · **arrow:** flow line · double-sided rectangle: predefined process (module).
 - **Macro flowchart** = outline of the main segments; **micro flowchart** = detailed steps. There is no fixed standard for how much detail to show.
 - **Advantages:** communication, analysis, coding, debugging, documentation. **Limitations:** hard to draw for complex logic and must be redrawn after changes.
-- Flowcharts are **diagrammatic representations of the logic** for solving a task (ISS 2025).
+- ★ Flowcharts are **diagrammatic representations of the logic** for solving a task.
 
 ## Control structures
 - **Sequence**, **selection** (if, if-else, else-if ladder, switch/case) and **iteration** (for, while, do-while) are the three structured-programming constructs.
-- **Loops:** while and for are entry-controlled; **do-while** is exit-controlled and runs at least once (ISS 2025). **break/continue are jumps, not loops** (ISS 2024).
-- **Structured programming:** top-down, stepwise refinement, modules and functions, no goto. The division of a program into functions and modules is its hallmark (ISS 2023).
-- **Subroutine / function:** reduces code length, is stored elsewhere in memory and called when needed, and **uses the stack** for the return address and locals (ISS 2019).
-- **Expression rules:** `+`/`-` must be followed by an operand, two arithmetic operators cannot be adjacent, and brackets must balance (ISS 2020: all three).
+- ★ **Loops:** while and for are entry-controlled; **do-while** is exit-controlled and runs at least once. **break/continue are jumps, not loops**.
+- ★ **Structured programming:** top-down, stepwise refinement, modules and functions, no goto. The division of a program into functions and modules is its hallmark.
+- ★ **Subroutine / function:** reduces code length, is stored elsewhere in memory and called when needed, and **uses the stack** for the return address and locals.
+- ★ **Expression rules:** `+`/`-` must be followed by an operand, two arithmetic operators cannot be adjacent, and brackets must balance.
 
 ## Data structures
 - **Stack = LIFO** (push/pop at the top: function calls, undo). **Queue = FIFO** (insert at the rear, delete at the front: scheduling, print queues).
@@ -27,8 +35,8 @@
 - Linked list: nodes with pointers, dynamic size. Tree: hierarchical. Graph: networks.
 
 ## Testing and debugging
-- **Testing finds failures; debugging locates and fixes the cause.** Debugging steps: replicate → understand → locate → fix → test the bug fix (ISS 2021: all parts).
-- **Debugger:** detects bugs, **step-by-step execution**, halts execution at breakpoints (ISS 2024: all three statements). **Breakpoint** = where execution pauses for inspection (ISS 2025).
+- ★ **Testing finds failures; debugging locates and fixes the cause.** Debugging steps: replicate → understand → locate → fix → test the bug fix.
+- ★ **Debugger:** detects bugs, **step-by-step execution**, halts execution at breakpoints. **Breakpoint** = where execution pauses for inspection.
 - **Black box:** test at the interface, without the code. **White box:** test paths and code logic. **Grey box:** partial knowledge.
 - **Cyclomatic complexity** V(G) = E − N + 2 = decision points + 1 = number of regions. It equals the minimum number of basis-path test cases.
 - **Software reliability** = probability of failure-free operation over a time period. **SCM** = software configuration management (version control).
@@ -37,11 +45,14 @@
 - **Identification** (user ID) → **authentication** (password, OTP, biometric) → **authorisation** (rights) → access control.
 - CHAP = challenge handshake with a hashed reply. A **cipher** is an encryption algorithm; plaintext → ciphertext.
 
-## PYQ: What ISS asked (2018–2026)
-- **2018 Q71** Subtraction loop → **GCD of x and y**. **2019 Q48** Subroutine: shorter code ✓, stored elsewhere ✓, no stack ✗.
-- **2021 Q75** Debugging = replicate + understand + test + fix → **all four**. **2023 Q68** Functions/modules → **structured language**.
-- **2023 Q77** Stable sorts → **bubble, merge, insertion**. **2024 Q59** Loops → **while, for, do-while**.
-- **2025 Q37** Memory required → **space complexity**. **2025 Q39** Breakpoints → **pause for inspection**. **2025 Q76** Same statements repeated on a condition → **do-while**.
+## ★ Most-tested facts
+- A loop that subtracts the smaller of x, y from the larger until they are equal leaves the **GCD**.
+- A subroutine shortens code ✓ and is stored elsewhere in memory ✓, but "does not use the stack" ✗.
+- Debugging = replicate + understand + fix + test the fix → **all parts**.
+- A language built on functions and modules → **structured language**.
+- Stable sorts → **bubble, merge, insertion**; loops → **while, for, do-while**.
+- Memory required by an algorithm → **space complexity**; breakpoints → **pause execution for inspection**.
+- Statements repeated on a condition, at least once → **do-while**.
 
 ## Traps to avoid
 - **Diamond = decision, not a terminal.** Parallelograms are I/O, not processes.

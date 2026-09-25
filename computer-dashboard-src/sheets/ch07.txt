@@ -1,48 +1,61 @@
+## 60-second recap
+- ★ **OS** = principal system software: resource manager (process, memory, file, device, security) + user–hardware interface.
+- ★ **Kernel** = core, resident in RAM, talks to hardware; **shell** = command interpreter; **driver** = OS ↔ device translator.
+- ★ **Multiprogramming** → max CPU utilisation · **time-sharing** → min response time (round robin) · **RTOS** → deadlines · **distributed** → message passing.
+- ★ **States:** New → Ready → Running → Waiting → Terminated. I/O request → waiting. Deadlock is **not** a state.
+- ★ **Deadlock** needs all four: mutual exclusion + hold and wait + **no pre-emption** + circular wait.
+- ★ **Page fault** = page not in RAM; **demand paging** loads on reference; **thrashing** = paging instead of working.
+
 ## What an OS is and does
-- The OS is the **principal system software**: it manages all resources and is the interface between user and hardware (ISS 2024: all three statements true).
-- **Functions:** process, memory, file, device (I/O) and **security** management (ISS 2019). **Goals:** efficient use of CPU, memory and I/O (ISS 2022).
-- **Kernel** = the core, always in memory. It is the **core component of UNIX** (ISS 2018, 2023, 2026). **Shell** = command interpreter. **Device driver** = OS ↔ hardware translator.
+- ★ The OS is the **principal system software**: it manages all resources and is the interface between user and hardware.
+- ★ **Functions:** process, memory, file, device (I/O) and **security** management. **Goals:** efficient, fair use of CPU, memory and I/O.
+- ★ **Kernel** = the core, always in memory — the **core component of UNIX**. **Shell** = command interpreter. **Device driver** = OS ↔ hardware translator.
 - **Booting:** BIOS/UEFI → POST → boot loader → kernel → init/login.
-- **Authentication** (verifying users) is a major OS security problem (ISS 2021).
+- ★ **Authentication** (verifying users) is a major OS security problem.
+- **Kernel types:** monolithic (all services in kernel space — Linux) · microkernel (minimal kernel, services in user space — Mach, QNX, MINIX) · hybrid (Windows NT, macOS).
 
 ## Types of OS
-- **Batch:** jobs are grouped and run one after another without interaction. Next job is fetched automatically, no debugging during execution, priority ordering (ISS 2022: all true). Example: IBM OS/360.
+- ★ **Batch:** jobs grouped and run one after another with no interaction; the next job starts automatically; no debugging during execution; priorities order the queue. Example: IBM OS/360 with JCL.
 - **Multiprogramming:** several programs in memory; the CPU switches on I/O waits to **maximise CPU utilisation**.
-- **Time-sharing (multitasking):** CPU time sliced among users (**round robin**) to minimise response time. CTSS → MULTICS → UNIX.
-- **Real-time (RTOS):** responds within a **predetermined time** (ISS 2023). Hard RTOS: deadline miss = failure; soft RTOS: degraded. Examples: VxWorks, QNX. **Linux is not an RTOS** (ISS 2021).
-- **Distributed:** many machines, one system image, **no common memory or bus** (ISS 2019), so IPC is by **message passing** (ISS 2024).
-- **Network OS:** servers share files and printers (Windows Server, Novell NetWare). **Embedded OS:** Windows CE (ISS 2021), Android on devices.
+- **Time-sharing (multitasking):** CPU time sliced among users (**round robin**) to minimise response time. CTSS (1961) → MULTICS → UNIX.
+- ★ **Real-time (RTOS):** responds within a **predetermined time**. Hard RTOS: a missed deadline is a failure; soft RTOS: quality degrades. Examples: VxWorks, QNX, FreeRTOS. **Linux is not an RTOS**. Scheduling: EDF, rate monotonic.
+- ★ **Distributed:** many machines, one system image, **no common memory or bus**, so IPC is by **message passing** (and RPC).
+- ★ **Network OS:** servers share files and printers (Windows Server, Novell NetWare). **Embedded OS:** Windows CE, VxWorks, embedded Linux.
 
 ## Processes and scheduling
-- **Process states:** New → Ready → Running → Waiting → Terminated. **Deadlock is not a state** (ISS 2026). I/O request moves a process from running to waiting.
-- **PCB** (process control block) holds a process's state. **Context switch** = save one PCB and load another (pure overhead).
-- **Scheduling:** FCFS (convoy effect), SJF (minimum average waiting time, risks starvation), priority (aging cures starvation), **round robin = fixed time slice** (ISS 2025).
-- **IPC mechanisms:** shared memory and **message passing** (ISS 2022: shared region/cache are not IPC mechanisms here).
+- ★ **Process states:** New → Ready → Running → Waiting → Terminated. An I/O request moves a process from running to waiting; I/O done → ready; time slice over → ready.
+- **PCB** (process control block) holds a process's state. **Context switch** = save one PCB, load another (pure overhead).
+- ★ **Scheduling:** FCFS (convoy effect), SJF (minimum average waiting time, risks starvation), priority (aging cures starvation), **round robin = fixed time slice**.
+- ★ **IPC mechanisms:** **shared memory** and **message passing**.
+- **Spooling** (Simultaneous Peripheral Operations On-Line) queues print jobs on disk so the CPU carries on.
 
 ## Deadlock
-- **Four necessary conditions (Coffman):** mutual exclusion, hold and wait, **no pre-emption**, circular wait. All four must hold (ISS 2022).
+- ★ **Four necessary conditions (Coffman):** mutual exclusion, hold and wait, **no pre-emption**, circular wait. All four must hold.
 - **Handling:** prevention (break a condition), avoidance (**Banker's algorithm**, safe state), detection and recovery, or ignoring it (the ostrich approach).
 
 ## Memory management
-- **Paging** manages memory efficiently (ISS 2019): fixed-size pages and frames, no external fragmentation.
-- **Demand paging** = paging with swapping; pages are loaded only when referenced (ISS 2026). **Page fault** = the referenced page is not in RAM (ISS 2026).
-- **Thrashing:** too many page faults, so the CPU mostly waits on swaps. **Segmentation:** variable-size logical units.
-- Page-replacement policies: FIFO (Belady's anomaly), LRU, optimal.
+- ★ **Paging** manages memory efficiently: fixed-size pages and frames, no external fragmentation.
+- ★ **Demand paging** = paging with swapping; pages load only when referenced. **Page fault** = the referenced page is not in RAM (normal, not an error).
+- **Thrashing:** too many page faults, so the CPU mostly waits on swaps; cure = fewer processes or more RAM. **Segmentation:** variable-size logical units.
+- Page replacement: FIFO (Belady's anomaly), LRU, optimal.
 
 ## Files, UNIX and MS-DOS
-- **UNIX:** Bell Labs (Thompson and Ritchie, 1969–73), written in C, multi-user, multitasking, portable, hierarchical file system. **Linux** is an open-source Unix-like OS (ISS 2019, 2023, 2025).
-- UNIX file types: regular, directory, device (`/dev`), symbolic link, FIFO, socket. Commands: `ls`, `cat`, `cp`, `mv`, `rm`, `chmod`.
-- **MS-DOS:** single-user, single-tasking, command line. `DIR`, `COPY`, `.bat` batch files, `AUTOEXEC.BAT`, FAT file system.
-- **Spooling** puts I/O (e.g. print jobs) in a disk queue so the CPU carries on with other work.
+- ★ **UNIX:** Bell Labs (Thompson and Ritchie, 1969–73), written in C, multi-user, multitasking, portable, hierarchical file system. **Linux** (Torvalds, 1991) is an open-source, low-cost Unix-like OS.
+- UNIX file types: regular (-), directory (d), device (c/b, in `/dev`), symbolic link (l), FIFO (p), socket (s). Commands: `ls`, `cat`, `cp`, `mv`, `rm`, `chmod`.
+- **MS-DOS (1981):** single-user, single-tasking, command line. `DIR`, `COPY`, `CD`, `.bat` batch files, `AUTOEXEC.BAT`, FAT16 (2 GB file limit).
+- **History:** GM-NAA I/O (1956, first OS) · CTSS (first time-sharing) · OS/360 · MULTICS (virtual memory) · UNIX · MS-DOS · Mac OS (first popular GUI, 1984) · Windows 3.1/95/XP/7/10.
 
-## PYQ: What ISS asked (2018–2026)
-- **2018 Q64 / 2023 Q74 / 2026 Q61** Core of UNIX → **kernel**. **2019 Q49** Low-cost OS → **Linux**.
-- **2019 Q63** No common memory or bus → **distributed system**. **2019 Q68** Memory management technique → **paging**.
-- **2021 Q55** Not an RTOS → **Linux**. **2021 Q79** Embedded OS → **Windows CE**.
-- **2022 Q33** Deadlock conditions → **mutual exclusion + hold and wait + no pre-emption**. **2022 Q78** IPC → **message passing + shared memory**.
-- **2023 Q66** Responds in a predetermined time → **RTOS**. **2025 Q33** Time slice → **round robin**. **2025 Q36** Linux: multi-user, multitasking, multiprocessor → **all**.
+## ★ Most-tested facts
+- The core component of UNIX → **kernel**; a low-cost OS → **Linux**.
+- A system with no common memory or bus → **distributed system**; a memory-management technique → **paging**.
+- Not a real-time OS → **Linux**; an embedded OS → **Windows CE**.
+- Deadlock conditions → **mutual exclusion, hold and wait, no pre-emption** (plus circular wait).
+- IPC mechanisms → **message passing and shared memory**.
+- Responds within a predetermined time → **RTOS**; a fixed time slice → **round robin**.
+- Linux is multi-user, multitasking and multiprocessor-capable → **all true**.
 
 ## Traps to avoid
 - **Multiprogramming** aims at **CPU utilisation**; **time-sharing** aims at **response time**.
 - The condition is **no** pre-emption; "pre-emption" alone is not a deadlock condition.
 - A distributed OS **hides** the separate machines; a network OS **exposes** them.
+- **First GUI PC** → Mac (1984); **dominant GUI** → Windows.

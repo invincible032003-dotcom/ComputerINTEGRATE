@@ -4,7 +4,7 @@
 @codes C9 C8
 @default C9
 @themes 1 Flowchart symbols & structures · algorithms · data structures · control statements & loops
-@themes 2 Maintenance & testing · cyclomatic complexity · GDB debugging · security basics + 10 ISS Boosters (sorting, complexity, operators)
+@themes 2 Maintenance & testing · cyclomatic complexity · GDB debugging · security basics · sorting · complexity · operators
 
 #1 p386 a394
 Q: The symbol shown denotes ______ (figure redrawn: a box with rounded ends).
@@ -357,8 +357,8 @@ b) Flow graph
 c) Complexity curve
 d) Algorithm
 K: a
-X: A flowchart is a directed graph: its symbols are the nodes and its arrows the edges, together showing the flow of control.
-S: Directed graph of control flow → flowchart (book).
+X: A flowchart is a directed graph: its symbols are the nodes and its arrows the edges, together showing the flow of control. (In testing, a control-flow graph is a similar directed graph used for cyclomatic complexity, but "flowchart" is the answer here.)
+S: Directed graph of control flow → flowchart.
 N: In software testing, the control flow graph (flow graph, option b) is also a directed graph of a program's control flow; it is the basis of cyclomatic complexity (Q46–Q48). The book's intended answer is the flowchart.
 
 #34 p389 a397
@@ -368,7 +368,7 @@ b) Sequential
 c) Ordered
 d) Simple
 K: b
-X: The book's point: a structured program is written as a sequence of program structures (sequences, choices and loops), each following the last.
+X: A structured program is sequential: it is written as a sequence of program structures — sequences, choices and loops — each following the last, with a single entry and exit.
 S: Structured program = sequence of structures.
 
 #35 p389 a397

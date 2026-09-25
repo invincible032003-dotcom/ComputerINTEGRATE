@@ -670,7 +670,7 @@ c) 16
 d) 3
 K: a
 B: d
-X: Octal (base 8) uses the eight digits 0–7. (Each octal digit corresponds to 3 bits, which may explain the printed key.)
+X: Octal (base 8) uses the eight digits 0–7. Each octal digit stands for exactly 3 bits — don't confuse the 3 bits per digit with the 8 digits of the system.
 S: Octal → 8 digits (0–7), each = 3 bits.
 N: The book prints (d) 3 but explains that octal uses 8 digits. The number of octal digits is 8, so the key is (a).
 
@@ -888,7 +888,7 @@ c) 47
 d) 55
 K: c
 B: b
-X: $57_8 = 40 + 7 = 47$ (same as Q69).
+X: $57_8 = 5 \times 8 + 7 = 40 + 7 = 47$.
 S: Octal 57 = 5 × 8 + 7 = 47.
 N: The book prints (b) 39. 57₈ = 47, so the key is (c).
 
@@ -2641,7 +2641,7 @@ c) 1111111
 d) 10000001
 K: a
 X: In decimal: 1111111₂ = 127 and 1₂ = 1; 127 + 1 = 128 = 10000000₂. (Column rules: 0+0=0, 0+1=1, 1+1=10, 1+1+1=11.)
-S: Check any binary sum by converting both numbers to decimal.
+S: All 1s + 1 → 1 followed by all 0s (127 + 1 = 128 = 2⁷).
 
 #238 p218 a243
 Q: What is the result of adding 1001 and 10 in binary?
@@ -2712,7 +2712,7 @@ d) 11010
 K: a
 B: b
 X: In decimal: 100000₂ = 32 and 11111₂ = 31; 32 − 31 = 1 = 1₂.
-S: Binary subtraction: 0−1 borrows 2 (10₂) from the next column; verify in decimal.
+S: 2ⁿ − (2ⁿ − 1) = 1: 100000 − 11111 = 1.
 N: The book keys (b) 10001, and none of its printed options equals the correct value 1. Option (a) has been changed from 1001 to 1. The book's printed key (b) is also wrong; the key is (a).
 
 #244 p219 a243
@@ -2759,7 +2759,7 @@ d) 10000000
 K: c
 B: b
 X: In decimal: 11111111₂ = 255 and 10000000₂ = 128; 255 − 128 = 127 = 1111111₂.
-S: Binary subtraction: 0−1 borrows 2 (10₂) from the next column; verify in decimal.
+S: 11111111 − 10000000 = just drop the leading 1 → 1111111.
 N: The book prints (b) 111; the correct value is 1111111, so the key is (c).
 
 #248 p220 a243
@@ -2848,7 +2848,7 @@ d) 11110
 K: b
 B: d
 X: The 1's complement inverts every bit: 11111 → 00000.
-S: 1's complement = flip every bit (0↔1).
+S: All 1s flipped → all 0s.
 N: The book prints (d) 11110; the correct value is 00000, so the key is (b).
 
 #256 p220 a244
@@ -2872,7 +2872,7 @@ d) 11111110
 K: b
 B: d
 X: The 1's complement inverts every bit: 11111111 → 00000000.
-S: 1's complement = flip every bit (0↔1).
+S: All 1s flipped → all 0s.
 N: The book prints (d) 11111110; the correct value is 00000000, so the key is (b).
 
 #258 p220 a244
@@ -2962,7 +2962,7 @@ d) 11110
 K: c
 B: d
 X: 2's complement = 1's complement + 1: 11111 → 00000 → 00000 + 1 = 00001.
-S: Shortcut: copy bits from the right up to and including the first 1, then flip the rest.
+S: 2's complement of all 1s (−1) is 00…01 (+1).
 N: The book prints (d) 11111, which repeats option (a) and is the number itself. The 2's complement of 11111 is 00001, so the key is (c); option (d) has been replaced by 11110 so that the options are distinct.
 
 #266 p221 a244
@@ -2986,7 +2986,7 @@ d) 11111110
 K: c
 B: b
 X: 2's complement = 1's complement + 1: 11111111 → 00000000 → 00000000 + 1 = 00000001.
-S: Shortcut: copy bits from the right up to and including the first 1, then flip the rest.
+S: 2's complement of all 1s (−1) is 00…01 (+1).
 N: The book prints (b) 00000000, which is only the 1's complement; adding 1 gives 00000001, so the key is (c). Option (d), a repeat of option (a), has been replaced by 11111110.
 
 #268 p221 a244

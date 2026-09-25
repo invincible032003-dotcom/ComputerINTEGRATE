@@ -6,10 +6,10 @@ any chapter would produce a practice set outside 40–50 questions.
 
 | Path | What it holds |
 |---|---|
-| `bank/chNN.txt` | Question bank, one file per book chapter (2009 book questions + 44 ISS Boosters) |
-| `sheets/chNN.txt` | Crisp pointers for UPSC ISS Paper-I, one sheet per chapter |
-| `cs-tab.js` / `cs-tab.css` | Computer tab screens: chapter tabs, sets, learning/exam modes, pointers |
-| `mobile.js` / `mobile.css` | Android-style phone shell: bottom nav, session bar, swipe, back button |
+| `bank/chNN.txt` | Question bank, one file per book chapter (2009 book questions + 44 added to fill sets) |
+| `sheets/chNN.txt` | Crisp pointers, one sheet per chapter (`## Section` + `- bullet`; a leading ★ marks a high-yield point) |
+| `cs-tab.js` / `cs-tab.css` | Computer tab screens: chapter chips, sets, Learn/Exam sessions, fold-out pointers, one-at-a-time Revise |
+| `mobile.js` / `mobile.css` | Android-style phone shell: titled app bar, bottom nav, session bar, palette bottom sheet, swipe, back button |
 | `tools/smoke_test.js` | Headless check on desktop and a 360 px phone: `NODE_PATH=$(npm root -g) node tools/smoke_test.js ../UPSC-ISS-Statistics-Dashboard-STANDALONE.html <outdir>` |
 | `tools/ocr_*.py`, `merge_ocr.py`, `parse_ocr.py`, `auto_clean.py` | One-off OCR pipeline used to transcribe the book (work dir: `$OCR_WORK`) |
 
@@ -29,13 +29,17 @@ Q: Stem text (`code` in backticks, math in \( \))
 ?: Which of the above is/are correct?
 a) … b) … c) … d)     two or four options
 K: c                  correct key
-B: b                  book's printed key, only when it is wrong
+B: b                  book's printed key, only when it is wrong (not shipped)
 X: Explanation
 S: 15-second exam shortcut
-N: Note shown with the answer
+N: Maintainer note, e.g. why the printed key was corrected (not shipped)
 
-#121 iss              ISS Booster (written for the dashboard, not from the book)
-R: ISS 2021 Q14       previous-year question it mirrors
+#121 iss              added question (not from the book) that fills a set to 40-50
+R: reference          what the added question is modelled on (not shipped)
 ```
+
+Only clean study content reaches the dashboard: topic, question, options,
+explanation and shortcut. Page numbers, printed keys, notes and references
+stay in the bank files as the audit trail.
 
 Optional `T:` overrides the question type and `C:` the topic code.
