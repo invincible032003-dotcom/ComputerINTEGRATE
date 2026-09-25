@@ -1,0 +1,1116 @@
+@chapter 6
+@title Introduction to Software
+@pages 261-276 277-293
+@codes C6 C5 C8 C9
+@default C6
+@themes 1 Language generations 1GL–5GL · machine language · assembly language basics
+@themes 2 Assembly vs high-level · 3GL · 4GL & 5GL · language classifications
+@themes 3 Paradigms · compile, link, load · symbol table · dynamic linking · relocation · translators
+
+#1 p261 a277
+Q: Which generation of programming languages is characterized by machine language?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: a
+X: First-generation languages (1GL) are machine languages: instructions written directly in binary (0s and 1s) that the processor executes without translation.
+S: 1GL machine (binary) · 2GL assembly (mnemonics) · 3GL high-level (C, COBOL, FORTRAN) · 4GL SQL/report generators · 5GL AI/logic (Prolog).
+
+#2 p261 a277
+Q: Which generation of programming languages introduced assembly language?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: b
+X: Second-generation languages are assembly languages, which replace binary codes with mnemonics such as ADD, MOV and JMP; an assembler translates them.
+S: Mnemonics → 2GL → assembler.
+
+#3 p261 a277
+Q: Which generation of programming languages introduced high-level languages?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: c
+X: Third-generation languages (FORTRAN, COBOL, BASIC, C, Pascal, Java) are the high-level, machine-independent languages with English-like statements, translated by compilers or interpreters.
+S: High-level = 3GL.
+
+#4 p261 a277
+Q: Which generation of programming languages is associated with procedural programming?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: c
+X: Most 3GLs (FORTRAN, COBOL, C, Pascal) are procedural: the programmer states step by step how a task is done.
+S: 3GL = procedural ("how"); 4GL = non-procedural ("what").
+
+#5 p261 a277
+Q: Which generation of programming languages introduced object-oriented programming?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: c
+X: Object-oriented languages such as C++, Java and Smalltalk are third-generation (high-level) languages.
+S: OOP (classes, objects, inheritance) arrived within the 3GL family.
+
+#6 p261 a277
+Q: Which generation of programming languages focuses on problem-solving through visual or graphical interfaces?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+X: Fourth-generation tools emphasise what is wanted rather than how, often through visual form and report designers and query builders.
+S: Visual builders, forms, reports → 4GL.
+
+#7 p261 a277
+Q: Which generation of programming languages emphasizes database and report generation?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+X: 4GLs — SQL, report generators, form generators — are designed for database querying and report generation with very little code.
+S: Database + reports → 4GL (SQL).
+
+#8 p261 a278
+Q: Which generation of programming languages is associated with natural language processing and AI capabilities?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+X: In the standard classification, natural-language and AI programming (Prolog, Mercury) is the hallmark of fifth-generation languages. With only four generations offered, the book keys the fourth, whose English-like, non-procedural style leads towards it.
+S: AI / logic programming → 5GL; if 5GL is not offered, pick the latest generation listed.
+N: If "Fifth generation" were among the options it would be the correct answer.
+
+#9 p262 a278
+Q: Which generation of programming languages introduced declarative and functional programming?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: c
+X: The book keys the third generation: high-level languages such as LISP (1958, functional) belong to the 3GL family, which opened the way for declarative styles.
+S: LISP (functional) is a 3GL; SQL (declarative) is a 4GL; Prolog (logic) a 5GL.
+
+#10 p262 a278
+Q: Which generation of programming languages is characterized by rapid application development and code reusability?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+X: 4GL environments aim at rapid application development: generators, templates and reusable components produce applications with far less hand-written code.
+S: RAD → 4GL.
+
+#11 p262 a278
+Q: What is the primary characteristic of First Generation Language (1GL)?
+a) It uses natural language for programming.
+b) It is based on binary codes that can be directly executed by the processor.
+c) It focuses on high-level abstractions and features.
+d) It eliminates the need to know machine characteristics.
+K: b
+X: A 1GL (machine language) program is a sequence of binary instruction codes that the CPU executes directly with no translation.
+S: 1GL = binary = executes directly.
+
+#12 p262 a278
+Q: Which part of a machine language instruction conveys the function to be performed by the instruction?
+a) Operation code
+b) Mode
+c) Operand
+d) Addressing type
+K: a
+X: A machine instruction has an operation code (opcode), which says what to do, and operand(s), which say what data or address to use.
+S: Opcode = what to do; operand = on what.
+
+#13 p262 a278
+Q: What is the biggest limitation of using machine language for programming?
+a) It is difficult to understand and remember various combinations of 1's and 0's.
+b) It lacks support for basic arithmetic operations.
+c) It requires a deep understanding of machine hardware.
+d) It is not recognized by computer hardware.
+K: a
+X: Machine-language programs are long strings of 0s and 1s, which are very hard for people to write, read and remember.
+S: Machine language: fast for the CPU, painful for people.
+
+#14 p262 a279
+Q: Why is machine language considered error-prone?
+a) It requires extensive documentation for programming.
+b) It lacks support for complex programming tasks.
+c) It is challenging to locate and fix errors in machine instructions.
+d) It does not provide efficient memory management.
+K: c
+X: Because instructions are binary codes, a single wrong bit is easy to make and very hard to find and correct.
+S: Binary → hard to debug → error-prone.
+
+#15 p262 a279
+Q: What is the major drawback of machine language in terms of portability?
+a) It requires modification when changing computer systems.
+b) It is not compatible with modern computer architectures.
+c) It relies on external libraries for execution.
+d) It lacks support for input/output operations.
+K: a
+X: Machine code is tied to one processor's instruction set, so programs must be rewritten for a different type of computer.
+S: Machine- and assembly-level code is machine-dependent (not portable).
+
+#16 p263 a279
+Q: What makes machine language difficult to use and understand?
+a) The need to remember machine characteristics while programming.
+b) The lack of efficient memory management techniques.
+c) The absence of basic arithmetic operations.
+d) The limited support for input/output operations.
+K: a
+X: The programmer must know the machine's opcodes, registers and memory addresses in detail.
+S: You must know the hardware to write machine code.
+
+#17 p263 a279
+Q: What is the primary advantage of machine language?
+a) It provides high-level abstractions for complex programming tasks.
+b) It enables efficient memory management.
+c) It is the native language of the computer and can be executed directly.
+d) It ensures portability across different computer systems.
+K: c
+X: Machine language needs no translator: it is the computer's native language, executed directly and therefore very fast.
+S: Only advantage of machine code: direct, fast execution.
+
+#18 p263 a279
+Q: What happens when a computer system is changed while using machine language programs?
+a) The programs automatically adapt to the new system.
+b) The programs become obsolete and need to be rewritten in the new machine code.
+c) The programs require minimal modifications for compatibility.
+d) The programs continue to run without any changes.
+K: b
+X: A different processor has a different instruction set, so old machine-language programs must be rewritten for it.
+S: New machine → rewrite machine code.
+
+#19 p263 a280
+Q: Which component(s) of a computer system affect the variation of machine language across different computer types?
+a) ALU (Arithmetic Logic Unit)
+b) CU (Control Unit)
+c) Memory unit
+d) All of the above
+K: d
+X: The instruction set reflects the design of the ALU, control unit, registers and memory organisation, so all of them make machine language differ between computers.
+S: Different hardware → different machine language.
+
+#20 p263 a280
+Q: What is the native language of the computer that the CPU can directly execute?
+a) Assembly language
+b) High-level language
+c) Machine language
+d) Scripting language
+K: c
+X: Only machine language (binary) is executed directly; everything else must be translated into it.
+S: Native = machine language.
+
+#21 p263 a280
+Q: What is the primary characteristic of Second Generation Language (2GL)?
+a) It uses natural language for programming.
+b) It is based on binary codes that can be directly executed by the processor.
+c) It uses mnemonic codes to represent instructions.
+d) It focuses on high-level abstractions and features.
+K: c
+X: Assembly language (2GL) uses mnemonic codes — ADD, SUB, MOV, JMP — and symbolic names instead of binary.
+S: 2GL = mnemonics.
+
+#22 p264 a280
+Q: What does an assembly language statement typically consist of?
+a) Label, operation code, and operands
+b) Label, binary code, and operands
+c) Operation code, binary code, and operands
+d) Operation code, label, and operands
+K: a
+X: An assembly statement has an optional label, a mnemonic operation code and operand(s), in that order (plus an optional comment).
+S: [Label:] OPCODE operand(s) ; comment.
+
+#23 p264 a280
+Q: What is the purpose of a label in assembly language?
+a) It represents the register where data is located.
+b) It specifies the particular operation to be performed.
+c) It identifies and references instructions in the program.
+d) It represents the binary code for an instruction.
+K: c
+X: A label is a symbolic name for an instruction's address, so jumps and loops can refer to it (e.g. LOOP: … JMP LOOP).
+S: Label = symbolic address.
+
+#24 p264 a280
+Q: How is an assembly language program translated into machine language?
+a) By a compiler
+b) By an interpreter
+c) By an assembler
+d) By a linker
+K: c
+X: An assembler translates assembly code into machine code, essentially one machine instruction per mnemonic.
+S: Assembly → assembler; high-level → compiler/interpreter.
+
+#25 p264 a281
+Q: Why is assembly language referred to as a low-level language?
+a) It has limited support for high-level abstractions.
+b) It requires complex memory management techniques.
+c) It is closer to the binary machine language of the computer.
+d) It is primarily used in embedded systems programming.
+K: c
+X: Assembly maps almost one-to-one onto machine instructions, so it sits close to the hardware — hence "low level".
+S: Close to hardware = low level.
+
+#26 p264 a281
+Q: What is the main advantage of writing a program in assembly language compared to machine language?
+a) Improved readability due to symbolic instructions.
+b) Better support for complex arithmetic operations.
+c) Higher level of portability across different computer systems.
+d) Easier debugging and error correction.
+K: a
+X: Mnemonics and labels make assembly code far easier to read and write than binary machine code.
+S: Assembly vs machine code → readability.
+
+#27 p264 a281
+Q: What is the major disadvantage of assembly language?
+a) It requires a deep understanding of the internal architecture of the processor.
+b) It lacks support for basic arithmetic operations.
+c) It is difficult to read and understand due to binary sequences.
+d) It is not recognized by computer hardware.
+K: a
+X: Assembly is machine-dependent: the programmer must know the processor's registers, instruction set and memory layout in detail.
+S: Assembly's cost = hardware knowledge + no portability.
+
+#28 p264 a281
+Q: Why is assembly language considered machine dependent?
+a) It relies on external libraries for execution.
+b) It lacks support for input/output operations.
+c) It is specific to the internal architecture of a particular processor model.
+d) It requires constant updates and modifications.
+K: c
+X: Each processor family has its own instruction set, so an assembly program is written for one architecture only.
+S: One processor family → one assembly language.
+
+#29 p265 a281
+Q: How does programming with assembly language compare to machine language in terms of difficulty and time consumption?
+a) It is easier and less time-consuming than machine language.
+b) It is more difficult and time-consuming than machine language.
+c) It has similar difficulty and time consumption as machine language.
+d) It depends on the specific program and task at hand.
+K: a
+B: b
+X: Symbolic mnemonics and labels make assembly easier and quicker to write and debug than binary machine code (though harder than a high-level language).
+S: Ease: machine < assembly < high-level.
+N: The book prints (b), but its own explanation says assembly is easier to understand than machine language. Compared with machine language, assembly is easier and less time-consuming, so the key is (a).
+
+#30 p265 a281
+Q: What is the role of an assembler in assembly language programming?
+a) It executes the assembly language program directly.
+b) It translates assembly language code into machine language.
+c) It provides a user-friendly interface for writing assembly programs.
+d) It manages memory allocation and deallocation.
+K: b
+X: The assembler converts mnemonic instructions and symbols into machine code (object code).
+S: Assembler = assembly → machine code.
+
+#31 p265 a281
+Q: What happens if an assembly language program written for one processor is executed on a different processor?
+a) It runs without any issues due to the compatibility of assembly language.
+b) It requires minor modifications to make it compatible with the new processor.
+c) It produces errors or does not work correctly due to architectural differences.
+d) It requires recompilation using a different assembly language.
+K: c
+X: The new processor does not understand the old instruction set, so the program fails or misbehaves.
+S: Assembly is not portable.
+
+#32 p265 a282
+Q: Which of the following statements about assembly language is true?
+a) It is widely used for artificial intelligence research.
+b) It is a high-level language with advanced features.
+c) It is primarily used in web development.
+d) It provides direct access to hardware and low-level programming control.
+K: d
+X: Assembly gives direct control of registers, memory and I/O, which is why it is used for device drivers, boot code and embedded systems.
+S: Direct hardware control → assembly.
+
+#33 p265 a282
+Q: What does the term "mnemonic code" refer to in assembly language?
+a) The binary representation of an instruction.
+b) The label assigned to an instruction.
+c) The operation code indicating the function to be performed.
+d) The set of instructions for mathematical calculations.
+K: c
+X: A mnemonic is the symbolic operation code — e.g. ADD, SUB, MOV — that stands for a binary opcode.
+S: Mnemonic = memorable opcode name.
+
+#34 p266 a282
+Q: What is the level of abstraction in assembly language compared to high-level languages?
+a) Higher level of abstraction
+b) Lower level of abstraction
+c) Similar level of abstraction
+d) No abstraction is provided
+K: b
+X: Assembly works directly with registers and addresses, so it offers a much lower level of abstraction than high-level languages.
+S: Abstraction ↑: machine < assembly < high-level < 4GL.
+
+#35 p266 a282
+Q: How does assembly language programming differ from writing programs in high-level languages?
+a) Assembly language provides better code optimization.
+b) High-level languages offer improved readability and ease of use.
+c) Assembly language programs are executed faster than high-level language programs.
+d) High-level languages are machine-dependent like assembly language.
+K: b
+X: High-level languages are more readable and easier to use, with English-like statements and machine independence.
+S: High-level wins on readability and portability.
+
+#36 p266 a282
+Q: What type of operations are commonly performed in assembly language?
+a) Logical operations
+b) Database operations
+c) Networking operations
+d) Arithmetic and data manipulation operations
+K: d
+X: Assembly programs mostly move data between registers and memory and perform arithmetic on it (MOV, ADD, SUB, MUL).
+S: Assembly = data moves + arithmetic.
+
+#37 p266 a282
+Q: What is the purpose of an operand in assembly language?
+a) It represents the label assigned to an instruction.
+b) It specifies the operation code for an instruction.
+c) It indicates the function to be performed by an instruction.
+d) It represents the data or memory location involved in an operation.
+K: d
+X: Operands name the data the operation works on — a register, a memory address or an immediate value.
+S: Operand = the data/location.
+
+#38 p266 a282
+Q: What is the primary reason for using assembly language instead of machine language?
+a) Assembly language offers higher-level abstractions.
+b) Assembly language programs are more portable across different systems.
+c) Assembly language provides better error detection and correction.
+d) Assembly language code is easier to read and understand.
+K: d
+B: b
+X: The point of assembly is readability: mnemonics and labels instead of raw binary. It is no more portable than machine code, since both are tied to one processor.
+S: Assembly = readable machine code; still not portable.
+N: The book prints (b), portability, but assembly is machine-dependent (as the book itself states at Q28). The real reason for using it is readability, so the key is (d).
+
+#39 p266 a283
+Q: Which of the following is an example of an assembly language instruction?
+a) MOV 5, R1
+b) IF-ELSE statement
+c) FOR loop
+d) FUNCTION declaration
+K: a
+X: MOV is an assembly mnemonic that moves data (here the value 5) into register R1. IF-ELSE, FOR and functions are high-level constructs.
+S: MOV / ADD / JMP → assembly.
+
+#40 p266 a283
+Q: Which of the following components translates assembly language code into machine language?
+a) Compiler
+b) Interpreter
+c) Assembler
+d) Linker
+K: c
+X: The assembler translates assembly code into machine code.
+S: Assembler.
+
+#41 p267 a283
+Q: Which generation of programming languages is commonly referred to as high-level languages?
+a) First generation language (1GL)
+b) Second generation language (2GL)
+c) Third generation language (3GL)
+d) Fourth generation language (4GL)
+K: c
+X: 3GLs are the classic high-level languages (FORTRAN, COBOL, C, Java).
+S: High-level = 3GL.
+
+#42 p267 a283
+Q: What was the primary goal behind the development of high-level languages?
+a) To make programming more efficient
+b) To provide low-level control over the hardware
+c) To make programming easier and less error-prone
+d) To ensure compatibility across different processors
+K: c
+X: High-level languages were created so that people could write programs in near-English notation, more easily and with fewer errors, without knowing machine details.
+S: HLL goal = ease + fewer errors (portability comes as a bonus).
+
+#43 p267 a283
+Q: Which of the following is NOT an example of a high-level programming language?
+a) C
+b) COBOL
+c) Assembly language
+d) Python
+K: c
+X: Assembly is a low-level (2GL) language; C, COBOL and Python are high-level.
+S: Assembly is never high-level.
+
+#44 p267 a283
+Q: Which programming languages have instructions that are similar to the English language?
+a) First generation languages
+b) Second generation languages
+c) Third generation languages
+d) Fourth generation languages
+K: c
+X: Third-generation (high-level) languages such as COBOL, BASIC and C use English-like keywords (IF, WHILE, PRINT, READ).
+S: English-like keywords → 3GL (4GL even more so).
+
+#45 p267 a283
+Q: What is the nature of most third generation languages?
+a) Procedural
+b) Object-oriented
+c) Functional
+d) Declarative
+K: a
+X: Most 3GLs are procedural: programs are sequences of statements describing how to compute the result.
+S: 3GL = procedural.
+
+#46 p267 a284
+Q: What must be done before a program written in a high-level language can be executed by a computer?
+a) The program must be converted to assembly language.
+b) The program must be converted to machine language.
+c) The program must be interpreted by a compiler.
+d) The program must be optimized for performance.
+K: b
+X: A high-level program (source code) must be translated into machine language by a compiler or interpreter before the CPU can run it.
+S: Source code → (compiler/interpreter) → machine code.
+
+#47 p267 a284
+Q: Which component is responsible for translating a high-level language program into machine language?
+a) Compiler
+b) Interpreter
+c) Assembler
+d) Debugger
+K: a
+X: A compiler translates the whole high-level program into machine (object) code. An interpreter also translates, but line by line, executing as it goes.
+S: Compiler = whole program at once; interpreter = line by line (asked in ISS almost every year).
+
+#48 p268 a284
+Q: How does the readability of programs written in high-level languages compare to those written in assembly and machine languages?
+a) Programs in high-level languages are less readable.
+b) Programs in high-level languages are equally readable.
+c) Programs in high-level languages are more readable.
+d) Readability depends on the specific language used.
+K: c
+X: High-level programs use English-like statements and structure, so they are far more readable than assembly or machine code.
+S: HLL = most readable.
+
+#49 p268 a284
+Q: Which advantage of high-level programming languages allows for easy detection and removal of errors?
+a) Readability
+b) Portability
+c) Easy debugging
+d) Ease in software development
+K: c
+X: Compilers report syntax errors with line numbers and the code is readable, so bugs are easier to detect and remove.
+S: Error removal → easy debugging.
+
+#50 p268 a284
+Q: What motivated the development of high-level languages?
+a) Low-level control over the hardware
+b) Compatibility across different processors
+c) High development costs of machine and assembly language programs
+d) Need for faster program execution
+K: c
+X: Machine and assembly programming was slow, error-prone and expensive; high-level languages cut development time and cost.
+S: Why HLLs? Cost and effort of low-level programming.
+
+#51 p268 a284
+Q: What is the primary characteristic of Fourth Generation Languages (4GL)?
+a) They are machine-dependent.
+b) They are procedural in nature.
+c) They are primarily used for system-level programming.
+d) They provide a higher level of abstraction and require less coding.
+K: d
+X: 4GLs are non-procedural and very high-level: you state what result you want and the system works out how, with much less code.
+S: 4GL = very high level, non-procedural, less code.
+
+#52 p268 a285
+Q: Which of the following is an example of a Fourth Generation Language (4GL)?
+a) C
+b) Assembly language
+c) COBOL
+d) SQL
+K: d
+X: SQL is the classic 4GL: a non-procedural query language for databases. C and COBOL are 3GLs; assembly is a 2GL.
+S: SQL = 4GL.
+
+#53 p268 a285
+Q: What is the main advantage of using Fourth Generation Languages (4GL)?
+a) They provide low-level control over the hardware.
+b) They offer improved portability across different systems.
+c) They require extensive knowledge of computer architecture.
+d) They allow for faster development and higher productivity.
+K: d
+X: Because far less code is needed, 4GLs speed up development and raise programmer productivity.
+S: 4GL = fast development.
+
+#54 p268 a285
+Q: What type of tasks are Fourth Generation Languages (4GL) commonly used for?
+a) Scientific calculations and mathematical modeling.
+b) System administration and hardware configuration.
+c) Writing operating systems and device drivers.
+d) Database querying and report generation.
+K: d
+X: 4GLs are used mainly for database queries, report generation and form/screen design.
+S: 4GL uses: queries + reports + forms.
+
+#55 p269 a285
+Q: Which statement accurately describes the syntax of Fourth Generation Languages (4GL)?
+a) They use English-like statements.
+b) They use binary code for programming.
+c) They rely on mnemonic codes for instructions.
+d) They require explicit memory management.
+K: a
+X: 4GL statements read like English, e.g. SELECT name FROM student WHERE marks > 60.
+S: English-like, non-procedural → 4GL.
+
+
+#56 p269 a285
+Q: Which of the following is NOT a characteristic of Fourth Generation Languages (4GL)?
+a) They are closer to natural language.
+b) They provide high-level abstractions.
+c) They require extensive hardware knowledge.
+d) They focus on data manipulation and database operations.
+K: c
+X: 4GLs hide the hardware completely: they are near-English, highly abstract and data/database oriented. Needing hardware knowledge is a trait of 1GL/2GL.
+S: Hardware knowledge → 1GL/2GL, never 4GL.
+
+#57 p269 a285
+Q: Which component is responsible for translating Fourth Generation Language (4GL) code into machine-executable instructions?
+a) Compiler
+b) Interpreter
+c) Assembler
+d) Debugger
+K: b
+X: Most 4GL environments (query languages, report writers) run statements through an interpreter or run-time engine that translates and executes them on the fly. Some 4GL tools also generate code that is compiled, but the book's intended answer is the interpreter. An assembler handles only assembly language.
+S: 4GL/5GL translator (book) → interpreter.
+
+#58 p269 a285
+Q: What is the primary focus of Fourth Generation Languages (4GL)?
+a) Low-level hardware control.
+b) Efficient memory management.
+c) Simplified and rapid application development.
+d) Real-time system programming.
+K: c
+X: 4GLs aim to simplify and speed up application development: less code, English-like commands, built-in database access.
+S: 4GL = RAD (rapid application development).
+
+#59 p269 a285
+Q: Which of the following tasks is commonly performed using Fourth Generation Languages (4GL)?
+a) Operating system kernel development.
+b) Device driver programming.
+c) Business process automation.
+d) Network protocol design.
+K: c
+X: 4GLs serve business applications: database queries, reports, forms and automating routine business processes. Kernels, drivers and protocols need low-level languages such as C or assembly.
+S: Business apps → 4GL; kernels/drivers → C/assembly.
+
+#60 p269 a286
+Q: What is the level of abstraction offered by Fourth Generation Languages (4GL)?
+a) Low-level, close to the hardware.
+b) Intermediate, between assembly and high-level languages.
+c) High-level, providing a more user-friendly approach.
+d) System-level, focusing on low-level system interactions.
+K: c
+X: 4GLs are very high-level: the programmer states what is wanted in near-English and the system works out how.
+S: Abstraction climbs with generation: 4GL/5GL = highest.
+
+#61 p269 a286
+Q: What is the primary characteristic of Fifth Generation Languages (5GL)?
+a) They are machine-dependent.
+b) They are procedural in nature.
+c) They are primarily used for system-level programming.
+d) They are based on solving problems using constraints.
+K: d
+X: In a 5GL the programmer supplies facts, rules and constraints, and the system finds a solution that satisfies them. There is no step-by-step algorithm to write.
+S: 5GL = constraints/logic, not algorithms.
+
+#62 p270 a286
+Q: Which of the following is an example of a Fifth Generation Language (5GL)?
+a) C
+b) Java
+c) FORTRAN
+d) Prolog
+K: d
+X: Prolog, a logic-programming language used in artificial intelligence, is the standard example of a 5GL. Mercury and OPS5 are others. C, Java and FORTRAN are 3GLs.
+S: Prolog / Mercury / OPS5 → 5GL.
+
+#63 p270 a286
+Q: What is the main focus of Fifth Generation Languages (5GL)?
+a) Low-level hardware control.
+b) Database management and querying.
+c) Constraint-based problem solving.
+d) Efficient memory management.
+K: c
+X: 5GLs focus on constraint-based (logic) problem solving. Database querying is the 4GL niche.
+S: Queries → 4GL; constraints/AI → 5GL.
+
+#64 p270 a286
+Q: What distinguishes Fifth Generation Languages (5GL) from lower-level languages?
+a) They use assembly language instructions.
+b) They require extensive hardware knowledge.
+c) They focus on artificial intelligence research.
+d) They are based on constraints rather than algorithms.
+K: d
+X: Lower-generation languages need an explicit algorithm. A 5GL program states the problem as constraints and leaves the search for a solution to the system. AI is where 5GLs are used, but that is an application, not what defines them.
+S: Defining trait of 5GL = constraints instead of algorithms.
+
+#65 p270 a286
+Q: Which of the following tasks are Fifth Generation Languages (5GL) commonly used for?
+a) Writing operating systems.
+b) Scientific calculations and mathematical modeling.
+c) Database administration and management.
+d) Solving complex problems in artificial intelligence.
+K: d
+X: 5GLs were developed for artificial intelligence: expert systems, natural language processing and theorem proving.
+S: 5GL ↔ AI.
+
+#66 p270 a287
+Q: Which statement accurately describes the syntax of Fifth Generation Languages (5GL)?
+a) They use English-like statements.
+b) They use binary code for programming.
+c) They rely on mnemonic codes for instructions.
+d) They require explicit memory management.
+K: a
+X: 5GL programs are written as English-like facts and rules, e.g. parent(tom, bob). Binary is 1GL, mnemonics are 2GL, and explicit memory management belongs to low-level 3GLs such as C.
+S: Binary 1GL · mnemonics 2GL · English-like 4GL/5GL.
+
+#67 p270 a287
+Q: Which component is responsible for translating Fifth Generation Language (5GL) code into machine-executable instructions?
+a) Compiler
+b) Interpreter
+c) Assembler
+d) Debugger
+K: b
+X: Logic languages such as Prolog normally run under an interpreter or inference engine, which evaluates the rules and queries interactively. Compilers for Prolog also exist, but the book's intended answer is the interpreter.
+S: 4GL/5GL translator (book) → interpreter.
+
+#68 p270 a287
+Q: What is the primary focus of Fifth Generation Languages (5GL)?
+a) Low-level hardware control.
+b) Efficient memory management.
+c) Solving complex problems using constraints.
+d) Real-time system programming.
+K: c
+X: The programmer specifies the constraints; the language's inference mechanism finds the solution.
+S: 5GL = constraints → solution.
+
+#69 p271 a287
+Q: Which of the following tasks is commonly performed using Fifth Generation Languages (5GL)?
+a) Writing device drivers.
+b) Network protocol design.
+c) Natural language processing.
+d) Business process automation.
+K: c
+B: d
+X: 5GLs such as Prolog were built for artificial intelligence work, and natural language processing is one of their classic uses. Business process automation is the typical 4GL use (see Q59).
+S: NLP / expert systems → 5GL; business automation → 4GL.
+N: The book prints (d), business process automation, which is the answer it gave for 4GL at Q59. Its own Q65 says 5GLs are for AI problems, so natural language processing (c) is the correct 5GL task.
+
+#70 p271 a287
+Q: What is the level of abstraction offered by Fifth Generation Languages (5GL)?
+a) Low-level, close to the hardware.
+b) Intermediate, between assembly and high-level languages.
+c) High-level, providing a more user-friendly approach.
+d) System-level, focusing on low-level system interactions.
+K: c
+X: 5GLs sit at the top of the abstraction ladder: the user states the problem, not the procedure.
+S: 5GL = highest abstraction.
+
+#71 p271 a287
+Q: Which of the following is not a commonly used classification of programming languages?
+a) High-level languages vs. low-level languages
+b) Procedural languages vs. object-oriented languages
+c) Compiled languages vs. interpreted languages
+d) Sequential languages vs. parallel languages
+K: d
+X: The book treats high/low-level, procedural/object-oriented and compiled/interpreted as the standard classifications. Sequential vs parallel is described as less common. The book itself uses that split at Q73 and Q80, so this is a "least common" judgement, not a strict rule.
+S: Standard trio: level · paradigm · translation method.
+
+#72 p271 a288
+Q: High-level languages are characterized by:
+a) Being closely tied to the hardware architecture
+b) Being easy to understand and write for humans
+c) Directly executing machine code without translation
+d) Being primarily used for system-level programming
+K: b
+X: High-level languages are machine-independent and human-friendly. They always need a compiler or interpreter before the machine can run them.
+S: High-level = human-friendly + needs translation.
+
+#73 p271 a288
+Q: Which classification is based on how instructions are organized and executed in a program?
+a) Procedural languages vs. object-oriented languages
+b) Sequential languages vs. parallel languages
+c) Compiled languages vs. interpreted languages
+d) Imperative languages vs. declarative languages
+K: b
+X: The sequential vs parallel split is about execution order: one instruction after another, or many tasks at the same time.
+S: Execution order → sequential vs parallel.
+
+#74 p271 a288
+Q: Which type of language requires the use of a compiler to translate the code into machine-executable instructions?
+a) Interpreted languages
+b) High-level languages
+c) Assembly languages
+d) Compiled languages
+K: d
+X: A compiled language (C, C++, FORTRAN) is translated as a whole by a compiler into an executable before it runs. Assembly needs an assembler, and interpreted languages need an interpreter.
+S: Compiler ↔ compiled; assembler ↔ assembly.
+
+#75 p271 a288
+Q: Which classification distinguishes languages based on their approach to managing memory and system resources?
+a) Procedural languages vs. object-oriented languages
+b) Sequential languages vs. parallel languages
+c) High-level languages vs. low-level languages
+d) Compiled languages vs. interpreted languages
+K: c
+X: Low-level languages give the programmer direct control of memory, registers and hardware. High-level languages abstract these away.
+S: Direct memory/hardware control → low-level.
+
+#76 p272 a288
+Q: Object-oriented languages are characterized by:
+a) Having a linear execution flow
+b) Emphasizing the use of functions and procedures
+c) Encapsulating data and behavior into objects
+d) Being primarily used for scientific calculations
+K: c
+X: OOP bundles data and the methods acting on it into objects, and supports encapsulation, inheritance and polymorphism. Functions and procedures are the procedural paradigm.
+S: OOP pillars: encapsulation · inheritance · polymorphism (· abstraction).
+
+#77 p272 a288
+Q: Which classification is based on the style or paradigm of programming employed by the language?
+a) Procedural languages vs. object-oriented languages
+b) Compiled languages vs. interpreted languages
+c) Imperative languages vs. declarative languages
+d) High-level languages vs. low-level languages
+K: c
+X: Imperative (how: step-by-step commands) vs declarative (what: the desired result) is the broadest split by programming paradigm. Procedural vs object-oriented is a finer split inside the imperative family.
+S: Paradigm → imperative vs declarative.
+
+#78 p272 a288
+Q: Declarative languages focus on:
+a) Executing instructions in a specific order
+b) Defining the steps and procedures to solve a problem
+c) Specifying what needs to be achieved, rather than how
+d) Manipulating objects and their properties
+K: c
+X: A declarative program states the goal; the system decides how to reach it. Examples are SQL, Prolog and HTML.
+S: Declarative = WHAT; imperative = HOW.
+
+#79 p272 a289
+Q: Which classification considers the level of abstraction provided by the language?
+a) Sequential languages vs. parallel languages
+b) High-level languages vs. low-level languages
+c) Compiled languages vs. interpreted languages
+d) Procedural languages vs. object-oriented languages
+K: b
+X: High-level vs low-level is by definition a split by abstraction: how far the language is from the hardware.
+S: Abstraction → high vs low level.
+
+#80 p272 a289
+Q: Which type of language allows for concurrent execution of multiple tasks or processes?
+a) Procedural languages
+b) Assembly languages
+c) Parallel languages
+d) Interpreted languages
+K: c
+X: Parallel languages (and parallel extensions such as OpenMP or MPI) provide constructs to run many tasks or processes at the same time.
+S: Concurrent tasks → parallel languages.
+
+#81 p272 a289
+Q: What is the purpose of compiling a program?
+a) To translate the program into machine code
+b) To check for syntax errors in the program
+c) To optimize the program for better performance
+d) To combine multiple source code files into a single executable
+K: a
+X: Compilation translates source code into machine (object) code. Syntax checking and optimisation happen as part of it, but they are not its purpose. Combining object files is the linker's job.
+S: Compile = translate; link = combine; load = place in memory.
+
+#82 p273 a289
+Q: Which stage of the software development process involves converting the source code into machine code?
+a) Compiling
+b) Linking
+c) Loading
+d) Debugging
+K: a
+X: Compiling converts source code to object (machine) code. Linking joins the object files, and loading places the result in memory.
+S: Source → (compile) → object → (link) → executable → (load) → memory.
+
+#83 p273 a289
+Q: What does the linker do during the linking stage?
+a) Combines object code files and libraries to create an executable file
+b) Translates the source code into machine code
+c) Checks the program for logical errors
+d) Optimizes the program for better performance
+K: a
+X: The linker joins the object files and library routines, resolves cross-references between them, and writes one executable file.
+S: Linker = object files + libraries → one executable.
+
+#84 p273 a290
+Q: Which of the following is true about loading a program?
+a) It is performed before the compiling stage.
+b) It converts the source code into machine code.
+c) It prepares the program for execution by allocating memory.
+d) It checks the program for syntax errors.
+K: c
+X: Loading is the last step before execution. The loader copies the executable into main memory, allocates space and sets up the program to run.
+S: Loading = last step: memory + start.
+
+#85 p273 a290
+Q: What is the purpose of the symbol table in the linking process?
+a) It contains the names and memory addresses of variables and functions.
+b) It checks for syntax errors in the program.
+c) It optimizes the program for better performance.
+d) It combines multiple source code files into a single executable.
+K: a
+X: Each object file carries a symbol table listing the names it defines or uses (variables, functions) with their addresses. The linker uses these tables to resolve references between files.
+S: Symbol table = name ↔ address map.
+
+#86 p273 a290
+Q: During the linking stage, unresolved symbols are resolved by:
+a) The compiler
+b) The linker
+c) The loader
+d) The debugger
+K: b
+X: A call to a function defined in another file is left unresolved by the compiler. The linker fills in its address from the other object files or libraries.
+S: Unresolved external symbol → linker.
+
+#87 p273 a290
+Q: Which of the following is responsible for allocating memory for a program's executable code, data, and libraries?
+a) Compiler
+b) Linker
+c) Loader
+d) Debugger
+K: c
+X: The loader allocates memory for the code, data and any shared libraries, copies them in and hands control to the program.
+S: Memory allocation at start-up → loader.
+
+#88 p273 a290
+Q: Which stage of the software development process is responsible for identifying and resolving external references between different object code files?
+a) Compiling
+b) Linking
+c) Loading
+d) Debugging
+K: b
+X: Resolving external references between separately compiled object files is exactly what linking does.
+S: External references between files → linking.
+
+#89 p273 a290
+Q: Which of the following is true about dynamic linking?
+a) It is performed during the compiling stage.
+b) It combines multiple source code files into a single executable.
+c) It allows multiple programs to share the same copy of a library in memory.
+d) It converts the source code into machine code.
+K: c
+X: With dynamic linking (.dll on Windows, .so on Linux), library code is linked at load time or run time. One copy of the library in memory can then be shared by many programs, which saves memory and disk space.
+S: Dynamic linking = shared library, linked at run time.
+
+#90 p273 a290
+Q: What is the role of the loader in the software execution process?
+a) It translates the source code into machine code.
+b) It checks for syntax errors in the program.
+c) It prepares the program for execution by allocating memory and resolving external references.
+d) It combines multiple source code files into a single executable.
+K: c
+X: The loader allocates memory, copies the program in, applies relocation, resolves any remaining (dynamic) references and starts execution.
+S: Loader = allocate + load + relocate + start.
+
+#91 p274 a291
+Q: Which of the following is responsible for translating the entire source code into machine code?
+a) Compiler
+b) Assembler
+c) Interpreter
+d) Linker
+K: a
+X: A compiler translates the whole high-level program at once (lexical, syntax and semantic analysis, then code generation). An interpreter works one statement at a time.
+S: Whole program at once → compiler; line by line → interpreter.
+
+#92 p274 a291
+Q: Which of the following is responsible for converting assembly language code into machine code?
+a) Compiler
+b) Assembler
+c) Interpreter
+d) Loader
+K: b
+X: An assembler translates mnemonic assembly code into machine code, usually one machine instruction per assembly statement.
+S: Assembly → assembler.
+
+#93 p274 a291
+Q: The process of translating high-level source code into machine code is known as:
+a) Compilation
+b) Assembly
+c) Interpretation
+d) Loading
+K: a
+X: Translating a high-level program into machine code is called compilation. Interpretation executes the program without producing a stored machine-code file.
+S: HLL → machine code file = compilation.
+
+#94 p274 a291
+Q: What is the primary purpose of a loader?
+a) To translate the source code into machine code
+b) To check for syntax errors in the program
+c) To allocate memory and prepare the program for execution
+d) To combine multiple object code files into a single executable
+K: c
+X: The loader allocates memory and prepares the program for execution. Translation is the compiler's job, and combining object files is the linker's.
+S: Loader = memory + ready to run.
+
+#95 p274 a291
+Q: Which component resolves external references between different object code files?
+a) Compiler
+b) Assembler
+c) Interpreter
+d) Linker
+K: d
+X: The linker matches each external reference in one object file to its definition in another object file or library.
+S: Cross-file references → linker.
+
+#96 p274 a291
+Q: Which of the following is responsible for allocating memory for a program's code and data during the loading process?
+a) Compiler
+b) Assembler
+c) Loader
+d) Linker
+K: c
+X: The loader allocates and fills memory for the program's code and data when the program is loaded.
+S: Loading-time memory → loader.
+
+#97 p275 a292
+Q: The process of combining multiple object code files and libraries to create a single executable file is performed by the:
+a) Compiler
+b) Assembler
+c) Loader
+d) Linker
+K: d
+X: The linker (also called the link editor) combines object modules and library code into one executable file.
+S: Many .obj → one .exe = linker.
+
+#98 p275 a292
+Q: Which component performs the translation of the source code into machine code line by line as it is executed?
+a) Compiler
+b) Assembler
+c) Interpreter
+d) Linker
+K: c
+X: An interpreter translates and executes one statement at a time. It stops at the first error and produces no object file.
+S: Line by line + no object file → interpreter.
+
+#99 p275 a292
+Q: Which of the following is true about interpreters?
+a) They generate an executable file that can be directly executed by the processor.
+b) They produce machine code that is independent of the target hardware.
+c) They translate the entire source code into machine code before execution.
+d) They execute the source code directly, without generating intermediate machine code.
+K: d
+X: An interpreter runs the source program directly and writes no machine-code file. That is why it must be present every time the program runs. Options a and c describe a compiler.
+S: Interpreter: no .exe, needed at every run.
+
+#100 p275 a292
+Q: Which component is responsible for resolving symbols and addresses in the final executable file?
+a) Compiler
+b) Assembler
+c) Interpreter
+d) Linker
+K: d
+X: The linker fixes the final addresses of all symbols when it builds the executable file.
+S: Symbols → addresses in the .exe = linker.
+
+#101 p275 a292
+Q: Which system software is responsible for translating a high-level source program into a form the machine can execute?
+a) Compiler
+b) Interpreter
+c) Assembler
+d) Translator
+K: d
+X: The general term is language translator (language processor), which covers both compilers and interpreters. The book wants the umbrella term, since options a and b alone each give only one kind of translator. An assembler translates assembly language, not a high-level language.
+S: Umbrella term: translator = compiler + interpreter + assembler.
+
+#102 p275 a292
+Q: What is the purpose of the linker in the software development process?
+a) Translating high-level source code into machine code
+b) Executing the program line by line
+c) Resolving symbolic references between object programs
+d) Allocating memory and preparing the program for execution
+K: c
+X: The linker resolves symbolic references between object programs and joins them into one executable.
+S: Linker = resolve symbols between modules.
+
+#103 p275 a292
+Q: What does relocation refer to in the context of programming?
+a) Translating high-level code into machine code
+b) Combining multiple object programs into a single executable
+c) Assigning addresses to various parts of the program
+d) Resolving symbolic references between object programs
+K: c
+X: Relocation adjusts the addresses in a program so that it can run from whatever memory location it is loaded at. It is done by the linker (a relocating linker) or the loader (a relocating loader).
+S: Relocation = fix addresses for the actual load location.
+
+#104 p276 a292
+Q: Which system software places an executable program's instructions and data from secondary memory into primary memory and prepares them for execution?
+a) Compiler
+b) Interpreter
+c) Assembler
+d) Loader
+K: d
+X: The loader copies the program from disk (secondary memory) into RAM (primary memory) and starts it.
+S: Disk → RAM = loader.
+
+#105 p276 a293
+Q: Which process adjusts the code and data in a program to reflect the assigned addresses?
+a) Translation
+b) Linking
+c) Relocation
+d) Loading
+K: c
+X: Relocation is exactly this: modifying address-dependent code and data so that they match the addresses actually assigned.
+S: Adjust addresses → relocation.
+
+#106 p276 a293
+Q: The term "linking" in the software development process refers to:
+a) Translating high-level code into machine code
+b) Combining multiple source files into a single executable
+c) Resolving symbolic references between object programs
+d) Allocating memory and preparing the program for execution
+K: c
+X: Linking resolves symbolic references between object programs. Option b is a trap: the linker combines object files, not source files.
+S: Linker works on object files, not source files.
+
+#107 p276 a293
+Q: What is the purpose of a loader in the software execution process?
+a) Translating high-level code into machine code
+b) Executing the program line by line
+c) Resolving symbolic references between object programs
+d) Placing executable program instructions and data into primary memory
+K: d
+X: The loader places the executable program's instructions and data in primary memory so that the CPU can run them.
+S: Loader = into main memory.
+
+#108 p276 a293
+Q: Which system software assigns addresses to various parts of the program during the compilation process?
+a) Compiler
+b) Interpreter
+c) Assembler
+d) Linker
+K: a
+X: While compiling, the compiler assigns relative addresses (offsets) to the variables, functions and code blocks of each module. The linker and loader later adjust these to final addresses (relocation). Because the question limits itself to the compilation process, the answer is the compiler.
+S: During compilation → compiler (relative addresses); final addresses → linker/loader.
+
+#109 p276 a293
+Q: What is the main goal of relocation in program execution?
+a) Combining multiple object programs into a single executable
+b) Resolving symbolic references between object programs
+c) Allocating memory and preparing the program for execution
+d) Adjusting the code and data in the program to reflect assigned addresses
+K: d
+X: Relocation lets a program run correctly wherever it is loaded, by adjusting its address-dependent code and data.
+S: Relocation → load-anywhere programs.
+
+#110 p276 a293
+Q: The purpose of the translator is to:
+a) Translate high-level code into machine code
+b) Combine multiple source files into a single executable
+c) Resolve symbolic references between object programs
+d) Execute the program line by line
+K: a
+X: A translator (compiler, interpreter or assembler) converts a program from its source language into machine code.
+S: Translator = source → machine code.
