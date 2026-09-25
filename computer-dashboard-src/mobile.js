@@ -1,9 +1,10 @@
 /* ------------------------------------------------ Android / mobile shell
    Injected by computer-dashboard-src/integrate.py; edit it there.
-   Adds the bottom navigation bar, the in-session action bar, swipe between
-   questions, and Android back-button support (browser history). Every
-   control proxies to the dashboard's own buttons, so the app logic is
-   unchanged; on desktop the two bars stay hidden by CSS. */
+   Adds the bottom navigation bar, the in-session action bar with a pop-up
+   palette sheet, a screen title in the top bar, swipe between questions,
+   and Android back-button support (browser history). Every control proxies
+   to the dashboard's own buttons, so the app logic is unchanged; on
+   desktop the bars stay hidden by CSS. */
 var MOB_ICON = {
   home: 'M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z',
   cs: 'M3 5h18v11H3zM8.5 20h7M12 16v4',
@@ -27,8 +28,24 @@ function mobLeaveSession() {
   return true;
 }
 
+var MOB_TITLES = { home: 'Offline Mock Engine', cs: 'Computer', gk: 'Gupta Kapoor', search: 'Search' };
+var mobRevSeen = {};
+
+function mobPalette(open) {
+  document.body.classList.toggle('pal-open', !!open);
+}
+
 function mobSync() {
   var r = ROUTE.name;
+  mobPalette(false);
+  /* top app bar: the name of the current screen */
+  var tt = document.querySelector('#topbar .mtitle');
+  if (tt) {
+    var title = MOB_TITLES[r];
+    if (!title && S && (r === 'exam' || r === 'result' || r === 'review')) title = S.name + (r === 'exam' ? '' : ' \u00b7 ' + (r === 'result' ? 'Result' : 'Review'));
+    if (!title) { var cb = app.querySelector('.crumb b'); title = cb ? cb.textContent : 'Offline Mock Engine'; }
+    tt.textContent = title;
+  }
   var active = (r === 'cs' || r === 'gk' || r === 'search') ? r : 'home';
   if ((r === 'exam' || r === 'result' || r === 'review') && S) {
     active = S.kind === 'cs' ? 'cs' : S.kind === 'gk' ? 'gk' : 'home';
@@ -56,15 +73,34 @@ function mobSync() {
       (last ? '<button type="button" data-proxy="submitMock" class="pri">' + mobSvg('done') + 'Submit</button>'
             : '<button type="button" data-proxy="nextQ" class="pri">Next' + mobSvg('next') + '</button>');
   }
-  /* keep the selected chapter chip in view */
-  var tabs = app.querySelector('.cs-tabs');
-  var on = tabs && tabs.querySelector('.cs-tab.on');
-  if (on && tabs.scrollWidth > tabs.clientWidth) {
-    tabs.scrollLeft = Math.max(0, on.offsetLeft - (tabs.clientWidth - on.offsetWidth) / 2);
+  /* learning mode: the first time an answer opens, bring it into view */
+  if (live && S.mode === 'learn' && S.revealed[S.cur]) {
+    var key = S.startTs + ':' + S.cur;
+    if (!mobRevSeen[key]) {
+      mobRevSeen[key] = 1;
+      var rv = app.querySelector('.reveal');
+      if (rv && rv.scrollIntoView) rv.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
   }
+  /* keep the selected chip of every scrolling row in view */
+  [['.cs-tabs', '.cs-tab.on'], ['.cs-pills', '.cs-pill.on'], ['.cs-strip', '.cs-num.cur']].forEach(function (p) {
+    var row = app.querySelector(p[0]);
+    var on = row && row.querySelector(p[1]);
+    if (on && row.scrollWidth > row.clientWidth) {
+      row.scrollLeft = Math.max(0, on.offsetLeft - row.offsetLeft - (row.clientWidth - on.offsetWidth) / 2);
+    }
+  });
 }
 
 (function mobShell() {
+  var brand = document.querySelector('#topbar .brand');
+  if (brand) {
+    var tt = document.createElement('span');
+    tt.className = 'mtitle';
+    tt.textContent = 'Offline Mock Engine';
+    brand.insertBefore(tt, brand.firstChild);
+  }
+
   var nav = document.createElement('nav');
   nav.id = 'bnav';
   nav.setAttribute('aria-label', 'Main');
@@ -87,14 +123,15 @@ function mobSync() {
     var t = closest(ev.target, '[data-proxy]');
     if (!t || t.disabled) return;
     var a = t.getAttribute('data-proxy');
-    if (a === 'palette') {
-      var p = app.querySelector('.exam-side');
-      if (p) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
+    if (a === 'palette') { mobPalette(!document.body.classList.contains('pal-open')); return; }
     var b = app.querySelector('[data-act="' + a + '"]');
     if (b && !b.disabled) b.click();
   });
+
+  var scrim = document.createElement('div');
+  scrim.id = 'mscrim';
+  document.body.appendChild(scrim);
+  scrim.addEventListener('click', function () { mobPalette(false); });
 
   if (window.MutationObserver) new MutationObserver(mobSync).observe(app, { childList: true });
 
@@ -102,7 +139,8 @@ function mobSync() {
   var sx = 0, sy = 0, st = 0, ok = false;
   app.addEventListener('touchstart', function (e) {
     ok = e.touches.length === 1 &&
-      !closest(e.target, 'pre, table, .cs-code, .scrollx, .cs-tabs, .cs-subtabs, .katex-display, input, textarea, select');
+      !closest(e.target, 'pre, table, .cs-code, .scrollx, .cs-tabs, .cs-subtabs, .cs-pills, .cs-strip, .exam-side, ' +
+        '.katex-display, input, textarea, select');
     if (!ok) return;
     sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
   }, { passive: true });
@@ -116,6 +154,7 @@ function mobSync() {
     var b = null;
     if (ROUTE.name === 'exam' && S && !S.finished) b = app.querySelector('[data-act="' + (fwd ? 'nextQ' : 'prevQ') + '"]');
     else if (ROUTE.name === 'review') b = app.querySelector('[data-act="revStep"][data-d="' + (fwd ? '1' : '-1') + '"]');
+    else if (ROUTE.name === 'cs' && CS.view === 'read') b = app.querySelector('.cs-pager [data-d="' + (fwd ? '1' : '-1') + '"]');
     if (b && !b.disabled) b.click();
   }, { passive: true });
 
@@ -127,6 +166,11 @@ function mobSync() {
   };
   try { history.replaceState({ iss: 1, r: { name: 'home' } }, ''); } catch (e) {}
   window.addEventListener('popstate', function (ev) {
+    if (document.body.classList.contains('pal-open')) {
+      mobPalette(false);
+      try { history.pushState({ iss: 1, r: ROUTE }, ''); } catch (e) {}
+      return;
+    }
     if (!mobLeaveSession()) {
       try { history.pushState({ iss: 1, r: ROUTE }, ''); } catch (e) {}
       return;

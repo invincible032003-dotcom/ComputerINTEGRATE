@@ -1,12 +1,11 @@
 /* ======================================================================
-   CS.  COMPUTER  —  chapter-wise practice sets from the Sunrise Classes
-   Computer MCQ book (465 pages, 11 chapters).
+   CS.  COMPUTER  —  chapter-wise practice sets (11 chapters).
    Injected by computer-dashboard-src/integrate.py; edit it there, not here.
    The bank lives in window.csData / window.csMeta and is kept apart from
    the authentic PYQs: it never enters a year, sectional, topic, subtopic
    or custom PYQ mock, and the PYQ data audit ignores it.
    ====================================================================== */
-var CS = { ch: 0, view: 'sets', bset: 1, pick: {}, open: {} };
+var CS = { ch: 0, view: 'sets', bset: 1, ri: 0, pick: {}, open: {}, sheetOpen: 0, sheetAll: false };
 var CS_BY_SET = {};
 var CS_BY_CH = {};
 CDATA.forEach(function (q) {
@@ -83,16 +82,11 @@ function csRelatedPyqs(c) {
   return DATA.filter(function (q) { return c.relCodes.indexOf(q.topicCode) >= 0; });
 }
 
-function csSourceLine(q) {
+/* the one clean line above a question: chapter · set · number */
+function csMetaLine(q) {
   var c = csChapter(q.csChapter);
-  if (q.isBooster) {
-    return 'ISS Booster question, written for this dashboard (not in the book) to complete Chapter ' +
-      q.csChapter + (c ? ' (' + E(c.title) + ')' : '') + ' Set ' + q.csSet +
-      (q.pyqRef ? ' &middot; modelled on ' + E(q.pyqRef) : '');
-  }
-  return 'Sunrise Classes, <i>Computer MCQ &mdash; Chapter-wise Practice Set</i>, Chapter ' + q.csChapter +
-    (c ? ' (' + E(c.title) + ')' : '') + ', Q' + q.csNum + ' &middot; question on PDF p. ' + q.qPage +
-    (q.aPage ? ', explanation on PDF p. ' + q.aPage : '') + ' &middot; Set ' + q.csSet;
+  return '<div class="qmeta cs-meta"><span class="cs-topic">' + E(c ? c.title : q.subtopic) + '</span>' +
+    '<span>Set ' + q.csSet + '</span><span>' + E(q.csLabel) + '</span></div>';
 }
 
 /* coverage helpers */
@@ -128,42 +122,21 @@ function csRecord(sess) {
   CsStore.save();
 }
 
-/* reveal order for the Computer bank:
-   verdict -> Explanation -> Exam Shortcut -> (answer-key note) -> source */
+/* the answer, in a fixed order: verdict -> Explanation -> Exam shortcut.
+   The options above already show right and wrong in colour, so the
+   verdict is a single line. */
 function csRevealPanes(q, chosen, opts) {
   opts = opts || {};
   if (ROUTE.name === 'study') opts.peek = true;
-  var h = '';
   var answered = chosen !== null && chosen !== undefined;
-  var ok = answered && chosen === q.correctAnswer;
-  var cls = !answered ? (opts.peek ? 'verdict-ok' : 'verdict-skip') : (ok ? 'verdict-ok' : 'verdict-bad');
-  var verdict = !answered ? (opts.peek ? 'Answer' : 'Not answered') : (ok ? 'Correct' : 'Incorrect');
-  h += '<div class="pane ' + cls + '"><div class="hd"><span class="step">1</span>' + E(verdict) +
-    '</div><div class="bd">';
-  if (!opts.peek) {
-    h += '<div class="small"><b>Your answer:</b> ' +
-      (answered ? '(' + LET[chosen] + ') ' + csR(q.options[chosen])
-                : '<span class="muted">not attempted</span>') + '</div>';
-  }
-  h += '<div class="small' + (opts.peek ? '' : ' mt') + '"><b>Correct answer:</b> (' +
-    LET[q.correctAnswer] + ') ' + csR(q.options[q.correctAnswer]) + '</div>';
-  h += '</div></div>';
-
-  h += '<div class="pane cs-exp"><div class="hd"><span class="step">2</span>Explanation</div>' +
-    '<div class="bd">' + csR(q.explanation) + '</div></div>';
-
-  h += '<div class="pane cs-short"><div class="hd"><span class="step">3</span>Exam Shortcut ' +
-    '<span class="chip">~15 sec</span></div><div class="bd">' + csR(q.examShortcut) + '</div></div>';
-
-  if (q.keyNote) {
-    h += '<div class="pane cs-keyfix"><div class="hd">Answer-key note</div><div class="bd small">' +
-      csR(q.keyNote) + '</div></div>';
-  }
-  if (opts.topic !== false) {
-    h += '<div class="pane"><div class="hd">Source &amp; syllabus</div><div class="bd small">' +
-      '<p>' + csSourceLine(q) + '</p><p><b>Syllabus.</b> ' + E(q.unit) + ' › ' + E(q.topicCode) + ' ' +
-      E(q.topic) + '</p></div></div>';
-  }
+  var ans = '<span class="ans">(' + LET[q.correctAnswer] + ') ' + csR(q.options[q.correctAnswer]) + '</span>';
+  var h;
+  if (!answered && opts.peek) h = '<div class="cs-verdict peek"><span class="ic">✓</span><span>Answer ' + ans + '</span></div>';
+  else if (!answered) h = '<div class="cs-verdict skip"><span class="ic">–</span><span>Not answered · ' + ans + '</span></div>';
+  else if (chosen === q.correctAnswer) h = '<div class="cs-verdict ok"><span class="ic">✓</span><span>Correct</span></div>';
+  else h = '<div class="cs-verdict bad"><span class="ic">✗</span><span>Incorrect · answer ' + ans + '</span></div>';
+  h += '<div class="cs-block cs-exp"><div class="lbl">Explanation</div><div class="tx">' + csR(q.explanation) + '</div></div>';
+  h += '<div class="cs-block cs-short"><div class="lbl">Exam shortcut</div><div class="tx">' + csR(q.examShortcut) + '</div></div>';
   return h;
 }
 
@@ -183,143 +156,120 @@ function csOptionList(q, pick) {
   return h + '</ul>';
 }
 
-function csItem(q, n) {
-  var pick = CS.pick.hasOwnProperty(q.id) ? CS.pick[q.id] : null;
-  var open = pick !== null || !!CS.open[q.id];
-  var h = '<li class="cs-item" id="cs-' + E(q.id.replace(/[^A-Za-z0-9-]/g, '-')) + '">' +
-    '<div class="top"><span class="cs-n">' + E(q.csLabel) + '</span><span class="id">' + E(q.id) + '</span>' +
-    '<span class="chip">' + E(q.questionType) + '</span>' +
-    '<span class="chip">' + E(q.topicCode) + '</span>' +
-    (q.isBooster ? '<span class="chip brand">ISS Booster</span>' : '<span class="chip">p. ' + q.qPage + '</span>') +
-    (q.keyNote ? '<span class="chip warn" title="The printed answer key was corrected">key corrected</span>' : '') +
-    '</div>' +
-    '<div class="qtext">' + csBody(q) + '</div>' + csOptionList(q, pick) +
-    '<div class="btnrow">' +
-    (open ? '<button type="button" class="btn sm" data-act="csHide" data-qid="' + E(q.id) + '">' +
-            (pick !== null ? 'Try again' : 'Hide explanation') + '</button>'
-          : '<button type="button" class="btn sm" data-act="csShow" data-qid="' + E(q.id) + '">Show explanation</button>') +
-    bookmarkBtn(q.id) +
-    '<button type="button" class="btn sm ghost" data-act="study" data-qid="' + E(q.id) +
-    '" data-back="cs">Study card</button></div>';
-  if (open) {
-    h += '<div class="reveal">' + csRevealPanes(q, pick, { peek: pick === null, topic: false }) + '</div>';
-  }
-  return h + '</li>';
+/* chapter button: number, title and a coverage bar */
+function csChapBtn(cc, act, on) {
+  var cv = csCov(CS_BY_CH[cc.num] || []);
+  return '<button type="button"' + (act === 'csCh' ? ' role="tab" aria-selected="' + on + '"' : '') +
+    ' class="cs-tab' + (on ? ' on' : '') + '" data-act="' + act + '" data-ch="' + cc.num + '"><b>' + cc.num +
+    '</b><span>' + E(cc.title) + '</span><i class="bar"><i style="width:' + fx(pct(cv.seen, cv.n), 1) + '%"></i></i></button>';
 }
 
 function csSetsView(c) {
-  var sets = CsStore.d().sets;
+  var rec = CsStore.d().sets;
   var next = null;
   c.sets.forEach(function (s) {
-    if (next === null && !sets[c.num + '-' + s.k]) next = s.k;
+    if (next === null && !rec[c.num + '-' + s.k]) next = s.k;
   });
-  var h = '';
-  var cov = csCov(CS_BY_CH[c.num] || []);
-  h += '<div class="card cs-next"><div class="grow"><h3 style="margin:0 0 4px">' +
-    (next ? 'Next up: Set ' + next + ' of ' + c.sets.length
-          : 'All ' + c.sets.length + ' sets attempted') + '</h3>' +
-    '<div class="small muted">Work the sets in order until every question of the chapter is covered. ' +
-    '<b>Learning</b> opens the explanation and then the exam shortcut after each answer; <b>Exam</b> is timed, ' +
-    'uses the marking scheme in Settings and reveals everything in the review.</div>' +
-    '<div class="cs-cov"><span>Covered ' + cov.seen + '/' + cov.n + '</span><div class="progbar"><i class="ok" style="width:' +
-    fx(pct(cov.seen, cov.n), 1) + '%"></i></div><span>' + cov.ok + ' right on last try</span></div></div>' +
-    (next ? '<div class="btnrow"><button type="button" class="btn primary" data-act="csStart" data-set="' + next +
-      '" data-mode="learn">Start Set ' + next + ' · Learning</button>' +
-      '<button type="button" class="btn" data-act="csStart" data-set="' + next + '" data-mode="exam">Exam</button></div>' : '') +
-    '</div>';
-
-  h += '<div class="cs-sets">';
+  var h = '<div class="cs-sets">';
   c.sets.forEach(function (s) {
     var qs = csSetQs(c.num, s.k);
-    var rec = sets[c.num + '-' + s.k];
+    var r = rec[c.num + '-' + s.k];
     var sc = csCov(qs);
     h += '<div class="cs-set' + (s.k === next ? ' next' : '') + '">' +
-      '<div class="hd"><b>Set ' + s.k + '</b><span class="rng">Q ' + s.from + '–' + s.to + (s.boost ? ' + ' + s.boost + ' ISS Booster' + (s.boost > 1 ? 's' : '') : '') + ' · ' + s.n + ' questions</span></div>' +
+      '<div class="hd"><b>Set ' + s.k + '</b><span class="rng">Q' + s.from + '–' + s.to + ' · ' + s.n + '</span>' +
+      (s.k === next ? '<span class="chip brand">Next</span>' : '') + '<span class="sp"></span>' +
+      (r ? '<span class="best">best ' + r.best + '%' + (r.bestExam !== null ? ' · exam ' + r.bestExam + '%' : '') + '</span>' : '') +
+      '</div>' +
       (s.themes ? '<div class="themes">' + E(s.themes) + '</div>' : '') +
-      '<div class="progbar"><i class="' + (sc.seen === sc.n ? 'ok' : '') + '" style="width:' + fx(pct(sc.seen, sc.n), 1) + '%"></i></div>' +
-      '<div class="stat"><span><b>' + sc.seen + '/' + sc.n + '</b> covered</span>' +
-      (rec ? '<span>best <b>' + rec.best + '%</b></span><span>last <b>' + rec.last + '%</b></span><span>' + rec.att + ' attempt' + (rec.att > 1 ? 's' : '') + '</span>'
-           : '<span>not attempted yet</span>') +
-      (rec && rec.bestExam !== null ? '<span>exam <b>' + rec.bestExam + '%</b></span>' : '') + '</div>' +
+      '<div class="cov"><div class="progbar"><i class="' + (sc.seen === sc.n ? 'ok' : '') + '" style="width:' +
+      fx(pct(sc.seen, sc.n), 1) + '%"></i></div><span>' + sc.seen + '/' + sc.n + '</span></div>' +
       '<div class="btnrow"><button type="button" class="btn sm primary" data-act="csStart" data-set="' + s.k +
-      '" data-mode="learn">Learning</button><button type="button" class="btn sm" data-act="csStart" data-set="' + s.k +
+      '" data-mode="learn">Learn</button><button type="button" class="btn sm" data-act="csStart" data-set="' + s.k +
       '" data-mode="exam">Exam</button><button type="button" class="btn sm ghost" data-act="csBrowse" data-set="' + s.k +
-      '">Read</button></div></div>';
+      '">Revise</button></div></div>';
   });
   h += '</div>';
+  h += '<div class="card cs-whole"><b>Whole chapter</b><div class="btnrow">' +
+    '<button type="button" class="btn sm" data-act="csChapterMock" data-mode="exam">All ' + c.n + ' · exam</button>' +
+    '<button type="button" class="btn sm ghost" data-act="csChapterMock" data-mode="random">Random 20</button></div></div>';
   return h;
 }
 
+/* pointers: one fold-out section per heading, one open at a time */
 function csSheetView(c) {
   var sh = csSheet(c.num);
-  var h = '<div class="card"><h2>Crisp pointers &mdash; Chapter ' + c.num + ' · ' + E(c.title) +
-    ' <span class="cs-badge">ISS PAPER-I · OBJECTIVE</span></h2>' +
-    '<p class="card-sub">Last-day revision bullets for the Computer Application section of UPSC ISS ' +
-    'Statistics Paper-I: the facts, definitions, conversions and traps this chapter feeds into the objective paper.</p>' +
-    '<div class="btnrow noprint"><button type="button" class="btn sm" data-act="csPrint">Print these pointers</button>' +
-    '<button type="button" class="btn sm ghost" data-act="csView" data-v="sets">Back to the sets</button></div></div>';
-  if (!sh) return h + '<div class="empty">No pointers for this chapter yet.</div>';
-  h += '<div class="cs-sheets">';
+  if (!sh) return '<div class="empty">No pointers for this chapter yet.</div>';
+  var n = 0;
+  sh.sections.forEach(function (s) { n += s.items.length; });
+  var h = '<div class="cs-sheet-bar"><span class="small muted">' + n + ' points · <span class="hy">★</span> high-yield</span>' +
+    '<span class="sp"></span><button type="button" class="btn sm ghost" data-act="csSheetAll">' +
+    (CS.sheetAll ? 'Collapse all' : 'Expand all') + '</button>' +
+    '<button type="button" class="btn sm ghost noprint" data-act="csPrint">Print</button></div><div class="cs-acc">';
   sh.sections.forEach(function (s, i) {
-    h += '<div class="card cs-sheet' + (s.pyq ? ' pyq' : '') + '"><h3><span class="k">' +
-      (s.pyq ? 'PYQ' : c.num + '.' + (i + 1)) + '</span>' + E(s.title) + '</h3><ul>';
-    s.items.forEach(function (b) { h += '<li>' + csR(b) + '</li>'; });
-    h += '</ul></div>';
-  });
-  h += '</div>';
-  /* the ISS examiner's pattern for the syllabus topics this chapter feeds */
-  var ti = META.topicIntel || {};
-  var intel = c.relCodes.map(function (k) { return ti[k]; }).filter(Boolean);
-  if (intel.length) {
-    h += '<h3 class="mt">What ISS has actually asked from this chapter</h3><div class="cs-sheets">';
-    intel.forEach(function (t) {
-      h += '<div class="card cs-sheet pyq"><h3><span class="k">' + E(t.code) + '</span>' + E(t.name) + '</h3>' +
-        '<p class="small"><b>Weight.</b> ' + E(t.weight) + '</p>' +
-        '<p class="small"><b>Examiner’s pattern.</b> ' + R(t.pattern) + '</p>' +
-        '<p class="small"><b>Must-know.</b> ' + R(t.mustKnow) + '</p></div>';
+    var open = CS.sheetAll || CS.sheetOpen === i;
+    h += '<details class="cs-sec"' + (open ? ' open' : '') + ' data-i="' + i + '"><summary><span class="k">' + (i + 1) +
+      '</span><span class="t">' + E(s.title) + '</span><span class="n">' + s.items.length + '</span></summary><ul>';
+    s.items.forEach(function (b) {
+      h += '<li>' + csR(b).replace(/★/g, '<span class="hy" title="high-yield">★</span>') + '</li>';
     });
-    h += '</div>';
-  }
-  return h;
+    h += '</ul></details>';
+  });
+  return h + '</div>';
 }
 
-function csBrowseView(c) {
+/* revise: one question at a time, with a number strip to jump and
+   Prev / Next (or a swipe) to move */
+function csReviseView(c) {
   var k = Math.min(Math.max(1, CS.bset), c.sets.length);
   CS.bset = k;
   var qs = csSetQs(c.num, k);
-  var h = '<div class="card"><h2>Read &amp; self-test · Set ' + k + '</h2>' +
-    '<p class="card-sub">Every question of the set in book order. Tap an option to check it, or open the ' +
-    'explanation straight away.</p><div class="cs-subtabs">';
+  var i = Math.min(Math.max(0, CS.ri), qs.length - 1);
+  CS.ri = i;
+  var q = qs[i];
+  var st = CsStore.d().q;
+  var pick = CS.pick.hasOwnProperty(q.id) ? CS.pick[q.id] : null;
+  var open = pick !== null || !!CS.open[q.id];
+  var h = '<div class="card cs-rev"><div class="cs-pills" role="tablist" aria-label="Sets">';
   c.sets.forEach(function (s) {
-    h += '<button type="button" class="cs-sub' + (s.k === k ? ' on' : '') + '" data-act="csBrowse" data-set="' + s.k +
-      '">Set ' + s.k + '<span class="n">' + s.n + '</span></button>';
+    h += '<button type="button" role="tab" aria-selected="' + (s.k === k) + '" class="cs-pill' + (s.k === k ? ' on' : '') +
+      '" data-act="csBrowse" data-set="' + s.k + '">Set ' + s.k + '</button>';
   });
-  h += '</div><div class="btnrow mt"><button type="button" class="btn sm primary" data-act="csStart" data-set="' + k +
-    '" data-mode="learn">Practise Set ' + k + ' (Learning)</button><button type="button" class="btn sm" data-act="csStart" data-set="' + k +
-    '" data-mode="exam">Exam</button></div></div>';
-  h += '<ul class="list cs-list">';
-  qs.forEach(function (q, i) { h += csItem(q, i + 1); });
-  return h + '</ul>';
+  h += '</div><div class="cs-strip" aria-label="Questions">';
+  qs.forEach(function (x, j) {
+    var cls = 'cs-num' + (st.hasOwnProperty(x.id) ? (st[x.id] === 1 ? ' ok' : ' bad') : '') + (j === i ? ' cur' : '');
+    h += '<button type="button" class="' + cls + '" data-act="csRi" data-i="' + j + '" aria-label="Question ' + (j + 1) + '">' +
+      (j + 1) + '</button>';
+  });
+  h += '</div><div class="cs-rev-hd">' + csMetaLine(q) + bookmarkBtn(q.id) + '</div>' +
+    '<div class="qtext">' + csBody(q) + '</div>' + csOptionList(q, pick);
+  if (open) h += '<div class="reveal">' + csRevealPanes(q, pick, { peek: pick === null }) + '</div>';
+  h += '<div class="cs-pager">' +
+    '<button type="button" class="btn" data-act="csRi" data-d="-1" data-i="' + (i - 1) + '"' + (i === 0 ? ' disabled' : '') +
+    '>‹ Prev</button>' +
+    (open ? '<button type="button" class="btn mid" data-act="csHide" data-qid="' + E(q.id) + '">' +
+            (pick !== null ? 'Try again' : 'Hide answer') + '</button>'
+          : '<button type="button" class="btn mid" data-act="csShow" data-qid="' + E(q.id) + '">Show answer</button>') +
+    '<button type="button" class="btn primary" data-act="csRi" data-d="1" data-i="' + (i + 1) + '"' +
+    (i === qs.length - 1 ? ' disabled' : '') + '>Next ›</button></div>';
+  return h + '</div>';
 }
 
 function csPyqView(c) {
   var rel = csRelatedPyqs(c);
-  var h = '<div class="card"><h2>Related previous-year questions</h2>' +
-    '<p class="card-sub">Authentic UPSC ISS Paper-I computer questions (2018–2026) from the syllabus topics ' +
-    'this chapter covers. They open in the normal PYQ engine.</p><div class="cs-pyqrow">';
+  var h = '<div class="card"><div class="cs-pyqrow">';
   var ti = META.topicIntel || {};
   c.relCodes.forEach(function (k) {
     var n = DATA.filter(function (q) { return q.topicCode === k; }).length;
-    h += '<span class="chip">' + E(k) + ' ' + E(ti[k] ? ti[k].name : '') + ' · ' + n + '</span>';
+    h += '<span class="chip">' + E(ti[k] ? ti[k].name : k) + ' · ' + n + '</span>';
   });
   h += '</div><div class="btnrow"><button type="button" class="btn primary" data-act="csPyq"' +
-    (rel.length ? '' : ' disabled') + '>Practise all ' + rel.length + ' related PYQs</button></div></div>';
+    (rel.length ? '' : ' disabled') + '>Practise all ' + rel.length + '</button></div></div>';
   if (rel.length) {
     h += '<ul class="list">';
     rel.slice().sort(function (a, b) { return b.year - a.year || a.questionNumber - b.questionNumber; })
       .forEach(function (q) {
-        h += '<li><div class="top"><span class="pyq-badge">' + q.year + ' Q' + q.questionNumber + '</span>' +
-          '<span class="id">' + E(q.topicCode) + '</span></div><div class="small">' + R(q.question) + '</div>' +
+        h += '<li><div class="top"><span class="pyq-badge">' + q.year + ' Q' + q.questionNumber + '</span></div>' +
+          '<div class="small">' + R(q.question) + '</div>' +
           '<div class="btnrow mt"><button type="button" class="btn sm ghost" data-act="study" data-qid="' + E(q.id) +
           '" data-back="cs">Study card</button></div></li>';
       });
@@ -329,58 +279,41 @@ function csPyqView(c) {
 }
 
 V.cs = function () {
-  var h = crumb(['Home', 'Computer']);
   if (!CMETA || !CDATA.length) {
-    return h + '<div class="card"><h1>Computer bank not loaded</h1></div>';
+    return crumb(['Home', 'Computer']) + '<div class="card"><h1>Computer bank not loaded</h1></div>';
   }
   var c = csChapter(CS.ch) || CMETA.chapters[0];
   CS.ch = c.num;
-  var views = { sets: 'Practice sets', sheet: 'Crisp pointers', read: 'Read & self-test', pyq: 'Related PYQs' };
+  var views = { sets: 'Sets', sheet: 'Pointers', read: 'Revise', pyq: 'PYQs' };
   if (!views[CS.view]) CS.view = 'sets';
-  h = crumb(['Home', 'Computer', 'Chapter ' + c.num, views[CS.view]]);
+  var h = crumb(['Home', 'Computer', 'Chapter ' + c.num, views[CS.view]]);
 
   var all = csCov(CDATA);
-  h += '<div class="card cs-head"><h1>Computer <span class="cs-badge">CHAPTER-WISE SETS · ISS PAPER-I</span></h1>' +
-    '<p class="card-sub">Every question of ' + E(CMETA.source) + ' (' + CMETA.pages + ' pages), dealt chapter by ' +
-    'chapter into sets of ' + CMETA.setMin + '–' + CMETA.setMax + '. Each answer opens with the verdict, then the ' +
-    'explanation, then a 15-second exam shortcut. Every chapter also has a crisp-pointer sheet for the objective paper.</p>' +
-    '<div class="kpis">' +
-    '<div class="kpi"><div class="v">' + CMETA.total + '</div><div class="l">Questions</div></div>' +
-    '<div class="kpi"><div class="v">' + CMETA.chapters.length + '</div><div class="l">Chapters</div></div>' +
-    '<div class="kpi"><div class="v">' + CMETA.nSets + '</div><div class="l">Practice sets</div></div>' +
-    '<div class="kpi ok"><div class="v">' + fx(pct(all.seen, all.n), 0) + '%</div><div class="l">Covered</div></div>' +
-    '</div>' +
-    '<details class="cs-prov"><summary>Book bank, not previous-year questions · about the source</summary>' +
-    '<div class="banner info">' + E(CMETA.provenance) + '</div></details></div>';
+  var p = Math.round(pct(all.seen, all.n));
+  h += '<div class="cs-top"><div class="cs-top-l"><h1>Computer</h1><span class="small muted">' + CMETA.total +
+    ' questions · ' + CMETA.chapters.length + ' chapters · ' + CMETA.nSets + ' sets</span></div>' +
+    '<div class="cs-ring" style="--p:' + p + '" title="Questions covered"><span>' + p + '%<small>done</small></span></div></div>';
 
   h += '<div class="cs-tabs" role="tablist" aria-label="Chapters">';
-  CMETA.chapters.forEach(function (cc) {
-    var on = cc.num === c.num;
-    var cv = csCov(CS_BY_CH[cc.num] || []);
-    h += '<button type="button" role="tab" aria-selected="' + on + '" class="cs-tab' + (on ? ' on' : '') +
-      '" data-act="csCh" data-ch="' + cc.num + '"><b>Chapter ' + cc.num + '</b><span>' + E(cc.title) +
-      '</span><small>' + cc.n + ' questions · ' + cc.sets.length + ' sets</small>' +
-      '<div class="progbar"><i style="width:' + fx(pct(cv.seen, cv.n), 1) + '%"></i></div></button>';
-  });
+  CMETA.chapters.forEach(function (cc) { h += csChapBtn(cc, 'csCh', cc.num === c.num); });
   h += '</div>';
 
   var rel = csRelatedPyqs(c);
-  h += '<div class="card cs-chap"><div class="cs-chap-hd"><h2>Chapter ' + c.num + ' · ' + E(c.title) + '</h2>' +
-    '<div class="btnrow">' +
-    '<button type="button" class="btn sm" data-act="csChapterMock" data-mode="exam">Chapter mock (' + c.n + ')</button>' +
-    '<button type="button" class="btn sm ghost" data-act="csChapterMock" data-mode="random">Random 20</button>' +
-    '</div></div><div class="cs-subtabs" role="tablist" aria-label="Chapter views">';
-  [['sets', 'Practice sets', c.sets.length], ['sheet', 'Crisp pointers · ISS Paper-I', null],
-   ['read', 'Read & self-test', null], ['pyq', 'Related PYQs', rel.length]].forEach(function (v) {
-    var on = CS.view === v[0];
-    h += '<button type="button" role="tab" aria-selected="' + on + '" class="cs-sub' + (on ? ' on' : '') +
-      '" data-act="csView" data-v="' + v[0] + '">' + E(v[1]) + (v[2] !== null ? '<span class="n">' + v[2] + '</span>' : '') +
-      '</button>';
-  });
+  var cv = csCov(CS_BY_CH[c.num] || []);
+  h += '<div class="card cs-chap"><div class="cs-chap-hd"><h2>' + E(c.title) + '</h2><span class="small muted">Chapter ' +
+    c.num + ' · ' + c.n + ' questions · ' + cv.seen + ' done</span></div>' +
+    '<div class="cs-subtabs" role="tablist" aria-label="Chapter views">';
+  [['sets', 'Sets', c.sets.length], ['sheet', 'Pointers', null], ['read', 'Revise', null], ['pyq', 'PYQs', rel.length]]
+    .forEach(function (v) {
+      var on = CS.view === v[0];
+      h += '<button type="button" role="tab" aria-selected="' + on + '" class="cs-sub' + (on ? ' on' : '') +
+        '" data-act="csView" data-v="' + v[0] + '">' + E(v[1]) + (v[2] !== null ? '<span class="n">' + v[2] + '</span>' : '') +
+        '</button>';
+    });
   h += '</div></div>';
 
   if (CS.view === 'sheet') h += csSheetView(c);
-  else if (CS.view === 'read') h += csBrowseView(c);
+  else if (CS.view === 'read') h += csReviseView(c);
   else if (CS.view === 'pyq') h += csPyqView(c);
   else h += csSetsView(c);
   return h;
@@ -388,19 +321,14 @@ V.cs = function () {
 
 function csHomeSection() {
   if (!CMETA || !CDATA.length) return '';
-  var h = '<h2 class="mt">Computer · chapter-wise sets <span class="cs-badge">BOOK BANK &middot; NOT PYQ</span></h2>';
-  h += '<div class="grid g3">';
-  CMETA.chapters.forEach(function (c) {
-    var cv = csCov(CS_BY_CH[c.num] || []);
-    h += tile('csGo', { ch: c.num }, 'Chapter ' + c.num + ' · ' + E(c.title),
-      c.sets.length + ' sets of ' + CMETA.setMin + '–' + CMETA.setMax + ' · learning &amp; exam mode · crisp pointers',
-      c.n + ' questions · ' + cv.seen + ' covered');
-  });
-  h += tile('csGo', { ch: CMETA.chapters[0].num, v: 'sheet' }, 'Crisp pointers for ISS Paper-I',
-    'Chapter-wise bullet sheets for last-day revision of the Computer section.', CMETA.chapters.length + ' sheets');
-  h += tile('csMix', { n: 20 }, 'Computer section drill (20)',
-    'Twenty questions drawn across all chapters, timed like the Computer part of Paper-I.', 'Strict exam');
-  h += '</div>';
+  var all = csCov(CDATA);
+  var h = '<h2 class="mt">Computer</h2><div class="card cs-home"><div class="cs-home-hd"><span>' + CMETA.total +
+    ' questions · ' + CMETA.nSets + ' sets</span><span class="sp"></span><b>' +
+    Math.round(pct(all.seen, all.n)) + '% done</b></div><div class="cs-tabs cs-grid">';
+  CMETA.chapters.forEach(function (c) { h += csChapBtn(c, 'csGo', false); });
+  h += '</div><div class="btnrow mt"><button type="button" class="btn sm" data-act="csGo" data-ch="' +
+    CMETA.chapters[0].num + '" data-v="sheet">Pointers</button>' +
+    '<button type="button" class="btn sm" data-act="csMix" data-n="20">Mixed drill · 20</button></div></div>';
   return h;
 }
 
@@ -411,12 +339,12 @@ function csStartSet(k, mode) {
   if (!qs.length) return;
   var st = Store.d().settings;
   var exam = mode === 'exam';
+  var s = c.sets[k - 1];
   buildSession({
     kind: 'cs',
     name: csSetName(c.num, k),
-    desc: 'COMPUTER BOOK BANK (not PYQ) · Chapter ' + c.num + ' ' + c.title + ' · Q ' +
-      c.sets[k - 1].from + '–' + c.sets[k - 1].to + (c.sets[k - 1].boost ? ' + ' + c.sets[k - 1].boost + ' boosters' : '') + ' · ' + qs.length + ' questions · mode: ' +
-      (exam ? 'Strict Exam' : 'Learning'),
+    desc: 'Chapter ' + c.num + ' \u00b7 ' + c.title + ' \u00b7 Set ' + k + ' \u00b7 Q' + s.from + '\u2013' + s.to +
+      ' \u00b7 ' + qs.length + ' questions \u00b7 ' + (exam ? 'Exam' : 'Learning'),
     mode: exam ? 'exam' : 'learn',
     questions: qs,
     shuffleQ: exam, shuffleO: false,
@@ -437,6 +365,27 @@ function csStartPool(qs, name, desc) {
   });
 }
 
+/* bring the answer into view once it opens, moving as little as possible */
+function csShowReveal() {
+  var r = app.querySelector('.cs-rev .reveal');
+  if (r && r.scrollIntoView) r.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+/* accordion: opening one pointer section closes the others */
+app.addEventListener('toggle', function (ev) {
+  var d = ev.target;
+  if (!d || !d.classList || !d.classList.contains('cs-sec')) return;
+  var i = +d.getAttribute('data-i');
+  if (d.open) {
+    CS.sheetOpen = i;
+    if (!CS.sheetAll) {
+      Array.prototype.forEach.call(app.querySelectorAll('.cs-sec[open]'), function (o) { if (o !== d) o.open = false; });
+      var sum = d.querySelector('summary');
+      if (sum && sum.scrollIntoView) setTimeout(function () { sum.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }, 0);
+    }
+  } else if (CS.sheetOpen === i) CS.sheetOpen = -1;
+}, true);
+
 /* delegated clicks for this tab; returns true when handled */
 function csClick(act, t) {
   var qid = t.getAttribute('data-qid');
@@ -444,28 +393,46 @@ function csClick(act, t) {
     case 'csGo':
       CS.ch = +t.getAttribute('data-ch');
       CS.view = t.getAttribute('data-v') || 'sets';
+      CS.bset = 1; CS.ri = 0; CS.sheetOpen = 0;
       go('cs');
       return true;
     case 'csCh':
-      CS.ch = +t.getAttribute('data-ch'); CS.bset = 1;
+      CS.ch = +t.getAttribute('data-ch'); CS.bset = 1; CS.ri = 0; CS.sheetOpen = 0;
       render();
       return true;
-    case 'csView': CS.view = t.getAttribute('data-v'); render(); window.scrollTo(0, 0); return true;
+    case 'csView': CS.view = t.getAttribute('data-v'); render(); return true;
     case 'csBrowse':
-      CS.view = 'read'; CS.bset = +t.getAttribute('data-set') || 1;
-      render(); window.scrollTo(0, 0);
+      CS.view = 'read'; CS.bset = +t.getAttribute('data-set') || 1; CS.ri = 0;
+      render();
+      var rv = app.querySelector('.cs-rev');
+      if (rv && rv.scrollIntoView) rv.scrollIntoView({ block: 'start' });
       return true;
+    case 'csRi': {
+      if (t.disabled) return true;
+      CS.ri = +t.getAttribute('data-i');
+      render();
+      var card = app.querySelector('.cs-rev');
+      if (card && card.getBoundingClientRect().top < 0) card.scrollIntoView({ block: 'start' });
+      return true;
+    }
     case 'csOpt': {
       var q = BY_ID[qid];
       var i = +t.getAttribute('data-i');
       CS.pick[qid] = i;
       if (q) csMarkQ(qid, i === q.correctAnswer);
-      render();
+      render(); csShowReveal();
       return true;
     }
-    case 'csShow': CS.open[qid] = true; render(); return true;
+    case 'csShow': CS.open[qid] = true; render(); csShowReveal(); return true;
     case 'csHide': delete CS.open[qid]; delete CS.pick[qid]; render(); return true;
-    case 'csPrint': window.print(); return true;
+    case 'csSheetAll': CS.sheetAll = !CS.sheetAll; if (!CS.sheetAll) CS.sheetOpen = 0; render(); return true;
+    case 'csPrint': {
+      var was = CS.sheetAll;
+      CS.sheetAll = true; render();
+      window.print();
+      CS.sheetAll = was; render();
+      return true;
+    }
     case 'csStart':
       if (S && !S.finished && ROUTE.name === 'exam') return true;
       csStartSet(+t.getAttribute('data-set'), t.getAttribute('data-mode'));
@@ -476,11 +443,11 @@ function csClick(act, t) {
       var qs = (CS_BY_CH[c.num] || []).slice();
       if (t.getAttribute('data-mode') === 'random') {
         shuffle(qs);
-        csStartPool(qs.slice(0, 20), 'Computer · Ch ' + c.num + ' · Random 20',
-          'COMPUTER BOOK BANK (not PYQ) · 20 random questions from Chapter ' + c.num + ' · mode: Strict Exam');
+        csStartPool(qs.slice(0, 20), 'Computer \u00b7 Ch ' + c.num + ' \u00b7 Random 20',
+          'Chapter ' + c.num + ' \u00b7 ' + c.title + ' \u00b7 20 random questions \u00b7 Exam');
       } else {
-        csStartPool(qs, 'Computer · Ch ' + c.num + ' · Chapter mock',
-          'COMPUTER BOOK BANK (not PYQ) · all ' + qs.length + ' questions of Chapter ' + c.num + ' · mode: Strict Exam');
+        csStartPool(qs, 'Computer \u00b7 Ch ' + c.num + ' \u00b7 Whole chapter',
+          'Chapter ' + c.num + ' \u00b7 ' + c.title + ' \u00b7 all ' + qs.length + ' questions \u00b7 Exam');
       }
       return true;
     }
@@ -488,15 +455,15 @@ function csClick(act, t) {
       var n = +t.getAttribute('data-n') || 20;
       var pool = CDATA.slice();
       shuffle(pool);
-      csStartPool(pool.slice(0, n), 'Computer · Section drill (' + n + ')',
-        'COMPUTER BOOK BANK (not PYQ) · ' + n + ' questions across all chapters · mode: Strict Exam');
+      csStartPool(pool.slice(0, n), 'Computer \u00b7 Mixed drill (' + n + ')',
+        'All chapters \u00b7 ' + n + ' questions \u00b7 Exam');
       return true;
     }
     case 'csPyq': {
       var cc = csChapter(CS.ch);
       if (!cc) return true;
       practiceFromIds(csRelatedPyqs(cc).map(function (x) { return x.id; }),
-        'Related PYQs · Computer Ch ' + cc.num, 'custom');
+        'PYQs \u00b7 Computer Ch ' + cc.num, 'custom');
       return true;
     }
   }

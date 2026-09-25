@@ -23,34 +23,50 @@ const path = require('path');
     if (name === 'desktop') console.log('bank', info.cs, 'audit ok', info.audit.ok, info.audit.errors.slice(0, 5));
     await page.screenshot({ path: `${out}/${name}-home.png`, fullPage: false });
     const nav = name === 'phone' ? '#bnav' : '#topbar';
+    // phones submit from the palette sheet
+    const submit = async pg => {
+      if (name === 'phone') {
+        await pg.click('#msess [data-proxy="palette"]');
+        await pg.click('.pal-actions [data-act="submitMock"]');
+      } else await pg.click('.exam-actions [data-act="submitMock"]');
+    };
     await page.click(nav + ' [data-r="cs"]');
     await page.waitForSelector('.cs-tabs');
     await check(page, name + ' cs');
     await page.screenshot({ path: `${out}/${name}-cs.png`, fullPage: true });
-    // pointers
+    // pointers: fold-out sections, one open at a time
     await page.click('[data-act="csView"][data-v="sheet"]');
+    await page.click('.cs-sec[data-i="2"] > summary');
+    await page.waitForTimeout(150);
+    const open = await page.evaluate(() => [].map.call(document.querySelectorAll('.cs-sec[open]'), d => d.getAttribute('data-i')).join());
+    if (open !== '2') errors.push(`${name} sheet: open sections "${open}", expected "2"`);
     await check(page, name + ' sheet');
     await page.screenshot({ path: `${out}/${name}-sheet.png`, fullPage: true });
-    // read view, answer an item inline
+    // revise: one question at a time
     await page.click('[data-act="csView"][data-v="read"]');
-    await page.click('.cs-item [data-act="csOpt"][data-i="1"]');
-    await check(page, name + ' read');
+    await page.click('.cs-rev [data-act="csOpt"][data-i="1"]');
+    await page.waitForSelector('.cs-rev .cs-short');
+    await page.click('.cs-pager [data-d="1"]');
+    await page.click('.cs-num:nth-child(10)');
+    const pos = await page.evaluate(() => document.querySelector('.cs-num.cur').textContent);
+    if (pos !== '10') errors.push(`${name} revise: at question ${pos}, expected 10`);
+    await check(page, name + ' revise');
     await page.screenshot({ path: `${out}/${name}-read.png` });
     // learning session on set 1
     await page.click('[data-act="csView"][data-v="sets"]');
     await page.click('.cs-set [data-act="csStart"][data-mode="learn"]');
     await page.waitForSelector('.exam-head');
     await page.click('.opts [data-act="opt"][data-i="0"]');
-    await page.waitForSelector('.pane.cs-exp');
+    await page.waitForSelector('.cs-exp');
     await check(page, name + ' learn');
     await page.screenshot({ path: `${out}/${name}-learn.png`, fullPage: true });
     await page.click(name === 'phone' ? '#msess [data-proxy="nextQ"]' : '[data-act="nextQ"]');
     await page.keyboard.press('2');
-    await page.click('[data-act="submitMock"]');
+    await submit(page);
     await page.waitForSelector('.kpis');
     await page.screenshot({ path: `${out}/${name}-result.png`, fullPage: false });
     await page.click('[data-act="reviewAt"][data-i="0"]');
-    await page.waitForSelector('.pane.cs-short');
+    await page.waitForSelector('.cs-short');
     await page.click(nav + ' [data-r="cs"]');
     await page.waitForSelector('.cs-set');
     // exam session on chapter 2 set 2
@@ -61,7 +77,7 @@ const path = require('path');
     await page.keyboard.press('ArrowRight');
     await page.keyboard.press('1');
     await page.screenshot({ path: `${out}/${name}-exam.png` });
-    await page.click('[data-act="submitMock"]');
+    await submit(page);
     await page.waitForSelector('.kpis');
     const prog = await page.evaluate(() => localStorage.getItem('upsc.iss.cs.v1'));
     if (name === 'desktop') console.log('progress', prog && prog.slice(0, 200));

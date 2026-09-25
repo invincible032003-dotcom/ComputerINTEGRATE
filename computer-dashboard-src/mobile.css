@@ -1,38 +1,36 @@
 /* ------------------------------------------------ Android / mobile shell
    Injected by computer-dashboard-src/integrate.py; edit it there.
-   Phones (<= 760px) get an Android-style layout: a compact top app bar,
-   a bottom navigation bar, a thumb-reach action bar inside mock sessions,
-   48dp touch targets and swipeable chip rows. Desktop is untouched. */
-#bnav, #msess { display: none; }
+   Phones (<= 760px) get an Android-style layout built to keep scrolling
+   short: a top app bar that names the screen, a bottom navigation bar, a
+   thumb-reach action bar and a pop-up palette sheet inside mock sessions,
+   compact two-column tiles, 48dp touch targets and swipeable chip rows.
+   Desktop is untouched. */
+#bnav, #msess, #mscrim, #topbar .mtitle, .pal-actions { display: none; }
 html { -webkit-text-size-adjust: 100%; }
-button, .btn, .opt, .cs-tab, .cs-sub, #bnav button, #msess button {
+button, .btn, .opt, .cs-tab, .cs-sub, .cs-num, .cs-pill, #bnav button, #msess button {
   touch-action: manipulation; -webkit-tap-highlight-color: transparent;
 }
-.cs-prov { margin-top: 12px; }
-.cs-prov > summary { cursor: pointer; font-weight: 650; color: var(--ink-2); font-size: .88rem;
-  list-style: none; display: flex; align-items: center; gap: 6px; }
-.cs-prov > summary::-webkit-details-marker { display: none; }
-.cs-prov > summary::before { content: '\25B8'; color: var(--brand); transition: transform .15s; }
-.cs-prov[open] > summary::before { transform: rotate(90deg); }
-.cs-prov .banner { margin-top: 8px; }
 
 @media (max-width: 760px) {
   body { font-size: 16px; }
   .wrap { padding: 0 12px calc(92px + env(safe-area-inset-bottom)); }
-  .card { border-radius: 16px; padding: 14px; }
+  .card { border-radius: 16px; padding: 14px; margin-bottom: 12px; }
   .crumb { display: none; }
-  h1 { font-size: 1.35rem; }
-  h2 { font-size: 1.15rem; }
+  h1 { font-size: 1.3rem; }
+  h2 { font-size: 1.12rem; }
+  h2.mt { margin-top: 16px; }
 
-  /* top app bar: one row, title + theme only */
+  /* top app bar: one row, the current screen's title + theme */
   #topbar .topline { min-height: 56px; padding: 6px 8px 6px 16px; gap: 8px; }
-  #topbar .brand { flex: 1 1 auto; min-width: 0; font-size: 1.1rem; font-weight: 650;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+  #topbar .brand { flex: 1 1 auto; min-width: 0; font-size: 0; display: block; }
+  #topbar .brand .mtitle { display: block; font-size: 1.12rem; font-weight: 650; line-height: 1.3;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   #topbar .brand small { display: none; }
   #topbar .spacer { display: none; }
   #topbar .topline > button[data-act="go"] { display: none; }
   #topbar .theme-btn { border: 0; background: transparent; min-width: 48px; min-height: 48px;
-    border-radius: 50%; font-size: 1.35rem; line-height: 1; color: var(--topbar-ink); }
+    border-radius: 50%; font-size: 1.35rem; line-height: 1; color: var(--brand-ink); }
+  #topbar .theme-btn .tlabel { display: none; }
   .exam-head { top: 56px; }
 
   /* bottom navigation (Material 3 style) */
@@ -51,16 +49,32 @@ button, .btn, .opt, .cs-tab, .cs-sub, #bnav button, #msess button {
   #bnav button.on .ic { background: var(--mark-bg); }
   #bnav button:active .ic { background: var(--surface-3); }
 
+  /* home and menus: two-column tiles with short descriptions */
+  .grid:has(> .tile) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .tile { padding: 10px 11px; min-height: 0; border-radius: 14px; }
+  .tile .t { font-size: .92rem; line-height: 1.25; margin-bottom: 2px; }
+  .tile .d { font-size: .76rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden; }
+  .tile .n { font-size: .7rem; margin-top: 4px; }
+  .kpis { gap: 8px; }
+  .banner { font-size: .84rem; line-height: 1.45; }
+  table.dt { font-size: .8rem; }
+  table.dt th, table.dt td { padding: 5px 6px; overflow-wrap: normal; word-break: normal; }
+
   /* immersive mock session: nav hidden, action bar at thumb reach */
   body.in-session #bnav { display: none; }
   body.in-session #msess { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 61;
     gap: 8px; align-items: center; background: var(--surface); border-top: 1px solid var(--line);
     box-shadow: 0 -2px 12px rgba(0,0,0,.12);
     padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); }
-  body.in-session .exam-head .navpair { display: none; }
-  body.in-session .exam-head { gap: 6px 8px; padding: 8px 10px; border-radius: 0 0 14px 14px; }
+  body.in-session .exam-head .navpair,
+  body.in-session .exam-head .spacer ~ .chip { display: none; }
+  body.in-session .exam-head { gap: 6px 8px; padding: 7px 12px; margin-bottom: 8px; border-radius: 0 0 14px 14px; }
+  body.in-session .exam-layout.mt { margin-top: 8px; }
+  body.in-session .exam-actions,
+  body.in-session .card [data-act="markQ"] { display: none; }
   .exam-head .chip { font-size: .72rem; padding: 2px 8px; }
-  .exam-head .timer { font-size: .92rem; padding: 3px 8px; }
+  .exam-head .timer { font-size: .92rem; padding: 3px 8px; margin-left: auto; }
   .exam-head .qpos { font-size: 1rem; }
   #msess button { flex: 1 1 0; min-height: 50px; border-radius: 25px; border: 1px solid var(--line-2);
     background: var(--surface-2); color: var(--ink); font: inherit; font-size: .9rem; font-weight: 650;
@@ -73,36 +87,46 @@ button, .btn, .opt, .cs-tab, .cs-sub, #bnav button, #msess button {
     stroke-linecap: round; stroke-linejoin: round; flex: none; }
   #msess .pos { font-variant-numeric: tabular-nums; }
 
-  /* touch targets */
+  /* the palette becomes a bottom sheet, opened from the action bar */
+  body.in-session .exam-side { position: fixed; left: 0; right: 0; bottom: 0; z-index: 72;
+    transform: translateY(105%); transition: transform .22s ease; max-height: 78vh; overflow-y: auto;
+    overscroll-behavior: contain; visibility: hidden; }
+  body.in-session .exam-side .card { margin: 0; border-radius: 22px 22px 0 0;
+    padding: 6px 16px calc(16px + env(safe-area-inset-bottom)); box-shadow: 0 -8px 30px rgba(0,0,0,.25); }
+  body.in-session .exam-side .card::before { content: ''; display: block; width: 36px; height: 4px;
+    border-radius: 2px; background: var(--line-2); margin: 4px auto 12px; }
+  body.in-session .exam-side .tiny { display: none; }
+  body.in-session .pal-actions { display: flex; margin-top: 14px; }
+  body.in-session .pal-actions .btn { flex: 1 1 0; min-height: 46px; }
+  body.pal-open .exam-side { transform: none; visibility: visible; }
+  body.pal-open #mscrim { display: block; position: fixed; inset: 0; z-index: 71; background: rgba(0,0,0,.42); }
+  .palette { gap: 7px; }
+
+  /* touch targets, tighter question card */
   .btn { min-height: 44px; }
   .btn.sm { min-height: 40px; }
-  .opts .opt { min-height: 54px; }
+  .qtext { margin-bottom: 10px; }
+  .opts li { margin-bottom: 7px; }
+  .opts .opt { min-height: 48px; padding: 10px 12px; }
   .pal { width: 42px; height: 42px; }
+  .reveal { margin-top: 10px; }
 
-  /* Computer tab: swipeable chapter chips + tab strip */
-  .cs-head .kpis { gap: 8px; }
-  .cs-tabs { display: flex; grid-template-columns: none; overflow-x: auto; gap: 8px;
-    scroll-snap-type: x proximity; margin: 0 -12px 12px; padding: 2px 12px 8px;
-    scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .cs-tabs::-webkit-scrollbar { display: none; }
-  .cs-tab { flex: 0 0 auto; width: 152px; scroll-snap-align: center; border-radius: 16px; padding: 10px 12px; }
-  .cs-tab span { font-size: .86rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .cs-chap-hd { flex-direction: column; align-items: stretch; }
-  .cs-chap-hd .btnrow .btn { flex: 1 1 0; }
-  .cs-subtabs { flex-wrap: nowrap; overflow-x: auto; margin: 10px -14px -14px; padding: 0 8px;
-    border-top: 1px solid var(--line); gap: 0; scrollbar-width: none; }
-  .cs-subtabs::-webkit-scrollbar { display: none; }
-  .cs-sub { flex: 0 0 auto; background: none; border: 0; border-bottom: 3px solid transparent; border-radius: 0;
-    padding: 12px 12px 10px; min-height: 48px; color: var(--ink-2); font-weight: 600; white-space: nowrap; }
-  .cs-sub.on { background: none; color: var(--brand); border-bottom-color: var(--brand); }
-  .cs-sub.on .n { background: var(--mark-bg); color: var(--brand); }
-  .cs-next .btnrow { width: 100%; }
-  .cs-next .btnrow .btn { flex: 1 1 0; }
-  .cs-set { border-radius: 16px; padding: 14px; }
-  .cs-set .btnrow .btn { min-height: 46px; flex: 1 1 0; }
-  .cs-set .btnrow .btn.ghost { flex: 0 0 auto; }
+  /* Computer tab */
+  .cs-top { margin: 10px 0 8px; }
+  .cs-top h1 { font-size: 1.15rem; }
+  .cs-tabs:not(.cs-grid) { display: flex; overflow-x: auto; gap: 8px; scroll-snap-type: x proximity;
+    margin: 0 -12px 10px; padding: 2px 12px 6px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .cs-tabs:not(.cs-grid)::-webkit-scrollbar { display: none; }
+  .cs-tabs:not(.cs-grid) .cs-tab { flex: 0 0 auto; width: 158px; scroll-snap-align: center; }
+  .cs-chap { padding-bottom: 0; }
+  .cs-subtabs { margin-left: -14px; margin-right: -14px; }
+  .cs-sub { flex: 1 0 auto; justify-content: center; }
+  .cs-set .btnrow .btn { min-height: 42px; }
+  .cs-whole .btnrow { flex: 1 1 100%; }
+  .cs-whole .btnrow .btn { flex: 1 1 0; }
   .cs-code { font-size: .8rem; margin: 8px -4px 10px; }
-  .reveal .pane > .bd { font-size: .98rem; line-height: 1.55; }
+  .cs-strip { margin-left: -14px; margin-right: -14px; padding-left: 14px; padding-right: 14px; }
+  .cs-block { font-size: .96rem; }
 }
 
 @media (max-width: 380px) {
@@ -110,4 +134,5 @@ button, .btn, .opt, .cs-tab, .cs-sub, #bnav button, #msess button {
   #bnav .ic { width: 52px; }
   #msess button { font-size: .84rem; padding: 0 6px; }
   #msess .lbl { display: none; }
+  .cs-tabs:not(.cs-grid) .cs-tab { width: 144px; }
 }

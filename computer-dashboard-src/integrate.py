@@ -4,7 +4,7 @@
 Inputs (all in computer-dashboard-src/):
   base/UPSC-ISS-Statistics-Dashboard-base.html  the dashboard as uploaded
   bank/chNN.txt      curated question bank, one file per book chapter
-  sheets/chNN.txt    crisp pointers (UPSC ISS Paper-I) per chapter
+  sheets/chNN.txt    crisp pointers per chapter
   cs-tab.css / cs-tab.js   the tab's styles and screens
   mobile.css / mobile.js   Android-style phone shell (bottom nav, session bar, swipe, back button)
 
@@ -22,8 +22,6 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = os.path.join(HERE, 'base', 'UPSC-ISS-Statistics-Dashboard-base.html')
 OUT = os.path.join(os.path.dirname(HERE), 'UPSC-ISS-Statistics-Dashboard-STANDALONE.html')
 
-SOURCE = 'the Sunrise Classes Computer MCQ book (Chapter-wise Practice Set, mainly dedicated to ISS)'
-PAGES = 465
 SET_MIN, SET_MAX = 40, 50
 UNIT = 'Computer Application and Data Processing'
 LET = 'abcd'
@@ -151,9 +149,7 @@ def parse_sheet(path):
         if not s:
             continue
         if s.startswith('## '):
-            t = s[3:].strip()
-            pyq = t.startswith('PYQ:')
-            sections.append({'title': t[4:].strip() if pyq else t, 'items': [], 'pyq': pyq})
+            sections.append({'title': s[3:].strip(), 'items': []})
         elif s.startswith('- '):
             sections[-1]['items'].append(s[2:].strip())
         elif sections and sections[-1]['items']:
@@ -204,7 +200,7 @@ def plan_sets(n):
 
 def build_bank(bank_dir, sheet_dir, provisional=None):
     chapters, data, sheets = [], [], []
-    total_fix = 0
+    total_fix = nb_all = 0
     files = sorted(f for f in os.listdir(bank_dir) if re.fullmatch(r'ch\d\d\.txt', f))
     for fn in files:
         meta, items = parse_bank(os.path.join(bank_dir, fn))
@@ -216,15 +212,13 @@ def build_bank(bank_dir, sheet_dir, provisional=None):
         bad = [z for z in sizes if not SET_MIN <= z <= SET_MAX]
         if bad:
             raise SystemExit(f'{fn}: {len(items)} questions give sets {sizes}; every set must hold '
-                             f'{SET_MIN}-{SET_MAX} questions (add ISS Booster items)')
-        nb = 0
+                             f'{SET_MIN}-{SET_MAX} questions (add "#n iss" items)')
         sets = []
         pos = 0
         for k, sz in enumerate(sizes, 1):
             chunk = items[pos:pos + sz]
             pos += sz
-            bk = [it for it in chunk if not it['booster']]
-            sets.append({'k': k, 'n': sz, 'from': bk[0]['n'], 'to': bk[-1]['n'], 'boost': sz - len(bk),
+            sets.append({'k': k, 'n': sz, 'from': chunk[0]['n'], 'to': chunk[-1]['n'],
                          'themes': meta['themes'].get(k, '')})
             for it in chunk:
                 it['set'] = k
@@ -243,50 +237,38 @@ def build_bank(bank_dir, sheet_dir, provisional=None):
                 total_fix += 1
             code = topic_code(it, allowed, default)
             if it['booster']:
-                nb += 1
+                nb_all += 1
                 if it['B'] or it['qPage']:
                     raise SystemExit(f'{fn} #{it["n"]}: a booster has no book key or page')
             elif not it['qPage']:
                 raise SystemExit(f'{fn} #{it["n"]}: book item without page')
+            # N (key notes), B (printed key), R and page numbers are maintainer
+            # records in the bank files; only clean study content is shipped
             data.append({
                 'id': f'CS-{num:02d}.{it["n"]:03d}', 'globalId': 300000 + num * 1000 + it['n'],
-                'isCS': True, 'provenance': 'COMPUTER BOOK BANK', 'year': 'Book',
+                'isCS': True, 'provenance': 'Computer', 'year': 'Computer',
                 'questionNumber': it['n'], 'unit': UNIT, 'topicCode': code, 'topic': TOPIC_NAMES[code],
                 'subtopic': f'Ch {num} · {meta["title"]}', 'form': 'PLAIN', 'sharedStem': '',
                 'question': it['Q'], 'code': '\n'.join(it['code']), 'stmts': it['stmts'], 'ask': it['ask'],
-                'options': opts, 'correctAnswer': key, 'bookKey': book,
+                'options': opts, 'correctAnswer': key,
                 'questionType': qtype(it), 'answerConfidence': 'high', 'sourceIssue': '',
-                'explanation': it['X'], 'examShortcut': it['S'], 'keyNote': it['N'],
+                'explanation': it['X'], 'examShortcut': it['S'],
                 'tipsTricks': [], 'solution': [],
                 'csChapter': num, 'csNum': it['n'], 'csSet': it['set'],
-                'qPage': it['qPage'], 'aPage': it['aPage'],
-                'isBooster': it['booster'], 'pyqRef': it['R'],
-                'csLabel': ('Booster ' + str(nb)) if it['booster'] else ('Q' + str(it['n'])),
+                'csLabel': 'Q' + str(it['n']),
             })
-        qp, ap = meta.get('pages', '').split() if meta.get('pages') else ('', '')
-        chapters.append({'num': num, 'title': meta['title'], 'n': len(items), 'nBook': len(items) - nb,
-                         'nBoost': nb, 'sets': sets,
-                         'relCodes': allowed, 'qPages': qp, 'aPages': ap})
+        chapters.append({'num': num, 'title': meta['title'], 'n': len(items), 'sets': sets,
+                         'relCodes': allowed})
         sp = os.path.join(sheet_dir, fn)
         if os.path.exists(sp):
             sheets.append({'ch': num, 'sections': parse_sheet(sp)})
     chapters.sort(key=lambda c: c['num'])
     meta = {
-        'label': 'COMPUTER BOOK BANK', 'source': SOURCE, 'pages': PAGES,
         'setMin': SET_MIN, 'setMax': SET_MAX,
-        'total': len(data), 'nBoost': sum(1 for q in data if q['isBooster']), 'nSets': sum(len(c['sets']) for c in chapters), 'nKeyFixes': total_fix,
-        'provenance': (
-            'Every book question, option and answer key here comes from ' + SOURCE + ', read from the '
-            '465 scanned pages, retyped as text and proof-read (code as code blocks, figures redrawn). '
-            'The explanations and exam shortcuts were written fresh for this dashboard. Where the printed '
-            'key is wrong, the correct answer is used and an answer-key note says what the book prints and '
-            'why it is wrong (' + str(total_fix) + ' such corrections). Where a chapter\'s total cannot fill '
-            'sets of 40-50, original ISS Booster questions, modelled on ISS Paper-I PYQs and marked as not '
-            'from the book, complete the last set. None of these is a UPSC previous-year question and none '
-            'enters a year, sectional, topic, subtopic or custom PYQ mock.'),
+        'total': len(data), 'nSets': sum(len(c['sets']) for c in chapters),
         'chapters': chapters, 'sheets': sheets,
     }
-    return meta, data
+    return meta, data, total_fix, nb_all
 
 
 # ----------------------------------------------------------------- inject
@@ -322,7 +304,7 @@ def integrate(meta, data):
     # data, right after the Gupta & Kapoor bank
     i = s.index('<script id="gk-data">')
     j = s.index('</script>', i) + len('</script>')
-    blob = ('\n<script id="cs-data">\n/* Computer book bank - generated by computer-dashboard-src/integrate.py\n'
+    blob = ('\n<script id="cs-data">\n/* Computer bank - generated by computer-dashboard-src/integrate.py\n'
             ' * from bank/ch*.txt and sheets/ch*.txt; do not edit by hand. */\n'
             'window.csMeta = ' + js_safe(meta) + ';\nwindow.csData = [\n' +
             ',\n'.join(js_safe(q) for q in data) + '\n];\n</script>')
@@ -330,7 +312,7 @@ def integrate(meta, data):
 
     # top bar
     s = sub1(s, '<small>2018–2026 PYQ · 2027 Forecast Bank · Gupta Kapoor Ch 5–8 · 100% offline</small>',
-             '<small>2018–2026 PYQ · 2027 Forecast Bank · Gupta Kapoor Ch 5–8 · Computer book · 100% offline</small>',
+             '<small>2018–2026 PYQ · 2027 Forecast Bank · Gupta Kapoor Ch 5–8 · Computer · 100% offline</small>',
              'brand')
     s = sub1(s, '    <button type="button" data-act="go" data-r="gk" title="Gupta Kapoor Ch 5–8 problem bank">Gupta Kapoor</button>\n',
              '    <button type="button" data-act="go" data-r="cs" title="Computer — chapter-wise practice sets">Computer</button>\n'
@@ -345,25 +327,21 @@ def integrate(meta, data):
              'var CMETA = window.csMeta || null;\n'
              'var ALL = DATA.concat(FDATA, GDATA, CDATA);', 'ALL')
     s = sub1(s, "  return (q.id + ' ' + (q.isForecast ? 'forecast 2027' : q.isGK ? 'gupta kapoor chapter ' +",
-             "  return (q.id + ' ' + (q.isCS ? 'computer book chapter ' + q.csChapter + ' ' + q.subtopic + ' set ' +\n"
+             "  return (q.id + ' ' + (q.isCS ? 'computer chapter ' + q.csChapter + ' ' + q.subtopic + ' set ' +\n"
              "          q.csSet + ' ' + q.questionType + ' ' + (q.code || '') : q.isForecast ? 'forecast 2027' : q.isGK ? 'gupta kapoor chapter ' +",
              'search index')
 
     # learning-mode prompt: Computer items reveal explanation then shortcut
     s = sub1(s, "    h += '<div class=\"banner mt\">Choose an option to reveal the verdict, the exam shortcut, ' +\n      'the tips and the full solution.</div>';",
-             "    h += '<div class=\"banner mt\">' + (q.isCS ? 'Choose an option to reveal the verdict, the explanation and ' +\n"
-             "      'the 15-second exam shortcut.' : 'Choose an option to reveal the verdict, the exam shortcut, ' +\n"
-             "      'the tips and the full solution.') + '</div>';", 'learn prompt')
+             "    if (!q.isCS) h += '<div class=\"banner mt\">Choose an option to reveal the verdict, the exam shortcut, ' +\n"
+             "      'the tips and the full solution.</div>';", 'learn prompt')
 
     # badges, meta line, reveal, options, body
     s = sub1(s, "  if (q.isGK) return '<span class=\"gk-badge\">GUPTA KAPOOR &middot; Ch ' + q.gkChapter + ' &middot; not PYQ</span>';",
-             "  if (q.isCS) return '<span class=\"cs-badge' + (q.isBooster ? ' boost\">ISS BOOSTER' : '\">COMPUTER BOOK') + ' &middot; Ch ' + q.csChapter + ' &middot; Set ' + q.csSet + ' &middot; not PYQ</span>';\n"
+             "  if (q.isCS) return '<span class=\"cs-topic\">' + E(csChapter(q.csChapter) ? csChapter(q.csChapter).title : q.subtopic) + '</span>';\n"
              "  if (q.isGK) return '<span class=\"gk-badge\">GUPTA KAPOOR &middot; Ch ' + q.gkChapter + ' &middot; not PYQ</span>';",
              'badge')
-    s = sub1(s, "    (q.isGK ? '<span>' + E(q.gkTopicLabel) + '</span><span>\\u00a7' + E(q.gkSection) + '</span>' : '') + '</div>';",
-             "    (q.isGK ? '<span>' + E(q.gkTopicLabel) + '</span><span>\\u00a7' + E(q.gkSection) + '</span>' : '') +\n"
-             "    (q.isCS ? '<span>' + (q.isBooster ? q.csLabel + ' \\u00b7 added, not in the book' : 'Book ' + q.csLabel + ' \\u00b7 PDF p. ' + q.qPage) + '</span>' : '') + '</div>';",
-             'meta line')
+    s = sub1(s, 'function qMetaLine(q) {\n', 'function qMetaLine(q) {\n  if (q.isCS) return csMetaLine(q);\n', 'meta line')
     s = sub1(s, '  if (q.isGK) return gkRevealPanes(q, chosenOriginal, opts);',
              '  if (q.isCS) return csRevealPanes(q, chosenOriginal, opts);\n'
              '  if (q.isGK) return gkRevealPanes(q, chosenOriginal, opts);', 'reveal')
@@ -388,6 +366,17 @@ def integrate(meta, data):
              '  if (d.history.length > 60) d.history.length = 60;\n  if (sess.kind === \'cs\') csRecord(sess);\n',
              'persist')
 
+    # exam screen: tag the Submit row, and repeat Submit / Abandon inside the
+    # palette, which phones show as a bottom sheet
+    s = sub1(s, "  h += '<div class=\"btnrow\">' +\n    '<button type=\"button\" class=\"btn primary\" data-act=\"submitMock\">Submit</button>' +",
+             "  h += '<div class=\"btnrow exam-actions\">' +\n    '<button type=\"button\" class=\"btn primary\" data-act=\"submitMock\">Submit</button>' +",
+             'exam actions')
+    s = sub1(s, "    'M marks for review.</div>' +\n",
+             "    'M marks for review.</div>' +\n"
+             "    '<div class=\"btnrow pal-actions\"><button type=\"button\" class=\"btn primary\" data-act=\"submitMock\">Submit</button>' +\n"
+             "    '<button type=\"button\" class=\"btn danger\" data-act=\"abandon\">Abandon</button></div>' +\n",
+             'palette actions')
+
     # screens
     s = sub1(s, '  h += gkHomeSection();\n', '  h += csHomeSection();\n  h += gkHomeSection();\n', 'home')
     s = sub1(s, "  if (S.kind === 'gk') h += breakdownCard(r.perQ, 'gkTopicLabel', 'Performance by Gupta Kapoor subtopic');",
@@ -403,32 +392,32 @@ def integrate(meta, data):
              '  h += optionList(q, (q.options && q.options.length) ? q.options.map(function (x, i) { return i; }) : [0, 1, 2, 3],\n'
              '    null, { showAnswer: true, disabled: true });', 'study options')
     s = sub1(s, "  if (q.isGK) h += '<div class=\"tiny muted mb\">Source: ' + gkSourceLine(q) + '.</div>';",
-             "  if (q.isCS) h += '<div class=\"tiny muted mb\">Source: ' + csSourceLine(q) + '.</div>';\n"
+             "  if (q.isCS) h += '';\n"
              "  else if (q.isGK) h += '<div class=\"tiny muted mb\">Source: ' + gkSourceLine(q) + '.</div>';", 'study source')
 
     # search
     s = sub1(s, "    (GMETA ? ', the ' + GMETA.total + ' Gupta Kapoor textbook problems' : '') +",
              "    (GMETA ? ', the ' + GMETA.total + ' Gupta Kapoor textbook problems' : '') +\n"
-             "    (CMETA ? ', the ' + CMETA.total + ' Computer book questions' : '') +", 'search sub')
+             "    (CMETA ? ', the ' + CMETA.total + ' Computer questions' : '') +", 'search sub')
     s = sub1(s, "      '<option value=\"\"' + (SEARCH.bank ? '' : ' selected') + '>Both banks</option>' +",
              "      '<option value=\"\"' + (SEARCH.bank ? '' : ' selected') + '>All banks</option>' +", 'search all')
     s = sub1(s, "        '>Gupta Kapoor (Ch 5\\u20138) only</option>' : '') + '</select></label>';",
              "        '>Gupta Kapoor (Ch 5\\u20138) only</option>' : '') +\n"
              "      (CMETA ? '<option value=\"cs\"' + (SEARCH.bank === 'cs' ? ' selected' : '') +\n"
-             "        '>Computer book only</option>' : '') + '</select></label>';", 'search option')
+             "        '>Computer only</option>' : '') + '</select></label>';", 'search option')
     s = sub1(s, "    if (SEARCH.bank === 'pyq' && (q.isForecast || q.isGK)) continue;",
              "    if (SEARCH.bank === 'pyq' && (q.isForecast || q.isGK || q.isCS)) continue;\n"
              "    if (SEARCH.bank === 'cs' && !q.isCS) continue;", 'search filter')
     s = sub1(s, "      (q.isGK ? '<span class=\"gk-badge\">GUPTA KAPOOR</span>' : '') +",
              "      (q.isGK ? '<span class=\"gk-badge\">GUPTA KAPOOR</span>' : '') +\n"
-             "      (q.isCS ? '<span class=\"cs-badge\">COMPUTER BOOK</span>' : '') +", 'search badge')
+             "      (q.isCS ? '<span class=\"cs-badge\">COMPUTER</span>' : '') +", 'search badge')
 
     # audit
     s = sub1(s, "  var flagged = DATA.filter(function (q) { return q.sourceIssue; });",
              "  if (CMETA) {\n"
-             "    h += '<div class=\"card\"><h3>Computer book bank</h3><p class=\"small\">' + CS_AUDIT.total +\n"
+             "    h += '<div class=\"card\"><h3>Computer bank</h3><p class=\"small\">' + CS_AUDIT.total +\n"
              "      ' questions in ' + CMETA.nSets + ' sets across ' + CMETA.chapters.length + ' chapters, kept apart from the PYQs above \\u00b7 ' +\n"
-             "      CMETA.nKeyFixes + ' printed answer keys corrected \\u00b7 ' + (CS_AUDIT.ok ? 'all structural checks passed'\n"
+             "      (CS_AUDIT.ok ? 'all structural checks passed'\n"
              "      : CS_AUDIT.errors.length + ' error(s)') + '.</p>' + (CS_AUDIT.errors.length ? '<ul class=\"small\">' +\n"
              "      CS_AUDIT.errors.slice(0, 50).map(function (e) { return '<li>' + E(e) + '</li>'; }).join('') + '</ul>' : '') +\n"
              "      '</div>';\n  }\n\n"
@@ -454,11 +443,11 @@ def main():
     bank = os.environ.get('CS_BANK_DIR', os.path.join(HERE, 'bank'))
     sheets = os.environ.get('CS_SHEET_DIR', os.path.join(HERE, 'sheets'))
     out = os.environ.get('CS_OUT', OUT)
-    meta, data = build_bank(bank, sheets)
+    meta, data, fixes, added = build_bank(bank, sheets)
     html = integrate(meta, data)
     open(out, 'w', encoding='utf-8').write(html)
-    print(f'{len(data)} questions, {meta["nSets"]} sets, {len(meta["chapters"])} chapters, '
-          f'{len(meta["sheets"])} sheets, {meta["nKeyFixes"]} key fixes -> {out} '
+    print(f'{len(data)} questions ({len(data) - added} book + {added} added), {meta["nSets"]} sets, '
+          f'{len(meta["chapters"])} chapters, {len(meta["sheets"])} sheets, {fixes} key fixes -> {out} '
           f'({os.path.getsize(out) / 1e6:.2f} MB)')
     for c in meta['chapters']:
         print(f'  Ch{c["num"]:>2} {c["title"]:<40} {c["n"]:>4} q  sets {[x["n"] for x in c["sets"]]}')
