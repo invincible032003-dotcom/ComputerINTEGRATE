@@ -1,0 +1,1422 @@
+@chapter 8
+@title Internet & its Services
+@pages 319-335 336-345
+@codes C7 C8 C5
+@default C7
+@themes 1 Protocols & acronyms · internet history · WWW · browsers, servers, ISP, gateway, DNS
+@themes 2 URL anatomy · search engines · connection types (dial-up, DSL, cable, fibre, satellite, leased line) · uses
+@themes 3 Uses & hazards of the internet · e-commerce & banking · email, viruses & malware · mobile OS
+
+#1 p319 a336
+Q: Which of the following protocols is commonly used for sending and receiving emails?
+a) HTTP
+b) FTP
+c) SMTP
+d) DNS
+K: c
+X: SMTP (Simple Mail Transfer Protocol) is the standard protocol for email. Strictly, SMTP sends mail and servers use it to relay mail; mailboxes are read with POP3 or IMAP. HTTP serves web pages, FTP transfers files and DNS resolves names.
+S: Send mail → SMTP (25); receive mail → POP3 (110) / IMAP (143).
+
+#2 p319 a336
+Q: What does the acronym "URL" stand for?
+a) Uniform Resource Locator
+b) Universal Routing Language
+c) Universal Remote Link
+d) Uniform Retrieval Language
+K: a
+X: A URL (Uniform Resource Locator) is the address of a resource on the web, e.g. `https://www.upsc.gov.in/index.html`.
+S: URL = Uniform Resource Locator.
+
+#3 p319 a336
+Q: Which of the following is not a web browser?
+a) Google Chrome
+b) Mozilla Firefox
+c) Microsoft Word
+d) Safari
+K: c
+X: Microsoft Word is a word processor. Chrome, Firefox and Safari are browsers, and so are Edge and Opera.
+S: Browsers: Chrome · Firefox · Safari · Edge · Opera (Mosaic was the first popular one).
+
+#4 p319 a336
+Q: What does the term "HTTP" stand for?
+a) HyperText Transfer Protocol
+b) Home Tool Transfer Process
+c) Host Text Terminal Protocol
+d) Hyperlink Time Transfer Procedure
+K: a
+X: HTTP (HyperText Transfer Protocol, port 80) is the request–response protocol a browser uses to fetch web pages from a server.
+S: HTTP = HyperText Transfer Protocol (port 80).
+
+#5 p319 a336
+Q: Which of the following is a secure communication protocol used for secure online transactions?
+a) HTTPS
+b) FTP
+c) SMTP
+d) POP3
+K: a
+X: HTTPS is HTTP carried over SSL/TLS encryption (port 443). The padlock in the browser shows it is in use for banking and shopping.
+S: HTTPS = HTTP + SSL/TLS (port 443).
+
+#6 p319 a336
+Q: Which organization is responsible for assigning IP addresses and managing domain names?
+a) ICANN
+b) IEEE
+c) IETF
+d) ISO
+K: a
+X: ICANN (Internet Corporation for Assigned Names and Numbers), through its IANA function, coordinates IP address allocation and the domain name system. The IETF writes internet protocol standards (RFCs), the IEEE sets LAN standards such as 802.3 and 802.11, and ISO is the general standards body (e.g. the OSI model).
+S: ICANN names & numbers · IETF protocols (RFCs) · W3C web standards · IEEE 802 LAN/Wi-Fi.
+
+#7 p319 a336
+Q: What does the term "HTML" stand for?
+a) Hypertext Markup Language
+b) Hyperlink Text Management Language
+c) Hypermedia Template Language
+d) Home Tool Markup Language
+K: a
+X: HTML (Hypertext Markup Language) uses tags such as `<p>` and `<a>` to structure web pages. It is a markup language, not a programming language.
+S: HTML = HyperText Markup Language (tags; not a programming language).
+
+#8 p319 a336
+Q: Which of the following is not a valid domain extension?
+a) .com
+b) .net
+c) .org
+d) .exe
+K: d
+X: `.exe` is a Windows file extension for executable programs, not a top-level domain. `.com`, `.net` and `.org` are generic TLDs.
+S: gTLDs: `.com` `.org` `.net` `.edu` `.gov` `.mil`; country: `.in` `.uk`.
+
+#9 p319 a337
+Q: Which of the following is an example of a social media platform?
+a) Microsoft Excel
+b) Facebook
+c) Adobe Photoshop
+d) Microsoft Word
+K: b
+X: Facebook is a social networking platform. Excel (spreadsheet), Photoshop (image editing) and Word (word processing) are application software.
+S: Social media: Facebook · X/Twitter · Instagram · LinkedIn.
+
+#10 p320 a337
+Q: Which of the following is a common internet communication protocol used for transferring files?
+a) FTP
+b) HTTP
+c) SMTP
+d) DHCP
+K: a
+X: FTP (File Transfer Protocol, ports 20/21) uploads and downloads files between a client and a server. DHCP assigns IP addresses automatically.
+S: FTP = files (20/21); DHCP = auto IP address.
+
+#11 p320 a337
+Q: Which of the following was the first network to implement the concept of packet switching, a key technology underlying the internet?
+a) ARPANET
+b) NSFNET
+c) Internet2
+d) World Wide Web
+K: a
+X: ARPANET (US Department of Defense's ARPA, 1969) was the first wide-area packet-switched network and the forerunner of the internet. NSFNET (1985) later became the backbone. The WWW (1989–91) is a service that runs on the internet, not a network.
+S: Packet switching first → ARPANET (1969).
+
+#12 p320 a337
+Q: Which year is generally considered as the birth year of the internet?
+a) 1969
+b) 1976
+c) 1983
+d) 1991
+K: a
+X: The book takes 1969, when ARPANET linked its first nodes (UCLA to Stanford) and sent the first message. Some sources instead cite 1 January 1983, when ARPANET switched to TCP/IP. 1991 is the year the World Wide Web went public.
+S: 1969 ARPANET · 1983 TCP/IP · 1989 WWW proposed · 1991 WWW public.
+
+#13 p320 a337
+Q: The transition from IPv4 to IPv6 was primarily driven by:
+a) The need for increased security
+b) The depletion of available IPv4 addresses
+c) The demand for faster internet speeds
+d) The emergence of cloud computing
+K: b
+C: C7
+X: IPv4 has 32-bit addresses (about 4.3 billion), which have run out. IPv6 uses 128-bit addresses (about 3.4 × 10^38). Better security (built-in IPsec) is a side benefit, not the driver.
+S: IPv4 = 32-bit (dotted decimal); IPv6 = 128-bit (hex, colons).
+
+#14 p320 a337
+Q: Which protocol was introduced to enable secure online communication, encrypting data transmitted over the internet?
+a) HTTP
+b) FTP
+c) HTTPS
+d) SMTP
+K: c
+X: HTTPS encrypts the traffic between browser and server with SSL/TLS, so data cannot be read or altered in transit.
+S: "Secure" + web → HTTPS.
+
+#15 p320 a337
+Q: The concept of the World Wide Web (WWW) was proposed by:
+a) Tim Berners-Lee
+b) Bill Gates
+c) Steve Jobs
+d) Mark Zuckerberg
+K: a
+X: Tim Berners-Lee proposed the WWW at CERN in 1989 and built the first web server, browser and website (1990–91).
+S: WWW → Tim Berners-Lee, CERN, 1989.
+
+#16 p320 a337
+Q: Which technology revolutionized internet search and made it widely accessible?
+a) Search engines
+b) Social media platforms
+c) Email services
+d) Online marketplaces
+K: a
+X: Search engines (Archie, AltaVista, Yahoo and then Google) index the web so that anyone can find information by typing keywords.
+S: Find information → search engine.
+
+#17 p320 a337
+Q: The introduction of which technology allowed users to access the internet without a wired connection?
+a) Wi-Fi
+b) Ethernet
+c) DSL
+d) Fiber optics
+K: a
+X: Wi-Fi (IEEE 802.11) connects devices to a network by radio waves. Ethernet, DSL and fibre are all wired.
+S: Wireless LAN → Wi-Fi (802.11); wired LAN → Ethernet (802.3).
+
+#18 p320 a337
+Q: Which development marked the transition to a more interactive and dynamic web experience?
+a) Introduction of HTML
+b) Development of web browsers
+c) Launch of JavaScript
+d) Implementation of CSS
+K: c
+X: JavaScript (Netscape, 1995) runs inside the browser and lets pages react to users without reloading. HTML gives structure and CSS gives presentation.
+S: HTML structure · CSS style · JavaScript behaviour.
+
+#19 p320 a337
+Q: Which internet protocol is responsible for translating domain names into IP addresses?
+a) DNS
+b) DHCP
+c) ICMP
+d) SNMP
+K: a
+X: DNS (Domain Name System) is the internet's phone book: it turns `www.example.com` into an IP address. ICMP carries error messages (ping), and SNMP manages network devices.
+S: DNS = name → IP; DHCP = gives IP; ICMP = ping.
+
+#20 p321 a337
+Q: Which of the following is not an example of an early internet service?
+a) Email
+b) File Transfer Protocol (FTP)
+c) Telnet
+d) Voice over IP (VoIP)
+K: d
+X: Email, FTP and Telnet (remote login) date from the early ARPANET years. VoIP (voice calls over IP networks) came much later, in the mid-1990s and 2000s.
+S: Early ARPANET services: email · FTP · Telnet.
+
+#21 p321 a337
+Q: Who is credited with inventing the World Wide Web?
+a) Tim Berners-Lee
+b) Bill Gates
+c) Steve Jobs
+d) Mark Zuckerberg
+K: a
+X: Tim Berners-Lee invented the WWW, and with it HTML, HTTP and URLs. Vint Cerf and Bob Kahn designed TCP/IP and are called the "fathers of the internet".
+S: Web → Berners-Lee; internet (TCP/IP) → Cerf & Kahn.
+
+#22 p321 a338
+Q: What was the primary goal behind the development of the World Wide Web?
+a) Facilitating online shopping
+b) Enabling global communication and information sharing
+c) Enhancing online gaming experiences
+d) Promoting social media platforms
+K: b
+X: The web was created at CERN so that scientists could share documents through hyperlinks. It then grew into a global information-sharing system.
+S: WWW goal → share information (CERN).
+
+#23 p321 a338
+Q: The first web browser developed by Tim Berners-Lee was called:
+a) Google Chrome
+b) Mozilla Firefox
+c) Internet Explorer
+d) WorldWideWeb
+K: d
+X: The first browser (1990) was called WorldWideWeb and was later renamed Nexus. Mosaic (1993) was the first popular graphical browser.
+S: First browser → WorldWideWeb (Nexus); first popular → Mosaic.
+
+#24 p321 a338
+Q: The basic building blocks of the web are:
+a) URLs and domain names
+b) Hyperlinks and HTML
+c) IP addresses and DNS
+d) HTTP and FTP
+K: b
+X: The web is a set of HTML documents linked to one another by hyperlinks. URLs, HTTP and DNS are the machinery that delivers them.
+S: Web = HTML pages + hyperlinks.
+
+#25 p321 a338
+Q: Which technology made it possible to display images, audio, and video on web pages?
+a) CSS
+b) HTML
+c) JavaScript
+d) Flash
+K: d
+X: The book's answer is Adobe Flash, the browser plug-in that brought rich multimedia (animation, audio, video) to the web in the late 1990s and 2000s. Images were already shown by HTML's `<img>` tag. Today HTML5's `<video>` and `<audio>` tags do this natively, and Flash was retired in 2020.
+S: Old multimedia plug-in → Flash; today → HTML5.
+
+#26 p321 a338
+Q: The language used for structuring and presenting content on the web is:
+a) HTML
+b) CSS
+c) JavaScript
+d) PHP
+K: a
+X: HTML structures web content. CSS styles it, JavaScript adds interactivity, and PHP is a server-side scripting language.
+S: Structure → HTML.
+
+#27 p321 a338
+Q: The protocol commonly used for transferring data over the World Wide Web is:
+a) HTTP
+b) FTP
+c) SMTP
+d) TCP/IP
+K: a
+X: HTTP is the web's application-level protocol. It runs on top of TCP/IP, which is the underlying transport for the whole internet.
+S: Web → HTTP; internet as a whole → TCP/IP.
+
+#28 p321 a338
+Q: What does the term "URL" stand for in the context of the World Wide Web?
+a) Uniform Resource Locator
+b) Universal Routing Language
+c) Uniform Retrieval Language
+d) Universal Resource Library
+K: a
+X: URL = Uniform Resource Locator, the string that identifies where a resource is on the web.
+S: URL = Uniform Resource Locator.
+
+#29 p321 a338
+Q: Which organization oversees the development and standardization of web technologies?
+a) World Wide Web Consortium (W3C)
+b) Internet Engineering Task Force (IETF)
+c) International Organization for Standardization (ISO)
+d) Internet Corporation for Assigned Names and Numbers (ICANN)
+K: a
+X: The W3C, founded by Tim Berners-Lee in 1994, sets web standards such as HTML, CSS and XML. The IETF standardises internet protocols (TCP/IP, HTTP), and ICANN manages names and numbers.
+S: Web standards → W3C.
+
+#30 p321 a338
+Q: The World Wide Web became publicly available in the year:
+a) 1989
+b) 1991
+c) 1993
+d) 1995
+K: c
+X: The book's answer is 1993: on 30 April 1993 CERN put the WWW software in the public domain, royalty-free, and the Mosaic browser appeared the same year. Note that Berners-Lee had already opened the web to the public outside CERN in August 1991. If an exam offers 1991 but not 1993, pick 1991.
+S: 1989 proposed · 1991 opened to public · 1993 royalty-free + Mosaic.
+
+#31 p322 a338
+Q: What is a web page?
+a) A program that retrieves and displays web content
+b) A document written in HTML that can be accessed through a web browser
+c) A server that hosts websites
+d) An organization that provides internet connectivity
+K: b
+X: A web page is a single HTML document identified by a URL. A website is a collection of related web pages. Option a describes a browser, c a web server and d an ISP.
+S: Page = one document; site = collection of pages.
+
+#32 p322 a338
+Q: Which of the following is a web browser?
+a) Apache
+b) Nginx
+c) Chrome
+d) DNS
+K: c
+X: Chrome is a browser (client side). Apache and Nginx are web server software (server side), and DNS is a naming service.
+S: Apache / Nginx / IIS = servers; Chrome / Firefox = browsers.
+
+#33 p322 a338
+Q: What is the primary function of a web browser?
+a) Hosting websites
+b) Serving web pages to users
+c) Transferring data over the internet
+d) Retrieving and displaying web content
+K: d
+X: A browser requests pages from servers (via HTTP/HTTPS) and renders the HTML, images and scripts for the user. Hosting and serving pages is what a web server does.
+S: Browser = retrieve + render.
+
+#34 p322 a338
+Q: What is a web server?
+a) A device that connects multiple networks together
+b) A software application that delivers web pages to client devices upon request
+c) An organization that provides internet connectivity
+d) A protocol for transferring files over the internet
+K: b
+X: A web server (the software, or the machine running it) stores websites and sends pages to browsers when they request them. Option a is a router or gateway, and c is an ISP.
+S: Web server answers HTTP requests.
+
+#35 p322 a338
+Q: What does ISP stand for?
+a) Internet Server Protocol
+b) Internet Service Provider
+c) Internal Security Protocol
+d) International Standards and Practices
+K: b
+C: C7
+X: An ISP (Internet Service Provider), e.g. BSNL, Airtel or Jio, provides internet connectivity to users.
+S: ISP = Internet Service Provider.
+
+#36 p322 a338
+Q: What is the role of an ISP?
+a) Serving web pages to users
+b) Hosting websites
+c) Providing internet connectivity to users
+d) Transferring data over the internet
+K: c
+X: An ISP's core role is to connect customers to the internet (by DSL, cable, fibre, wireless and so on). Some ISPs also host websites, but that is a side service.
+S: ISP → connectivity.
+
+#37 p322 a338
+Q: What is a gateway in the context of networking?
+a) A device that connects a computer network to the internet
+b) A software application used for browsing the web
+c) A web server responsible for hosting websites
+d) An organization that provides internet connectivity
+K: a
+X: A gateway joins two networks, often ones using different protocols, e.g. a LAN and the internet. It can translate between protocols. A home router acts as the default gateway.
+S: Gateway = joins dissimilar networks (protocol converter).
+
+#38 p323 a338
+Q: Which component is responsible for translating domain names into IP addresses?
+a) Web server
+b) ISP
+c) Gateway
+d) DNS server
+K: d
+X: A DNS server resolves domain names to IP addresses.
+S: Name → IP = DNS server.
+
+#39 p323 a339
+Q: Which of the following is an example of a popular web browser?
+a) Apache
+b) IIS
+c) Firefox
+d) SMTP
+K: c
+X: Firefox (Mozilla) is a browser. Apache and IIS (Microsoft Internet Information Services) are web servers, and SMTP is a mail protocol.
+S: IIS = Microsoft's web server.
+
+#40 p323 a339
+Q: Which of the following is not a common web server software?
+a) Apache
+b) Nginx
+c) IIS
+d) HTML
+K: d
+X: HTML is a markup language for writing web pages, not server software. Apache, Nginx and IIS are the major web servers.
+S: Odd one out: HTML (a language).
+
+#41 p323 a339
+Q: What is the purpose of a firewall in computer networks?
+a) To protect against viruses and malware
+b) To provide internet connectivity to devices
+c) To filter network traffic and enforce security policies
+d) To translate domain names into IP addresses
+K: c
+X: A firewall (hardware or software) examines incoming and outgoing traffic and allows or blocks it according to security rules. It is not an antivirus: removing viruses and malware is the antivirus's job.
+S: Firewall = traffic filter; antivirus = malware remover.
+
+#42 p323 a339
+Q: Which of the following is an example of a top-level domain (TLD)?
+a) .com
+b) HTTP
+c) TCP/IP
+d) HTML
+K: a
+X: The TLD is the last label of a domain name, e.g. `.com` in `google.com` or `.in` in `upsc.gov.in`.
+S: TLD = rightmost part of domain name.
+
+#43 p323 a339
+Q: What does the term "HTML" stand for in the context of web development?
+a) HyperText Markup Language
+b) Hypertext Transfer Protocol
+c) Hypertext Transfer Protocol Secure
+d) Hyperlink and Text Markup Language
+K: a
+X: HTML = HyperText Markup Language. Options b and c spell out HTTP and HTTPS.
+S: ML = Markup Language; TP = Transfer Protocol.
+
+#44 p323 a339
+Q: What is the function of a DNS server?
+a) To store and retrieve website content
+b) To route network traffic between devices
+c) To translate domain names into IP addresses
+d) To ensure secure communication between web servers and browsers
+K: c
+X: The DNS server lets users type human-readable names, which it maps to numeric IP addresses. Routing traffic is a router's job.
+S: DNS = name resolution.
+
+#45 p323 a339
+Q: Which protocol is commonly used for sending and receiving emails?
+a) SMTP
+b) HTTP
+c) FTP
+d) DNS
+K: a
+X: SMTP handles sending and relaying email. POP3 and IMAP are used to retrieve it from the mailbox.
+S: SMTP = send; POP3/IMAP = receive.
+
+#46 p323 a339
+Q: What is the purpose of a cookie in web browsing?
+a) To enhance website security
+b) To store user preferences and session information
+c) To compress web page content for faster loading
+d) To encrypt data transmitted between web servers and browsers
+K: b
+C: C7
+X: A cookie is a small text file that a website stores in the browser to remember logins, preferences and shopping carts. Third-party cookies raise privacy concerns because they allow tracking.
+S: Cookie = small text file remembering you.
+
+#47 p324 a339
+Q: Which organization is responsible for assigning IP addresses globally?
+a) ICANN
+b) W3C
+c) IETF
+d) IEEE
+K: a
+X: ICANN, through IANA, allocates IP address blocks to the five Regional Internet Registries, e.g. APNIC for Asia-Pacific, which pass them on to ISPs.
+S: IP addresses → ICANN/IANA → RIRs → ISPs.
+
+#48 p324 a339
+Q: What is the purpose of a VPN (Virtual Private Network)?
+a) To host websites on the internet
+b) To provide secure remote access to a private network
+c) To filter and block unwanted network traffic
+d) To convert analog signals into digital signals
+K: b
+X: A VPN builds an encrypted "tunnel" over the public internet so that remote users can reach a private network securely. Option c is a firewall and d is a modem.
+S: VPN = encrypted tunnel over public network.
+
+#49 p324 a339
+Q: Which of the following is an example of a cloud storage service?
+a) Dropbox
+b) SSH
+c) Telnet
+d) HTTP
+K: a
+X: Dropbox, Google Drive and OneDrive store files on remote servers that can be reached from anywhere. SSH and Telnet are remote-login protocols, and HTTP is the web protocol.
+S: Cloud storage: Dropbox · Google Drive · OneDrive · iCloud.
+
+#50 p324 a339
+Q: What does the term "URL" stand for in the context of web addresses?
+a) Uniform Resource Locator
+b) Universal Routing Language
+c) User Registration Link
+d) User Retention Log
+K: a
+X: URL = Uniform Resource Locator, the address used to locate a resource on the web.
+S: URL = Uniform Resource Locator.
+
+#51 p324 a339
+Q: What does the acronym "URL" stand for?
+a) Universal Routing Language
+b) Universal Resource Locator
+c) Uniform Resource Locator
+d) User Registration Link
+K: c
+X: The first word is Uniform, not Universal. Option b is the classic trap.
+S: Trap: "Universal" ✗ → "Uniform" ✓.
+
+#52 p324 a339
+Q: What is the purpose of a URL?
+a) To identify the type of internet connection
+b) To specify the location of a web resource
+c) To define the format of a web page
+d) To establish a secure connection between client and server
+K: b
+X: A URL gives the location of a resource (page, image, file) and the protocol used to reach it.
+S: URL = address of a resource.
+
+#53 p324 a339
+Q: Which part of a URL specifies the protocol being used?
+a) Host
+b) Path
+c) Query string
+d) Scheme
+K: d
+X: In `https://www.example.com/a/b.html?id=5`, the scheme is `https`, the host is `www.example.com`, the path is `/a/b.html` and the query string is `id=5`.
+S: URL = scheme :// host / path ? query # fragment.
+
+#54 p324 a339
+Q: Which of the following is an example of a protocol used in a URL?
+a) HTTP
+b) .com
+c) www
+d) /home
+K: a
+X: `http` (or `https`, `ftp`, `mailto`) is the scheme, i.e. the protocol. `.com` is the TLD, `www` is part of the host name and `/home` is a path.
+S: Protocol part: `http` `https` `ftp` `mailto`.
+
+#55 p324 a340
+Q: In the URL "https://www.example.com/index.html", what does "www.example.com" represent?
+a) Protocol
+b) Host
+c) Path
+d) Query string
+K: b
+X: `www.example.com` is the host (domain name) of the web server. `https` is the protocol and `/index.html` is the path.
+S: Between `://` and the first `/` → host.
+
+#56 p325 a340
+Q: What is the purpose of a protocol in a URL?
+a) It identifies the server hosting the web resource
+b) It defines the format of the web page
+c) It specifies the type of connection between client and server
+d) It determines the path to the web resource
+K: c
+X: The protocol (scheme) tells the browser how to talk to the server: HTTP, secure HTTPS, FTP and so on.
+S: Scheme = how to connect.
+
+#57 p325 a340
+Q: Which part of a URL identifies the specific resource or page on the web server?
+a) Protocol
+b) Host
+c) Path
+d) Query string
+K: c
+X: The path (e.g. `/products/index.html`) says which resource on that server is wanted.
+S: Host = which server; path = which file.
+
+#58 p325 a340
+Q: Which component of a URL contains additional parameters or data to be sent to the web server?
+a) Protocol
+b) Host
+c) Path
+d) Query string
+K: d
+X: The query string follows `?` and carries name=value pairs joined by `&`, e.g. `?q=iss&page=2`.
+S: After `?` → query string.
+
+#59 p325 a340
+Q: In the URL "http://www.example.com/products/index.html", what does "/products/index.html" represent?
+a) Protocol
+b) Host
+c) Path
+d) Query string
+K: c
+X: Everything after the host, up to any `?`, is the path: here the file `index.html` in the directory `products`.
+S: After host, before `?` → path.
+
+#60 p325 a340
+Q: What is the purpose of the path component in a URL?
+a) It specifies the location of the web server
+b) It identifies the specific resource or page on the web server
+c) It contains additional parameters or data to be sent to the web server
+d) It determines the format of the web page
+K: b
+X: The path identifies the resource on the server. Option a describes the host and option c the query string.
+S: Path ↔ resource.
+
+#61 p325 a340
+Q: What is a search engine?
+a) A software used to create websites
+b) A program that connects to the internet
+c) An online service that retrieves and displays search results
+d) A device used to access the World Wide Web
+K: c
+X: A search engine (Google, Bing, DuckDuckGo) crawls and indexes the web, then returns ranked results for a user's query.
+S: Search engine = crawl → index → rank → results.
+
+#62 p325 a340
+Q: Which of the following is a popular search engine?
+a) HTML
+b) JavaScript
+c) Google
+d) CSS
+K: c
+X: Google is the most used search engine. HTML, JavaScript and CSS are web languages.
+S: Search engines: Google · Bing · Yahoo · DuckDuckGo · Baidu.
+
+#63 p325 a340
+Q: What is the primary purpose of a search engine?
+a) To host websites and web pages
+b) To provide internet connectivity to users
+c) To index and retrieve web pages based on user queries
+d) To transfer data between web servers and browsers
+K: c
+X: A search engine indexes pages in advance, then retrieves and ranks the relevant ones when a query arrives.
+S: Index + retrieve.
+
+#64 p326 a340
+Q: How do search engines gather information about web pages?
+a) By using social media platforms
+b) By scanning and indexing web pages
+c) By directly contacting website owners
+d) By conducting surveys and polls
+K: b
+X: Automated programs called crawlers (spiders, bots) follow links from page to page, download the content and add it to the index.
+S: Crawler / spider / bot → scans pages.
+
+#65 p326 a340
+Q: Which component of a search engine determines the relevance of web pages to a user's query?
+a) Web crawler
+b) Index
+c) Algorithm
+d) Query processor
+K: c
+X: The ranking algorithm (e.g. Google's PageRank plus hundreds of other signals) scores the indexed pages for relevance to the query. The crawler collects pages and the index stores them.
+S: Crawler collects · index stores · algorithm ranks.
+
+#66 p326 a340
+Q: What is the purpose of a web crawler in a search engine?
+a) To display search results to users
+b) To retrieve and index web pages
+c) To analyze user queries
+d) To provide internet connectivity to users
+K: b
+X: A crawler fetches web pages automatically and feeds them to the indexer.
+S: Crawler = spider = bot.
+
+#67 p326 a340
+Q: Which search engine introduced the concept of PageRank?
+a) Yahoo
+b) Bing
+c) Google
+d) DuckDuckGo
+K: c
+X: PageRank, named after Larry Page, ranks a page by the number and quality of links pointing to it. Page and Sergey Brin developed it at Stanford, and it became the basis of Google (1998).
+S: PageRank → Google (Page & Brin).
+
+#68 p326 a340
+Q: What does the term "SERP" stand for in the context of search engines?
+a) Search Engine Ranking Position
+b) Search Engine Result Page
+c) Search Engine Retrieval Process
+d) Search Engine Ranking Protocol
+K: b
+X: A SERP (Search Engine Result Page) is the page of results shown for a query, with organic results and ads.
+S: SERP = Search Engine Result Page.
+
+#69 p326 a340
+Q: Which factor does a search engine consider to rank web pages in search results?
+a) Number of social media followers
+b) Page loading speed
+c) Frequency of website updates
+d) Relevance and quality of content
+K: d
+X: Relevance and quality of content (plus backlinks) are the main ranking factors. Page speed is only a minor signal.
+S: Ranking: relevance + quality + links.
+
+#70 p326 a341
+Q: What is the purpose of search engine optimization (SEO)?
+a) To block search engines from accessing web pages
+b) To improve the visibility and ranking of web pages in search results
+c) To analyze user behavior on web pages
+d) To encrypt data transmitted between web servers and browsers
+K: b
+C: C7
+X: SEO means adjusting a site's content, keywords, links and structure so that it ranks higher in organic (unpaid) search results.
+S: SEO = rank higher, unpaid.
+
+#71 p326 a341
+Q: Which type of internet connection uses a telephone line for transmitting data?
+a) DSL
+b) Fiber optic
+c) Satellite
+d) Cellular
+K: a
+X: DSL (Digital Subscriber Line, e.g. ADSL) sends broadband data over ordinary copper telephone lines at higher frequencies, so voice and data can share the line.
+S: Telephone line: dial-up (slow, line busy) and DSL (broadband, always on).
+
+#72 p327 a341
+Q: Which of the following internet connection types offers the highest speed and bandwidth?
+a) Dial-up
+b) Cable
+c) DSL
+d) Satellite
+K: b
+X: Of these, cable broadband (over coaxial TV cable) is usually fastest. Dial-up is at most 56 kbps, and DSL and satellite are slower than cable. Fibre, which is not an option here, beats them all.
+S: Speed: dial-up < DSL / satellite < cable < fibre.
+
+#73 p327 a341
+Q: Which type of internet connection uses radio waves to transmit data?
+a) Fiber optic
+b) DSL
+c) Dial-up
+d) Wireless
+K: d
+X: Wireless connections (Wi-Fi, cellular, WiMAX) carry data by radio waves. Fibre uses light pulses, and DSL and dial-up use copper phone lines.
+S: Light → fibre; radio → wireless; copper → DSL/dial-up.
+
+#74 p327 a341
+Q: Which internet connection type requires a modem and a physical cable to connect to the internet?
+a) Satellite
+b) Dial-up
+c) Fiber optic
+d) Wireless
+K: b
+X: Dial-up needs a modem that dials the ISP over the telephone cable and converts digital data to analog tones and back (modulation/demodulation).
+S: Modem = MOdulator–DEModulator (dial-up).
+
+#75 p327 a341
+Q: Which of the following internet connection types provides internet access through a television cable network?
+a) Fiber optic
+b) Dial-up
+c) Cable
+d) DSL
+K: c
+X: Cable internet uses the cable TV provider's coaxial network, with a cable modem at the customer's end.
+S: TV coax → cable internet.
+
+#76 p327 a341
+Q: Which type of internet connection offers a dedicated, always-on connection to the internet?
+a) Dial-up
+b) DSL
+c) Fiber optic
+d) Leased line
+K: d
+X: A leased line is a dedicated, uncontended connection rented from a telecom provider. It is permanently on and has symmetric bandwidth, and businesses use it. DSL is also always on, but it is shared and not dedicated.
+S: Dedicated + always on + symmetric → leased line.
+
+#77 p327 a341
+Q: Which internet connection type is typically used in rural or remote areas where other connections may not be available?
+a) Fiber optic
+b) DSL
+c) Satellite
+d) Cellular
+K: c
+X: Satellite internet needs only a dish with a view of the sky, so it reaches places with no cables or towers. Its drawbacks are high latency and sensitivity to weather.
+S: Remote areas → satellite (high latency).
+
+#78 p327 a341
+Q: Which type of internet connection utilizes optical fibers to transmit data at high speeds?
+a) Satellite
+b) Cable
+c) Fiber optic
+d) Dial-up
+K: c
+X: Fibre-optic links carry data as pulses of light through glass fibres. They give the highest bandwidth and are immune to electromagnetic interference, e.g. FTTH (fibre to the home).
+S: Light pulses → fibre (fastest, EMI-immune).
+
+#79 p327 a341
+Q: Which internet connection type uses cellular networks to provide internet access?
+a) Dial-up
+b) Fiber optic
+c) DSL
+d) Cellular
+K: d
+X: Cellular (mobile) internet uses 3G, 4G LTE and 5G mobile networks.
+S: 3G / 4G / 5G → cellular.
+
+#80 p327 a341
+Q: Which of the following internet connection types offers mobility and can be accessed wirelessly from various locations?
+a) DSL
+b) Dial-up
+c) Fiber optic
+d) Cellular
+K: d
+X: Cellular data goes wherever there is mobile coverage. DSL, dial-up and fibre are fixed wired connections.
+S: Mobility → cellular.
+
+#81 p327 a341
+Q: Which type of internet connection offers a dedicated, private, and secure connection between two locations?
+a) Leased Lines
+b) Digital Subscriber Line (DSL)
+c) Satellite Internet
+d) Cable Modem Broadband
+K: a
+X: A leased line is a private point-to-point circuit between two sites, e.g. a bank's head office and a branch, and is not shared with other customers.
+S: Point-to-point private circuit → leased line.
+
+#82 p328 a341
+Q: Which internet connection type uses telephone lines to transmit data and provides high-speed internet access?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Cable Modem Broadband
+K: b
+X: DSL gives broadband speeds over existing copper telephone lines.
+S: Phone line + high speed → DSL.
+
+#83 p328 a341
+Q: Which type of internet connection uses geostationary satellites to transmit and receive data signals?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Cable Modem Broadband
+K: c
+X: Traditional satellite internet relays signals through geostationary satellites about 36,000 km up, which causes high latency. Newer systems such as Starlink use low-earth-orbit satellites.
+S: GEO satellite ~36,000 km → high latency.
+
+#84 p328 a341
+Q: Which internet connection type utilizes coaxial cables to provide high-speed internet access?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Cable Modem Broadband
+K: d
+X: Cable modem broadband runs over the coaxial cables of cable TV networks.
+S: Coaxial → cable modem.
+
+#85 p328 a342
+Q: Which type of internet connection uses wireless technology to transmit data signals?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Wireless Broadband Internet
+K: d
+X: Wireless broadband (fixed wireless, Wi-Fi hotspots, WiMAX, 4G/5G) carries data over radio links. The book's intended answer is option d, although satellite is also a wireless link.
+S: "Wireless" in the option → that one.
+
+#86 p328 a342
+Q: Which internet connection type is known for its low latency and high reliability?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Wireless Broadband Internet
+K: a
+X: Being dedicated and uncontended, leased lines give consistent low latency and high reliability, usually backed by a service-level agreement (SLA).
+S: Low latency + SLA → leased line; high latency → satellite.
+
+#87 p328 a342
+Q: Which type of internet connection is typically used in remote areas where other types of connections may not be available?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Wireless Broadband Internet
+K: c
+X: Satellite internet covers remote areas that no terrestrial network reaches.
+S: Remote → satellite.
+
+#88 p328 a342
+Q: Which internet connection type offers high-speed data transmission through fiber optic cables?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Cable Modem Broadband
+K: a
+X: Modern leased lines are usually delivered over dedicated fibre-optic cable, which is why the book picks them here. DSL uses copper phone lines and cable broadband uses coaxial cable (hybrid fibre-coax networks do use fibre in the core).
+S: Among these, fibre → leased line.
+
+#89 p328 a342
+Q: Which type of internet connection is prone to signal interference due to weather conditions?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Wireless Broadband Internet
+K: c
+X: Heavy rain and snow weaken satellite signals ("rain fade"), especially in the higher frequency bands.
+S: Rain fade → satellite.
+
+#90 p328 a342
+Q: Which internet connection type is commonly used in residential areas and offers high-speed internet through existing cable TV networks?
+a) Leased Lines
+b) DSL
+c) Satellite Internet
+d) Cable Modem Broadband
+K: d
+X: Cable modem broadband reuses the cable TV coaxial network that already reaches homes.
+S: Existing cable TV → cable modem broadband.
+
+#91 p329 a342
+Q: What is one of the primary uses of the internet?
+a) Sending physical mail
+b) Making phone calls
+c) Accessing and sharing information
+d) Broadcasting television programs
+K: c
+X: Accessing and sharing information is the internet's core use. Calls (VoIP) and streaming are also possible, but they are secondary.
+S: Primary use → information.
+
+#92 p329 a342
+Q: Which of the following is a common use of the internet in the field of education?
+a) Conducting scientific experiments
+b) Organizing physical libraries
+c) Writing letters
+d) Sharing research papers and resources
+K: d
+X: In education the internet is used for e-learning, MOOCs (e.g. SWAYAM), digital libraries and sharing research papers.
+S: Education → e-learning + research sharing.
+
+#93 p329 a342
+Q: How does the internet contribute to the field of entertainment?
+a) By producing movies and TV shows
+b) By creating video games
+c) By offering streaming services for music, movies, and TV shows
+d) By publishing books and magazines
+K: c
+X: Streaming services (YouTube, Netflix, Spotify) deliver music, films and TV shows over the internet.
+S: Entertainment → streaming.
+
+#94 p329 a342
+Q: Which of the following is a popular use of the internet in the business sector?
+a) Conducting financial transactions
+b) Operating physical stores
+c) Printing physical documents
+d) Manufacturing products
+K: a
+X: Businesses use the internet for online payments, banking, e-commerce and B2B transactions.
+S: Business → online transactions.
+
+#95 p329 a342
+Q: How does the internet facilitate communication?
+a) By delivering physical letters
+b) By providing instant messaging and video conferencing
+c) By sending fax messages
+d) By organizing face-to-face meetings
+K: b
+X: The internet supports communication through email, instant messaging (WhatsApp), VoIP and video conferencing (Zoom).
+S: Communication → email, chat, VoIP, video calls.
+
+#96 p329 a342
+Q: What is one of the ways the internet is used in the healthcare industry?
+a) Performing surgeries remotely
+b) Developing new medicines
+c) Operating hospitals
+d) Providing telemedicine and online consultations
+K: d
+X: Telemedicine (e.g. eSanjeevani) lets doctors consult patients remotely over the internet. Remote robotic surgery exists but is rare. Telemedicine is the everyday use.
+S: Healthcare → telemedicine.
+
+#97 p329 a342
+Q: How does the internet contribute to the field of e-commerce?
+a) By building physical retail stores
+b) By printing physical catalogs
+c) By offering online shopping platforms
+d) By delivering products through traditional mail
+K: c
+X: E-commerce means buying and selling online through platforms such as Amazon and Flipkart.
+S: E-commerce → online shopping platforms.
+
+#98 p329 a342
+Q: Which of the following is a common use of the internet in social interactions?
+a) Attending physical parties and gatherings
+b) Sending physical greeting cards
+c) Connecting with friends and family through social media
+d) Writing letters
+K: c
+X: Social networking sites let people stay connected, share updates and join communities.
+S: Social interaction → social media.
+
+#99 p329 a342
+Q: How does the internet support research and information gathering?
+a) By visiting physical libraries
+b) By conducting experiments in laboratories
+c) By providing access to online databases and resources
+d) By publishing academic journals
+K: c
+X: Researchers use online databases (JSTOR, PubMed), e-journals and search engines to find information quickly.
+S: Research → online databases.
+
+#100 p330 a342
+Q: What is one of the ways the internet is used in the field of governance?
+a) Conducting physical voting in elections
+b) Drafting physical legislation
+c) Facilitating online government services and transactions
+d) Organizing physical town hall meetings
+K: c
+X: E-governance delivers government services online, e.g. DigiLocker, online tax filing and UMANG. It makes government more transparent and saves citizens' time.
+S: Governance → e-governance services.
+
+#101 p330 a343
+Q: What is one of the main concerns related to online privacy?
+a) Slow internet speed
+b) Unauthorized access to personal information
+c) Limited access to websites
+d) Lack of online shopping options
+K: b
+X: The main privacy risk is that personal data can be collected, accessed or misused without consent, through tracking, data breaches or leaks.
+S: Privacy → unauthorised access to personal data.
+
+#102 p330 a343
+Q: What is a potential risk associated with cyberbullying?
+a) Increased productivity in online communities
+b) Enhanced social connections
+c) Emotional distress and psychological harm
+d) Improved communication skills
+K: c
+X: Cyberbullying means harassing someone through digital channels. It can cause anxiety, depression and other emotional and psychological harm.
+S: Cyberbullying → psychological harm.
+
+#103 p330 a343
+Q: What is one of the hazards of online scams and frauds?
+a) Enhanced online security measures
+b) Increased economic stability
+c) Financial loss and identity theft
+d) Improved customer service experiences
+K: c
+X: Phishing, fake shops and lottery scams can steal money and personal identity details.
+S: Scams → money loss + identity theft.
+
+#104 p330 a343
+Q: What is a potential danger related to excessive screen time and internet addiction?
+a) Improved physical fitness and well-being
+b) Enhanced cognitive abilities
+c) Sleep disturbances and sedentary lifestyle
+d) Increased productivity and efficiency
+K: c
+X: Too much screen time disturbs sleep (blue light, late-night use) and encourages physical inactivity.
+S: Addiction → poor sleep + inactivity.
+
+#105 p330 a343
+Q: What is one of the concerns regarding cybercrime?
+a) Stronger cybersecurity measures
+b) Decreased reliance on digital platforms
+c) Unauthorized access to personal and financial information
+d) Improved international cooperation in law enforcement
+K: c
+X: Hacking, fraud and data theft give criminals unauthorised access to personal and financial information. In India, cybercrime is dealt with under the IT Act, 2000.
+S: Cybercrime → data/financial theft; India: IT Act 2000.
+
+#106 p330 a343
+Q: What is a potential risk associated with inappropriate content on the internet?
+a) Enhanced educational resources
+b) Improved creativity and critical thinking
+c) Exposure to explicit or harmful material
+d) Strengthened cultural understanding
+K: c
+X: Unfiltered access can expose users, especially children, to explicit, violent or harmful material. This is why parental controls and content filters exist.
+S: Inappropriate content → exposure to harm.
+
+#107 p331 a343
+Q: What is one of the hazards of online identity theft?
+a) Increased social interactions and networking
+b) Enhanced online reputation management
+c) Financial loss and misuse of personal information
+d) Improved personal branding opportunities
+K: c
+X: Stolen identity details (Aadhaar, PAN, card numbers) can be used to take out loans, make purchases or commit fraud in the victim's name.
+S: Identity theft → fraud in your name.
+
+#108 p331 a343
+Q: What is a potential danger related to online grooming and exploitation?
+a) Enhanced online safety measures
+b) Improved social skills and empathy
+c) Vulnerability to manipulation and harm
+d) Increased global awareness and activism
+K: c
+X: Online grooming is when predators build trust with minors in order to manipulate and exploit them.
+S: Grooming → manipulation + harm (minors).
+
+#109 p331 a343
+Q: Which of the following is a primary use of the internet in communication?
+a) Sending physical letters
+b) Making phone calls
+c) Broadcasting television programs
+d) Organizing physical meetings
+K: b
+X: VoIP apps (WhatsApp, Skype, Google Meet) let users make voice and video calls over the internet. The other options are offline activities or broadcasting.
+S: Internet phone calls = VoIP.
+
+#110 p331 a343
+Q: How does the internet facilitate communication?
+a) By providing instant messaging and video calling
+b) By delivering physical mail
+c) By offering satellite communication services
+d) By organizing face-to-face meetings
+K: a
+X: The internet facilitates communication through instant messaging, email and video calls.
+S: Instant messaging + video calls.
+
+#111 p331 a343
+Q: What is one of the main uses of the internet in accessing information?
+a) Publishing physical books and magazines
+b) Conducting scientific experiments
+c) Operating physical libraries
+d) Browsing websites and online databases
+K: d
+B: a
+X: Information is accessed online by browsing websites, searching and using online databases. The other options are offline activities.
+S: Access information → browse websites/databases.
+N: The book prints (a), but its explanation reads "achieved by browsing websites and online databases", which is option (d). The letter is a misprint, and the key is (d).
+
+#112 p331 a343
+Q: How does the internet support the dissemination of information?
+a) By printing physical newspapers
+b) By conducting physical surveys
+c) By providing access to online news websites and blogs
+d) By publishing physical journals
+K: c
+X: News sites, blogs, podcasts and social media spread information instantly to a worldwide audience.
+S: Dissemination → online news, blogs.
+
+#113 p331 a343
+Q: Which of the following is a significant use of the internet in providing services?
+a) Operating brick-and-mortar stores
+b) Distributing physical products
+c) Offering online banking and e-government services
+d) Producing physical goods
+K: c
+X: Online banking (net banking, UPI) and e-government portals deliver services without a visit to an office.
+S: Services → net banking + e-governance.
+
+#114 p331 a343
+Q: How does the internet contribute to e-commerce?
+a) By conducting physical transactions
+b) By printing physical catalogs
+c) By facilitating online shopping and electronic payments
+d) By organizing physical retail stores
+K: c
+X: E-commerce combines online storefronts with electronic payment (cards, UPI, wallets).
+S: E-commerce = online shop + e-payment.
+
+#115 p332 a343
+Q: What is one of the primary benefits of e-commerce on the internet?
+a) Limited product variety
+b) Higher prices compared to physical stores
+c) Convenience and accessibility for online shopping
+d) Lack of customer reviews and ratings
+K: c
+X: Shoppers can buy anytime, from anywhere, and compare products easily. The other options are drawbacks or untrue.
+S: E-commerce benefit → 24×7 convenience.
+
+#116 p332 a344
+Q: Which of the following is a common use of the internet in online banking?
+a) Depositing physical checks at the bank
+b) Withdrawing cash from physical ATMs
+c) Accessing bank accounts and conducting financial transactions online
+d) Meeting with bank representatives in person
+K: c
+X: Net banking lets customers check balances, transfer funds (NEFT, RTGS, IMPS, UPI) and pay bills online.
+S: Online banking → account access + transfers.
+
+#117 p332 a344
+Q: What is the primary purpose of email?
+a) Sending physical mail
+b) Making phone calls
+c) Sending and receiving electronic messages
+d) Sharing files through a network
+K: c
+X: Email sends and receives electronic messages, with attachments, using addresses such as `user@domain.com`. Ray Tomlinson sent the first network email on ARPANET in 1971 and introduced the @ sign.
+S: Email: Ray Tomlinson 1971, @ sign.
+
+#118 p332 a344
+Q: Which of the following is a potential risk associated with email attachments?
+a) Enhanced productivity and collaboration
+b) Increased storage capacity
+c) Virus infections and malware distribution
+d) Improved email filtering and spam protection
+K: c
+X: Attachments are a leading way malware spreads. Opening an infected `.exe`, a macro-enabled document or a disguised file can infect the system.
+S: Unknown attachment → malware risk.
+
+#119 p332 a344
+Q: What is a common characteristic of a computer virus?
+a) Improving system performance
+b) Enhancing data security
+c) Replicating and spreading through computer systems
+d) Providing online storage services
+K: c
+X: A virus attaches itself to host files or programs and copies itself when the host runs, spreading to other files and systems. It needs a host and user action. A worm does not.
+S: Virus = self-replicating, needs a host program.
+
+#120 p332 a344
+Q: How can viruses be transmitted through email?
+a) By physical mail delivery
+b) Through phone calls
+c) Via infected email attachments or links
+d) By direct message sharing on social media
+K: c
+X: Email viruses arrive as infected attachments or as links to malicious sites.
+S: Email vector → attachments + links.
+
+#121 p332 a344
+Q: What is a potential consequence of falling victim to a virus-infected email attachment?
+a) Improved computer performance
+b) Enhanced data backup solutions
+c) Loss or corruption of files and data
+d) Increased network speed
+K: c
+X: An infection can delete, corrupt or encrypt files and slow the system down.
+S: Infection → data loss / corruption.
+
+#122 p333 a344
+Q: How can individuals protect themselves from email-based viruses?
+a) Avoiding email communication altogether
+b) Opening every email attachment received
+c) Installing antivirus software and regularly updating it
+d) Sharing personal information via email
+K: c
+X: Keep antivirus software installed and updated, and don't open unexpected attachments or links. Antivirus depends on up-to-date virus definitions.
+S: Protection → updated antivirus + caution.
+
+#123 p333 a344
+Q: What is a common method used to spread email viruses?
+a) Sending physical letters
+b) Manually copying files to external storage devices
+c) Mass email distribution to unsuspecting recipients
+d) Posting on social media platforms
+K: c
+X: Mass-mailing malware (e.g. ILOVEYOU, 2000) emails copies of itself to every address in the victim's address book.
+S: Mass mailing → email worm (ILOVEYOU).
+
+#124 p333 a344
+Q: How can users identify potential email viruses?
+a) By analyzing the email sender's physical address
+b) By examining the email's subject line
+c) By opening every email received
+d) By checking the email for spelling errors and grammar mistakes
+K: b
+X: The book's answer is to examine the subject line: urgent, alarming or too-good-to-be-true subjects ("Invoice attached", "You won!") are warning signs. Spelling and grammar errors (option d) are also recognised red flags for phishing. Checking the sender's email address, not a physical address, is another. Opening every email (option c) is the one clearly wrong choice.
+S: Red flags: odd subject · unknown sender · bad spelling · unexpected attachment.
+
+#125 p333 a344
+Q: Which type of virus disguises itself as a legitimate program but performs malicious actions in the background?
+a) Worm
+b) Trojan horse
+c) Boot sector virus
+d) Spyware
+K: b
+X: A Trojan horse looks like useful software but carries a hidden malicious payload, often a backdoor. Unlike a virus or worm, it does not replicate itself.
+S: Disguise + no self-replication → Trojan.
+
+#126 p333 a344
+Q: What is a characteristic of a worm virus?
+a) Attaches itself to executable files
+b) Spreads by replicating and sending copies of itself to other computers
+c) Modifies the boot sector of the computer's hard drive
+d) Records and transmits sensitive user information
+K: b
+X: A worm is standalone malware. It copies itself across networks by exploiting vulnerabilities, needs no host file and no user action, and uses up bandwidth. Option a describes a file virus, c a boot sector virus and d spyware.
+S: Worm = self-spreading over network, no host needed.
+
+#127 p333 a344
+Q: Which type of virus infects the boot sector of a computer's hard drive?
+a) Adware
+b) Ransomware
+c) Boot sector virus
+d) Keylogger
+K: c
+X: A boot sector virus infects the boot record (MBR) and loads into memory every time the computer starts. Floppy disks used to spread them, e.g. Brain (1986), created in Pakistan and regarded as the first PC virus.
+S: Boot sector virus → MBR; Brain (1986) = first PC virus.
+
+#128 p333 a344
+Q: What is the primary purpose of a ransomware virus?
+a) Stealing sensitive information
+b) Displaying unwanted advertisements
+c) Locking or encrypting files and demanding a ransom for their release
+d) Tracking user activities on the internet
+K: c
+X: Ransomware encrypts the victim's files or locks the system and demands payment, often in cryptocurrency, for the key. Example: WannaCry (2017).
+S: Encrypt + demand payment → ransomware (WannaCry).
+
+#129 p333 a344
+Q: Which type of virus captures keystrokes entered by a user to collect sensitive information such as passwords and credit card details?
+a) Spyware
+b) Adware
+c) Keylogger
+d) Logic bomb
+K: c
+X: A keylogger records every key pressed to capture passwords and card numbers. It is a specialised type of spyware, but the most specific answer is keylogger.
+S: Keystrokes → keylogger.
+
+#130 p334 a344
+Q: What is a characteristic of a logic bomb virus?
+a) Displays pop-up advertisements on the infected computer
+b) Spreads through email attachments and infects other computers
+c) Activates when a specific condition or event occurs, causing malicious actions
+d) Infects the master boot record of a computer's hard drive
+K: c
+X: A logic bomb is malicious code that lies dormant until a trigger condition is met, e.g. a date (a "time bomb", such as Friday the 13th) or an employee's name being removed from the payroll.
+S: Trigger condition/date → logic bomb (time bomb).
+
+#131 p334 a344
+Q: Which type of virus displays unwanted advertisements or redirects web browsers to specific websites?
+a) Ransomware
+b) Adware
+c) Rootkit
+d) Botnet
+K: b
+X: Adware shows unwanted pop-up ads or hijacks the browser to earn advertising revenue. A rootkit hides deep in the system to keep privileged access.
+S: Pop-ups / redirects → adware; hidden admin access → rootkit.
+
+#132 p334 a344
+Q: What is a botnet virus?
+a) A virus that infects the computer's memory and steals sensitive information
+b) A virus that spreads through email attachments and replicates itself
+c) A network of infected computers controlled by a central attacker for malicious purposes
+d) A virus that encrypts files and demands a ransom for their release
+K: c
+X: A botnet ("robot network") is a set of infected "zombie" computers remotely controlled by a bot-herder through a command-and-control server. It is used for DDoS attacks, spam and fraud.
+S: Zombies + command-and-control → botnet (DDoS).
+
+#133 p334 a345
+Q: Which of the following is a popular mobile operating system developed by Apple Inc.?
+a) Android
+b) iOS
+c) Windows Mobile
+d) BlackBerry OS
+K: b
+C: C5
+X: iOS (2007, with the first iPhone) runs only on Apple devices. It was derived from Mac OS X.
+S: Apple → iOS; Google → Android.
+
+#134 p334 a345
+Q: What is the open-source mobile operating system developed by Google?
+a) iOS
+b) Android
+c) Windows Mobile
+d) BlackBerry OS
+K: b
+C: C5
+X: Android, based on the Linux kernel, is open source (AOSP). Android Inc. was bought by Google in 2005, and the first phone came out in 2008.
+S: Android = Linux kernel + open source + Google.
+
+#135 p334 a345
+Q: Which mobile operating system is primarily used by devices manufactured by Samsung, LG, and HTC?
+a) Android
+b) iOS
+c) Windows Mobile
+d) BlackBerry OS
+K: a
+C: C5
+X: Samsung, LG, HTC and most other non-Apple phone makers use Android, often with their own interface on top (e.g. Samsung's One UI).
+S: Non-Apple smartphones → Android.
+
+#136 p334 a345
+Q: What is the primary advantage of an open-source mobile operating system?
+a) Stronger security features
+b) Compatibility with a wide range of devices
+c) Ability to customize and modify the operating system
+d) Integration with Apple's ecosystem
+K: c
+C: C5
+X: Open source means anyone can view, change and redistribute the source code. That is why manufacturers can build customised versions of Android and developers can create custom ROMs.
+S: Open source ⇒ free to customise.
+
+#137 p334 a345
+Q: Which mobile operating system was developed by Microsoft but is no longer actively supported?
+a) Android
+b) iOS
+c) Windows Mobile
+d) BlackBerry OS
+K: c
+C: C5
+X: Windows Mobile, followed by Windows Phone and Windows 10 Mobile, was discontinued. Support for Windows 10 Mobile ended in 2019–2020.
+S: Microsoft mobile OS → discontinued.
+
+#138 p335 a345
+Q: What is the primary mobile operating system used by BlackBerry devices?
+a) Android
+b) iOS
+c) Windows Mobile
+d) BlackBerry OS
+K: d
+C: C5
+X: BlackBerry devices ran BlackBerry OS (later BlackBerry 10). Later BlackBerry phones switched to Android, and legacy BlackBerry OS services ended in 2022.
+S: BlackBerry → BlackBerry OS.
+
+#139 p335 a345
+Q: Which mobile operating system is known for its focus on privacy and security?
+a) Android
+b) iOS
+c) Windows Mobile
+d) BlackBerry OS
+K: b
+C: C5
+X: The book's answer is iOS: a closed ecosystem, App Store review, sandboxing and app-tracking controls. (BlackBerry was also famous for security in enterprise email, but the book's answer is iOS.)
+S: Privacy focus (book) → iOS.
+
+#140 p335 a345
+Q: Which mobile operating system has the largest market share worldwide?
+a) Android
+b) iOS
+c) Windows Mobile
+d) BlackBerry OS
+K: a
+C: C5
+X: Android runs on about 70% of the world's smartphones, and on even more in India. iOS is second.
+S: Market share: Android ≫ iOS.

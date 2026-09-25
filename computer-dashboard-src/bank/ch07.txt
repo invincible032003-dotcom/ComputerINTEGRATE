@@ -1,7 +1,7 @@
 @chapter 7
 @title Basic Concepts of Operating System
 @pages 294-307 308-318
-@codes C5 C7
+@codes C5
 @default C5
 @themes 1 What an OS is · functions · components (kernel, shell, drivers, file system) · OS history milestones
 @themes 2 OS generations · batch · multiprogramming · time-sharing · real-time OS
@@ -758,6 +758,7 @@ b) Enabling network connectivity and resource sharing
 c) Optimizing CPU utilization
 d) Providing a user-friendly interface
 K: b
+C: C7
 X: A NOS runs on a server and lets networked computers share files, printers and applications, with central user management and security.
 S: NOS = share resources over a network.
 
@@ -768,6 +769,7 @@ b) Network resources are centrally managed and controlled.
 c) Each device can act as both a client and a server.
 d) The network operates in a peer-to-peer fashion.
 K: b
+C: C7
 X: In the client-server model, dedicated servers centrally manage resources, users and security. Options a, c and d describe peer-to-peer networks.
 S: Central server → client-server; equals → peer-to-peer.
 
@@ -778,6 +780,7 @@ b) Managing network protocols and data transfer rates
 c) Controlling access to shared files and printers
 d) Optimizing network bandwidth and latency
 K: c
+C: C7
 X: The NOS controls who can use which shared files and printers (permissions) and queues print jobs.
 S: NOS file/print sharing = access control.
 
@@ -788,6 +791,7 @@ b) macOS
 c) Linux
 d) UNIX
 K: a
+C: C7
 X: Windows Server, with Active Directory, provides centralised user and computer management in enterprises. Novell NetWare was the historical rival.
 S: Active Directory → Windows Server.
 
@@ -798,6 +802,7 @@ b) Monitoring network traffic and bandwidth usage
 c) Managing network user accounts and permissions
 d) Enabling file sharing and access across different platforms
 K: d
+C: C7
 X: NFS (originally from Sun Microsystems) lets a client mount and use remote directories as if they were local, even across different operating systems.
 S: NFS = mount remote files as local.
 
@@ -808,6 +813,7 @@ b) SMTP (Simple Mail Transfer Protocol)
 c) HTTP (Hypertext Transfer Protocol)
 d) SSH (Secure Shell)
 K: d
+C: C7
 X: SSH (port 22) gives an encrypted remote login for administration and also carries secure file transfer (SCP, SFTP). FTP transfers files but cannot administer a machine and sends passwords in plain text.
 S: Remote admin + secure transfer → SSH (port 22).
 
@@ -818,6 +824,7 @@ b) Minimizing memory usage
 c) Enabling communication and resource sharing among networked computers
 d) Optimizing input/output operations
 K: c
+C: C7
 X: A distributed OS makes a set of networked computers work as one system, sharing processors, memory and files, and hiding where each resource actually is.
 S: Distributed OS = many machines, one system image.
 
@@ -828,6 +835,7 @@ b) Resources are not shared among networked computers.
 c) Each computer operates independently without coordination.
 d) Computers work together as a unified system.
 K: d
+C: C7
 X: Transparency is the defining feature: users see a single unified system, not the separate machines behind it.
 S: NOS: users know the machines; distributed OS: machines are hidden.
 
@@ -838,6 +846,7 @@ b) Controlling access to shared files and directories
 c) Optimizing network bandwidth and latency
 d) Enabling file sharing and access across multiple computers
 K: d
+C: C7
 X: A DFS stores files across several machines but presents them as one file system, so users can reach any file from any node.
 S: DFS = one file tree over many machines.
 
@@ -848,6 +857,7 @@ b) macOS
 c) Linux
 d) Amoeba
 K: d
+C: C7
 X: Amoeba, a research distributed OS by Andrew Tanenbaum's group at Vrije Universiteit, makes a pool of processors look like one computer. Windows, macOS and Linux are single-machine OSs.
 S: Amoeba (Tanenbaum) → distributed OS.
 
@@ -858,6 +868,7 @@ b) Managing computer hardware and peripheral devices
 c) Coordinating and allocating resources among networked computers
 d) Providing a user-friendly interface
 K: c
+C: C7
 X: A distributed OS balances load and allocates CPUs, memory and storage across all the nodes.
 S: Distributed OS resource mgmt = across nodes.
 
@@ -868,6 +879,7 @@ b) Shared memory
 c) Remote procedure call (RPC)
 d) Socket programming
 K: c
+C: C7
 X: RPC lets a process call a procedure on a remote machine as if it were a local function call, and it is the book's intended answer. RPC is itself built on message passing, which is the underlying mechanism of any distributed system. Shared memory only works within one machine.
 S: Call a remote function like a local one → RPC.
 
