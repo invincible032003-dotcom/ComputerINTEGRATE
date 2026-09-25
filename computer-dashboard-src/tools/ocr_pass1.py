@@ -1,7 +1,7 @@
 import pymupdf, numpy as np, sys, os, subprocess, glob
 from PIL import Image
 REPO = '/home/user/ComputerINTEGRATE'
-SP = '/tmp/claude-0/-home-user-ComputerINTEGRATE/746bcd46-4034-5506-ab6a-1cf4e2b6e837/scratchpad'
+SP = os.environ.get('OCR_WORK', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'work'))  # OCR scratch dir
 os.makedirs(SP + '/ocr2', exist_ok=True)
 os.makedirs(SP + '/clean2', exist_ok=True)
 FILES = sorted(glob.glob(REPO + '/*-compress.pdf'))

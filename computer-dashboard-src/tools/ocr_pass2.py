@@ -11,7 +11,7 @@ from PIL import Image
 from scipy.ndimage import uniform_filter, binary_dilation
 
 REPO = '/home/user/ComputerINTEGRATE'
-SP = '/tmp/claude-0/-home-user-ComputerINTEGRATE/746bcd46-4034-5506-ab6a-1cf4e2b6e837/scratchpad'
+SP = os.environ.get('OCR_WORK', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'work'))  # OCR scratch dir
 OUT = SP + '/ocr3'
 IMG = SP + '/clean3'
 os.makedirs(OUT, exist_ok=True)

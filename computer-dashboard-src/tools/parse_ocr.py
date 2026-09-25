@@ -1,6 +1,6 @@
 """Parse merged OCR (ocrm/) into raw per-chapter banks with fuzzy numbering."""
 import re, json, os, sys, difflib
-SP = '/tmp/claude-0/-home-user-ComputerINTEGRATE/746bcd46-4034-5506-ab6a-1cf4e2b6e837/scratchpad'
+SP = os.environ.get('OCR_WORK', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'work'))  # OCR scratch dir
 SRC = SP + '/' + (sys.argv[1] if len(sys.argv) > 1 else 'ocrm')
 os.makedirs(SP + '/raw', exist_ok=True)
 

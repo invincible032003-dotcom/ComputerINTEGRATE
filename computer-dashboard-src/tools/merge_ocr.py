@@ -11,7 +11,7 @@ from collections import Counter
 from spellchecker import SpellChecker
 from symspellpy import SymSpell, Verbosity
 
-SP = '/tmp/claude-0/-home-user-ComputerINTEGRATE/746bcd46-4034-5506-ab6a-1cf4e2b6e837/scratchpad'
+SP = os.environ.get('OCR_WORK', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'work'))  # OCR scratch dir
 V2, V3, OUT = SP + '/ocr2', SP + '/ocr3', SP + '/ocrm'
 os.makedirs(OUT, exist_ok=True)
 
