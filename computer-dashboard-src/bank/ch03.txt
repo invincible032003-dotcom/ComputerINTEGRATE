@@ -17,8 +17,8 @@ b) Random Access Memory (RAM)
 c) Input/Output (I/O) Unit
 d) Secondary Storage Unit
 K: a
-X: The CPU executes instructions; its ALU performs the calculations.
-S: Execute + calculate → CPU.
+X: The CPU fetches, decodes and executes every instruction: its control unit directs, and its ALU does the calculations. RAM only stores, the I/O unit only moves data in and out, and secondary storage keeps data permanently. None of them executes anything.
+S: "Executes" anything → CPU (brain). Stores → memory. Moves in/out → I/O.
 
 #2 p138 a168
 Q: Which unit of a computer system is responsible for storing data and instructions that the CPU can access quickly?
@@ -27,8 +27,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: b
-X: RAM holds the data and instructions of running programs where the CPU can reach them quickly.
-S: Quick-access store → RAM.
+X: RAM (main memory) holds the data and instructions of running programs, close enough for the CPU to fetch them in nanoseconds. The CPU, control unit and ALU process data; they are not the store the question asks about.
+S: CPU's working desk → RAM.
 
 #3 p138 a168
 Q: Which unit of a computer system is responsible for controlling and coordinating the activities of all other units?
@@ -37,8 +37,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: c
-X: The control unit directs and coordinates the memory, ALU and I/O units — the "manager" or nerve centre of the computer.
-S: Control unit = manager / nerve centre.
+X: The control unit is the computer's "manager". It sends timing and control signals that tell the memory, ALU and I/O units what to do and when, but computes nothing itself. The ALU calculates, RAM stores, and "CPU" is the broader unit that contains the CU.
+S: CU = traffic police: directs, never calculates.
 
 #4 p138 a168
 Q: Which unit of a computer system is responsible for storing data and programs permanently?
@@ -47,8 +47,8 @@ b) Random Access Memory (RAM)
 c) Secondary Storage Unit
 d) Control Unit
 K: c
-X: Secondary storage (hard disk, SSD) stores data and programs permanently.
-S: Permanent → secondary storage.
+X: Secondary storage (HDD, SSD, optical, tape) is non-volatile, so programs and files survive power-off. RAM is volatile, and the CPU and control unit process rather than store.
+S: Permanent / non-volatile → secondary storage; temporary → RAM.
 
 #5 p138 a168
 Q: Which unit of a computer system is responsible for converting data from outside into a form suitable for processing by the computer?
@@ -57,7 +57,7 @@ b) Arithmetic Logic Unit (ALU)
 c) Control Unit
 d) Central Processing Unit (CPU)
 K: a
-X: The input unit accepts data from the outside world and converts it into the binary form the computer can process.
+X: The input side of the I/O unit accepts data from the outside world (keys, clicks, sensor signals) and converts it into binary form, the only form the computer processes. The ALU, CU and CPU work on data that is already inside.
 S: Outside world ↔ binary → I/O unit.
 
 #6 p138 a168
@@ -67,7 +67,7 @@ b) Random Access Memory (RAM)
 c) Input/Output (I/O) Unit
 d) Secondary Storage Unit
 K: c
-X: The I/O unit handles communication with external devices — receiving input and sending output.
+X: The I/O unit is the computer's interface with its peripherals: it receives input from devices and sends results to output devices. The control unit only coordinates, RAM stores, and secondary storage keeps files.
 S: Talks to devices → I/O unit.
 
 #7 p138 a168
@@ -77,8 +77,8 @@ b) Control Unit
 c) Input/Output (I/O) Unit
 d) Secondary Storage Unit
 K: a
-X: The ALU performs arithmetic and logical operations.
-S: Arithmetic + logic → ALU.
+X: The ALU (arithmetic logic unit) performs arithmetic (+ − × ÷) and logic (AND, OR, NOT, comparisons). ISS 2025 asked exactly where AND/OR happen: in the logic unit of the ALU. The control unit only directs.
+S: Arithmetic + logic → ALU (AND/OR live here).
 
 #8 p138 a168
 Q: Which unit of a computer system is responsible for controlling the flow of data between the CPU, memory, and external devices?
@@ -87,8 +87,8 @@ b) Arithmetic Logic Unit (ALU)
 c) Input/Output (I/O) Unit
 d) Random Access Memory (RAM)
 K: a
-X: The control unit sends the signals that move data between the CPU, memory and devices.
-S: Controls flow of data → control unit.
+X: The control unit issues the signals that move data between the CPU, memory and devices. The ALU computes, RAM stores, and the I/O unit is the port through which data passes, not the part that directs it.
+S: "Controls / directs / coordinates" → control unit.
 
 #9 p138 a168
 Q: Which unit of a computer system is responsible for storing data and programs that are not currently being used by the CPU?
@@ -108,8 +108,8 @@ b) Random Access Memory (RAM)
 c) Arithmetic Logic Unit (ALU)
 d) Secondary Storage Unit
 K: c
-X: Arithmetic and logical operations are performed by the ALU.
-S: ALU.
+X: The ALU performs arithmetic and logical operations on data held in registers. The control unit decides which operation happens, RAM supplies the data, and secondary storage keeps it long-term.
+S: Operations on data → ALU; deciding which → CU.
 
 #11 p139 a168
 Q: Which unit of a computer system is responsible for storing instructions and data that are permanently stored even when the computer is turned off?
@@ -118,8 +118,8 @@ b) Random Access Memory (RAM)
 c) Secondary Storage Unit
 d) Control Unit
 K: c
-X: Secondary storage is non-volatile, so its contents survive power-off.
-S: Survives power-off → secondary storage.
+X: Secondary storage is non-volatile, so it keeps instructions and data after power-off. RAM is volatile and loses everything when switched off. The CPU and control unit do not store programs.
+S: Survives power-off → secondary storage (or ROM).
 
 #12 p139 a169
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU, memory, and other devices?
@@ -128,8 +128,8 @@ b) Arithmetic Logic Unit (ALU)
 c) Input/Output (I/O) Unit
 d) Random Access Memory (RAM)
 K: a
-X: The control unit manages the flow of data among the CPU, memory and devices.
-S: Flow of data → control unit.
+X: Managing the flow of data among CPU, memory and devices is the control unit's job: it generates the control signals for every transfer. The ALU only calculates, the I/O unit is the device-facing port, and RAM only holds data.
+S: Flow / coordination → control unit.
 
 #13 p139 a169
 Q: Which unit of a computer system is responsible for providing temporary storage for data and instructions that are actively being used by the CPU?
@@ -138,8 +138,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: b
-X: RAM temporarily stores the data and instructions in active use.
-S: Active + temporary → RAM.
+X: RAM is the temporary working store: it holds the programs and data in active use and is cleared at power-off. Secondary storage is permanent, and the CPU and control unit process data rather than store it.
+S: Active + temporary → RAM; idle + permanent → secondary.
 
 #14 p139 a169
 Q: Which unit of a computer system is responsible for performing mathematical calculations and logical operations?
@@ -148,8 +148,8 @@ b) Random Access Memory (RAM)
 c) Arithmetic Logic Unit (ALU)
 d) Input/Output (I/O) Unit
 K: c
-X: The ALU does mathematical calculations and logical operations.
-S: ALU.
+X: Mathematical calculations and logical operations (comparisons, AND/OR/NOT) are carried out by the ALU. The control unit sequences them, RAM stores the operands, and the I/O unit transfers data.
+S: Maths + logic = ALU.
 
 #15 p139 a169
 Q: Which unit of a computer system is responsible for receiving input from users and sending output to display devices?
@@ -158,8 +158,8 @@ b) Random Access Memory (RAM)
 c) Input/Output (I/O) Unit
 d) Secondary Storage Unit
 K: c
-X: User input and display output pass through the I/O unit.
-S: I/O unit.
+X: User input (keyboard, mouse) comes in and display output goes out through the I/O unit. The control unit directs, RAM stores, and secondary storage keeps files; none of them faces the user.
+S: User ↔ computer → I/O unit.
 
 #16 p139 a169
 Q: Which unit of a computer system is responsible for controlling the overall operation of the computer, including managing resources and running applications?
@@ -168,8 +168,8 @@ b) Central Processing Unit (CPU)
 c) Secondary Storage Unit
 d) Operating System
 K: d
-X: Managing resources and running applications are software-level functions of the operating system.
-S: "Resources + applications" → OS.
+X: Managing resources (CPU time, memory, devices) and running applications are software functions of the operating system. The control unit is hardware inside the CPU that only sequences instructions.
+S: "Resources + applications" → OS (software); "signals" → CU (hardware).
 
 #17 p139 a169
 Q: Which unit of a computer system is responsible for storing large amounts of data and programs in a non-volatile manner?
@@ -178,7 +178,7 @@ b) Arithmetic Logic Unit (ALU)
 c) Random Access Memory (RAM)
 d) Secondary Storage Unit
 K: d
-X: Secondary storage holds large amounts of data non-volatilely.
+X: Large-capacity, non-volatile storage for data and programs is the job of secondary storage (hard disk, SSD). RAM is volatile and smaller, and the ALU and CU process data rather than store it.
 S: Large + non-volatile → secondary storage.
 
 #18 p139 a169
@@ -198,8 +198,8 @@ b) Random Access Memory (RAM)
 c) Input/Output (I/O) Unit
 d) Motherboard
 K: d
-X: The motherboard provides the physical connections among all components.
-S: Physical connections → motherboard.
+X: The motherboard is the main circuit board. Its sockets, slots, traces and buses physically connect the CPU, RAM, storage and expansion cards. The control unit manages signals, but the physical wiring is the motherboard.
+S: Physical connections → motherboard; logical control → CU.
 
 #20 p140 a169
 Q: Which unit of a computer system is responsible for storing data and programs that are not currently being used by the CPU, but can be accessed when needed?
@@ -208,8 +208,8 @@ b) Arithmetic Logic Unit (ALU)
 c) Random Access Memory (RAM)
 d) Secondary Storage Unit
 K: d
-X: Programs and data not in current use stay on secondary storage and are loaded into RAM when needed.
-S: Not in use now, needed later → secondary storage.
+X: Programs and data not in current use wait on secondary storage and are loaded into RAM when needed. RAM holds only what is in use now.
+S: Needed later → secondary; needed now → RAM.
 
 #21 p140 a169
 Q: Which unit of a computer system is responsible for executing and coordinating instructions for performing specific tasks?
@@ -228,8 +228,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: b
-X: Among the options, RAM temporarily stores frequently needed data and instructions.
-S: RAM (cache is not offered).
+X: Of these options, RAM is the store for frequently needed instructions and data. Strictly, the very fastest store for frequently used data is cache memory, which is not offered here. The CPU, CU and ALU process rather than store.
+S: Frequent access → cache if offered, else RAM.
 
 #23 p140 a169
 Q: Which unit of a computer system is responsible for managing and controlling the overall operation of the computer?
@@ -238,8 +238,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: At the system level the operating system manages and controls the computer's overall operation.
-S: Overall operation (system level) → OS.
+X: At the system level, the operating system manages and controls the whole computer's operation (processes, memory, files, devices). The control unit only coordinates instruction execution inside the CPU.
+S: Whole-computer management → OS; inside-CPU sequencing → CU.
 
 #24 p140 a170
 Q: Which unit of a computer system is responsible for providing long-term storage for data and programs even when the computer is turned off?
@@ -248,8 +248,8 @@ b) Random Access Memory (RAM)
 c) Secondary Storage Unit
 d) Control Unit
 K: c
-X: Long-term, non-volatile storage is secondary storage.
-S: Long-term → secondary.
+X: Long-term storage that survives power-off is secondary storage (HDD, SSD). RAM is volatile, and the CPU and CU don't store data.
+S: Long-term → secondary storage.
 
 #25 p140 a170
 Q: Which unit of a computer system is responsible for converting digital signals into analog signals for output to external devices?
@@ -258,8 +258,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Digital-to-Analog Converter (DAC)
 K: d
-X: A DAC converts digital values into an analog voltage for devices such as speakers.
-S: D → A = DAC.
+X: A DAC (digital-to-analog converter) turns digital numbers into a continuous voltage, e.g. to drive speakers and headphones. The opposite conversion (microphone → PC) is done by an ADC.
+S: D → A = DAC (output); A → D = ADC (input).
 
 #26 p140 a170
 Q: Which unit of a computer system is responsible for managing the input and output operations between the computer and external devices?
@@ -268,8 +268,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: An I/O controller manages data transfer between the computer and its external devices.
-S: I/O operations → I/O controller.
+X: An I/O (device) controller manages the actual data transfer between the computer and an external device: buffering, status and interrupts. The CPU simply issues the commands.
+S: Device-side traffic manager → I/O controller.
 
 #27 p140 a170
 Q: Which unit of a computer system is responsible for performing mathematical calculations and logical operations on data?
@@ -278,8 +278,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: d
-X: The ALU is the specific unit that performs mathematical and logical operations (it is part of the CPU).
-S: Most specific answer → ALU.
+X: The CPU contains the ALU, but the specific unit that performs mathematical and logical operations is the ALU. Always pick the most specific correct option.
+S: Two right-sounding options → choose the more specific (ALU over CPU).
 
 #28 p141 a170
 Q: Which unit of a computer system is responsible for storing frequently accessed data and instructions to improve system performance?
@@ -308,8 +308,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Read-Only Memory (ROM)
 K: d
-X: Firmware and the BIOS are stored permanently in ROM (flash/EEPROM on modern boards).
-S: Firmware/BIOS → ROM.
+X: Firmware such as the BIOS/UEFI is stored permanently in ROM (flash/EEPROM on modern boards), so it is available the instant power comes on. RAM is volatile, and the CPU and CU don't store it.
+S: BIOS/firmware → ROM (non-volatile, ready at power-on).
 
 #31 p141 a170
 Q: Which unit of a computer system is responsible for coordinating the execution of instructions and managing the flow of data?
@@ -318,8 +318,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: c
-X: The control unit coordinates instruction execution and the flow of data.
-S: Coordinate → control unit.
+X: Coordinating the execution of instructions and the flow of data is the control unit's role: it fetches, decodes and issues control signals. The CPU is the broader answer; secondary storage just stores.
+S: Coordinate / control → CU.
 
 #32 p141 a170
 Q: Which unit of a computer system is responsible for temporarily storing the results of calculations performed by the CPU?
@@ -328,8 +328,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: b
-X: The book keys RAM, where results are kept after they leave the CPU's registers (e.g. the accumulator).
-S: Results parked → registers first, then RAM.
+X: The book keys RAM. Inside the CPU, results first land in registers such as the accumulator (ISS 2026: results of the ALU are stored in the accumulator), and are then written back to RAM. Of these options, RAM is the only store.
+S: ALU result → accumulator (register) → RAM.
 
 #33 p141 a170
 Q: Which unit of a computer system is responsible for managing and controlling the interaction between the computer hardware and software?
@@ -338,8 +338,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: The OS sits between hardware and software and controls their interaction.
-S: Hardware ↔ software → OS.
+X: The operating system sits between the hardware and the application software. It controls how programs use the CPU, memory and devices through system calls and drivers. The control unit works only inside the CPU.
+S: Hardware ↔ software mediator → OS.
 
 #34 p141 a170
 Q: Which unit of a computer system is responsible for providing non-volatile storage for data and programs?
@@ -348,8 +348,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: d
-X: Secondary storage provides non-volatile storage.
-S: Non-volatile → secondary storage.
+X: Non-volatile storage for data and programs is secondary storage: its contents persist without power. RAM is volatile, and the CPU and CU process data.
+S: Non-volatile (large) → secondary storage.
 
 #35 p141 a170
 Q: Which unit of a computer system is responsible for converting analog signals from external devices into digital signals for processing?
@@ -358,8 +358,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
-X: An ADC samples and quantises analog signals (e.g. from a microphone) into digital values.
-S: A → D = ADC.
+X: An ADC samples an analog signal (e.g. from a microphone or sensor) and quantises it into digital values the CPU can process. The DAC does the reverse.
+S: A → D = ADC (microphone, sensors).
 
 #36 p141 a171
 Q: Which unit of a computer system is responsible for managing the input and output operations between the computer and peripheral devices?
@@ -368,7 +368,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: Peripheral I/O is managed by the I/O controller.
+X: The I/O controller manages input and output operations with peripherals: buffering data, reporting device status and raising interrupts to the CPU.
 S: Peripherals → I/O controller.
 
 #37 p142 a171
@@ -378,8 +378,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: d
-X: The ALU performs arithmetic and logical operations.
-S: ALU.
+X: The ALU performs the arithmetic calculations and logical operations. The CPU contains it, so choose the specific unit.
+S: ALU (more specific than CPU).
 
 #38 p142 a171
 Q: Which unit of a computer system is responsible for storing frequently accessed instructions and data to speed up processing?
@@ -388,8 +388,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: b
-X: Among the options, RAM stores frequently accessed instructions and data for fast processing.
-S: RAM (no cache option).
+X: Of these options, RAM stores frequently accessed instructions and data for fast processing. With "cache" as an option, cache would be the better answer, because it sits between the CPU and RAM exactly for this.
+S: Speed-up store → cache > RAM (pick cache when offered).
 
 #39 p142 a171
 Q: Which unit of a computer system is responsible for managing the communication between the CPU, memory, and peripheral devices?
@@ -398,8 +398,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The I/O controller manages communication between peripherals and the CPU and memory.
-S: Peripherals ↔ CPU/memory → I/O controller.
+X: The I/O controller manages the communication between peripherals and the CPU and memory. It also enables DMA transfers, so the CPU need not handle every byte (ISS 2026: DMA).
+S: Peripherals ↔ CPU/memory → I/O controller (+ DMA).
 
 #40 p142 a171
 Q: Which unit of a computer system is responsible for storing permanent firmware and system settings?
@@ -408,8 +408,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Read-Only Memory (ROM)
 K: d
-X: ROM (flash) stores the permanent firmware; the user-changeable settings are held in battery-backed CMOS.
-S: Firmware → ROM; settings → CMOS.
+X: Permanent firmware lives in ROM (flash). User-changeable BIOS settings (boot order, clock) are held in battery-backed CMOS RAM. Of these options, ROM is the permanent store.
+S: Firmware → ROM; settings + clock → CMOS (battery).
 
 #41 p142 a171
 Q: Which unit of a computer system is responsible for fetching instructions from memory and decoding them for execution?
@@ -418,8 +418,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: c
-X: The control unit fetches each instruction from memory, decodes it and directs its execution.
-S: Fetch + decode → control unit; execute arithmetic → ALU.
+X: The control unit fetches each instruction from memory, decodes it and directs its execution. The ALU then carries out the arithmetic or logic. RAM only holds the instruction.
+S: Fetch + decode → CU; execute maths → ALU.
 
 #42 p142 a171
 Q: Which unit of a computer system is responsible for temporarily storing data that is being processed by the CPU?
@@ -428,8 +428,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: b
-X: RAM temporarily stores the data being processed.
-S: RAM.
+X: Data being processed is held temporarily in RAM (and, at the finest level, in CPU registers). Secondary storage is too slow for active processing.
+S: Being processed now → RAM.
 
 #43 p142 a171
 Q: Which unit of a computer system is responsible for managing the storage and retrieval of data on external storage devices?
@@ -438,8 +438,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: d
-X: The secondary storage unit (drives and their controllers) stores and retrieves data on storage devices.
-S: Storage devices → secondary storage unit.
+X: The secondary storage unit (drives with their controllers) stores and retrieves data on external or long-term storage devices. RAM and the CPU work only on data already loaded.
+S: Store/retrieve on drives → secondary storage unit.
 
 #44 p142 a171
 Q: Which unit of a computer system is responsible for executing program instructions and performing calculations?
@@ -448,8 +448,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Unit
 K: a
-X: The CPU executes program instructions and performs calculations — the "brain" of the computer.
-S: Brain → CPU.
+X: The CPU executes program instructions and performs calculations: it is the "brain", combining the control unit and ALU. The I/O unit and RAM support it but execute nothing.
+S: Brain = CPU = CU + ALU (+ registers).
 
 #45 p142 a171
 Q: Which unit of a computer system is responsible for temporarily storing the operands and intermediate results of arithmetic and logical operations?
@@ -468,8 +468,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: Memory allocation and deallocation among processes is done by the OS memory manager.
-S: Allocate/free memory → OS.
+X: Allocating and freeing memory for processes is done by the operating system's memory manager (with paging and virtual memory, ISS 2019). The control unit only sequences instructions.
+S: Allocate / free memory → OS memory management.
 
 #47 p143 a172
 Q: Which unit of a computer system is responsible for converting digital signals from the CPU into analog signals for output to external devices?
@@ -478,8 +478,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Digital-to-Analog Converter (DAC)
 K: d
-X: The DAC converts digital data into analog signals for output devices.
-S: DAC.
+X: The DAC converts the CPU's digital output into an analog signal for devices such as speakers. The CPU and RAM only work with digital data.
+S: Digital out → analog = DAC.
 
 #48 p143 a172
 Q: Which unit of a computer system is responsible for managing the communication between the CPU, memory, and other internal components?
@@ -498,8 +498,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: d
-X: The OS, applications and user data reside on secondary storage.
-S: Where everything is installed → secondary storage.
+X: The OS, applications and user files are installed on secondary storage (HDD/SSD). At run time the needed parts are copied into RAM.
+S: Installed on → secondary storage; running in → RAM.
 
 #50 p143 a172
 Q: Which unit of a computer system is responsible for coordinating the execution of instructions and managing the resources of the computer?
@@ -518,7 +518,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: Resource allocation, task scheduling and device control are core operating-system functions.
+X: Allocating resources, scheduling tasks and controlling peripherals are the core functions of the operating system (process, memory and device management; ISS 2019, 2024).
 S: Allocate + schedule + devices → OS.
 
 #52 p143
@@ -539,7 +539,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: d
-X: The control unit decodes the instruction and the ALU carries out the arithmetic or logical operation.
+X: The control unit decodes the instruction and signals the ALU, which actually carries out the arithmetic or logical operation.
 S: CU decides, ALU does.
 
 #54 p143 a172
@@ -549,8 +549,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: b
-X: RAM holds the instructions and data currently being executed or accessed.
-S: Current work → RAM.
+X: RAM holds the instructions and data currently being executed or accessed. That is why a program must be loaded from disk into RAM before it can run (the stored-program concept).
+S: Running program → RAM.
 
 #55 p144 a172
 Q: Which unit of a computer system is responsible for controlling the overall operation and coordination of the computer system?
@@ -571,8 +571,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input Buffer
 K: d
-X: An input buffer temporarily holds incoming data (such as keystrokes) until the CPU is ready to process it.
-S: Waiting input → input buffer.
+X: An input buffer temporarily holds incoming data, e.g. keystrokes, until the CPU is ready to process it. This smooths out the speed gap between a slow device and a fast CPU.
+S: Waiting input → input buffer (speed matching).
 
 #57 p144 a173
 Q: Which unit of a computer system is responsible for converting digital signals from the CPU into analog signals for output to external devices?
@@ -581,8 +581,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Digital-to-Analog Converter (DAC)
 K: d
-X: A DAC converts digital output into analog signals.
-S: DAC.
+X: A DAC converts the digital signals from the CPU into analog signals for output devices such as speakers and analog monitors.
+S: Out to the analog world → DAC.
 
 #58 p144 a173
 Q: Which unit of a computer system is responsible for managing the physical connections and communication between the CPU, memory, and other components?
@@ -601,8 +601,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: d
-X: The OS and system files are stored non-volatilely on secondary storage.
-S: Secondary storage.
+X: The OS and system files are stored non-volatilely on secondary storage (the boot drive) and loaded into RAM at start-up.
+S: Boot drive = secondary storage.
 
 #60 p144 a173
 Q: Which unit of a computer system is responsible for managing the input and output operations between the CPU and peripheral devices?
@@ -611,8 +611,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The I/O controller manages input and output operations between the CPU and peripherals.
-S: I/O controller.
+X: The I/O controller manages input and output operations between the CPU and peripherals, including buffering, status signals and interrupts.
+S: CPU ↔ peripherals → I/O controller.
 
 #61 p144 a173
 Q: Which unit of a computer system is responsible for managing the communication between the CPU and the other components?
@@ -631,8 +631,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Interface
 K: d
-X: The I/O interface adapts device signals into binary data on the system bus.
-S: I/O interface.
+X: An I/O interface (port plus interface circuitry) adapts a device's signals, timing and voltage levels into binary data on the system bus, and back again. The CPU, RAM and control unit only ever see data that the interface has already converted.
+S: Device signal → bus data = I/O interface (the adapter).
 
 #63 p144 a173
 Q: Which unit of a computer system is responsible for storing the results of completed calculations performed by the CPU?
@@ -641,8 +641,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Output Buffer
 K: b
-X: Results of completed calculations are written back to RAM, from where they can be used, saved or output.
-S: Results stored → RAM.
+X: Completed results are written back from the CPU's registers to RAM, where they can be reused, saved to disk or sent to output. An output buffer only holds data briefly on its way out to a device.
+S: Results kept → RAM; results leaving for a device → output buffer.
 
 #64 p145 a173
 Q: Which unit of a computer system is responsible for managing the physical and logical addresses of data in the memory?
@@ -651,8 +651,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: The MMU translates logical (virtual) addresses into physical addresses and enforces memory protection.
-S: Logical → physical address translation → MMU.
+X: The MMU (memory management unit) translates logical (virtual) addresses from the CPU into physical RAM addresses, using page tables and the TLB, and enforces memory protection.
+S: Logical → physical address = MMU (paging, ISS 2021/2023).
 
 #65 p145 a174
 Q: Which unit of a computer system is responsible for storing frequently accessed data to improve system performance?
@@ -661,8 +661,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache stores frequently accessed data to improve performance.
-S: Cache.
+X: Cache memory (fast SRAM) keeps copies of frequently used data next to the CPU, so most accesses avoid slower RAM. It is checked first (ISS 2021), and its effectiveness is measured by the hit rate (ISS 2023).
+S: Frequently used → cache (checked first; judged by hit rate).
 
 #66 p145 a174
 Q: Which unit of a computer system is responsible for executing the instructions provided by the control unit?
@@ -681,8 +681,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Working Memory
 K: b
-X: RAM is the computer's working (primary) memory for data and instructions being processed.
-S: RAM = working memory.
+X: RAM is the working (primary) memory that holds the data and instructions being processed. "Working memory" is only a descriptive phrase, not a separate unit, so the named unit is RAM.
+S: Working memory = RAM.
 
 #68 p145 a174
 Q: Which unit of a computer system is responsible for managing the interaction between the computer and external devices through input and output operations?
@@ -691,8 +691,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: External devices are managed through the I/O controller.
-S: I/O controller.
+X: The I/O controller manages input/output operations with external devices: it buffers data, reports status and raises interrupts, so the CPU isn't tied up waiting for slow devices.
+S: Device I/O management → I/O controller.
 
 #69 p145 a174
 Q: Which unit of a computer system is responsible for providing long-term storage for data and programs, even when the computer is turned off?
@@ -701,8 +701,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: d
-X: Secondary storage gives long-term, non-volatile storage.
-S: Secondary storage.
+X: Long-term storage that survives power-off is secondary storage. RAM is volatile, and the CPU and CU hold nothing permanently.
+S: Long-term / power-off safe → secondary storage.
 
 #70 p145 a174
 Q: Which unit of a computer system is responsible for controlling the power supply and managing the flow of electricity within the computer?
@@ -711,8 +711,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Power Supply Unit (PSU)
 K: d
-X: The PSU converts and regulates the electrical power used inside the computer.
-S: PSU.
+X: The PSU (power supply unit, usually an SMPS) converts mains AC into the regulated low-voltage DC (12 V, 5 V, 3.3 V) that the components need. The CPU and control unit consume power; they don't supply it.
+S: PSU: AC mains → regulated DC.
 
 #71 p145 a174
 Q: Which unit of a computer system is responsible for converting binary data from the CPU into signals that can be transmitted over communication channels?
@@ -731,8 +731,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Buffer
 K: d
-X: A buffer temporarily holds data in transit, smoothing out speed differences between the CPU and slower devices.
-S: Data in transit → buffer.
+X: A buffer is a temporary memory area for data moving between devices of different speeds, e.g. CPU → printer. The fast side fills it and the slow side drains it, so neither waits for the other. Spooling is buffering on disk.
+S: Speed mismatch in transit → buffer (disk version = spooling).
 
 #73 p146 a174
 Q: Which unit of a computer system is responsible for controlling the timing and sequencing of operations within the computer system?
@@ -761,8 +761,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Controller
 K: d
-X: The memory controller schedules and executes reads and writes between the CPU and RAM (including DRAM refresh).
-S: CPU ↔ RAM → memory controller.
+X: The memory controller schedules every read and write between the CPU and RAM and handles DRAM refresh. Today it sits on the CPU die; it used to be in the northbridge.
+S: CPU ↔ RAM traffic → memory controller.
 
 #76 p146 a175
 Q: Which unit of a computer system is responsible for interpreting and executing instructions stored in memory?
@@ -771,8 +771,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Program Counter
 K: a
-X: The CPU interprets and executes stored instructions; the program counter only holds the address of the next one.
-S: Interpret + execute → CPU.
+X: The CPU interprets (decodes) and executes instructions stored in memory. The program counter is only a register holding the next instruction's address, and the control unit is just one part of the CPU.
+S: Interpret + execute → CPU; next address → PC.
 
 #77 p146 a175
 Q: Which unit of a computer system is responsible for storing data that is waiting to be processed by the CPU?
@@ -781,7 +781,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input Queue
 K: d
-X: An input queue holds incoming data or jobs in order (first in, first out) until the CPU processes them.
+X: An input queue holds waiting data or jobs in arrival order (FIFO) until the CPU is free to process them. RAM is the general store; the queue is the specific structure for waiting items.
 S: Waiting in line → queue (FIFO).
 
 #78 p146 a175
@@ -791,8 +791,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Digital-to-Analog Converter (DAC)
 K: d
-X: The audio DAC converts digital sound data into analog signals for speakers and headphones.
-S: DAC.
+X: The audio DAC (on the sound card or chipset) turns digital sound samples into the analog voltage that drives speakers and headphones. The microphone path uses an ADC.
+S: Sound out = DAC; sound in = ADC.
 
 #79 p146 a175
 Q: Which unit of a computer system is responsible for managing the transfer of data between the CPU and external storage devices?
@@ -801,8 +801,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Disk Controller
 K: d
-X: A disk controller manages data transfer between the system and hard disks or other drives.
-S: Drives → disk controller.
+X: A disk controller (e.g. SATA/NVMe) manages the data transfer between the system and hard disks or SSDs, handling commands, buffering and error checks. The CPU just issues read/write requests.
+S: Drives → disk / storage controller.
 
 #80 p146 a175
 Q: Which unit of a computer system is responsible for coordinating the execution of instructions and managing the overall operation of the computer system?
@@ -811,8 +811,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: The operating system manages the overall operation of the computer and coordinates the execution of programs.
-S: Overall operation (software) → OS.
+X: At the system level, the operating system coordinates program execution and manages the whole computer's operation. The control unit does the same only for instructions inside the CPU.
+S: Whole system (software) → OS; inside CPU (hardware) → CU.
 
 #81 p146 a175
 Q: Which unit of a computer system is responsible for managing the addressing and retrieval of data from primary storage?
@@ -821,8 +821,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: The MMU handles address translation for accesses to primary memory.
-S: Addressing of memory → MMU.
+X: The MMU handles addressing for primary memory: it maps each logical address to a physical location and checks access rights before the data is retrieved.
+S: Memory addressing/mapping → MMU.
 
 #82 p147 a175
 Q: Which unit of a computer system is responsible for coordinating and controlling the execution of instructions within the CPU?
@@ -831,8 +831,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Fetch Unit
 K: c
-X: The control unit coordinates and controls instruction execution inside the CPU.
-S: Control unit.
+X: Inside the CPU, the control unit coordinates and controls instruction execution: it sequences fetch, decode and execute. An instruction fetch unit only fetches.
+S: Coordinate inside CPU → control unit.
 
 #83 p147 a176
 Q: Which unit of a computer system is responsible for temporarily storing intermediate results and operands during arithmetic and logical operations?
@@ -841,8 +841,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Accumulator
 K: d
-X: The accumulator is the CPU register that holds an operand and receives the result of ALU operations.
-S: ALU results → accumulator (ISS 2026 asked exactly this).
+X: The accumulator is the CPU register that holds one operand and receives the result of ALU operations, so it stores intermediate results. ISS 2026 asked which register stores the ALU's results.
+S: ALU results → accumulator (ISS 2026).
 
 #84 p147 a176
 Q: Which unit of a computer system is responsible for controlling the interaction between the CPU and the main memory?
@@ -851,8 +851,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Controller
 K: d
-X: The memory controller governs every CPU–RAM transaction.
-S: Memory controller.
+X: The memory controller governs every CPU–main memory transaction: address timing, read/write sequencing and DRAM refresh.
+S: CPU ↔ main memory → memory controller.
 
 #85 p147 a176
 Q: Which unit of a computer system is responsible for storing frequently accessed data from the main memory to improve processing speed?
@@ -861,8 +861,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache keeps copies of frequently accessed main-memory data close to the CPU.
-S: Cache.
+X: Cache memory keeps copies of frequently accessed main-memory data close to the CPU, so repeated accesses finish in a few cycles instead of hundreds. This works because of locality of reference.
+S: Cache works because of locality (temporal + spatial).
 
 #86 p147 a176
 Q: Which unit of a computer system is responsible for receiving and interpreting instructions from the control unit?
@@ -871,8 +871,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Decoder
 K: d
-X: The instruction decoder interprets each fetched instruction's opcode and generates the signals needed to execute it.
-S: Interpret opcode → instruction decoder.
+X: The instruction decoder interprets the opcode of each fetched instruction and generates the control signals needed to execute it. It sits in the control unit, between fetch and execute.
+S: Opcode → signals = instruction decoder.
 
 #87 p147 a176
 Q: Which unit of a computer system is responsible for providing a temporary storage location for input data from external devices?
@@ -881,8 +881,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input Buffer
 K: d
-X: An input buffer temporarily stores incoming data before processing.
-S: Input buffer.
+X: An input buffer temporarily holds incoming data from a device (e.g. the keyboard buffer) until the CPU reads it.
+S: Keyboard buffer = input buffer.
 
 #88 p147 a176
 Q: Which unit of a computer system is responsible for converting analog signals from external devices into digital signals that can be processed by the CPU?
@@ -891,8 +891,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
-X: An ADC digitises analog signals for the CPU.
-S: ADC.
+X: An ADC samples and quantises analog signals from microphones, sensors or scanners into digital numbers the CPU can process.
+S: Analog in → ADC.
 
 #89 p147 a176
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU and peripheral devices?
@@ -901,8 +901,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: Data flow to and from peripherals is managed by the I/O controller.
-S: I/O controller.
+X: The I/O controller manages the flow of data between the CPU and peripheral devices. With DMA it can even move blocks to memory without the CPU (ISS 2026).
+S: Peripheral data flow → I/O controller / DMA.
 
 #90 p147 a176
 Q: Which unit of a computer system is responsible for storing the operating system, applications, and user files in a non-volatile manner?
@@ -911,8 +911,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: d
-X: Secondary storage holds the OS, applications and files non-volatilely.
-S: Secondary storage.
+X: Secondary storage keeps the OS, applications and user files non-volatilely. They are copied into RAM only while in use.
+S: Non-volatile home of software & files → secondary storage.
 
 #91 p148 a176
 Q: Which unit of a computer system is responsible for executing arithmetic and logical operations on data?
@@ -921,8 +921,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: d
-X: The ALU executes arithmetic and logical operations.
-S: ALU.
+X: Arithmetic and logical operations are executed by the ALU. The CPU contains it, so the specific answer is the ALU.
+S: Execute operations → ALU.
 
 #92 p148 a177
 Q: Which unit of a computer system is responsible for managing the allocation and deallocation of memory resources?
@@ -941,8 +941,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Fetch Unit
 K: c
-X: The control unit sequences instruction fetch, decode and execute and times each step using the clock.
-S: Sequence + timing inside CPU → control unit.
+X: The control unit sequences fetch, decode and execute, and times each step with the clock. That timing role separates it from a simple instruction fetch unit.
+S: Sequence + timing → CU (driven by the clock).
 
 #94 p148 a177
 Q: Which unit of a computer system is responsible for temporarily storing the instructions and data that are currently being processed by the CPU?
@@ -971,8 +971,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The I/O (storage) controller manages transfers between the CPU and external storage devices.
-S: I/O controller.
+X: Transfers between the CPU and external storage devices are managed by the I/O (storage) controller, which lets the CPU issue a command and carry on.
+S: External storage traffic → I/O / storage controller.
 
 #97 p148 a177
 Q: Which unit of a computer system is responsible for managing the flow of instructions and data between the CPU and main memory?
@@ -981,8 +981,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Controller
 K: d
-X: The memory controller manages traffic between the CPU and main memory.
-S: Memory controller.
+X: The memory controller manages the flow of instructions and data between the CPU and main memory.
+S: Memory controller = CPU–RAM gatekeeper.
 
 #98 p148 a177
 Q: Which unit of a computer system is responsible for converting analog signals from external devices into digital signals that can be processed by the CPU?
@@ -991,8 +991,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
-X: An ADC converts analog input into digital data.
-S: ADC.
+X: Analog signals (sound, temperature, light) must be digitised by an ADC before the CPU can process them.
+S: Sensor / mic → ADC.
 
 #99 p148 a177
 Q: Which unit of a computer system is responsible for storing frequently accessed data to reduce the average time required for data access?
@@ -1001,8 +1001,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache reduces the average memory access time: average time = hit ratio × cache time + miss ratio × memory time.
-S: Tavg = h·Tc + (1 − h)·Tm → cache lowers it.
+X: Cache lowers the average access time: average = h × cache time + (1 − h) × memory time, where h is the hit ratio. The higher the hit ratio, the closer the average gets to cache speed.
+S: Tavg = h·Tc + (1 − h)·Tm → raise h with cache.
 
 #100 p149 a177
 Q: Which unit of a computer system is responsible for managing the interaction between the computer and external devices?
@@ -1011,8 +1011,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Interface
 K: d
-X: The I/O interface manages the interaction between the computer and external devices.
-S: I/O interface.
+X: The I/O interface (ports, adapters, protocols) manages the interaction between the computer and external devices. The CPU and RAM never talk to devices directly.
+S: Computer ↔ device boundary → I/O interface.
 
 #101 p149 a177
 Q: Which unit of a computer system is responsible for executing the instructions stored in the memory?
@@ -1021,8 +1021,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Program Counter
 K: a
-X: The CPU fetches instructions from memory and executes them.
-S: Executes stored instructions → CPU.
+X: The CPU fetches instructions from memory and executes them (the stored-program concept). The program counter only points to the next one.
+S: Executes → CPU; points → PC.
 
 #102 p149 a178
 Q: Which unit of a computer system is responsible for coordinating the transfer of data between the CPU and external devices?
@@ -1031,8 +1031,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The I/O controller coordinates data transfer between the CPU and external devices.
-S: I/O controller.
+X: The I/O controller coordinates data transfer between the CPU and external devices, using interrupts so the CPU needn't keep polling.
+S: I/O coordination → I/O controller (interrupt-driven).
 
 #103 p149 a178
 Q: Which unit of a computer system is responsible for decoding instructions and generating control signals?
@@ -1051,8 +1051,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Buffer
 K: d
-X: The memory buffer (memory buffer/data register, MBR/MDR) holds a word in transit between the CPU and main memory.
-S: MBR/MDR = data in transit; MAR = its address.
+X: The memory buffer register (MBR, also called MDR) holds the data word travelling between the CPU and main memory. Its partner, the memory address register (MAR), holds the address being accessed.
+S: MAR = where; MBR/MDR = what.
 
 #105 p149 a178
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and input/output devices?
@@ -1061,8 +1061,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Interface
 K: d
-X: The I/O interface manages CPU–device interaction.
-S: I/O interface.
+X: The I/O interface manages CPU–device interaction: it translates signals, buffers data and reports device status.
+S: CPU ↔ I/O devices → I/O interface.
 
 #106 p149 a178
 Q: Which unit of a computer system is responsible for storing the operating system and application software?
@@ -1071,8 +1071,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: d
-X: The OS and applications are installed on secondary storage.
-S: Installed software → secondary storage.
+X: The OS and application software are installed (stored) on secondary storage and loaded into RAM to run.
+S: Installed on disk; runs in RAM.
 
 #107 p149 a178
 Q: Which unit of a computer system is responsible for managing the allocation and deallocation of resources for processes and programs?
@@ -1081,8 +1081,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: The OS allocates and frees resources for processes.
-S: OS.
+X: Allocating and freeing resources (CPU time, memory, files, devices) for processes is the operating system's job, done by its process and memory managers.
+S: Resource manager = OS.
 
 #108 p149 a178
 Q: Which unit of a computer system is responsible for converting digital signals from the CPU into analog signals for output to audio devices?
@@ -1091,8 +1091,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Digital-to-Analog Converter (DAC)
 K: d
-X: A DAC converts digital audio into an analog signal.
-S: DAC.
+X: A DAC turns digital audio data into the analog waveform that speakers reproduce.
+S: Digital audio → analog = DAC.
 
 #109 p150 a178
 Q: Which unit of a computer system is responsible for controlling the power supply and regulating the voltage and current within the computer?
@@ -1101,8 +1101,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Power Supply Unit (PSU)
 K: d
-X: The PSU regulates voltage and current for the computer.
-S: PSU.
+X: The PSU regulates the voltage and current supplied to every component and protects against surges. Its output is measured in watts.
+S: Power regulation → PSU.
 
 #110 p150 a178
 Q: Which unit of a computer system is responsible for managing the storage and retrieval of data from secondary storage devices?
@@ -1111,8 +1111,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Disk Controller
 K: d
-X: A disk controller manages reads and writes on secondary storage devices.
-S: Disk controller.
+X: A disk controller manages storage and retrieval on secondary storage devices: it positions heads, reads and writes sectors, and checks errors.
+S: Disk I/O → disk controller.
 
 #111 p150 a179
 Q: Which unit of a computer system is responsible for storing the address of the next instruction to be fetched from memory?
@@ -1121,8 +1121,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Program Counter
 K: d
-X: The program counter holds the address of the next instruction.
-S: Next address → PC.
+X: The program counter (PC) holds the address of the next instruction to fetch and is incremented after each fetch (ISS 2022). The instruction register holds the current instruction.
+S: PC = next address (ISS 2022); IR = current instruction.
 
 #112 p150 a179
 Q: Which unit of a computer system is responsible for managing the execution of instructions in a pipelined processor?
@@ -1141,8 +1141,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
-X: An ADC converts analog signals into digital form.
-S: ADC.
+X: The ADC converts incoming analog signals into digital values by sampling them at a fixed rate and quantising each sample.
+S: ADC = sample + quantise.
 
 #114 p150 a179
 Q: Which unit of a computer system is responsible for managing the allocation and deallocation of memory resources?
@@ -1151,8 +1151,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: With the OS not offered, the book keys the MMU, the hardware that maps and protects memory for each process.
-S: No OS option → MMU.
+X: The operating system is not an option, so the book keys the MMU: the hardware that maps and protects memory for each process. Strictly, allocation decisions are made by the OS memory manager and enforced through the MMU.
+S: OS decides allocation; MMU enforces mapping.
 
 #115 p150 a179
 Q: Which unit of a computer system is responsible for temporarily storing data during the execution of instructions?
@@ -1161,8 +1161,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Data Register
 K: d
-X: Data registers inside the CPU hold operands and results while instructions execute.
-S: During execution → registers.
+X: Data registers inside the CPU hold operands and intermediate results while instructions execute. They are the fastest storage in the whole memory hierarchy.
+S: During execution → registers (fastest).
 
 #116 p150 a179
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU and secondary storage devices?
@@ -1171,8 +1171,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Storage Controller
 K: d
-X: A storage controller (SATA/NVMe/RAID) manages data flow to and from secondary storage.
-S: Storage controller.
+X: A storage controller (SATA, NVMe or RAID) manages data flow between the CPU and secondary storage devices.
+S: Secondary storage traffic → storage controller.
 
 #117 p150 a179
 Q: Which unit of a computer system is responsible for converting digital signals from the CPU into analog signals for output to display devices?
@@ -1181,8 +1181,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Graphics Processing Unit (GPU)
 K: d
-X: The graphics card/GPU generates the display signal (converted to analog for older analog monitors).
-S: Display output → GPU.
+X: The GPU/graphics card produces the display signal. Older analog monitors (VGA) needed a RAMDAC to convert it to analog, while modern digital links (HDMI, DisplayPort) stay digital.
+S: Display output → GPU (RAMDAC for analog VGA).
 
 #118 p151 a179
 Q: Which unit of a computer system is responsible for storing frequently accessed instructions to improve processing speed?
@@ -1191,8 +1191,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Cache
 K: d
-X: The instruction cache (L1-I) holds recently used instructions; modern CPUs split L1 into instruction and data caches.
-S: L1 split: I-cache (instructions) + D-cache (data).
+X: The instruction cache (L1-I) holds recently used instructions. Modern CPUs split L1 into separate instruction and data caches, a Harvard-style design at cache level.
+S: L1 = I-cache + D-cache.
 
 #119 p151 a179
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and input devices?
@@ -1201,7 +1201,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input Controller
 K: d
-X: An input controller manages data coming from input devices.
+X: An input controller manages data arriving from input devices, such as a keyboard or USB host controller.
 S: Input devices → input controller.
 
 #120 p151 a179
@@ -1211,7 +1211,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Output Controller
 K: d
-X: An output controller manages data going to output devices.
+X: An output controller (e.g. a display or printer controller) manages the data going to output devices.
 S: Output devices → output controller.
 
 #121 p151 a180
@@ -1221,8 +1221,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Controller
 K: d
-X: The memory controller coordinates CPU–RAM transfers.
-S: Memory controller.
+X: The memory controller coordinates CPU–RAM data transfers and DRAM refresh cycles.
+S: CPU ↔ RAM → memory controller.
 
 #122 p151 a180
 Q: Which unit of a computer system is responsible for executing arithmetic and logical operations on data?
@@ -1231,8 +1231,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: d
-X: The ALU executes arithmetic and logical operations.
-S: ALU.
+X: Arithmetic (+ − × ÷) and logical (AND, OR, NOT, compare) operations are executed by the ALU.
+S: ALU = maths + logic.
 
 #123 p151 a180
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and external devices?
@@ -1241,8 +1241,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Interface
 K: d
-X: The I/O interface manages CPU–device interaction.
-S: I/O interface.
+X: The I/O interface manages CPU–device interaction; every peripheral connects through one (USB, SATA, HDMI ports).
+S: Ports and adapters = I/O interface.
 
 #124 p151 a180
 Q: Which unit of a computer system is responsible for storing frequently accessed instructions and data to improve processing speed?
@@ -1251,8 +1251,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache memory stores frequently used instructions and data.
-S: Cache.
+X: Cache memory stores frequently used instructions and data between the CPU and RAM. It is faster than RAM but slower than registers, and always smaller than RAM (ISS 2023).
+S: Registers > cache > RAM (speed); cache < RAM (size).
 
 #125 p151 a180
 Q: Which unit of a computer system is responsible for controlling the sequence and timing of instructions within the CPU?
@@ -1283,8 +1283,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
-X: An ADC converts analog signals to digital.
-S: ADC.
+X: Converting analog signals from external devices into digital data is the ADC's job (e.g. a microphone input or an OCR scanner's sensor).
+S: Analog → digital = ADC.
 
 #128 p152 a180
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU and peripheral devices?
@@ -1293,8 +1293,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: Peripheral data flow is managed by the I/O controller.
-S: I/O controller.
+X: The I/O controller manages peripheral data flow and interrupts, so the CPU can keep working meanwhile.
+S: Peripheral traffic → I/O controller.
 
 #129 p152 a180
 Q: Which unit of a computer system is responsible for storing the operating system, applications, and user files in a non-volatile manner?
@@ -1303,8 +1303,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Secondary Storage Unit
 K: d
-X: Secondary storage holds the OS, applications and files permanently.
-S: Secondary storage.
+X: The OS, applications and user files are kept permanently on secondary storage (HDD/SSD).
+S: Permanent files → secondary storage.
 
 #130 p152 a181
 Q: Which unit of a computer system is responsible for temporarily storing intermediate results and operands during arithmetic and logical operations?
@@ -1313,8 +1313,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Accumulator
 K: d
-X: The accumulator holds operands and intermediate results for the ALU.
-S: Accumulator.
+X: The accumulator holds operands and intermediate results during ALU operations. In single-accumulator machines every arithmetic result lands there first.
+S: Intermediate ALU result → accumulator.
 
 #131 p152 a181
 Q: Which unit of a computer system is responsible for managing the translation of virtual addresses to physical addresses?
@@ -1323,8 +1323,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: The MMU translates virtual (logical) addresses into physical addresses using page tables, speeded up by the TLB.
-S: Virtual → physical = MMU (+ TLB cache).
+X: The MMU translates the virtual (logical) addresses a program uses into physical RAM addresses, using page tables. Its TLB caches recent translations. This translation is what makes paging and virtual memory possible (ISS 2021, 2023, 2025).
+S: Virtual → physical = MMU (+ TLB); the technique = paging.
 
 #132 p152 a181
 Q: Which unit of a computer system is responsible for controlling the flow of instructions and data between the CPU and input/output devices?
@@ -1333,8 +1333,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The I/O controller controls transfers between the CPU and I/O devices.
-S: I/O controller.
+X: The I/O controller controls the flow of instructions and data between the CPU and I/O devices. It signals completion with an interrupt, so the CPU can do other work meanwhile.
+S: CPU ↔ I/O devices → I/O controller (interrupts).
 
 #133 p152 a181
 Q: Which unit of a computer system is responsible for temporarily storing data that is being transferred between the CPU and main memory?
@@ -1343,8 +1343,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Buffer
 K: d
-X: The memory buffer register holds data in transit between the CPU and main memory.
-S: MBR/MDR.
+X: The memory buffer register (MBR/MDR) holds the data travelling between the CPU and main memory, while the MAR holds its address. Every memory read or write passes through this pair.
+S: MAR = address · MBR/MDR = data in transit.
 
 #134 p152 a181
 Q: Which unit of a computer system is responsible for converting digital signals from the CPU into analog signals for output to audio devices?
@@ -1353,8 +1353,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Digital-to-Analog Converter (DAC)
 K: d
-X: A DAC converts digital audio into an analog signal.
-S: DAC.
+X: A DAC converts the CPU's digital audio samples into an analog waveform for speakers or headphones.
+S: Speaker path = DAC; microphone path = ADC.
 
 #135 p152 a181
 Q: Which unit of a computer system is responsible for managing the allocation and deallocation of resources for processes and programs?
@@ -1363,8 +1363,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: The OS allocates and reclaims resources for processes.
-S: OS.
+X: Allocating and reclaiming resources (CPU, memory, files, devices) for processes is an operating-system function. Hardware units such as the CU only carry out instructions.
+S: Resource allocation → OS.
 
 #136 p153 a181
 Q: Which unit of a computer system is responsible for managing the storage and retrieval of data from secondary storage devices?
@@ -1373,8 +1373,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Disk Controller
 K: d
-X: A disk controller manages storage and retrieval on secondary storage.
-S: Disk controller.
+X: A disk controller manages the storage and retrieval of data on secondary storage: head positioning, sector reads and writes, buffering and error correction.
+S: Disk read/write → disk controller.
 
 #137 p153 a181
 Q: Which unit of a computer system is responsible for executing instructions stored in the memory of a von Neumann architecture computer?
@@ -1395,8 +1395,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Output Controller
 K: d
-X: An output controller manages the CPU's interaction with output devices.
-S: Output controller.
+X: An output controller manages the CPU's interaction with output devices (monitor, printer): formatting, buffering and device status.
+S: CPU → output devices = output controller.
 
 #139 p153 a182
 Q: Which unit of a computer system is responsible for converting analog signals from external devices into digital signals that can be processed by the CPU?
@@ -1405,8 +1405,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
-X: An ADC digitises analog signals from sensors and microphones.
-S: ADC.
+X: An ADC digitises analog signals from sensors and microphones by sampling them and quantising each sample into a binary number.
+S: Analog in → ADC.
 
 #140 p153 a182
 Q: Which unit of a computer system is responsible for controlling the power supply and regulating the voltage and current within the computer?
@@ -1415,8 +1415,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Power Supply Unit (PSU)
 K: d
-X: The PSU regulates voltage and current.
-S: PSU.
+X: The PSU steps mains AC down and converts it into regulated DC rails (12 V, 5 V, 3.3 V), protecting components from voltage swings.
+S: Voltage/current regulation → PSU.
 
 #141 p153 a182
 Q: Which unit of a computer system is responsible for managing the execution of instructions and coordinating the activities of all other units?
@@ -1437,8 +1437,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache temporarily stores frequently accessed data.
-S: Cache.
+X: Cache memory temporarily stores frequently accessed data between the CPU and RAM. The CPU looks there first (ISS 2021); a hit avoids a slow RAM access.
+S: Frequently used → cache (looked at first).
 
 #143 p153 a182
 Q: Which unit of a computer system is responsible for converting binary instructions into electrical signals that can be processed by the CPU?
@@ -1447,8 +1447,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Decoder
 K: d
-X: The instruction decoder turns the binary opcode into the control signals that activate the right parts of the CPU.
-S: Opcode → control signals = decoder.
+X: The instruction decoder turns the binary opcode of an instruction into the electrical control signals that activate the right CPU circuits (ALU operation, register moves).
+S: Binary opcode → control signals = decoder.
 
 #144 p153 a182
 Q: Which unit of a computer system is responsible for controlling the sequence and timing of instructions within the CPU?
@@ -1458,8 +1458,8 @@ c) Control Unit
 d) Instruction Control Unit
 K: c
 B: d
-X: Sequence and timing of instructions are controlled by the control unit.
-S: Control unit (again).
+X: The control unit controls the sequence and timing of instructions within the CPU, driven by the clock. The book's "instruction control unit" is just a descriptive name for part of it.
+S: Sequence + timing → control unit.
 N: The book prints (d) "Instruction Control Unit" while stating that this is not a standard unit and that the control unit does this job. The key is (c).
 
 #145 p154 a182
@@ -1469,8 +1469,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Optical Drive Controller
 K: d
-X: The optical drive controller manages reading and writing on CDs, DVDs and Blu-ray discs.
-S: Optical drive controller.
+X: The optical drive controller manages reading and writing on CDs, DVDs and Blu-ray discs, which use laser light (ISS 2026) to read the pits and lands.
+S: CD/DVD/Blu-ray → optical drive controller (laser).
 
 #146 p154 a182
 Q: Which unit of a computer system is responsible for converting digital signals from the CPU into analog signals for output to display devices?
@@ -1479,8 +1479,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Graphics Processing Unit (GPU)
 K: d
-X: The GPU/graphics card produces the display signal.
-S: GPU.
+X: The GPU (graphics card) generates the display signal. Older analog VGA monitors needed a RAMDAC to convert it; HDMI and DisplayPort stay digital.
+S: Display signal → GPU.
 
 #147 p154 a183
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and external devices through buses?
@@ -1489,8 +1489,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Bus Interface Unit
 K: d
-X: The bus interface unit manages the CPU's transfers over the buses.
-S: Through buses → BIU.
+X: The bus interface unit (BIU) manages the CPU's transfers over the system buses. In the 8086 the BIU fetches instructions ahead into a queue while the execution unit (EU) executes.
+S: 8086: BIU fetches (bus side), EU executes.
 
 #148 p154 a183
 Q: Which unit of a computer system is responsible for storing the operating system and application software in non-volatile memory?
@@ -1509,8 +1509,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input Controller
 K: d
-X: An input controller controls data flow from input devices.
-S: Input controller.
+X: An input controller manages data flow from input devices such as a keyboard or mouse (for example, a USB host controller).
+S: Input devices → input controller.
 
 #150 p154 a183
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU and output devices?
@@ -1519,8 +1519,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Output Controller
 K: d
-X: An output controller manages data flow to output devices.
-S: Output controller.
+X: An output controller manages the data going to output devices, with buffering to match their slower speed.
+S: Output devices → output controller.
 
 #151 p154 a183
 Q: Which unit of a computer system is responsible for performing complex mathematical calculations and floating-point operations?
@@ -1539,8 +1539,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache holds the data and instructions the CPU needs quickly.
-S: Cache.
+X: Cache memory holds the data and instructions the CPU needs quickly. The speed order is registers > cache > RAM > disk, and the size order is the reverse.
+S: Speed: registers > cache > RAM > disk (size reversed).
 
 #153 p154 a183
 Q: Which unit of a computer system is responsible for coordinating the transfer of data between the CPU and input/output devices?
@@ -1549,8 +1549,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input/Output (I/O) Controller
 K: d
-X: The I/O controller coordinates CPU–I/O transfers.
-S: I/O controller.
+X: The I/O controller coordinates data transfers between the CPU and I/O devices, using interrupts or DMA.
+S: CPU ↔ I/O → I/O controller.
 
 #154 p154 a183
 Q: Which unit of a computer system is responsible for managing the allocation and deallocation of memory resources?
@@ -1559,8 +1559,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Management Unit (MMU)
 K: d
-X: With no OS option, the book keys the MMU, which maps and protects memory for each process.
-S: MMU (OS if offered).
+X: The operating system is not among the options, so the book keys the MMU, the hardware that maps and protects memory for each process. Choose the OS if it is offered, because it makes the allocation decisions.
+S: OS allocates (if offered); MMU maps/protects.
 
 #155 p155 a183
 Q: Which unit of a computer system is responsible for temporarily storing data during the execution of instructions?
@@ -1569,8 +1569,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Data Register
 K: d
-X: Data registers hold values during instruction execution.
-S: Registers.
+X: Data registers inside the CPU hold operands and results while an instruction executes. They are the fastest, smallest storage in the machine.
+S: During execution → registers.
 
 #156 p155 a184
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU and secondary storage devices?
@@ -1579,8 +1579,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Storage Controller
 K: d
-X: A storage controller manages transfers to and from secondary storage.
-S: Storage controller.
+X: A storage controller (SATA, NVMe, RAID) manages transfers to and from secondary storage.
+S: Secondary storage traffic → storage controller.
 
 #157 p155 a184
 Q: Which unit of a computer system is responsible for converting digital signals from the CPU into analog signals for output to display devices?
@@ -1589,8 +1589,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Graphics Processing Unit (GPU)
 K: d
-X: The GPU/graphics card produces the display signal.
-S: GPU.
+X: The GPU converts the CPU's image data into the signal the display needs (analog for VGA monitors via a RAMDAC).
+S: Display → GPU.
 
 #158 p155 a184
 Q: Which unit of a computer system is responsible for storing frequently accessed instructions and data to improve processing speed?
@@ -1609,8 +1609,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input Controller
 K: d
-X: An input controller handles input devices.
-S: Input controller.
+X: An input controller handles the CPU's interaction with input devices: it buffers keystrokes and mouse movements and signals the CPU by interrupt.
+S: Input devices → input controller (interrupt).
 
 #160 p155 a184
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU and output devices?
@@ -1619,8 +1619,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Output Controller
 K: d
-X: An output controller handles output devices.
-S: Output controller.
+X: An output controller handles the data flow from the CPU to output devices.
+S: Output devices → output controller.
 
 #161 p156 a184
 Q: Which unit of a computer system is responsible for managing the allocation and deallocation of CPU resources to different processes?
@@ -1629,8 +1629,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Scheduler
 K: d
-X: The OS scheduler decides which process gets the CPU and for how long (FCFS, SJF, Round Robin, priority).
-S: CPU time to processes → scheduler.
+X: The OS scheduler allocates CPU time to processes using FCFS, SJF, priority or Round Robin (a fixed time slice, ISS 2025). The control unit only executes whatever instruction stream it is given.
+S: Who gets the CPU next → scheduler (Round Robin = time slice).
 
 #162 p156 a184
 Q: Which unit of a computer system is responsible for converting digital signals from the CPU into analog signals for output to audio devices?
@@ -1639,8 +1639,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Digital-to-Analog Converter (DAC)
 K: d
-X: A DAC produces the analog audio signal.
-S: DAC.
+X: A DAC produces the analog audio signal from the CPU's digital samples.
+S: Digital audio → DAC.
 
 #163 p157 a184
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the system bus?
@@ -1649,8 +1649,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Bus Interface Unit
 K: d
-X: The bus interface unit connects the CPU core to the system bus.
-S: BIU.
+X: The bus interface unit connects the CPU core to the system bus, handling address, data and control lines (the three buses).
+S: CPU ↔ system bus = BIU.
 
 #164 p157 a184
 Q: Which unit of a computer system is responsible for storing frequently used data and instructions to reduce access time from the main memory?
@@ -1659,8 +1659,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Cache Memory
 K: d
-X: Cache reduces the time spent waiting on main memory.
-S: Cache.
+X: Cache stores frequently used data and instructions so that the CPU seldom waits on main memory. It is measured by its hit ratio (ISS 2023).
+S: Cut RAM access time → cache.
 
 #165 p157 a185
 Q: Which unit of a computer system is responsible for managing the flow of instructions between the CPU and the main memory?
@@ -1669,8 +1669,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Controller
 K: d
-X: The memory controller manages traffic between the CPU and main memory.
-S: Memory controller.
+X: The memory controller manages the flow of instructions and data between the CPU and main memory.
+S: CPU ↔ main memory → memory controller.
 
 #166 p157 a185
 Q: Which unit of a computer system is responsible for converting analog signals from external devices into digital signals that can be processed by the CPU?
@@ -1679,8 +1679,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
-X: An ADC converts analog to digital.
-S: ADC.
+X: An ADC converts analog signals from external devices (microphones, sensors) into digital data.
+S: A → D = ADC.
 
 #167 p157 a185
 Q: Which unit of a computer system is responsible for managing the execution of instructions stored in the memory?
@@ -1689,8 +1689,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Execution Unit
 K: d
-X: The book keys the instruction execution unit, the part of the CPU that carries out decoded instructions.
-S: Specific named unit (d) is the book's pattern in this chapter.
+X: The book keys the instruction execution unit: the part of the CPU that carries out decoded instructions (the "EU" in the 8086, alongside the bus interface unit).
+S: Executes decoded instructions → execution unit (8086 EU).
 
 #168 p157 a185
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and output devices such as printers and monitors?
@@ -1699,8 +1699,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Output Interface Unit
 K: d
-X: An output interface unit connects the CPU to output devices such as printers and monitors.
-S: Output interface unit.
+X: An output interface unit connects the CPU to output devices such as printers and monitors, translating data and signals for them.
+S: Printer/monitor link → output interface unit.
 
 #169 p157 a185
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU and storage devices such as hard drives and SSDs?
@@ -1709,8 +1709,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Storage Controller
 K: d
-X: HDDs and SSDs are managed by the storage controller.
-S: Storage controller.
+X: HDDs and SSDs are managed by the storage controller (SATA for HDD and SSD, NVMe over PCIe for fast SSDs).
+S: HDD/SSD → storage controller (SATA / NVMe).
 
 #170 p157 a185
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and input devices such as keyboards and mice?
@@ -1720,7 +1720,7 @@ c) Control Unit
 d) Input Interface Unit
 K: d
 X: An input interface unit connects keyboards, mice and other input devices to the CPU.
-S: Input interface unit.
+S: Keyboard/mouse link → input interface unit.
 
 #171 p157 a185
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and external devices such as USB drives and network adapters?
@@ -1729,8 +1729,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) I/O Controller
 K: d
-X: USB devices and network adapters are handled by I/O controllers.
-S: I/O controller.
+X: USB drives and network adapters are external devices handled by I/O controllers (USB host controller, network controller).
+S: USB / network adapters → I/O controller.
 
 #172 p158 a185
 Q: Which unit of a computer system is responsible for managing the storage and retrieval of data from magnetic storage devices such as hard drives?
@@ -1739,8 +1739,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Disk Controller
 K: d
-X: Hard drives are managed by a disk controller.
-S: Disk controller.
+X: Magnetic hard drives are managed by a disk controller, which positions the read/write heads over the right track and sector.
+S: HDD (magnetic) → disk controller.
 
 #173 p158 a186
 Q: Which unit of a computer system is responsible for converting analog signals from a microphone into digital signals that can be processed by the CPU?
@@ -1749,8 +1749,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Audio Interface Unit
 K: d
-X: The audio interface (sound card) digitises microphone input with its ADC.
-S: Mic → audio interface (ADC).
+X: The audio interface (sound card) digitises microphone input with its built-in ADC and plays sound out through its DAC.
+S: Sound card = ADC (mic in) + DAC (speaker out).
 
 #174 p158 a186
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and graphics devices such as graphics cards and monitors?
@@ -1759,8 +1759,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Graphics Interface Unit
 K: d
-X: A graphics interface unit manages the CPU's link to graphics cards and monitors.
-S: Graphics interface unit.
+X: A graphics interface unit manages the CPU's link to graphics cards and monitors (e.g. the PCIe graphics slot).
+S: Graphics link → graphics interface unit.
 
 #175 p158 a186
 Q: Which unit of a computer system is responsible for temporarily storing the address of the next instruction to be executed?
@@ -1769,8 +1769,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Program Counter
 K: d
-X: The program counter holds the next instruction's address.
-S: PC.
+X: The program counter holds the address of the next instruction to be executed and is incremented after each fetch (ISS 2022).
+S: Next instruction's address → PC (ISS 2022).
 
 #176 p158 a186
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and communication devices such as network cards and modems?
@@ -1779,8 +1779,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Communication Interface Unit
 K: d
-X: A communication interface unit connects network cards and modems to the CPU.
-S: Communication interface unit.
+X: A communication interface unit connects network cards and modems to the CPU. A modem converts digital ↔ analog (ISS 2023).
+S: Network card / modem link → communication interface unit.
 
 #177 p158 a186
 Q: Which unit of a computer system is responsible for decoding the instructions fetched from memory and generating control signals for the CPU?
@@ -1789,8 +1789,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Instruction Decoder
 K: d
-X: The instruction decoder decodes fetched instructions and triggers the control signals.
-S: Instruction decoder.
+X: The instruction decoder decodes each fetched instruction and generates the control signals that execute it.
+S: Decode → instruction decoder.
 
 #178 p158 a186
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and peripheral devices such as printers and scanners?
@@ -1799,8 +1799,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Peripheral Interface Unit
 K: d
-X: A peripheral interface unit connects printers, scanners and similar devices.
-S: Peripheral interface unit.
+X: A peripheral interface unit connects printers, scanners and similar devices to the CPU.
+S: Printers/scanners → peripheral interface unit.
 
 #179 p158 a186
 Q: Which unit of a computer system is responsible for managing the allocation and deallocation of resources for multiple running processes?
@@ -1809,8 +1809,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Operating System
 K: d
-X: The OS allocates resources among running processes.
-S: OS.
+X: The operating system allocates CPU time, memory and devices among multiple running processes (multiprogramming/multitasking).
+S: Many processes sharing resources → OS.
 
 #180 p158 a186
 Q: Which unit of a computer system is responsible for managing the power supply and distributing power to various components of the computer?
@@ -1819,8 +1819,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Power Supply Unit (PSU)
 K: d
-X: The PSU distributes power to the components.
-S: PSU.
+X: The PSU converts mains AC and distributes regulated DC power to the motherboard, drives and cards.
+S: Power distribution → PSU.
 
 #181 p159 a187
 Q: Which unit of a computer system is responsible for decoding the memory address of data to be fetched or stored?
@@ -1839,7 +1839,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Graphics Memory Controller
 K: d
-X: The graphics memory controller manages traffic to the dedicated video memory (VRAM).
+X: The graphics memory controller manages traffic to the GPU's dedicated video memory (VRAM), where frame buffers and textures live.
 S: VRAM traffic → graphics memory controller.
 
 #183 p159 a187
@@ -1849,8 +1849,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Input-Output Controller
 K: d
-X: The input/output controller manages keyboards, mice and other I/O devices.
-S: I/O controller.
+X: The input-output controller manages keyboards, mice and other I/O devices on the CPU's behalf.
+S: Keyboard/mouse → I/O controller.
 
 #184 p159 a187
 Q: Which unit of a computer system is responsible for managing the execution of arithmetic and logic operations?
@@ -1859,8 +1859,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Arithmetic Logic Unit (ALU)
 K: d
-X: The ALU executes arithmetic and logic operations.
-S: ALU.
+X: The ALU executes arithmetic and logic operations. AND and OR belong to its logic unit (ISS 2025).
+S: Arithmetic + logic → ALU (ISS 2025).
 
 #185 p159 a187
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the system clock?
@@ -1869,8 +1869,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Clock Generator
 K: d
-X: The clock generator produces and distributes the clock signal that paces the CPU.
-S: Clock → clock generator.
+X: The clock generator (a crystal oscillator circuit) produces the clock pulses that pace every CPU step. Clock speed is measured in GHz.
+S: Timing pulses → clock generator (GHz).
 
 #186 p159 a187
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and external storage devices such as USB drives and memory cards?
@@ -1879,8 +1879,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Storage Interface Unit
 K: d
-X: A storage interface unit connects USB drives and memory cards to the CPU.
-S: Storage interface unit.
+X: A storage interface unit connects removable storage such as USB drives and memory cards to the CPU.
+S: USB drive / memory card → storage interface unit.
 
 #187 p159 a187
 Q: Which unit of a computer system is responsible for storing the result of arithmetic and logic operations?
@@ -1889,7 +1889,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Accumulator
 K: d
-X: The accumulator receives the result of ALU operations.
+X: The accumulator receives the result of arithmetic and logic operations. This is exactly what ISS 2026 asked ("used for storing results produced by the ALU").
 S: ALU result → accumulator (ISS 2026).
 
 #188 p159 a187
@@ -1899,8 +1899,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Network Interface Controller
 K: d
-X: The network interface controller (NIC) handles network communication for the CPU.
-S: Network → NIC.
+X: The network interface controller (NIC) handles network communication for the CPU. A NIC is needed to connect a computer to the internet (ISS 2023).
+S: Network → NIC (ISS 2023).
 
 #189 p159 a188
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and external devices such as printers and scanners?
@@ -1909,8 +1909,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Printer Interface Unit
 K: d
-X: The book keys the printer interface unit, which handles the CPU's communication with printers (and similar devices).
-S: Printer → printer interface unit.
+X: The book keys the printer interface unit, which handles the CPU's communication with printers (and similar devices such as scanners).
+S: Printer link → printer interface unit.
 
 #190 p160 a188
 Q: Which unit of a computer system is responsible for managing the flow of instructions and data between the CPU and the main memory?
@@ -1919,8 +1919,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Bus Controller
 K: d
-X: The memory bus controller manages the memory bus between the CPU and RAM.
-S: Memory bus controller.
+X: The memory bus controller manages the memory bus, the path for instructions and data between the CPU and RAM.
+S: CPU–RAM bus → memory bus controller.
 
 #191 p160 a188
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the sound card for audio input and output?
@@ -1929,8 +1929,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Sound Interface Unit
 K: d
-X: The sound interface unit manages communication with the sound card.
-S: Sound interface unit.
+X: The sound interface unit (sound card or on-board audio codec) manages audio input and output: its ADC digitises the microphone and its DAC drives the speakers. CPU, RAM and control unit are generic parts that never talk to a device directly.
+S: Device-specific stem → device-specific interface; drop CPU/RAM/CU.
 
 #192 p160 a188
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and display devices such as monitors and projectors?
@@ -1939,8 +1939,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Display Controller
 K: d
-X: The display controller sends the image to monitors and projectors.
-S: Display controller.
+X: The display controller (on the graphics card) sends the image to monitors and projectors, both output devices. It refreshes the screen from the frame buffer many times a second.
+S: Monitor/projector = output → display controller.
 
 #193 p160 a188
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the network for data transmission?
@@ -1949,8 +1949,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Network Interface Unit
 K: d
-X: The network interface unit handles data transmission over the network.
-S: Network interface unit.
+X: The network interface unit (NIC) handles data transmission over the network: it frames the data, applies the MAC address and sends it over Ethernet or Wi-Fi.
+S: Network I/O → NIC (MAC address).
 
 #194 p160 a188
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the optical drives for reading and writing data?
@@ -1959,8 +1959,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Optical Drive Controller
 K: d
-X: The optical drive controller manages CD/DVD reading and writing.
-S: Optical drive controller.
+X: The optical drive controller manages reading and writing on CDs, DVDs and Blu-ray discs, which work with laser light (ISS 2026). CD-R is write-once; CD-RW is rewritable.
+S: Optical = laser; CD-R once, CD-RW many.
 
 #195 p160 a188
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the touch screen devices for input and output?
@@ -1969,8 +1969,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Touch Interface Unit
 K: d
-X: The touch interface unit handles touch-screen input and output.
-S: Touch interface unit.
+X: The touch interface unit handles a touchscreen, which is both an input device (touch) and an output device (display). ISS 2024 described the touchscreen as a pointing device used by touching the screen directly.
+S: Touchscreen = input + output (pointing device).
 
 #196 p160 a188
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the printer for printing documents?
@@ -1979,8 +1979,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Printer Controller
 K: d
-X: The printer controller sends print jobs and control commands to the printer.
-S: Printer controller.
+X: The printer controller sends print jobs and commands to the printer. Jobs usually wait in a spool queue on disk, so the CPU is freed while the printer works.
+S: Printer = output; print queue = spooling.
 
 #197 p160 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the video capture devices for capturing and recording videos?
@@ -1989,8 +1989,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Video Capture Interface Unit
 K: d
-X: The video capture interface unit manages webcams and capture cards.
-S: Video capture interface unit.
+X: The video capture interface unit manages webcams and capture cards, which are input devices. Webcam video quality depends on frame rate and resolution (ISS 2024).
+S: Webcam = input (frame rate + resolution decide quality).
 
 #198 p160 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the modem for internet connectivity?
@@ -1999,8 +1999,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Modem Interface Unit
 K: d
-X: The modem interface unit handles communication with the modem.
-S: Modem interface unit.
+X: The modem interface unit handles the modem, which converts digital data to analog signals and back (MOdulator-DEModulator, ISS 2023) for internet connectivity over telephone or cable lines.
+S: Modem = digital ↔ analog (modulate/demodulate).
 
 #199 p161 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the scanner for scanning documents and images?
@@ -2009,8 +2009,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Scanner Controller
 K: d
-X: The scanner controller manages scanning of documents and images.
-S: Scanner controller.
+X: The scanner controller manages scanning of documents and images. A scanner is an input device; with OCR software it can also read the text on the page.
+S: Scanner = input (+ OCR for text).
 
 #200 p161 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the biometric devices for authentication purposes?
@@ -2019,8 +2019,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Biometric Interface Unit
 K: d
-X: The biometric interface unit connects fingerprint and face/iris readers used for authentication.
-S: Biometric interface unit.
+X: The biometric interface unit connects fingerprint, face or iris readers used for authentication, the "something you are" factor.
+S: Biometric = "something you are" authentication.
 
 #201 p161 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the secondary storage devices such as hard drives and solid-state drives?
@@ -2029,8 +2029,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Storage Controller
 K: d
-X: The storage controller (SATA/NVMe) moves data between the CPU and hard drives or SSDs.
-S: Storage controller.
+X: The storage controller (SATA for HDDs and SSDs, NVMe for PCIe SSDs) moves data between the CPU and secondary storage.
+S: HDD/SSD traffic → storage controller.
 
 #202 p161 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the Bluetooth devices for wireless connectivity?
@@ -2039,8 +2039,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Bluetooth Interface Unit
 K: d
-X: The Bluetooth interface handles short-range wireless links (about 10 m, 2.4 GHz).
-S: Bluetooth = short-range wireless (PAN).
+X: The Bluetooth interface handles short-range wireless links (about 10 m, 2.4 GHz band, IEEE 802.15.1): a personal area network (PAN).
+S: Bluetooth = PAN, ~10 m, IEEE 802.15.1.
 
 #203 p161 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the USB devices for data transfer?
@@ -2049,8 +2049,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) USB Controller
 K: d
-X: The USB (host) controller manages all devices attached to the USB ports.
-S: USB controller.
+X: The USB (host) controller manages every device attached to the USB ports. USB is serial, hot-pluggable and plug-and-play.
+S: USB = Universal Serial Bus, hot-plug.
 
 #204 p161 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the RAID arrays for data redundancy and performance improvement?
@@ -2069,8 +2069,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Barcode Interface Unit
 K: d
-X: A barcode interface connects barcode readers, which read the pattern of bars optically.
-S: Barcode reader = optical input device (retail billing).
+X: A barcode interface connects barcode readers, which read the pattern of bars optically. They are input devices used in retail billing.
+S: Barcode reader = optical input (supermarkets).
 
 #206 p161 a189
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the GPS devices for location tracking?
@@ -2079,8 +2079,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) GPS Interface Unit
 K: d
-X: A GPS interface connects the satellite-positioning receiver used for location tracking.
-S: GPS interface.
+X: A GPS interface connects the satellite-positioning receiver, an input device that supplies location data.
+S: GPS = satellite positioning (input).
 
 #207 p162 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the virtual reality (VR) devices for immersive experiences?
@@ -2089,8 +2089,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) VR Interface Unit
 K: d
-X: A VR interface connects head-mounted displays and motion trackers.
-S: VR interface.
+X: A VR interface connects head-mounted displays and motion trackers. VR is built with multimedia and engages sight, hearing and touch (ISS 2025).
+S: VR = immersive multimedia (ISS 2025).
 
 #208 p162 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the smart card readers for secure authentication?
@@ -2099,8 +2099,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Smart Card Interface Unit
 K: d
-X: A smart-card interface reads chip cards used for secure authentication.
-S: Smart card = card with an embedded chip.
+X: A smart-card interface reads chip cards used for secure authentication. The embedded microchip stores keys, unlike an easily copied magnetic stripe.
+S: Smart card = chip (secure); magnetic stripe = older, easily copied.
 
 #209 p162 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the digital cameras for capturing photos and videos?
@@ -2109,8 +2109,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Camera Controller
 K: d
-X: A camera controller manages image capture from digital cameras.
-S: Camera controller.
+X: A camera controller manages image and video capture from a digital camera (an input device). The photos are usually stored on flash memory cards (ISS 2019).
+S: Digital camera = input; its storage = flash.
 
 #210 p162 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the data acquisition devices for collecting data from sensors and instruments?
@@ -2119,7 +2119,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Data Acquisition Interface Unit
 K: d
-X: A data-acquisition (DAQ) interface digitises and collects readings from sensors and instruments.
+X: A data-acquisition (DAQ) interface collects readings from sensors and instruments. It usually digitises them with an ADC.
 S: DAQ = sensors → ADC → computer.
 
 #211 p162 a190
@@ -2129,8 +2129,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Power Management Unit
 K: d
-X: A power management unit regulates power states and distribution (sleep, voltage and battery control).
-S: Power management unit.
+X: A power management unit regulates power states and distribution (sleep and hibernate, voltage scaling, battery charging), working with the PSU.
+S: Power states / regulation → power management unit.
 
 #212 p162 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the bi-directional parallel port for connecting external devices?
@@ -2149,8 +2149,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Wi-Fi Interface Unit
 K: d
-X: The Wi-Fi interface provides wireless LAN connectivity under IEEE 802.11.
-S: Wi-Fi = IEEE 802.11; Ethernet = 802.3.
+X: The Wi-Fi interface provides wireless LAN connectivity under IEEE 802.11 (ISS 2020, 2025). Among common standards, 802.11ad has the highest data rate (ISS 2026).
+S: Wi-Fi = IEEE 802.11 (ISS favourite).
 
 #214 p162 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the FireWire devices for high-speed data transfer?
@@ -2159,7 +2159,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) FireWire Controller
 K: d
-X: A FireWire (IEEE 1394) controller supports high-speed serial transfer, once common for video cameras.
+X: A FireWire (IEEE 1394) controller supports high-speed serial data transfer and was once common for camcorders. It has been largely replaced by USB and Thunderbolt.
 S: FireWire = IEEE 1394.
 
 #215 p162 a190
@@ -2169,8 +2169,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Network Switch Controller
 K: d
-X: The book keys a network switch controller for traffic to the network switch that connects devices in a LAN.
-S: Switch = layer 2, forwards by MAC address.
+X: The book keys a network switch controller for the link to the network switch. A switch forwards frames by MAC address (layer 2), whereas a hub repeats to every port.
+S: Switch = MAC-based forwarding; hub = broadcast to all.
 
 #216 p163 a190
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the data projector for displaying visual content?
@@ -2179,8 +2179,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Projector Interface Unit
 K: d
-X: A projector interface drives the data projector's display.
-S: Projector interface.
+X: A projector interface drives a data projector, an output device that enlarges the display for an audience.
+S: Projector = output.
 
 #217 p163 a191
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the USB hub for connecting multiple USB devices?
@@ -2189,8 +2189,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) USB Hub Controller
 K: d
-X: A USB hub controller lets one port serve many USB devices (up to 127 per host controller).
-S: USB hub = one port → many devices.
+X: A USB hub controller lets one USB port serve many devices; a single host controller supports up to 127 devices.
+S: USB hub = one port → many devices (≤127).
 
 #218 p163 a191
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the analog-to-digital converter for converting analog signals to digital format?
@@ -2199,8 +2199,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) ADC Interface Unit
 K: d
-X: An ADC interface links the analog-to-digital converter to the CPU.
-S: ADC interface.
+X: An ADC interface links the analog-to-digital converter to the CPU, so digitised signals can be read over the bus.
+S: ADC interface = CPU ↔ ADC link.
 
 #219 p163 a191
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the HDMI port for high-definition multimedia connectivity?
@@ -2209,8 +2209,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) HDMI Controller
 K: d
-X: The HDMI controller outputs digital video and audio through the HDMI port.
-S: HDMI = digital audio + video in one cable.
+X: The HDMI controller outputs uncompressed digital video and audio through a single HDMI cable to TVs, monitors and projectors.
+S: HDMI = digital audio + video, one cable.
 
 #220 p163 a191
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the touchpad for cursor control?
@@ -2219,8 +2219,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Touchpad Interface Unit
 K: d
-X: The touchpad interface reads finger movement for cursor control on laptops.
-S: Touchpad interface.
+X: The touchpad interface reads finger movement for cursor control on laptops. A touchpad is a pointing (input) device.
+S: Touchpad = pointing input.
 
 #221 p163 a191
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the magnetic stripe reader for reading data from magnetic cards?
@@ -2229,8 +2229,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Magnetic Stripe Interface Unit
 K: d
-X: A magnetic-stripe interface reads data encoded on card stripes (older debit and credit cards, ID cards).
-S: Magnetic stripe = magnetised band on a card.
+X: A magnetic-stripe interface reads data stored on the magnetised band of cards. Do not confuse it with MICR, which reads magnetic ink on cheques.
+S: Stripe on card ≠ MICR (cheque ink).
 
 #222 p163
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the infrared port for wireless communication?
@@ -2239,8 +2239,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Infrared Interface Unit
 K: d
-X: An infrared (IrDA) interface provides short-range line-of-sight wireless links, as used by TV remotes.
-S: IR = line-of-sight, very short range.
+X: An infrared (IrDA) interface provides short-range, line-of-sight wireless links, like a TV remote. Unlike Bluetooth, it cannot pass through obstacles.
+S: IR = line-of-sight; Bluetooth = radio, goes through walls.
 N: The book's answer for this question is missing from the scan; the key follows the pattern of every other question in this block, where the named interface unit (d) is correct.
 
 #223 p163 a191
@@ -2250,8 +2250,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) MicroSD Interface Unit
 K: d
-X: The microSD interface reads and writes flash memory cards.
-S: MicroSD interface.
+X: The microSD interface reads and writes microSD cards, which are flash memory: non-volatile and electrically erasable (ISS 2019: flash suits phones and cameras).
+S: microSD = flash memory.
 
 #224 p164 a191
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the NFC (Near Field Communication) devices for contactless communication?
@@ -2260,8 +2260,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) NFC Interface Unit
 K: d
-X: An NFC interface handles contactless communication over a few centimetres (tap-to-pay, access cards).
-S: NFC ≈ 4 cm range; Bluetooth ≈ 10 m; Wi-Fi ≈ 50 m or more.
+X: An NFC interface handles contactless communication over about 4 cm (tap-to-pay, metro cards). The short range adds security.
+S: Range: NFC ~4 cm < Bluetooth ~10 m < Wi-Fi ~50 m.
 
 #225 p164 a191
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the temperature sensor for monitoring the system's temperature?
@@ -2270,8 +2270,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Temperature Sensor Interface Unit
 K: d
-X: The temperature-sensor interface reports readings so fans and throttling can respond.
-S: Temperature sensor interface.
+X: The temperature-sensor interface reports readings to the system so that fans can speed up or the CPU can throttle when it runs hot.
+S: Temperature sensor → cooling control.
 
 #226 p164 a191
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the fingerprint scanner for biometric authentication?
@@ -2280,8 +2280,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Fingerprint Scanner Interface Unit
 K: d
-X: The fingerprint-scanner interface supports biometric login.
-S: Biometric input → fingerprint scanner.
+X: The fingerprint-scanner interface supports biometric login, the "something you are" authentication factor.
+S: Fingerprint = biometric input.
 
 #227 p164 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the memory card reader for reading different types of memory cards?
@@ -2290,8 +2290,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Memory Card Interface Unit
 K: d
-X: The memory-card interface reads SD, microSD and other flash cards.
-S: Memory card interface.
+X: The memory-card interface (card reader) reads SD, microSD and other flash cards.
+S: Card reader → flash cards.
 
 #228 p164 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the Ethernet port for wired network connectivity?
@@ -2300,8 +2300,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Ethernet Controller
 K: d
-X: The Ethernet controller (NIC) drives the wired RJ-45 network port.
-S: Wired LAN → Ethernet controller.
+X: The Ethernet controller (NIC) drives the wired RJ-45 network port (IEEE 802.3) using twisted-pair cable.
+S: Wired LAN = Ethernet (IEEE 802.3, RJ-45).
 
 #229 p164 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the battery for power supply to portable devices?
@@ -2310,8 +2310,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Battery Controller
 K: d
-X: A battery controller manages charging and discharging in laptops and phones.
-S: Battery controller.
+X: A battery controller (battery management system) manages charging, discharging and health reporting in laptops and phones.
+S: Portable power → battery controller.
 
 #230 p164 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the backup battery for retaining data during power outages?
@@ -2320,8 +2320,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Backup Battery Interface Unit
 K: d
-X: A backup-battery interface keeps essential data (such as CMOS settings) alive during power loss.
-S: Backup battery keeps CMOS/clock alive.
+X: A backup-battery interface keeps essential data alive during power loss. The CMOS coin cell, for example, preserves BIOS settings and the real-time clock.
+S: CMOS battery keeps settings + clock.
 
 #231 p164 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the graphics card for rendering and displaying visuals?
@@ -2330,8 +2330,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Graphics Processing Unit (GPU)
 K: d
-X: The GPU on the graphics card renders and displays visuals.
-S: GPU.
+X: The GPU on the graphics card renders and displays visuals. It is a massively parallel processor, now also used for AI computing.
+S: Graphics rendering → GPU (parallel cores).
 
 #232 p165 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the joystick for gaming and input control?
@@ -2340,8 +2340,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Joystick Interface Unit
 K: d
-X: The joystick interface reads joystick positions and buttons (a pointing and input device).
-S: Joystick = input (games, flight simulators).
+X: The joystick interface reads joystick position and buttons. A joystick is a pointing input device that moves the cursor in the direction it is pushed (ISS 2024).
+S: Joystick = pointing input (ISS 2024).
 
 #233 p165 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the microphone for audio input?
@@ -2350,8 +2350,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Microphone Interface Unit
 K: d
-X: The microphone interface digitises audio input.
-S: Microphone = audio input.
+X: The microphone interface digitises audio input through an ADC. A microphone is an input device.
+S: Microphone = input (via ADC).
 
 #234 p165 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the webcam for video input?
@@ -2360,8 +2360,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Webcam Interface Unit
 K: d
-X: The webcam interface captures video input.
-S: Webcam = video input.
+X: The webcam interface captures video input. A webcam is an input device (ISS 2021 listed it as not an output device; ISS 2024).
+S: Webcam = input (not output!).
 
 #235 p165 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the optical mouse for cursor control?
@@ -2370,8 +2370,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Optical Mouse Interface Unit
 K: d
-X: The optical-mouse interface reads mouse movement detected by an LED sensor.
-S: Optical mouse = LED + image sensor.
+X: The optical-mouse interface reads movement detected by an LED and image sensor, replacing the old ball mechanism.
+S: Optical mouse = LED + sensor (input).
 
 #236 p165 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the gamepad for gaming and input control?
@@ -2380,8 +2380,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Gamepad Interface Unit
 K: d
-X: The gamepad interface reads game-controller input.
-S: Gamepad interface.
+X: The gamepad interface reads game-controller buttons and sticks (input).
+S: Gamepad = input.
 
 #237 p165 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the scanner for document and image scanning?
@@ -2390,8 +2390,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Scanner Interface Unit
 K: d
-X: The scanner interface transfers scanned images to the computer.
-S: Scanner interface.
+X: The scanner interface transfers scanned images to the computer. OCR, OMR and MICR are specialised forms of scanning.
+S: Scanner family: OCR · OMR · MICR · barcode.
 
 #238 p165 a193
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the speakers for audio output?
@@ -2400,8 +2400,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Speaker Interface Unit
 K: d
-X: The speaker interface sends audio output to the speakers.
-S: Speaker = audio output.
+X: The speaker interface sends audio output (through a DAC and amplifier) to the speakers, which are output devices (ISS 2021).
+S: Speaker = output (ISS 2021).
 
 #239 p165 a193
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the touch-sensitive display for input and output?
@@ -2410,8 +2410,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Touchscreen Interface Unit
 K: d
-X: The touchscreen interface handles touch input and display output.
-S: Touchscreen = input + output.
+X: The touchscreen interface handles touch input and display output together, so a touchscreen is both an input and an output device.
+S: Touchscreen = I + O.
 
 #240 p165 a193
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the data storage devices for data backup and retrieval?
@@ -2420,8 +2420,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Storage Interface Unit
 K: d
-X: The storage interface handles backup and retrieval operations on storage devices.
-S: Storage interface.
+X: The storage interface handles backup and retrieval on storage devices. For large backups, magnetic tape is the classic cheap auxiliary medium (ISS 2018).
+S: Backup medium → tape (cheap, sequential).
 
 #241 p166 a193
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the touch-sensitive trackpad for cursor control?
@@ -2430,8 +2430,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Trackpad Interface Unit
 K: d
-X: The trackpad interface reads gestures for cursor control.
-S: Trackpad interface.
+X: The trackpad interface reads multi-finger gestures for cursor control (a pointing input device).
+S: Trackpad = pointing input.
 
 #242 p166 a193
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the barcode printer for printing barcode labels?
@@ -2440,8 +2440,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Barcode Printer Interface Unit
 K: d
-X: A barcode-printer interface sends label data to barcode printers.
-S: Barcode printer = output; barcode reader = input.
+X: A barcode-printer interface sends label data to barcode printers, which are output devices. Their counterpart, the barcode reader, is an input device.
+S: Barcode printer = output; reader = input.
 
 #243 p166
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the video capture card for capturing and recording video content?
@@ -2450,8 +2450,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Video Capture Card Interface Unit
 K: d
-X: A video-capture-card interface records external video signals.
-S: Video capture interface.
+X: A video-capture-card interface records external video signals (e.g. from a camera or console) into the computer.
+S: Capture card = video input.
 N: The book's answer for this question is missing from the scan; the key follows the pattern of every other question in this block, where the named interface unit (d) is correct.
 
 #244 p166 a193
@@ -2461,7 +2461,7 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Stylus Interface Unit
 K: d
-X: The stylus interface reads pen position and pressure for precise drawing.
+X: The stylus interface reads pen position and pressure for precise drawing. Its older relative, the light pen, is an electro-optical pointing device used on the screen (ISS 2024).
 S: Stylus / light pen = precise pointing input.
 
 #245 p166 a193
@@ -2471,8 +2471,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Network Interface Controller
 K: d
-X: The NIC connects the computer to a network; each NIC has a unique 48-bit MAC address.
-S: NIC → MAC address (48-bit).
+X: The NIC connects the computer to a network or the internet (ISS 2023). Each NIC has a unique 48-bit MAC (hardware) address; the IP address is logical, not hardware (ISS 2023).
+S: NIC → MAC = hardware address; IP = logical.
 
 #246 p166
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the printer for printing documents and images?
@@ -2481,8 +2481,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Printer Interface Unit
 K: d
-X: The printer interface sends documents and images to the printer.
-S: Printer interface.
+X: The printer interface sends documents and images to the printer. Laser printers are measured in dpi: 1200 dpi on an 8 × 10 in page gives 115.2 million dots (ISS 2026).
+S: Dots = (dpi × w) × (dpi × h).
 N: The book's answer for this question is missing from the scan; the key follows the pattern of every other question in this block, where the named interface unit (d) is correct.
 
 #247 p166 a193
@@ -2492,8 +2492,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Optical Drive Interface Unit
 K: d
-X: The optical-drive interface handles CD/DVD reading and writing.
-S: Optical drive interface.
+X: The optical-drive interface handles reading and writing CDs and DVDs; the drive uses a laser to read the pits and lands on the disc.
+S: CD/DVD = optical (laser).
 
 #248 p166 a194
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the touch-sensitive smartboard for interactive presentations?
@@ -2502,8 +2502,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Smartboard Interface Unit
 K: d
-X: A smartboard interface supports interactive whiteboards used for presentations.
-S: Smartboard = interactive whiteboard.
+X: A smartboard interface supports interactive whiteboards: a touch-sensitive surface (input) combined with projected output.
+S: Smartboard = interactive whiteboard (I + O).
 
 #249 p167 a194
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the digital-to-analog converter for converting digital signals to analog format?
@@ -2512,8 +2512,8 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) DAC Interface Unit
 K: d
-X: A DAC interface links the digital-to-analog converter to the CPU.
-S: DAC interface.
+X: A DAC interface links the digital-to-analog converter to the CPU, so digital data can drive analog outputs.
+S: DAC interface = CPU ↔ DAC.
 
 #250 p167 a194
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the modem for connecting to the internet?
@@ -2522,6 +2522,6 @@ b) Random Access Memory (RAM)
 c) Control Unit
 d) Modem Interface Unit
 K: d
-X: The modem interface manages the modem used for internet access.
-S: Modem = modulator-demodulator.
+X: The modem interface manages the modem used for internet access. A modem is both an input and an output device, converting digital ↔ analog (ISS 2023).
+S: Modem = MOdulator-DEModulator.
 
