@@ -1804,8 +1804,10 @@ b) Enhance the processing speed of the CPU
 c) Buffer transmission information in networking devices
 d) Store image data for the visual display monitor
 K: d
+B: a
 X: VRAM holds the image data that is sent to the monitor, acting as a buffer between the processor and the display.
 S: V for Video → display image data.
+N: The book prints "a) Store image data for the visual display monitor": the right text under the wrong letter. In its option list that text is (d), so the key is (d).
 
 #177 p31 a64
 Q: Which type of memory is volatile in nature?

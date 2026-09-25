@@ -97,9 +97,10 @@ b) Arithmetic Logic Unit (ALU)
 c) Random Access Memory (RAM)
 d) Input/Output (I/O) Unit
 K: c
+B: b
 X: The book keys RAM, the only storage unit among the options. Strictly, data and programs not in current use are kept in secondary storage, as the book itself keys at Q20 when that option is offered.
 S: If "secondary storage" is offered, choose it; here RAM is the only memory listed.
-N: The textbook answer is secondary storage (see Q20); it is not among these options, so the book's (c) RAM is kept.
+N: The book prints (b) ALU, but its own explanation describes RAM, so (c) RAM is kept. Strictly, data and programs not currently in use live in secondary storage (see Q20), which is not an option here.
 
 #10 p139 a168
 Q: Which unit of a computer system is responsible for performing arithmetic and logical operations on data?

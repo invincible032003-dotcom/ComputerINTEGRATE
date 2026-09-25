@@ -168,9 +168,11 @@ a) Input
 b) Output
 c) Processing
 d) Storage
-K: c
-X: Storage is the step of keeping data or instructions on a storage device for later use.
-S: Keep for later → storage.
+K: d
+B: c
+X: Storage is the step of the IPOS cycle that keeps data or instructions on a storage device (HDD, SSD, flash) for later use. Input brings data in, processing works on it, and output presents results. Only storage keeps data for the future.
+S: IPOS = Input → Process → Output → Storage; "for future use" → storage.
+N: The book prints "c) Storage": right word, wrong letter. In its own option list Storage is (d), so the key is (d).
 
 #17 p75 a106
 Q: Which component of a computer is responsible for converting digital data into a format that can be displayed on a monitor?
@@ -814,8 +816,10 @@ b) Output
 c) Processing
 d) Downloading
 K: a
-X: Data entering the computer's memory from outside is input. (Downloading is the special case when the source is a network.)
+B: b
+X: Data entering the computer's memory from an external device or network is input: the first step of the IPOS cycle. Output is the reverse direction (computer → user or device). Downloading is only the special case where the source is a network.
 S: Anything coming in → input.
+N: The book prints (b) Output, yet its own explanation describes data moving from an external device or network into the computer's memory, which is input. The key is (a).
 
 #81 p82 a114
 Q: Which component of a computer is responsible for performing floating-point calculations and rendering graphics?
@@ -2192,8 +2196,10 @@ b) Require less memory
 c) Execute instructions more quickly
 d) Use complex instructions
 K: d
+B: c
 X: One complex CISC instruction does the work of several simple ones, so programs are shorter and use less memory.
 S: Memory efficiency of CISC ← complex (multi-operation) instructions.
+N: The book prints (c) "Execute instructions more quickly", but its explanation says CISC is memory-efficient because one instruction performs multiple operations, which is option (d). The key is (d).
 
 #217 p96 a131
 Q: Which of the following is an advantage of CISC processors?
