@@ -59,8 +59,8 @@ function csBody(q) {
     h += '<ol class="stmts">';
     q.stmts.forEach(function (s) { h += '<li>' + csR(s) + '</li>'; });
     h += '</ol>';
-    if (q.ask) h += '<div class="ask">' + csR(q.ask) + '</div>';
   }
+  if (q.ask) h += '<div class="ask">' + csR(q.ask) + '</div>';
   return h;
 }
 

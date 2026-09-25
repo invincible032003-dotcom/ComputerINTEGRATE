@@ -1,0 +1,1636 @@
+@chapter 9
+@title Database Concepts
+@pages 346-367 369-384
+@codes C10
+@default C10
+@themes 1 DBMS basics · features & components · keys & integrity · SQL clauses · data models
+@themes 2 Advanced SQL & OLAP · RAID · schema vs instance · relational terms · super, candidate & primary keys
+@themes 3 Relational algebra · DDL vs DML · char vs varchar · set operations · LIKE, NULL & three-valued logic
+@themes 4 Core SQL commands & clauses · ACID · normalization · NoSQL · views, indexes, transactions
+
+#1 p346 a369
+Q: What is the full form of DBMS?
+a) Data of Binary Management System
+b) Database Management System
+c) Database Management Service
+d) Data Backup Management System
+K: b
+X: A DBMS (Database Management System) is software that stores, retrieves, updates and protects data held in a database, e.g. MySQL, Oracle and MS Access.
+S: DBMS = Database Management System.
+
+#2 p346 a369
+Q: What is a database?
+a) Organized collection of information that cannot be accessed, updated, and managed
+b) Collection of data or information without organizing
+c) Organized collection of data or information that can be accessed, updated, and managed
+d) Organized collection of data that cannot be updated
+K: c
+X: A database is an organised collection of related data that can be accessed, managed and updated efficiently. Each wrong option drops "organised" or "can be updated".
+S: Database = organised + accessible + updatable.
+
+#3 p346 a369
+Q: What is DBMS?
+a) DBMS is a collection of queries
+b) DBMS is a high-level language
+c) DBMS is a programming language
+d) DBMS stores, modifies and retrieves data
+K: d
+X: A DBMS is software that stores, modifies and retrieves data for authorised users. It is not a language: SQL is the language used to talk to a DBMS.
+S: DBMS = software; SQL = its language.
+
+#4 p346 a369
+Q: Who created the first DBMS?
+a) Edgar Frank Codd
+b) Charles Bachman
+c) Charles Babbage
+d) Sharon B. Codd
+K: b
+X: Charles Bachman designed IDS (Integrated Data Store) at General Electric in the early 1960s. It was the first DBMS and used the network (navigational) model. E. F. Codd later proposed the relational model (1970). Charles Babbage is the father of the computer.
+S: First DBMS → Bachman (IDS); relational model → Codd (1970).
+
+#5 p346 a369
+Q: Which type of data can be stored in the database?
+a) Image oriented data
+b) Text, files containing data
+c) Data in the form of audio or video
+d) All of the above
+K: d
+X: Modern databases store text, numbers, images, audio and video, the last usually as BLOBs (Binary Large Objects).
+S: Multimedia in DB → BLOB.
+
+#6 p346 a369
+Q: In which of the following formats data is stored in the database management system?
+a) Image
+b) Text
+c) Table
+d) Graph
+K: c
+X: In a (relational) DBMS, data is organised in tables of rows (records/tuples) and columns (fields/attributes).
+S: RDBMS = tables (rows × columns).
+
+#7 p346 a369
+Q: Which of the following is not a type of database?
+a) Hierarchical
+b) Network
+c) Distributed
+d) Decentralized
+K: d
+X: The standard database types are hierarchical, network, relational, object-oriented, centralised, distributed, NoSQL and cloud. "Decentralized" is not one of the recognised types.
+S: Centralised vs distributed, not "decentralised".
+
+#8 p346 a369
+Q: Which of the following is not an example of DBMS?
+a) MySQL
+b) Microsoft Access
+c) IBM DB2
+d) Google
+K: d
+X: MySQL, MS Access and IBM DB2 are DBMSs. Google is a search engine and company. Other DBMS examples are Oracle, PostgreSQL, SQL Server and MongoDB.
+S: DBMS names: Oracle · MySQL · DB2 · Access · SQL Server · PostgreSQL.
+
+#9 p347 a370
+Q: Which of the following is not a feature of DBMS?
+a) Minimum Duplication and Redundancy of Data
+b) High Level of Security
+c) Single-user Access only
+d) Support ACID Property
+K: c
+X: A DBMS supports many users at once, with concurrency control. Minimal redundancy, security and ACID transactions are all DBMS features.
+S: DBMS = multi-user (concurrency control).
+
+#10 p347 a370
+Q: Which of the following is a feature of the database?
+a) No-backup for the data stored
+b) User interface provided
+c) Lack of Authentication
+d) Store data in multiple locations
+K: b
+X: A DBMS provides a user interface (forms, query tools), backup and recovery, and authentication. Keeping duplicate copies in many places is redundancy, which a DBMS tries to avoid.
+S: DBMS gives UI + backup + authentication; avoids redundancy.
+
+#11 p347 a370
+Q: Which of the following is not a function of the database?
+a) Managing stored data
+b) Manipulating data
+c) Security for stored data
+d) Analyzing code
+K: d
+X: A database manages, manipulates and secures data. Analysing program code is a job for compilers and debuggers.
+S: DB functions: store · manipulate · secure data.
+
+#12 p347 a370
+Q: Which of the following is a function of the DBMS?
+a) Storing data
+b) Providing multi-users access control
+c) Data Integrity
+d) All of the above
+K: d
+X: A DBMS stores data, controls access by many users and enforces integrity constraints. It also handles backup, recovery and concurrency.
+S: Store + access control + integrity → all.
+
+#13 p347 a370
+Q: Which of the following is a component of the DBMS?
+a) Data
+b) Data Languages
+c) Data Manager
+d) All of the above
+K: d
+X: The components of a DBMS environment are hardware, software (including the data manager), data, procedures, database languages (DDL, DML) and users.
+S: DBMS components: hardware · software · data · procedures · languages · users.
+
+#14 p347 a371
+Q: Which of the following is known as a set of entities of the same type that share same properties, or attributes?
+a) Relation set
+b) Tuples
+c) Entity set
+d) Entity Relation model
+K: c
+X: An entity is a distinct real-world object (a student). An entity set is the collection of all entities of the same type (all students), sharing the same attributes.
+S: Entity = one object; entity set = all objects of that type.
+
+#15 p347 a371
+Q: What is information about data called?
+a) Hyper data
+b) Tera data
+c) Meta data
+d) Relations
+K: c
+X: Metadata is "data about data", e.g. column names, types and constraints. It is stored in the data dictionary (system catalog).
+S: Metadata ↔ data dictionary.
+
+#16 p347 a371
+Q: What does an RDBMS consist of?
+a) Collection of Records
+b) Collection of Keys
+c) Collection of Tables
+d) Collection of Fields
+K: c
+X: An RDBMS organises data as a collection of related tables (relations). Records and fields are the parts of each table.
+S: RDBMS = collection of tables.
+
+#17 p348 a371
+Q: The values appearing in given attributes of any tuple in the referencing relation must likewise occur in specific attributes of at least one tuple in the referenced relation, according to ________ integrity constraint.
+a) Referential
+b) Primary
+c) Referencing
+d) Specific
+K: a
+X: Referential integrity: every foreign-key value in the referencing (child) table must match an existing primary-key value in the referenced (parent) table, or be NULL.
+S: FK must point to an existing PK → referential integrity.
+
+#18 p348 a371
+Q: ________ is a hardware component that is most important for the operation of a database management system.
+a) Microphone
+b) High speed, large capacity disk to store data
+c) High-resolution video display
+d) Printer
+K: b
+X: A database lives on secondary storage, so a fast, large-capacity disk is the key hardware component for a DBMS.
+S: DBMS hardware priority → fast, large disk.
+
+#19 p348 a371
+Q: The DBMS acts as an interface between ________ and ________ of an enterprise-class system.
+a) Data and the DBMS
+b) Application and SQL
+c) Database application and the database
+d) The user and the software
+K: c
+X: The DBMS sits between the database applications (and users) and the stored database, turning their requests into operations on the data.
+S: Application ↔ DBMS ↔ database.
+
+#20 p348 a371
+Q: The ability to query data, as well as insert, delete, and alter tuples, is offered by ________
+a) TCL (Transaction Control Language)
+b) DCL (Data Control Language)
+c) DDL (Data Definition Language)
+d) DML (Data Manipulation Language)
+K: d
+X: DML covers `SELECT`, `INSERT`, `UPDATE` and `DELETE`, which work on the data. DDL defines structure (`CREATE`, `ALTER`, `DROP`), DCL handles rights (`GRANT`, `REVOKE`) and TCL handles transactions (`COMMIT`, `ROLLBACK`).
+S: DDL structure · DML data · DCL rights · TCL transactions.
+
+#21 p348 a372
+Q: ________ is a set of one or more attributes taken collectively to uniquely identify a record.
+a) Primary Key
+b) Foreign key
+c) Super key
+d) Candidate key
+K: c
+X: A super key is any set of attributes that uniquely identifies a tuple, even if it has extra attributes. A candidate key is a minimal super key, and the primary key is the candidate key chosen for the table.
+S: Super key ⊇ candidate key (minimal) → primary key (chosen one).
+
+#22 p348 a372
+Q: Which command is used to remove a relation from an SQL database?
+a) Drop table
+b) Delete
+c) Purge
+d) Remove
+K: a
+X: `DROP TABLE r` removes the table's structure and data. `DELETE FROM r` removes only the rows and keeps the empty table.
+S: DROP = table gone; DELETE = rows gone; TRUNCATE = all rows, fast.
+
+#23 p348 a372
+Q: Which of the following set should be associated with weak entity set for weak entity to be meaningful?
+a) Neighbor set
+b) Strong entity set
+c) Owner set
+d) Identifying set
+K: c
+X: A weak entity set has no primary key of its own. It depends on an identifying (owner) strong entity set, and it is identified by combining the owner's key with its own partial key (discriminator).
+S: Weak entity → owner / identifying entity set + partial key.
+N: The book keys (c) Owner set. In standard terminology (Korth), "identifying entity set" and "owner entity set" mean the same thing, so (d) describes the same concept. Treat c/d as equivalent if you meet this in an exam.
+
+#24 p349 a372
+Q: Which of the following command is correct to delete the values in the relation teaches?
+a) Delete from teaches;
+b) Delete from teaches where Id = 'Null';
+c) Remove table teaches;
+d) Drop table teaches;
+K: a
+X: `DELETE FROM teaches;` deletes every row and keeps the table. Option b deletes only rows whose Id is the literal string 'Null'. `REMOVE TABLE` is not SQL, and `DROP TABLE` removes the table itself.
+S: Delete all values, keep table → `DELETE FROM t;`.
+
+#25 p349 a372
+Q: Procedural language among the following is ________
+a) Domain relational calculus
+b) Tuple relational calculus
+c) Relational algebra
+d) Query language
+K: c
+X: Relational algebra is procedural: it states the sequence of operations. Tuple and domain relational calculus are non-procedural (declarative): they state only what is wanted.
+S: Algebra = procedural; calculus = non-procedural.
+
+#26 p349 a372
+Q: ________ operations do not preserve non-matched tuples.
+a) Left outer join
+b) Inner join
+c) Natural join
+d) Right outer join
+K: b
+X: An inner join keeps only rows that match in both tables. Outer joins also keep the non-matched rows (padded with NULLs): the left, right or full side.
+S: Inner = matches only; outer = matches + unmatched.
+N: A natural join is a kind of inner join, so (c) also drops non-matched tuples. The book's intended answer is the general term, inner join.
+
+#27 p349 a372
+Q: Which forms have a relation that contains information about a single entity?
+a) 4NF
+b) 2NF
+c) 5NF
+d) 3NF
+K: a
+X: 4NF removes non-trivial multivalued dependencies. Two independent multi-valued facts about an entity are split into separate relations, so each relation holds information about a single entity or theme.
+S: 4NF ↔ no multivalued dependencies.
+
+#28 p349 a372
+Q: The top level of the hierarchy consists of ________, each of which can contain ________.
+a) Schemas, Catalogs
+b) Schemas, Environment
+c) Environment, Schemas
+d) Catalogs, Schemas
+K: d
+X: SQL organises names in three levels: catalog → schema → object (tables, views). Catalogs sit at the top and contain schemas.
+S: Catalog ⊃ schema ⊃ table.
+
+#29 p349 a372
+Q: ________ indicates the maximum number of entities that can be involved in a relationship.
+a) Greater Entity Count
+b) Minimum cardinality
+c) Maximum cardinality
+d) ERD
+K: c
+X: Maximum cardinality gives the most entities that can take part in a relationship (1 or many). Minimum cardinality gives the fewest (0 = optional, 1 = mandatory).
+S: Max cardinality = upper limit; min cardinality = participation.
+
+#30 p349 a373
+Q: The users can be added or removed using which of the following fixed roles?
+a) db_sysadmin
+b) db_accessadmin
+c) db_securityadmin
+d) db_setupadmin
+K: b
+X: In SQL Server, the fixed database role `db_accessadmin` can add or remove users' access to the database. `db_securityadmin` manages roles and permissions.
+S: Add/remove users → `db_accessadmin`.
+
+#31 p349 a373
+Q: Why is the following statement erroneous?
+```
+SELECT dept_name, ID, avg(salary)
+FROM instructor
+GROUP BY dept_name;
+```
+a) ID is selected but is neither in the GROUP BY clause nor inside an aggregate function
+b) Group by clause is not valid in this query
+c) Avg(salary) should not be selected
+d) None
+K: a
+X: With GROUP BY, every column in the SELECT list must either be a grouping column or appear inside an aggregate function. `dept_name` is grouped and `salary` is aggregated, but `ID` is neither, so the query is invalid.
+S: SELECT list with GROUP BY → grouped column or aggregate only.
+N: The book's option (a) read "Dept_id should not be used in group by clause". The query does not use dept_id, and grouping by dept_name is valid. The book's own explanation gives the real reason (an attribute outside the GROUP BY must be aggregated), so option (a) has been reworded to state it.
+
+#32 p350 a373
+Q: The traditional storage of data organized by the customer, stored in separate folders in filing cabinets is an example of ________ type of 'database' management system.
+a) Object-oriented database management system
+b) Relational database management system
+c) Network database management system
+d) Hierarchical database management system
+K: d
+X: A cabinet contains drawers, drawers contain folders, and folders contain documents. Each item has exactly one parent, which is a tree, i.e. the hierarchical model.
+S: One parent per child (tree) → hierarchical.
+
+#33 p350 a373
+Q: After groups have been established, SQL applies predicates in the ________ clause, allowing aggregate functions to be used.
+a) Where
+b) Having
+c) Group by
+d) With
+K: b
+X: WHERE filters rows before grouping and cannot use aggregates. HAVING filters groups after GROUP BY and can use aggregates, e.g. `HAVING avg(salary) > 50000`.
+S: WHERE → rows (before); HAVING → groups (after, aggregates).
+
+#34 p350 a373
+Q: Which of the following are utilities of a DBMS?
+- i) Backup
+- ii) Loading
+- iii) Process Organization
+- iv) File organization
+a) i, ii, and iv only
+b) i, ii and iii only
+c) i, iii and iv only
+d) All i, ii, iii, and iv
+K: a
+X: Backup (copying the database), loading (bulk data import) and file organisation (reorganising storage structures) are DBMS utilities. Process organisation is not a DBMS utility.
+S: DBMS utilities: backup · loading · file organisation (+ performance monitoring).
+N: The book's stem reads "Which of the following is not the utility of DBMS?", but its key (a) and explanation list the items that are utilities. The stem has been reworded to match the key.
+
+#35 p350 a373
+Q: What does a foreign key combined with a primary key create?
+a) Network model between the tables that connect them
+b) Parent-Child relationship between the tables that connects them
+c) One to many relationship between the tables that connects them
+d) All of the mentioned
+K: b
+B: a
+X: The table holding the primary key is the parent, and the table holding the matching foreign key is the child. Each child row points to its parent row. The relationship is usually one-to-many, but a foreign key can also give one-to-one, so "parent–child" is the general answer.
+S: PK table = parent; FK table = child.
+N: The book prints (a), network model. The source question's key is "parent–child relationship", and the book reordered the options without updating the letter. A PK–FK pair creates a parent–child link, not a network model, so the key is (b).
+
+#36 p350 a373
+Q: Which of the following is correct according to the technology deployed by DBMS?
+a) Pointers are used to maintain transactional integrity and consistency
+b) Cursors are used to maintain transactional integrity and consistency
+c) Locks are used to maintain transactional integrity and consistency
+d) Triggers are used to maintain transactional integrity and consistency
+K: c
+X: Concurrency control uses locks (shared and exclusive, two-phase locking) so that concurrent transactions do not corrupt data, which keeps transactions isolated and consistent. Cursors step through query results, and pointers link records.
+S: Transaction integrity → locks.
+
+#37 p350 a373
+Q: Which of the following is correct regarding the file produced by a spreadsheet?
+a) It can be used as it is by the DBMS
+b) It is stored on disk in an ASCII text format
+c) All of the mentioned
+d) None of the mentioned
+K: b
+B: a
+X: The book's answer follows the classic textbook view that a spreadsheet saves its data as a text file on disk, and that the DBMS cannot use it directly without importing (loading) it. Modern formats (`.xlsx`) are zipped XML, and the plain-text exchange format is CSV.
+S: Spreadsheet → export as text/CSV → load into DBMS.
+N: The book prints (a), but its explanation describes the ASCII text format, which is option (b). The source question's key is "stored on disk in an ASCII text format", and the book reordered the options without updating the letter.
+
+#38 p351 a374
+Q: What is the function of the following command?
+```
+Delete from r where P;
+```
+a) Clears entries from relation
+b) Deletes relation
+c) Deletes particular tuple from relation
+d) All of the mentioned
+K: c
+X: The WHERE predicate P limits the deletion to the tuples that satisfy it. Without a WHERE clause, every tuple would be deleted.
+S: DELETE + WHERE → only matching rows.
+
+#39 p351 a374
+Q: ________ resembles Create view.
+a) Create table ... as
+b) Create view as
+c) Create table ... like
+d) With data
+K: a
+X: `CREATE TABLE t AS (SELECT ...)` is written like `CREATE VIEW v AS (SELECT ...)`, but it stores the query result as a real table, while a view is virtual. `CREATE TABLE ... LIKE` copies only the structure.
+S: CREATE TABLE ... AS SELECT ≈ materialised view.
+
+#40 p351 a374
+Q: The query specifying the SQL view is said to be updatable if it meets which of the following conditions?
+a) The select clause contains only relation attribute names but not expressions, aggregates, or distinct specification
+b) The from clause has only 1 relation
+c) The query does not have group by or having clause
+d) All of the mentioned
+K: d
+X: A view is updatable only if each row maps back to exactly one row of one base table. So: one table in FROM; plain columns only (no expressions, aggregates or DISTINCT); no GROUP BY or HAVING.
+S: Updatable view = single table, plain columns, no grouping.
+
+#41 p351 a374
+Q: When is the "ROLLUP" operator for expressions or columns within a "GROUP BY" clause used?
+a) To find the groups that make up the subtotal in a row
+b) To create group-wise grand totals for the groups indicated in a GROUP BY clause
+c) To group expressions or columns specified in a GROUP BY clause in one direction, from right to left, for computing the subtotals
+d) To produce a cross-tabular report for computing subtotals by grouping phrases or columns given within a GROUP BY clause in all available directions
+K: c
+X: `ROLLUP(a, b, c)` produces subtotals by removing columns one at a time from right to left: (a,b,c), (a,b), (a), then the grand total. `CUBE` (option d) gives subtotals for every combination, in all directions.
+S: ROLLUP = one direction (right → left); CUBE = all combinations.
+
+#42 p351 a374
+Q: Which of the following is the best way to represent the attributes in a large db?
+a) Dot representation
+b) Concatenation
+c) Relational-and
+d) All of the mentioned
+K: b
+X: In a large database, attributes (fields) can be combined by concatenation into a single value for display or as a composite key, e.g. first-name ‖ last-name. This is the book's (source) answer.
+S: Book: large db attributes → concatenation.
+
+#43 p351 a374
+Q: Which of the following is the subset of SQL commands used to manipulate Oracle structures, including tables?
+a) Data Described Language
+b) Data Retrieval Language
+c) Data Manipulation Language
+d) Data Definition Language
+K: d
+X: Oracle defines DDL as the statements that create, alter and drop database structures (schema objects) such as tables. DML manipulates the data inside those structures.
+S: Structures → DDL; data inside → DML.
+
+#44 p352 a374
+Q: Which of the following functions construct histograms and use buckets for ranking?
+a) Ntile()
+b) Newtile()
+c) Rank()
+d) All of the mentioned
+K: a
+X: `NTILE(n)` splits ordered rows into n roughly equal buckets (quartiles for n = 4) and returns each row's bucket number, which is how equi-height histograms are built. `RANK()` gives a rank position.
+S: Buckets / quartiles → `NTILE(n)`.
+
+#45 p352 a374
+Q: ________ command is used in SQL to issue multiple CREATE TABLE, CREATE VIEW and GRANT statements in a single transaction.
+a) CREATE CLUSTER
+b) CREATE PACKAGE
+c) CREATE SCHEMA
+d) All of the mentioned
+K: c
+X: Oracle's `CREATE SCHEMA` statement can contain several CREATE TABLE, CREATE VIEW and GRANT statements that succeed or fail together, as one transaction.
+S: Many CREATE / GRANT in one go → CREATE SCHEMA.
+
+#46 p352 a374
+Q: Which of the following key is required to handle the data when the encryption is applied to the data so that the unauthorized user cannot access the data?
+a) Primary key
+b) Authorized key
+c) Encryption key
+d) Decryption key
+K: c
+C: C8
+X: The encryption key turns plaintext into ciphertext. Without the matching key, intercepted data cannot be read. Primary keys are for identifying tuples, not for security.
+S: Encryption → encryption key (not primary key).
+
+#47 p352 a374
+Q: Which of the following is known as the process of viewing the cross-tab with a fixed value of one attribute?
+a) Dicing
+b) Pivoting
+c) Slicing
+d) Both Pivoting and Dicing
+K: c
+X: In OLAP, slicing fixes one dimension at a single value (e.g. year = 2024) to get a sub-cube. Dicing fixes values on two or more dimensions, and pivoting rotates the axes.
+S: Slice = one dimension fixed; dice = several; pivot = rotate.
+
+#48 p352 a374
+Q: For designing a normal RDBMS which of the following normal form is considered adequate?
+a) 4NF
+b) 3NF
+c) 2NF
+d) 5NF
+K: b
+X: Most 3NF tables are free of insertion, update and deletion anomalies, so practical database design usually stops at 3NF (or BCNF).
+S: Practical target → 3NF.
+
+#49 p352 a375
+Q: Which of the following is popular for applications such as storage of log files in a database management system since it offers the best write performance?
+a) RAID level 0
+b) RAID level 1
+c) RAID level 2
+d) RAID level 3
+K: b
+X: RAID 1 (mirroring) gives the best write performance of the redundant RAID levels, because there is no parity to compute. That is why Korth recommends it for log files. RAID 0 (striping) has no redundancy at all.
+S: RAID 0 striping · RAID 1 mirroring (logs) · RAID 5 distributed parity.
+
+#50 p353 a375
+Q: Which of the following represents a query in the tuple relational calculus?
+a) { }{P(t) | t }
+b) {t | P(t)}
+c) t | P() | t
+d) All of the mentioned
+K: b
+X: A tuple relational calculus query has the form {t | P(t)}: the set of all tuples t for which predicate P is true. It says what is wanted, not how to get it.
+S: TRC form: {t | P(t)}.
+
+#51 p353 a375
+Q: The oldest DB model is ________
+a) Network
+b) Physical
+c) Hierarchical
+d) Relational
+K: a
+X: The book's answer is network: Bachman's IDS (early 1960s), the first DBMS, used a network (navigational) structure. The hierarchical model (IBM's IMS, 1966–68) followed closely, and many textbooks call it the oldest, so check the options carefully. The relational model came in 1970.
+S: Book: network (IDS) oldest; relational newest of the three.
+
+#52 p353 a375
+Q: Evaluate the statements issued by the DBA in the given sequence if OE and SCOTT are the users and the ORDERS table is owned by OE. What would be the outcome after executing the statements?
+```
+CREATE ROLE r1;
+GRANT SELECT, INSERT ON oe.orders TO r1;
+GRANT r1 TO scott;
+GRANT SELECT ON oe.orders TO scott;
+REVOKE SELECT ON oe.orders FROM scott;
+```
+a) The REVOKE statement would give an error because the SELECT privilege has been granted to the role R1
+b) The REVOKE statement would remove the SELECT privilege from SCOTT as well as from the role R1
+c) SCOTT would be able to query the OE.ORDERS table
+d) SCOTT would not be able to query the OE.ORDERS table
+K: c
+X: The REVOKE removes only the SELECT privilege that was granted to SCOTT directly. SCOTT still holds SELECT through role r1, so he can still query OE.ORDERS.
+S: Revoking a direct grant does not touch role-based privileges.
+
+#53 p353 a375
+Q: Which of the following establishes a top-to-bottom relationship among the items?
+a) Relational schema
+b) Network schema
+c) Hierarchical schema
+d) All of the mentioned
+K: c
+X: The hierarchical model arranges records in a tree, from a root down to its children, which gives a top-to-bottom (one-to-many) relationship.
+S: Tree / top-down → hierarchical.
+
+#54 p353 a375
+Q: A major goal of the db system is to minimize the number of block transfers between the disk and memory. Which of the following helps in achieving this goal?
+a) Secondary storage
+b) Storage
+c) Catalog
+d) Buffer
+K: d
+X: The buffer (buffer pool) keeps copies of disk blocks in main memory, so repeated accesses do not need another disk transfer. The buffer manager decides which blocks to keep and which to replace.
+S: Fewer disk I/Os → buffer (buffer manager).
+
+#55 p353 a375
+Q: What happens if a piece of data is stored in two places in the db?
+a) Storage space is wasted & changing the data in one spot will cause data inconsistency
+b) It can be more easily accessed
+c) Changing the data in one spot will cause data inconsistency
+d) Storage space is wasted
+K: a
+X: Redundancy has two costs: wasted storage, and inconsistency when one copy is updated but not the other. Option a names both, so it beats c and d.
+S: Redundancy → waste + inconsistency.
+
+#56 p354 a375
+Q: The logical design, and the snapshot of the data at a given instant in time is known as?
+a) Instance & Relation
+b) Relation & Schema
+c) Domain & Schema
+d) Schema & Instance
+K: d
+X: The schema is the logical design (structure), which rarely changes. The instance is the data stored at a given moment, which changes constantly.
+S: Schema = design (static); instance = snapshot (dynamic).
+
+#57 p354 a375
+Q: A relational database consists of a collection of ________
+a) Tables
+b) Fields
+c) Records
+d) Keys
+K: a
+X: A relational database is a collection of tables (relations). Fields are columns, records are rows, and keys are constraints within tables.
+S: Relational DB = tables.
+
+#58 p354 a375
+Q: A ________ in a table represents a relationship among a set of values.
+a) Column
+b) Key
+c) Row
+d) Entry
+K: c
+X: A row (tuple) ties together one value from each column, so it represents a relationship among those values. This is where the name "relation" comes from.
+S: Row = tuple = related values.
+
+#59 p354 a376
+Q: The term ________ is used to refer to a row.
+a) Attribute
+b) Tuple
+c) Field
+d) Instance
+K: b
+X: In relational terminology a row is a tuple (a record) and a column is an attribute (a field).
+S: Row = tuple = record; column = attribute = field.
+
+#60 p354 a376
+Q: The term attribute refers to a ________ of a table.
+a) Record
+b) Column
+c) Tuple
+d) Key
+K: b
+X: An attribute is a column of the relation, holding one property of every tuple.
+S: Attribute = column.
+
+#61 p354 a376
+Q: For each attribute of a relation, there is a set of permitted values, called the ________ of that attribute.
+a) Domain
+b) Relation
+c) Set
+d) Schema
+K: a
+X: The domain is the set of permitted values for an attribute, e.g. age ∈ integers 0–120.
+S: Permitted values → domain.
+
+#62 p354 a376
+Q: Database ________, which is the logical design of the database, and the database ________, which is a snapshot of the data in the database at a given instant in time.
+a) Instance, Schema
+b) Relation, Schema
+c) Relation, Domain
+d) Schema, Instance
+K: d
+X: The schema is the design and the instance is the snapshot. Option a has the order reversed.
+S: Order matters: schema first, instance second.
+
+#63 p354 a376
+Q: Course(course_id, sec_id, semester). Here the course_id, sec_id and semester are ________ and course is a ________
+a) Relations, Attribute
+b) Attributes, Relation
+c) Tuple, Relation
+d) Tuple, Attributes
+K: b
+X: In the schema Course(course_id, sec_id, semester), Course is the relation (table) and the names in brackets are its attributes (columns).
+S: Name(outside) = relation; names inside = attributes.
+
+#64 p355 a376
+Q: Department (dept_name, building, budget) and Employee (employee_id, name, dept_name, salary). Here the dept_name attribute appears in both the relations. Here using common attributes in relation schema is one way of relating ________ relations.
+a) Attributes of common
+b) Tuple of common
+c) Tuple of distinct
+d) Attributes of distinct
+K: c
+X: Korth: "using common attributes in relation schemas is one way of relating tuples of distinct relations". The shared dept_name links an Employee tuple to its Department tuple.
+S: Common attribute links tuples of distinct relations.
+
+#65 p355 a376
+Q: A domain is atomic if elements of the domain are considered to be ________ units.
+a) Different
+b) Indivisible
+c) Constant
+d) Divisible
+K: b
+X: A domain is atomic when its values cannot be broken down further. First Normal Form (1NF) requires all domains to be atomic.
+S: Atomic = indivisible → 1NF.
+
+#66 p355 a376
+Q: The tuples of the relations can be of ________ order.
+a) Any
+b) Same
+c) Sorted
+d) Constant
+K: a
+X: A relation is a set of tuples, so their order does not matter: the same rows in any order form the same relation.
+S: Relation = set → tuple order irrelevant.
+
+#67 p355 a376
+Q: Which one of the following is a set of one or more attributes taken collectively to uniquely identify a record?
+a) Candidate key
+b) Sub key
+c) Super key
+d) Foreign key
+K: c
+X: This is the definition of a super key. A candidate key is also unique but must be minimal, so the general definition belongs to the super key.
+S: "One or more attributes, uniquely identify" → super key.
+
+#68 p355 a376
+Q: Consider attributes ID, CITY and NAME. Which one of this can be considered as a super key?
+a) NAME
+b) ID
+c) CITY
+d) CITY, ID
+K: b
+X: ID is unique for each tuple, so it is a super key (and, being minimal, a candidate key). NAME and CITY can repeat.
+S: Unique attribute → key; any superset of it → also a super key.
+N: Strictly, {CITY, ID} (option d) is also a super key, since any superset of a key is one. The book's intended answer is ID, the minimal (candidate) key.
+
+#69 p355 a376
+Q: The subset of a super key is a candidate key under what condition?
+a) No proper subset is a super key
+b) All subsets are super keys
+c) Subset is a super key
+d) Each subset is a super key
+K: a
+X: A candidate key is a minimal super key: remove any attribute and it stops being unique. That means no proper subset of it is a super key.
+S: Candidate key = minimal super key.
+
+#70 p355 a376
+Q: A ________ is a property of the entire relation, rather than of the individual tuples in which each tuple is unique.
+a) Rows
+b) Key
+c) Attribute
+d) Fields
+K: b
+X: A key is a constraint on the whole relation: no two tuples may share the key value. It is not a property of any single tuple.
+S: Key = relation-level uniqueness constraint.
+
+#71 p356 a376
+Q: Which one of the following attribute can be taken as a primary key?
+a) Name
+b) Street
+c) Id
+d) Department
+K: c
+X: Names, streets and departments can repeat across tuples. An Id is assigned uniquely, so it can be the primary key.
+S: Unique + not null → primary key (Id).
+
+#72 p356 a376
+Q: Which one of the following cannot be taken as a primary key?
+a) Id
+b) Register number
+c) Dept_id
+d) Street
+K: d
+X: Many people can live on the same street, so Street cannot identify a tuple. Id, register number and dept_id are unique codes, at least within their own tables.
+S: Repeating value → cannot be PK.
+
+#73 p356 a377
+Q: An attribute in a relation is a foreign key if the ________ key from one relation is used as an attribute in that relation.
+a) Candidate
+b) Primary
+c) Super
+d) Sub
+K: b
+X: A foreign key is an attribute in one relation that refers to the primary key of another relation.
+S: FK → refers to another table's PK.
+
+#74 p356 a377
+Q: The relation with the attribute which is the primary key is referenced in another relation. The relation which has the attribute as a primary key is called ________
+a) Referential relation
+b) Referencing relation
+c) Referenced relation
+d) Referred relation
+K: c
+X: The relation whose primary key is pointed to is the referenced relation, also called the parent.
+S: Has the PK → referenced (parent).
+
+#75 p356 a377
+Q: The ________ is the one in which the primary key of one relation is used as a normal attribute in another relation.
+a) Referential relation
+b) Referencing relation
+c) Referenced relation
+d) Referred relation
+K: b
+B: c
+X: The relation that carries another relation's primary key as an ordinary attribute (the foreign key) is the referencing relation, also called the child. Q74 asked for the other side, the referenced relation.
+S: Has the FK → referencing (child); has the PK → referenced (parent).
+N: The book prints (c) Referenced relation, which is the same answer it gave for Q74. Korth defines the relation that includes the foreign key as the referencing relation, so the key is (b).
+
+#76 p356 a377
+Q: A ________ integrity constraint requires that the values appearing in specified attributes of any tuple in the referencing relation also appear in specified attributes of at least one tuple in the referenced relation.
+a) Referential
+b) Referencing
+c) Specific
+d) Primary
+K: a
+X: This is the definition of referential integrity (a foreign-key constraint).
+S: Referencing → referenced match → referential integrity.
+
+#77 p356 a377
+Q: Using which language can a user request information from a database?
+a) Query
+b) Relational
+c) Structural
+d) Compiler
+K: a
+X: A query language (e.g. SQL) is how users ask the database for information.
+S: Request information → query language.
+
+#78 p357 a377
+Q: Student(ID, name, dept_name, tot_cred). In this query which attributes form the primary key?
+a) Name
+b) Dept
+c) Tot_cred
+d) ID
+K: d
+X: Several students can share a name, department or credit total. Only ID is unique for each student.
+S: Student PK → ID.
+
+#79 p357 a377
+Q: Which one of the following is a procedural language?
+a) Domain relational calculus
+b) Tuple relational calculus
+c) Relational algebra
+d) Query language
+K: c
+X: Relational algebra is procedural: it specifies the operations and their order. Both relational calculi are non-procedural.
+S: Algebra = how (procedural); calculus = what.
+
+#80 p357 a377
+Q: The ________ operation allows the combining of two relations by merging pairs of tuples, one from each relation, into a single tuple.
+a) Select
+b) Join
+c) Union
+d) Intersection
+K: b
+X: A join pairs a tuple from each relation that satisfies the join condition and merges the pair into one wider tuple. Union and intersection combine whole tuples of the same shape.
+S: Merge tuple pairs side by side → join.
+
+#81 p357 a377
+Q: The result of which operation contains all pairs of tuples from the two relations, regardless of whether their attribute values match?
+a) Join
+b) Cartesian product
+c) Intersection
+d) Set difference
+K: b
+X: The Cartesian product r × s pairs every tuple of r with every tuple of s: m × n tuples, with no matching condition. A join is a Cartesian product followed by a selection.
+S: All pairs (m × n) → Cartesian product.
+
+#82 p357 a377
+Q: The ________ operation performs a set union of two "similarly structured" tables.
+a) Union
+b) Join
+c) Product
+d) Intersect
+K: a
+X: Union needs union-compatible relations (same number of attributes with matching domains) and returns the tuples that appear in either, with duplicates removed.
+S: Union needs union-compatibility.
+
+#83 p357 a377
+Q: The most commonly used operation in relational algebra for projecting a set of tuples from a relation is ________
+a) Join
+b) Projection
+c) Select
+d) Union
+K: c
+X: The book's answer is select (σ), the operation used to pick out the tuples (rows) that satisfy a condition. Don't be misled by the word "projecting" in the stem: the projection operation (π) picks columns (attributes), not tuples.
+S: σ select → rows; π project → columns.
+
+#84 p357 a377
+Q: The ________ operator takes the results of two queries and returns only rows that appear in both result sets.
+a) Union
+b) Intersect
+c) Difference
+d) Projection
+K: b
+X: `INTERSECT` returns the rows common to both query results. `UNION` returns the rows in either, and `EXCEPT` (difference) returns the rows in the first but not the second.
+S: Both → INTERSECT; either → UNION; first-not-second → EXCEPT.
+
+#85 p358 a377
+Q: A ________ is a pictorial depiction of the schema of a database that shows the relations in the database, their attributes, and primary keys and foreign keys.
+a) Schema diagram
+b) Relational algebra
+c) Database diagram
+d) Schema flow
+K: a
+X: A schema diagram draws each relation as a box listing its attributes, with the primary key underlined and arrows from foreign keys to the primary keys they reference.
+S: Boxes + PK + FK arrows → schema diagram.
+
+#86 p358 a377
+Q: The ________ provides a set of operations that take one or more relations as input and return a relation as an output.
+a) Schematic representation
+b) Relational algebra
+c) Scheme diagram
+d) Relation flow
+K: b
+X: Relational algebra is closed: every operation (select, project, union, difference, product, rename, join) takes relations as input and returns a relation, so operations can be nested.
+S: Relations in → relation out → relational algebra.
+
+#87 p358 a377
+Q: Which one of the following is used to define the structure of the relation, deleting relations and relating schemas?
+a) DML (Data Manipulation Language)
+b) DDL (Data Definition Language)
+c) Query
+d) Relational Schema
+K: b
+X: DDL defines and changes structure: `CREATE`, `ALTER`, `DROP`, `TRUNCATE`, `RENAME`.
+S: Structure → DDL.
+
+#88 p358 a378
+Q: Which one of the following provides the ability to query information from the database and to insert tuples into, delete tuples from, and modify tuples in the database?
+a) DML (Data Manipulation Language)
+b) DDL (Data Definition Language)
+c) Query
+d) Relational Schema
+K: a
+X: DML works on the data itself: `SELECT`, `INSERT`, `DELETE` and `UPDATE`.
+S: Data (query / insert / delete / update) → DML.
+
+#89 p358 a378
+Q: What type of statement is this?
+```
+CREATE TABLE employee (name VARCHAR, id INTEGER)
+```
+a) DML
+b) DDL
+c) View
+d) Integrity constraint
+K: b
+X: CREATE TABLE defines a new relation's structure, so it is DDL.
+S: CREATE / ALTER / DROP → DDL.
+
+#90 p358 a378
+Q: What type of statement is this?
+```
+SELECT * FROM employee
+```
+a) DML
+b) DDL
+c) View
+d) Integrity constraint
+K: a
+X: SELECT reads data, which is DML. (Some texts separate it out as DQL, Data Query Language.)
+S: SELECT → DML (DQL).
+
+#91 p358 a378
+Q: The basic data type char(n) is a ________ length character string and varchar(n) is a ________ length character string.
+a) Fixed, equal
+b) Equal, variable
+c) Fixed, variable
+d) Variable, equal
+K: c
+X: `char(n)` always takes n characters, padding with spaces. `varchar(n)` stores only the actual characters, up to a maximum of n.
+S: char = fixed (padded); varchar = variable.
+
+#92 p359 a378
+Q: An attribute A of datatype varchar(20) has the value "Avi". The attribute B of datatype char(20) has value "Reed". Here attribute A has ________ spaces and attribute B has ________ spaces.
+a) 3, 20
+b) 20, 4
+c) 20, 20
+d) 3, 4
+K: a
+X: Here "spaces" means storage character positions. varchar(20) stores just the 3 characters of "Avi". char(20) always takes 20 positions: "Reed" plus 16 padding blanks.
+S: varchar → actual length; char(n) → always n.
+
+#93 p359 a378
+Q: To remove a relation from an SQL database, we use the ________ command.
+a) Delete
+b) Purge
+c) Remove
+d) Drop table
+K: d
+X: `DROP TABLE r;` removes the relation's data and its definition. `DELETE` removes rows only, `PURGE` in Oracle empties the recycle bin, and `REMOVE` is not SQL.
+S: Remove relation → DROP TABLE.
+
+#94 p359 a378
+Q: This command performs which of the following actions?
+```
+DELETE FROM r;   -- r is a relation
+```
+a) Remove relation
+b) Clear relation entries
+c) Delete fields
+d) Delete rows
+K: b
+X: With no WHERE clause, DELETE removes every tuple and leaves an empty relation whose structure still exists. It clears the relation's entries; it does not remove the relation.
+S: DELETE w/o WHERE → empty table remains.
+N: Option (d) "Delete rows" is also true in a sense, since every row is deleted. The book's answer (b) is the more precise description: the whole relation is emptied and its definition survives.
+
+#95 p359 a378
+Q: What type of statement is this?
+```
+INSERT INTO instructor VALUES (10211, 'Smith', 'Biology', 66000);
+```
+a) Query
+b) DML
+c) Relational
+d) DDL
+K: b
+X: INSERT adds data to a table, so it is a DML statement.
+S: INSERT → DML.
+
+#96 p359 a378
+Q: Updates that violate ________ are disallowed.
+a) Integrity constraints
+b) Transaction control
+c) Authorization
+d) DDL constraints
+K: a
+X: The DBMS rejects any insert, update or delete that would break an integrity constraint: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY or CHECK.
+S: Constraint violation → update rejected.
+
+#97 p359 a378
+Q: The union operation is represented by ________
+a) ∩
+b) ∪
+c) −
+d) ×
+K: b
+X: The relational algebra symbols are: ∪ union, ∩ intersection, − set difference, × Cartesian product, σ select, π project, ⋈ join, ρ rename.
+S: ∪ ∩ − × σ π ⋈ ρ.
+
+#98 p359 a378
+Q: The intersection operator is used to get the ________ tuples.
+a) Different
+b) Common
+c) All
+d) Repeating
+K: b
+X: r ∩ s keeps only the tuples present in both relations.
+S: ∩ → common.
+
+#99 p359 a378
+Q: The union operation automatically ________, unlike the select clause.
+a) Adds tuples
+b) Eliminates unique tuples
+c) Adds common tuples
+d) Eliminates duplicates
+K: d
+X: SQL's UNION removes duplicates automatically, like a set, while SELECT keeps duplicates unless you write DISTINCT.
+S: UNION = distinct; SELECT = keeps duplicates.
+
+#100 p360 a378
+Q: If we want to retain all duplicates, we must write ________ in place of union.
+a) Union all
+b) Union some
+c) Intersect all
+d) Intersect some
+K: a
+X: `UNION ALL` keeps every row, duplicates included, and is faster because it skips the duplicate check.
+S: Keep duplicates → UNION ALL.
+
+#101 p360 a378
+Q: This query displays ________
+```
+(SELECT course_id FROM section WHERE semester = 'Fall' AND year = 2009)
+EXCEPT
+(SELECT course_id FROM section WHERE semester = 'Spring' AND year = 2010);
+```
+a) Only tuples from second part
+b) Only tuples from the first part which has the tuples from second part
+c) Tuples from both the parts
+d) Tuples from first part which do not have second part
+K: d
+X: EXCEPT (set difference) returns the courses offered in Fall 2009 that were not offered in Spring 2010.
+S: A EXCEPT B = in A, not in B.
+
+#102 p360 a378
+Q: For like predicate which of the following is true?
+- i) % matches zero or more characters.
+- ii) _ matches exactly one character.
+a) i only
+b) ii only
+c) Both i and ii
+d) None of the mentioned
+K: c
+X: In a LIKE pattern, `%` matches any string, including the empty string, and `_` matches exactly one character. Example: `'A_%'` matches strings that start with A and have at least 2 characters.
+S: `%` = 0+ chars; `_` = exactly 1 char.
+
+#103 p360 a379
+Q: The number of attributes in a relation is called its ________
+a) Cardinality
+b) Degree
+c) Tuples
+d) Entity
+K: b
+X: The degree (arity) is the number of attributes, i.e. columns. The cardinality is the number of tuples, i.e. rows.
+S: Degree = columns; cardinality = rows.
+
+#104 p360 a379
+Q: The ________ clause is an additional filter that is applied to the result.
+a) Select
+b) Group-by
+c) Having
+d) Order by
+K: c
+X: HAVING filters the grouped result after GROUP BY, usually on aggregate values.
+S: Filter on groups → HAVING.
+
+#105 p360 a379
+Q: ________ joins are SQL server default.
+a) Outer
+b) Inner
+c) Equi
+d) None of the mentioned
+K: b
+X: Writing just `JOIN` means `INNER JOIN`; the keyword INNER is optional.
+S: Plain JOIN = INNER JOIN.
+
+#106 p361 a379
+Q: The ________ is essentially used to search for patterns in target string.
+a) Like Predicate
+b) Null Predicate
+c) In Predicate
+d) Out Predicate
+K: a
+X: LIKE compares a string with a pattern that uses the `%` and `_` wildcards, e.g. `name LIKE 'Ra%'`.
+S: Pattern matching → LIKE.
+
+#107 p361 a379
+Q: A ________ indicates an absent value that may exist but be unknown or that may not exist at all.
+a) Empty tuple
+b) New value
+c) Null value
+d) Old value
+K: c
+X: NULL means "value unknown or not applicable". It is not zero and not a blank string.
+S: NULL ≠ 0 ≠ ''.
+
+#108 p361 a379
+Q: If the attribute phone number is included in the relation all the values need not be entered into the phone number column. This type of entry is given as ________
+a) 0
+b) –
+c) Null
+d) Empty space
+K: c
+X: A missing phone number is stored as NULL. Zero, a dash or a space would be real values that mean something else.
+S: Missing value → NULL.
+
+#109 p361 a379
+Q: The predicate in a where clause can involve Boolean operations such as and. The result of true and unknown is ________, false and unknown is ________, while unknown and unknown is ________
+a) Unknown, unknown, false
+b) True, false, unknown
+c) True, unknown, unknown
+d) Unknown, false, unknown
+K: d
+X: SQL uses three-valued logic. For AND, false dominates: false AND anything = false. true AND unknown = unknown, and unknown AND unknown = unknown.
+S: AND: false dominates; OR: true dominates; NOT unknown = unknown.
+
+#110 p361 a379
+Q: What does this statement select?
+```
+SELECT name FROM instructor WHERE salary IS NOT NULL;
+```
+a) Tuples with null value
+b) Tuples with no null values
+c) Tuples with any salary
+d) All of the mentioned
+K: b
+X: `IS NOT NULL` keeps only the instructors whose salary is present. Note that `= NULL` never works; you must use IS NULL or IS NOT NULL.
+S: Test NULL only with IS [NOT] NULL.
+
+#111 p361 a379
+Q: In an employee table, to include the attributes whose value always have some value which of the following constraint must be used?
+a) Null
+b) Not null
+c) Unique
+d) Distinct
+K: b
+X: The NOT NULL constraint forces every row to supply a value for that column.
+S: Always has a value → NOT NULL.
+
+#112 p361 a379
+Q: Using the ________ clause retains only one copy of such identical tuples.
+a) Null
+b) Unique
+c) Not null
+d) Distinct
+K: d
+X: `SELECT DISTINCT` removes duplicate rows from the result. UNIQUE is a constraint on stored data, not a query clause.
+S: Remove duplicates in output → DISTINCT.
+
+#113 p362 a379
+Q: Some of these insert statements will produce an error. Identify the statement.
+```
+CREATE TABLE employee (id INTEGER, name VARCHAR(20), salary NOT NULL);
+INSERT INTO employee VALUES (1005, Rach, 0);
+INSERT INTO employee VALUES (1007, Ross, );
+INSERT INTO employee VALUES (1002, Joey, 335);
+```
+a) Insert into employee values (1005, Rach, 0);
+b) Insert into employee values (1002, Joey, 335);
+c) Insert into employee values (1007, Ross, );
+d) None of the mentioned
+K: c
+X: Salary is NOT NULL. Ross's insert supplies no salary, which violates the constraint. Rach's salary of 0 is a real value, so it is accepted.
+S: 0 is a value; missing is NULL.
+
+#114 p362 a379
+Q: The primary key must be ________
+a) Unique
+b) Not null
+c) Both Unique and Not null
+d) Either Unique or Not null
+K: c
+X: PRIMARY KEY = UNIQUE + NOT NULL (entity integrity). A UNIQUE column alone may still contain NULLs.
+S: PK = UNIQUE + NOT NULL.
+
+#115 p362 a379
+Q: You attempt to query the database with this command:
+```
+SELECT nvl(100 / quantity, NONE)
+FROM inventory;
+```
+?: Why does this statement cause an error when QUANTITY values are null?
+a) The expression attempts to divide by a null value
+b) The data types in the conversion function are incompatible
+c) The character string none should be enclosed in single quotes (' ')
+d) A null value used in an expression cannot be converted to an actual value
+K: b
+B: a
+X: Dividing by NULL is not an error in SQL: `100 / NULL` simply returns NULL. The problem is NVL. `NVL(expr1, expr2)` returns expr2 when expr1 is NULL, and expr2 must be convertible to expr1's data type, here a number. NONE (or even 'NONE' in quotes) is not a number, so the data types are incompatible. Option c would not fix this, because a quoted 'NONE' still fails the conversion.
+S: Arithmetic with NULL → NULL (no error); NVL arguments must share a type.
+N: The book prints (a), but any arithmetic with NULL just yields NULL. The error comes from NVL's mismatched argument types, the standard answer to this well-known Oracle question, so the key is (b).
+
+#116 p362 a379
+Q: The result of ________ unknown is unknown.
+a) Xor
+b) Or
+c) And
+d) Not
+K: d
+X: NOT unknown = unknown, because the negation of an unknown value is still unknown. AND and OR with unknown can give definite results (false AND unknown = false, true OR unknown = true).
+S: NOT unknown = unknown (always).
+
+#117 p362 a379
+Q: In a relational database, what is the purpose of the SQL "JOIN" operation?
+a) To delete rows from a table
+b) To insert data into a table
+c) To combine rows from multiple tables based on related columns
+d) To modify the structure of a table
+K: c
+X: A JOIN combines rows from two or more tables using related columns, typically foreign key = primary key.
+S: JOIN = combine tables on related columns.
+
+#118 p362 a380
+Q: Which of the following is not a type of DBMS architecture?
+a) Hierarchical
+b) Network
+c) Relational
+d) Dynamic
+K: d
+X: Hierarchical, network, relational (and object-oriented) are the standard data models, which the book calls DBMS types. "Dynamic" is not one of them. (In the strict sense, DBMS architectures are 1-tier, 2-tier and 3-tier.)
+S: Data models: hierarchical · network · relational · object-oriented.
+
+#119 p363 a380
+Q: In a relational database, what is a primary key used for?
+a) Storing large data objects
+b) Linking two tables
+c) Uniquely identifying each row in a table
+d) Generating reports
+K: c
+X: A primary key uniquely identifies each row. Linking tables is the job of the foreign key, which refers to a primary key.
+S: PK = identify; FK = link.
+
+#120 p363 a380
+Q: Which SQL command is used to retrieve data from a database?
+a) UPDATE
+b) DELETE
+c) SELECT
+d) INSERT
+K: c
+X: SELECT retrieves data. UPDATE changes rows, DELETE removes them and INSERT adds them.
+S: Retrieve → SELECT.
+
+#121 p363 a380
+Q: What is the purpose of the SQL command "JOIN" in a query?
+a) To insert data into a table
+b) To delete data from a table
+c) To combine rows from two or more tables based on a related column
+d) To create a new table
+K: c
+X: JOIN combines rows from several tables that share a related column.
+S: JOIN ↔ related column.
+
+#122 p363 a380
+Q: Which type of relationship exists between two tables when one record in the first table corresponds to multiple records in the second table?
+a) One-to-One
+b) Many-to-Many
+c) One-to-Many
+d) None of the above
+K: c
+X: One-to-many, e.g. one department has many employees. It is implemented by putting the "one" side's primary key as a foreign key in the "many" side.
+S: 1:N → FK on the many side; M:N → junction table.
+
+#123 p363 a380
+Q: What is ACID in the context of a DBMS?
+a) A type of database language
+b) A way to rank database performance
+c) A set of properties that ensure reliable processing of database transactions
+d) A type of database backup
+K: c
+X: ACID stands for Atomicity (all or nothing), Consistency (valid state to valid state), Isolation (concurrent transactions don't interfere) and Durability (committed changes survive failures).
+S: A-C-I-D: all-or-nothing · valid · independent · permanent.
+
+#124 p363 a380
+Q: Which SQL command is used to add new rows to a table?
+a) UPDATE
+b) DELETE
+c) INSERT
+d) SELECT
+K: c
+X: `INSERT INTO table VALUES (...)` adds new rows. UPDATE changes existing rows.
+S: New rows → INSERT; change rows → UPDATE.
+
+#125 p363 a381
+Q: In a relational database, what is a foreign key used for?
+a) Creating indexes
+b) Establishing relationships between tables
+c) Sorting data
+d) Calculating aggregate functions
+K: b
+X: A foreign key links a row in one table to the primary key of a row in another table and enforces referential integrity.
+S: FK = relationship + referential integrity.
+
+#126 p363 a381
+Q: What is normalization in the context of a relational database?
+a) A process of increasing redundancy in data
+b) A process of organizing data to reduce redundancy and improve data integrity
+c) A process of deleting data
+d) A process of encrypting data
+K: b
+X: Normalisation (Codd) decomposes tables through 1NF, 2NF, 3NF and BCNF to remove redundancy and the insertion, update and deletion anomalies it causes. Denormalisation deliberately adds redundancy back for speed.
+S: Normalise = less redundancy; denormalise = speed.
+
+#127 p364 a381
+Q: Which SQL clause is used to filter the results of a query?
+a) GROUP BY
+b) HAVING
+c) WHERE
+d) ORDER BY
+K: c
+X: WHERE filters rows using a condition. HAVING filters groups, but the general answer for filtering query results is WHERE.
+S: Filter rows → WHERE.
+
+#128 p364 a381
+Q: What does CRUD stand for in the context of database operations?
+a) Create, Retrieve, Update, Delete
+b) Create, Read, Update, Display
+c) Current, Read, Update, Delete
+d) Control, Report, Undo, Delete
+K: a
+X: CRUD = Create, Read (Retrieve), Update, Delete, the four basic data operations. In SQL they are INSERT, SELECT, UPDATE and DELETE.
+S: CRUD ↔ INSERT · SELECT · UPDATE · DELETE.
+
+#129 p364 a381
+Q: Which type of SQL constraint ensures that values in a column are unique across all rows in a table?
+a) PRIMARY KEY
+b) FOREIGN KEY
+c) UNIQUE
+d) CHECK
+K: c
+X: The UNIQUE constraint forbids duplicate values in a column but allows NULLs. A PRIMARY KEY also enforces uniqueness, but the constraint whose sole purpose is uniqueness is UNIQUE.
+S: Uniqueness only → UNIQUE; unique + not null → PK.
+
+#130 p364 a381
+Q: What does SQL stand for?
+a) Standard Query Language
+b) Structured Query Language
+c) System Query Language
+d) Simple Query Language
+K: b
+X: SQL = Structured Query Language, developed at IBM in the 1970s (originally called SEQUEL) and standardised by ANSI and ISO.
+S: SQL = Structured Query Language (IBM, SEQUEL).
+
+#131 p364 a381
+Q: Which type of DBMS stores data in a tabular format with rows and columns?
+a) Relational DBMS
+b) NoSQL DBMS
+c) Hierarchical DBMS
+d) Object-Oriented DBMS
+K: a
+X: A relational DBMS stores data in tables of rows and columns.
+S: Tables → RDBMS.
+
+#132 p364 a381
+Q: What is the purpose of the SQL "GROUP BY" clause?
+a) To specify the order of rows in a result set
+b) To filter rows based on a condition
+c) To group rows that have the same values in specified columns
+d) To join two or more tables
+K: c
+X: GROUP BY collects rows that share values in the given columns, so that aggregates (COUNT, SUM, AVG) can be computed for each group.
+S: GROUP BY + aggregate = per-group summary.
+
+#133 p364 a381
+Q: Which SQL command is used to modify existing data in a database?
+a) UPDATE
+b) DELETE
+c) INSERT
+d) ALTER
+K: a
+X: UPDATE changes values in existing rows (DML). ALTER changes the table's structure (DDL).
+S: Change data → UPDATE; change structure → ALTER.
+
+#134 p364 a382
+Q: Which of the following is not a common type of NoSQL database?
+a) Document-oriented
+b) Key-value
+c) Relational
+d) Column-family
+K: c
+X: The NoSQL families are document (MongoDB), key-value (Redis), column-family (Cassandra) and graph (Neo4j). Relational databases are what NoSQL is defined against.
+S: NoSQL types: document · key-value · column-family · graph.
+
+#135 p365 a382
+Q: What is a stored procedure in a database?
+a) A type of data encryption
+b) A predefined set of SQL statements that can be executed as a single unit
+c) A type of database index
+d) A data visualization tool
+K: b
+X: A stored procedure is a named, precompiled block of SQL statements stored in the database and run with a single call. It improves reuse, performance and security.
+S: Stored procedure = saved, reusable SQL block.
+
+#136 p365 a382
+Q: In a relational database, what is an index used for?
+a) Storing large data objects
+b) Ensuring data integrity
+c) Speeding up data retrieval by providing a fast access path to rows in a table
+d) Generating reports
+K: c
+X: An index, usually a B-tree, works like a book's index: the DBMS finds rows without scanning the whole table. It speeds up reads but slows writes a little.
+S: Index = faster search (B-tree), slower writes.
+
+#137 p365 a382
+Q: What is the purpose of the SQL "ORDER BY" clause?
+a) To specify the order of columns in a table
+b) To filter rows based on a condition
+c) To sort the result set by one or more columns
+d) To group rows by a specified column
+K: c
+X: ORDER BY sorts the result rows, ascending (ASC, the default) or descending (DESC).
+S: ORDER BY = sort (ASC default).
+
+#138 p365 a382
+Q: Which SQL command is used to remove data from a table?
+a) UPDATE
+b) DELETE
+c) INSERT
+d) SELECT
+K: b
+X: DELETE removes rows, either those matching a WHERE condition or all of them.
+S: Remove rows → DELETE.
+
+#139 p365 a382
+Q: What is a database schema?
+a) A type of database backup
+b) A graphical representation of database tables
+c) A collection of database objects, including tables, views, and indexes
+d) A database management tool
+K: c
+X: A schema is the logical container and structure of a database: its tables, views, indexes, constraints and so on. A graphical picture of the schema is a schema diagram (option b).
+S: Schema = structure / container of objects.
+
+#140 p365 a382
+Q: What does the term "ACID" stand for in the context of database transactions?
+a) Atomicity, Consistency, Isolation, Durability
+b) Accuracy, Control, Isolation, Data
+c) Analysis, Commitment, Integrity, Design
+d) All Columns Indexed, Data Stored
+K: a
+X: ACID = Atomicity, Consistency, Isolation, Durability.
+S: ACID = Atomicity · Consistency · Isolation · Durability.
+
+#141 p365 a382
+Q: Which type of database is most suitable for handling unstructured or semi-structured data, such as social media posts or sensor data?
+a) Relational Database
+b) Document-Oriented Database
+c) Column-Family Database
+d) Graph Database
+K: b
+X: Document databases (MongoDB, CouchDB) store flexible JSON-like documents without a fixed schema, which suits semi-structured data. Graph databases suit relationship-heavy data such as social networks.
+S: Semi-structured → document DB; relationships → graph DB.
+
+#142 p366 a383
+Q: In a relational database, what is a view?
+a) A virtual table that is based on the result of a SELECT query
+b) A way to physically store data
+c) A type of primary key
+d) A database trigger
+K: a
+X: A view is a stored query that behaves like a table but stores no data of its own. A materialised view does store its result.
+S: View = virtual table (stored SELECT).
+
+#143 p366 a383
+Q: What is a database transaction?
+a) A way to query a database
+b) A sequence of SQL statements executed as a single unit of work
+c) A database schema
+d) A type of database backup
+K: b
+X: A transaction is a logical unit of work, e.g. a fund transfer's debit plus credit. Either all of it is committed or all of it is rolled back.
+S: Transaction = all-or-nothing unit (COMMIT / ROLLBACK).
+
+#144 p366 a383
+Q: Which SQL command is used to create a new database table?
+a) CREATE
+b) UPDATE
+c) ALTER
+d) INSERT
+K: a
+X: `CREATE TABLE` defines a new table (DDL). ALTER changes an existing table.
+S: New table → CREATE TABLE.
+
+#145 p366 a383
+Q: What is the purpose of the SQL "HAVING" clause?
+a) To filter rows based on a condition
+b) To group rows by a specified column
+c) To specify the order of rows in a result set
+d) To filter rows based on an aggregate function
+K: d
+X: HAVING filters groups using aggregate conditions, e.g. `HAVING COUNT(*) > 5`. Option a describes WHERE.
+S: Aggregate condition → HAVING.
+
+#146 p366 a383
+Q: What is the primary role of a DBA (Database Administrator)?
+a) Writing SQL queries
+b) Designing user interfaces
+c) Managing and maintaining the database system
+d) Programming in Java
+K: c
+X: The DBA installs and maintains the DBMS, grants access, takes backups and handles recovery, tunes performance and oversees schema changes.
+S: DBA = manage + secure + back up + tune.
+
+#147 p366 a383
+Q: What is the purpose of a database index in a DBMS?
+a) To encrypt sensitive data
+b) To define the database schema
+c) To provide a fast access path to data
+d) To create backup copies of the database
+K: c
+X: An index gives a fast access path to rows so that the DBMS can avoid a full table scan.
+S: Index → fast access path.
+
+#148 p366 a383
+Q: In a relational database, what does the term "referential integrity" refer to?
+a) The use of foreign keys
+b) The process of data normalization
+c) The use of encryption for data security
+d) The process of creating database triggers
+K: a
+X: Referential integrity is enforced through foreign keys: every foreign-key value must match an existing primary key or be NULL.
+S: Referential integrity ↔ foreign keys.
+
+#149 p366 a384
+Q: Which SQL command is used to delete an entire table structure from a database?
+a) REMOVE TABLE
+b) DELETE TABLE
+c) DROP TABLE
+d) ERASE TABLE
+K: c
+X: `DROP TABLE` deletes the table's definition together with all its data. REMOVE, DELETE and ERASE TABLE are not valid SQL.
+S: Structure gone → DROP TABLE.
+
+#150 p367 a384
+Q: What type of database management system is MongoDB?
+a) Relational DBMS
+b) Object-Oriented DBMS
+c) Document-Oriented DBMS
+d) Key-Value DBMS
+K: c
+X: MongoDB is a NoSQL document database. It stores JSON-like BSON documents in collections instead of rows in tables.
+S: MongoDB → document (BSON); Redis → key-value; Cassandra → column; Neo4j → graph.
+
+#151 p367 a384
+Q: What is the purpose of the SQL "ALTER TABLE" command in a DBMS?
+a) To delete rows from a table
+b) To add new columns to a table
+c) To create a new table
+d) To retrieve data from a table
+K: b
+X: ALTER TABLE changes an existing table's structure: adding, dropping or modifying columns and constraints.
+S: ALTER → change structure (add column etc.).
+
+#152 p367 a384
+Q: In a relational database, what is the role of a foreign key constraint?
+a) To ensure data consistency within a column
+b) To enforce data encryption
+c) To establish relationships between tables
+d) To create an index on a primary key
+K: c
+X: A foreign key constraint creates and enforces the relationship between a child table and its parent table.
+S: FK constraint → table relationships.
+
+#153 p367 a384
+Q: Which type of DBMS is optimized for handling data that is organized into tables with rows and columns?
+a) NoSQL DBMS
+b) Hierarchical DBMS
+c) Relational DBMS
+d) Column-family DBMS
+K: c
+X: The relational DBMS is built around tables of rows and columns queried with SQL.
+S: Rows × columns → RDBMS.
+
+#154 p367 a384
+Q: What is the purpose of the SQL "UNION" operator in a query?
+a) To combine the results of two or more SELECT statements into a single result set
+b) To create a new table
+c) To delete rows from a table
+d) To filter rows based on a condition
+K: a
+X: UNION stacks the results of several SELECT statements, which must have compatible columns, into one result and removes duplicates. UNION ALL keeps the duplicates.
+S: UNION = stack results (distinct).
+
+#155 p367 a384
+Q: Which of the following is a characteristic of a NoSQL database?
+a) Strict adherence to a fixed schema
+b) High normalization of data
+c) Support for flexible schema design
+d) Relational data model
+K: c
+X: NoSQL databases are schema-less or have flexible schemas, scale out horizontally and often denormalise data. The other options describe relational systems.
+S: NoSQL = flexible schema + horizontal scaling.
+
+#156 p367 a384
+Q: What is the purpose of the SQL "ROLLBACK" statement in a DBMS?
+a) To commit a transaction
+b) To permanently delete data from a table
+c) To undo changes made during a transaction and restore the database to its previous state
+d) To create a new database
+K: c
+X: ROLLBACK cancels all uncommitted changes of the current transaction, returning the database to its state at the start of the transaction (or at a SAVEPOINT). COMMIT makes the changes permanent.
+S: TCL: COMMIT (save) · ROLLBACK (undo) · SAVEPOINT (marker).
