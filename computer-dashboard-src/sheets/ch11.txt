@@ -1,0 +1,57 @@
+## C language basics
+- **C:** Dennis Ritchie, Bell Labs, **1972**, created to write UNIX. It is a middle-level, structured, portable, compiled language.
+- **Identifiers:** letters, digits and `_`, never starting with a digit, no spaces or `$` (standard C). **Keywords are lowercase** and C is case-sensitive.
+- **Basic types:** `char` (1 byte, always), `int`, `float`, `double`, `void`. **Modifiers:** short, long, signed, unsigned. **Qualifiers:** `const` (read-only), `volatile`.
+- `sizeof` is an **operator**, evaluated at compile time. Its operand is **not executed**: `sizeof(++a)` leaves a unchanged.
+- **Integer promotion:** char and short become int in arithmetic, so `sizeof(c + i)` is `sizeof(int)`. `3.14` is a double; `3.14f` is a float.
+
+## Operators (ISS favourites)
+- **Bitwise:** `&` `|` `^` `~` `<<` `>>`. **Logical:** `&&` `||` `!`. `%` is arithmetic (ISS 2018: `&&`, `!` and `%` are not bitwise).
+- **Right-to-left associativity:** unary, conditional `?:` and assignment (`a = b = c`). Everything else groups left to right (ISS 2018).
+- Same precedence always means the same associativity. Relational and logical results are **0 or 1**.
+- **Short-circuit:** `0 && f()` never calls f; `1 || f()` never calls f.
+- `x *= a + b` means `x = x * (a + b)`. There is **no** `&&=` operator. `a+++b` is read as `a++ + b` (maximal munch).
+- The comma operator yields its **last** value: `switch (ch, ch + 1)` switches on ch + 1.
+
+## Control flow
+- **switch** takes integer types only (char, int, long, enum). Case labels must be **constants**, not variables or `const int` in C. Without `break`, cases **fall through**.
+- **Dangling else:** an else binds to the nearest if. `if (x = 0)` is an assignment and always false. `if (cond);` has an empty body.
+- `for (;;)` is an infinite loop, but `for (;;;)` is a syntax error. Declaring a variable in the for header needs **C99**.
+- **break** is allowed in loops and switch only; **continue** in loops only. Inside a do-while, continue jumps to the condition.
+- A `while (i < n)` loop that runs n times tests its condition **n + 1** times.
+
+## Functions, arrays, pointers
+- C has **no function overloading** and no nested function definitions (functions are always "external"). A function returns **one** value.
+- **Call by value** copies arguments, so a swap inside the function has no effect. **Call by reference (pointers)** changes the caller's variables.
+- **Arrays** hold elements of one type (ISS 2018). A string is a char array ending in `'\0'`, 1 byte per character. `int a[5] = {5};` gives 5, 0, 0, 0, 0.
+- Array length = `sizeof(a) / sizeof(a[0])`. An array argument **decays to a pointer**, so it is never copied.
+- **Pointer arithmetic:** adding or subtracting an integer, or subtracting two pointers into the **same** array, is allowed. Multiplying, dividing or adding a float is not. The difference counts elements.
+- A string literal is **read-only**: `char *p = "hi"; p[0] = 'a';` crashes. Declare `char p[] = "hi";` to be able to modify it.
+- `argc`/`argv`: `int main(int argc, char *argv[])` receives the command-line arguments.
+
+## Storage, memory and preprocessor
+- **Storage classes:** auto, register, static, extern. Uninitialised globals go in **BSS**, initialised ones in data, locals on the **stack**, `malloc` on the heap.
+- **Preprocessor** lines start with `#`: `#include`, `#define`, `#ifdef/#endif` (conditional compilation for different platforms), `#pragma` (compiler-specific).
+- **union** size = its largest member; **struct** size = the sum of members plus padding (int[10] + char → 44 bytes).
+- `typedef` creates an **alias**, not a new type. `typedef int (*PFI)(char *, char *);` makes PFI a pointer to a function.
+
+## Standard library I/O
+- `printf` returns the number of characters printed. Widths and precisions: `%5d`, `%-5d`, `%05d`, `%.2f` (default precision 6), `%.7s` (at most 7 characters), `%*.*f` (width and precision from the arguments).
+- `scanf` returns the **number of items assigned**. `%7s` reads at most 7 characters; `%[^\n]` reads a whole line.
+- **Files:** `fopen` modes r / w / a (append) / r+ …, `fprintf`, `fgets` (reads size − 1 characters), `fputs`, `ftell`, `fseek`, `ungetc` (push back one character).
+- **stdin, stdout, stderr** are `FILE *`. stdout is line-buffered and stderr unbuffered, so stderr text can appear first.
+- **math.h:** functions take and return double, angles in radians. `pow(2, 3)` = 8, `fabs`, `sqrt(-4)` = NaN. `rand()` gives 0 … RAND_MAX; seed it with `srand(time(NULL))`.
+
+## Building a C program
+- Source → **preprocessor** → compiler → **object code** → **linker** (adds library code such as `exp()` from the math library, ISS 2023) → executable → **loader**.
+- The steps are the same whatever the operating system (ISS 2023). **Logical errors** survive compilation; syntax errors don't.
+
+## PYQ: What ISS asked (2018–2026)
+- **2018 Q68** Not bitwise → `&&`, `!` and `%`. **2018 Q75** Right-to-left → **unary and assignment**.
+- **2018 Q72** Arrays hold one type ✓, strings are char arrays with 1 byte per character ✓ → **1 and 2 only**.
+- **2018 Q71** Subtraction loop → **GCD**. **2023 Q78** Same steps on every OS ✓, `exp()` linked from the math library ✓ → **both**.
+
+## Traps to avoid
+- `sizeof(char)` is **1** on every compiler. `sizeof` is not a function call.
+- `float f = 0.1; f == 0.1` is **false**, because a float and a double hold different approximations.
+- `unsigned` vs signed comparisons: `sizeof(int) > -1` is **false** (−1 becomes a huge unsigned value).

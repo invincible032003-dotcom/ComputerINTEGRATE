@@ -1,0 +1,54 @@
+## Functional units (von Neumann model)
+- **Input unit → Memory unit ↔ CPU (ALU + CU + registers) → Output unit.** Data processing is done by the **CPU with memory** (ISS 2022).
+- **Von Neumann architecture:** program and data share one memory and one bus (the stored-program concept), which creates the "von Neumann bottleneck". **Harvard architecture:** separate instruction and data memories.
+- **FPU** (floating-point unit / math co-processor) does real-number arithmetic; **GPU** handles parallel graphics maths.
+- **Scheduler / dispatcher** (inside the CPU or OS) decides which instruction or process goes next.
+
+## Registers (fastest storage, inside the CPU)
+- **PC (program counter):** address of the **next** instruction. **IR (instruction register):** the instruction being decoded.
+- **MAR:** address to read or write. **MDR/MBR:** the data coming from or going to memory.
+- **Accumulator (AC):** holds ALU operands and results. **Flag / status register:** zero, carry, sign, overflow bits.
+- **Stack pointer:** top of the stack (used by subroutine calls and interrupts).
+- Registers and cache are **internal processor memory** (ISS 2021); ROM and optical discs are not.
+
+## Cache memory
+- Small, very fast **SRAM** between CPU and RAM. The CPU checks the **cache first** (ISS 2021).
+- Speed order: **registers > cache > RAM**, and the cache is always **smaller than RAM** (ISS 2023).
+- Effectiveness is measured by the **hit ratio** = hits ÷ (hits + misses) (ISS 2023). Levels: L1 (per core, smallest) < L2 < L3 (shared).
+- Works because of **locality of reference**: temporal (reused soon) and spatial (neighbours used soon).
+- **Associative (content-addressable) memory:** looked up by content, with no address needed (ISS 2019, 2022). It is used in cache tags and TLBs.
+
+## Memory types and chips
+- **Volatile:** DRAM, SRAM. **Non-volatile:** ROM, PROM, EPROM, EEPROM, flash (ISS 2022: of DRAM, SRAM, EPROM only **EPROM** is non-volatile).
+- **PROM** = written **once** (ISS 2022); **ROM** contents cannot be erased by the user (ISS 2020).
+- **Flash** suits phones, cameras and music players (ISS 2019). A **flip-flop** stores 1 bit and is a sequential circuit (ISS 2020).
+- **Secondary memory** is permanent storage (ISS 2020).
+- **Address lines:** $2^n$ locations need **n** lines (1024 → 10). **Data lines = bits per location** (2-byte words → **16** lines, ISS 2021).
+- Capacity = locations × word size. 1 GB = 1024 MB = **1024 × 1024 KB** (ISS 2020).
+
+## Memory management
+- **MMU** translates virtual (logical) addresses to physical addresses.
+- **Paging:** divides memory into fixed-size **frames** and programs into **pages**. It maps virtual → physical addresses (ISS 2021, 2023).
+- **Virtual memory:** gives a large address space beyond physical RAM and efficient sharing of RAM among users. It does **not** provide a larger secondary memory (ISS 2025).
+- **Segmentation:** variable-size logical blocks (code, data, stack). **TLB** = cache of page-table entries.
+
+## Interface and conversion units
+- **BIU (bus interface unit):** connects the CPU to the system bus and fetches instructions ahead (queue).
+- **Memory controller:** manages RAM reads and writes and refresh. **I/O controller / device controller:** runs a peripheral.
+- **ADC** turns analog signals into digital (microphone → PC). **DAC** turns digital into analog (PC → speaker).
+- **Pipelining:** overlaps the fetch/decode/execute of several instructions, like an assembly line, which raises throughput.
+- **Decoder:** n inputs → $2^n$ output lines. It selects memory chips and decodes instructions.
+- Interface cards: **NIC** (network), sound card, graphics card, USB, SATA and wireless (Wi-Fi/Bluetooth) controllers.
+
+## PYQ: What ISS asked (2018–2026)
+- **2018 Q63** 1024 locations × 8 bits → **10 address lines**. **2021 Q72** 2048 × 2-byte chip → **16 data lines**.
+- **2019 Q62 / 2022 Q34** Associative memory → **content-addressable; data itself is the address**.
+- **2021 Q74** Internal processor memory → **cache + registers**. **2021 Q77** CPU looks first in → **cache**.
+- **2022 Q71** Written only once → **PROM**. **2022 Q76** Non-volatile among DRAM/SRAM/EPROM → **EPROM only**.
+- **2023 Q65** Cache: larger than RAM ✗, faster than RAM but slower than registers ✓, hit rate ✓ → **2 and 3 only**.
+- **2025 Q77** Virtual memory: large address space ✓, sharing RAM ✓, "large secondary memory" ✗ → **I and II only**.
+
+## Traps to avoid
+- **Address lines ↔ number of locations; data lines ↔ word width.** Don't mix them up.
+- The **PC holds an address**, not an instruction; the IR holds the instruction.
+- Virtual memory **enlarges the address space**; it does not add disk space and is slower than RAM.

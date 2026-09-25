@@ -1,0 +1,41 @@
+## Basic gates (truth in one line)
+- **AND:** 1 only if **all** inputs are 1. Symbol: D-shape. Y = A·B.
+- **OR:** 0 only if **all** inputs are 0. Symbol: curved shield. Y = A + B.
+- **NOT (inverter):** flips the input. Triangle with a bubble. Y = A'.
+- **NAND** = AND followed by NOT: 0 only when all inputs are 1. **NOR** = OR followed by NOT: 1 only when all inputs are 0.
+- **XOR:** 1 when the inputs **differ** (an odd number of 1s). **XNOR:** 1 when the inputs are **equal**.
+- A bubble on a symbol means inversion. The XOR/XNOR symbols have an **extra curved line** at the input side.
+
+## Universal gates
+- **NAND and NOR are universal:** any Boolean function can be built from either one alone.
+- NAND counts: **NOT = 1, AND = 2, OR = 3, XOR = 4** gates. NOR counts: NOT = 1, OR = 2, AND = 3.
+- NAND with both inputs tied together = NOT. A double NOT (or NAND of NAND) gives back the original input.
+
+## Boolean algebra laws
+- **Identity:** A + 0 = A, A·1 = A. **Null:** A + 1 = 1, A·0 = 0. **Idempotent:** A + A = A, A·A = A.
+- **Complement:** A + A' = 1, A·A' = 0. **Involution:** (A')' = A.
+- **Absorption:** A + A·B = A, A(A + B) = A. **Useful rule:** A + A'B = A + B.
+- **De Morgan:** (A + B)' = A'·B' and (A·B)' = A' + B'. Complement each term and swap + with ·.
+- **Duality:** swap + with · and 0 with 1 (leave the variables alone). The dual of A + 0 = A is A·1 = A.
+- **XOR identities:** A ⊕ 0 = A, A ⊕ 1 = A', A ⊕ A = 0.
+
+## Truth tables and bit operations
+- n inputs → **$2^n$ rows** (3 variables → 8, 4 → 16).
+- **Bitwise AND/OR/XOR on binary numbers:** work column by column. 100101 AND 101101 = 100101 (ISS 2021).
+- Masking: AND with 0 clears a bit, OR with 1 sets a bit, XOR with 1 toggles a bit.
+
+## Combinational vs sequential circuits
+- **Combinational** (output depends on present inputs only): adders, multiplexer, demultiplexer, encoder, decoder, comparator.
+- **Sequential** (has memory): flip-flops, latches, registers, counters. A **flip-flop stores 1 bit** (ISS 2020).
+- **Half adder:** Sum = A ⊕ B, Carry = A·B. **Full adder:** adds a carry-in as well (built from 2 half adders + 1 OR gate).
+- **Multiplexer:** $2^n$ inputs → 1 output, chosen by n select lines. **Decoder:** n inputs → $2^n$ outputs.
+
+## PYQ: What ISS asked (2018–2026)
+- **2021 Q58** Which number gives 100101 when AND-ed with 101101 → **100101** (an AND can only keep or clear 1s).
+- **2020 Q58** A sequential circuit that stores 1 bit → **flip-flop**.
+- Logic gates also appear inside ALU questions: **AND/OR operations belong to the logic unit** (ISS 2025).
+
+## Traps to avoid
+- **XOR ≠ OR:** for 1,1 XOR gives 0 but OR gives 1.
+- "Undefined (X) input" questions: an AND with any input 0 is 0, and an OR with any input 1 is 1, whatever X is. Otherwise the output is undefined.
+- De Morgan changes **both** the operator and the literals. A NAND is **not** A' · B'.

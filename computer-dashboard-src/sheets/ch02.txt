@@ -1,0 +1,51 @@
+## IPOS cycle and data flow
+- **Input → Process → Output → Storage.** Every computing task fits this cycle, and the storage step feeds back into later processing.
+- **Encoding:** converting data into codes (ASCII, Unicode). **Digitisation:** turning analog signals into digital samples (ADC).
+- **Buffering:** a temporary memory area that evens out speed differences between devices (e.g. keyboard buffer, video buffer).
+- **Upload** = local → remote server; **download** = remote → local.
+
+## Input and output devices
+- **Input:** keyboard, mouse, scanner, microphone, **webcam** (ISS 2024), joystick, light pen, touchscreen, OCR, OMR, MICR, barcode reader.
+- **Output:** monitor, printer, **plotter**, speaker, projector. A **terminal** = keyboard + display monitor (ISS 2020).
+- **Both (I/O):** touchscreen, modem, network card, headset.
+- **OCR** reads printed text and **OMR** reads marked bubbles (OMR sheets); both are optical recognition (ISS 2020). **MICR** reads magnetic-ink cheque numbers (banks).
+- **Light pen:** electro-optical pointer used on the screen. **Joystick:** moves the cursor in a pointed direction (ISS 2024: all three statements true).
+- **Webcam** video quality depends on **frame rate and resolution**. Smooth, clear video needs both high, not "max frame rate, min resolution" (ISS 2024).
+- **Printer resolution:** dots = (dpi × width) × (dpi × height). 1200 dpi on 8 × 10 in → 9600 × 12000 = **115.2 million dots** (ISS 2026).
+- **DMA** (direct memory access) lets a device move data to and from memory without constant CPU involvement (ISS 2026).
+
+## Motherboard and interconnects
+- **Chipset:** northbridge (fast: CPU ↔ RAM ↔ GPU) and southbridge (slower I/O: USB, SATA, audio, BIOS). Modern CPUs have absorbed the northbridge.
+- **VRM** regulates CPU voltage; **CMOS battery** keeps the clock and BIOS settings; **BIOS/UEFI** chip holds the start-up firmware.
+- **Buses and slots:** PCIe (graphics, NVMe), SATA (drives), USB (peripherals), M.2 (SSD form factor).
+- **Expansion card** = a plug-in board that adds a function (graphics, sound, network).
+
+## RISC vs CISC
+- **RISC:** small, simple instruction set, **fixed-length (32-bit) instructions** (ISS 2026), one instruction per cycle, load/store design, many registers, pipelining and parallelism. Examples: **ARM**, MIPS, RISC-V.
+- **CISC:** large instruction set, **variable-length instructions**, multi-cycle complex instructions, memory operands. Example: **Intel x86**.
+- ISS 2023: CISC variable length ✓, RISC supports parallel processing ✓, ARM is RISC ✓ → **all three**.
+- ISS 2023: RISC preferred for **compact size + small instruction set**. "Executing multiple clock cycles" is a CISC trait → **1 and 2 only**.
+
+## Media and file formats
+- **Audio:** MP3 (lossy), AAC, WMA, WAV (uncompressed), FLAC (lossless), MIDI (instructions, not sound).
+- **Video:** MP4, AVI, MKV, MOV, WMV, **MPEG** (also counts as audio in ISS 2023).
+- **Raster images:** JPEG, PNG, GIF, BMP, TIFF. **Vector:** SVG, EPS, AI (ISS 2021/2022: SVG is not raster).
+- **Compression:** lossless (ZIP, PNG, FLAC: exact restore) vs lossy (JPEG, MP3: some detail discarded for size).
+
+## Processing operations
+- **Sorting** orders records; **indexing** builds a lookup structure for fast search; **merging** combines sorted files.
+- **Encryption** makes data unreadable without a key; **compression** reduces size. They are different goals.
+- **Streaming:** media is played while it is still downloading (buffered), without storing the whole file first.
+
+## PYQ: What ISS asked (2018–2026)
+- **2020 Q41** Terminal = **keyboard + display monitor**. **2020 Q48** Input device's job → **providing data to the computer**.
+- **2020 Q49** CRT internals → **electron gun, deflection coils, screen**: all three.
+- **2021 Q59** Output devices → **printer, speaker, plotter** (a webcam is input).
+- **2023 Q75** Character recognition at supermarkets → **OCR device**.
+- **2023 Q61 / Q76** RISC–CISC statements (see above). **2026 Q66** RISC instruction length → **32 bits**.
+- **2026 Q72** Flatbed plotter pen too fast → **lines may be distorted**.
+
+## Traps to avoid
+- **Webcam and scanner are input**, a **plotter is output**, a **modem is both**.
+- **OMR ≠ OCR:** OMR detects marks, OCR reads characters, and **MICR** is magnetic (not optical).
+- A RISC program needs **more but simpler** instructions, each finishing in about one cycle. A CISC instruction does more work over several cycles.

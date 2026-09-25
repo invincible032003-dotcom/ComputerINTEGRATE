@@ -1,0 +1,64 @@
+## Generations of computers
+- **1st (1946–56): vacuum tubes**, machine language, punched cards, magnetic drums. ENIAC, EDVAC, UNIVAC-I (first commercial).
+- **2nd (1956–63): transistors**, assembly language, FORTRAN/COBOL, magnetic-core memory. IBM 1401, IBM 7090.
+- **3rd (1964–71): integrated circuits (SSI/MSI)**, keyboards + monitors, operating systems, multiprogramming. IBM System/360.
+- **4th (1971–now): microprocessors (LSI/VLSI)**; the Intel 4004 (1971) was the first microprocessor. PCs, GUIs, networks.
+- **5th (present/future): AI, ULSI, parallel processing**, natural-language interfaces, quantum research.
+- Memory hook, one device per generation: **Tube → Transistor → IC → Microprocessor → AI**.
+
+## Types of computers
+- **By working principle:** analog (continuous quantities, e.g. speedometer), digital (discrete 0/1), hybrid (both, e.g. ICU monitors).
+- **By size and power:** supercomputer > mainframe > minicomputer > microcomputer (PC).
+- **Supercomputer:** weather forecasting, nuclear simulation. Performance in **FLOPS**. India: PARAM (C-DAC), Pratyush, Mihir.
+- **Mainframe:** banks, railways, census. Thousands of users at once, high reliability.
+- **Embedded computer:** dedicated function inside a device (washing machine, ATM, car ECU).
+
+## The machine: CPU, ALU, CU
+- **CPU = ALU + CU + registers.** The ALU is part of the CPU; the CU is not part of the ALU (ISS 2018).
+- **ALU:** arithmetic (+ − × ÷) and logic (AND, OR, NOT, comparisons). AND/OR live in the ALU's logic unit (ISS 2025).
+- **CU:** fetches, decodes and directs; it computes nothing. It is the "manager" of the CPU.
+- **Accumulator:** register that holds ALU results (ISS 2026). **Program counter:** address of the next instruction (ISS 2022).
+- **Clock speed** is in Hz (GHz today). One cycle = one tick; more GHz means more instructions per second, other things equal.
+
+## Memory essentials
+- **Hierarchy (fastest → slowest):** registers → cache (L1 < L2 < L3) → RAM → SSD/HDD → optical/tape.
+- **RAM:** volatile, read/write. **DRAM** needs refreshing (capacitors; main memory). **SRAM** uses flip-flops, is faster and is used for cache.
+- **ROM:** non-volatile. PROM (write once), EPROM (UV erase), EEPROM (electrical erase), flash (block-erasable EEPROM).
+- **Virtual memory** uses disk as an extension of RAM through **paging**: a large address space plus sharing of RAM.
+- **Units:** 1 byte = 8 bits, 1 nibble = 4 bits; KB → MB → GB → TB → PB, ×1024 each ($2^{10}$).
+
+## Buses, motherboard, BIOS and booting
+- **System bus = data bus (bidirectional) + address bus (unidirectional, CPU → memory) + control bus.**
+- Address lines decide addressable memory: n lines → $2^n$ locations (1024 locations → 10 lines).
+- **Motherboard:** CPU socket, chipset (northbridge: CPU/RAM/GPU; southbridge: I/O), RAM slots, BIOS chip, CMOS battery.
+- **BIOS** (firmware in ROM/flash) runs the **POST**, boots the system and gives basic hardware-independent device access (ISS 2024).
+- **Boot sequence:** power on → BIOS/UEFI → POST → boot loader (MBR/GPT) → OS kernel loaded → login.
+- **CMOS** stores BIOS settings and the clock. It is powered by a coin cell battery.
+
+## Secondary storage
+- **HDD:** platters, tracks → sectors, cylinder = the same track on all surfaces. Capacity = surfaces × tracks × sectors × bytes per sector.
+- **SSD** (flash): faster, silent, lower power and heat, shock-proof, more reliable. Costlier per GB (ISS 2025: its advantages exclude low price).
+- **Optical (laser):** CD (~700 MB), DVD (4.7 GB single layer), Blu-ray (25 GB, blue-violet laser). CD-R = write once; CD-RW = rewritable.
+- **Magnetic tape:** sequential access, cheapest for backup and archives. It is the classic **auxiliary memory** (ISS 2018).
+
+## Software and the instruction cycle
+- **System software** (OS, drivers, utilities, translators) vs **application software** (word processor, spreadsheet, browser).
+- **Firmware** is software in ROM (BIOS); **utility software** covers antivirus, backup, compression and disk tools.
+- **Machine / instruction cycle:** fetch → decode → execute → store (write back). One machine-language instruction is one cycle (ISS 2022).
+- **Kernel** = core of the OS, always in memory. **Shell** = command interpreter / user interface.
+
+## PYQ: What ISS asked (2018–2026)
+- **2018 Q61** ALU is a component of the CPU, and the CU is not a component of the ALU → "3 and 4 only".
+- **2022 Q31** Register tracking the next instruction → **Program counter**.
+- **2022 Q73** Units that do data processing → **memory unit + CPU** (the monitor is output only).
+- **2022 Q74** Machine cycle: 4 phases, executes machine-language instructions, 6 instructions = 6 cycles → **all true**.
+- **2024 Q49** Main CPU operations → **fetch, decode, execute, store: all four**.
+- **2024 Q51** BIOS → **POST + boot + hardware-independent device access**: all three.
+- **2025 Q80** AND/OR happen in the **logic unit (ALU)**. **2026 Q80** ALU results stored in the **accumulator**.
+- **2018 Q69** Auxiliary memory → **magnetic tape**. **2018 Q79** 16 × 256 × 16 × 512 = **33,554,432 bytes** (32 MB).
+
+## Traps to avoid
+- The **control unit does not compute**; any statement giving arithmetic to the CU is false.
+- **Address bus is one-way**, data bus two-way. The number of address lines sets capacity, not word size.
+- **SRAM → cache, DRAM → main memory**; do not swap them. **Cache is smaller than RAM**, always.
+- **ROM is not volatile**; "erasable" ROMs (EPROM/EEPROM) are still non-volatile.

@@ -58,7 +58,7 @@ c) `int my num = 1000;`
 d) `int $my_num = 10000;`
 K: b
 X: Commas cannot be used inside a number (option a is a syntax error), names cannot contain spaces (c), and `$` is not a valid identifier character (d).
-S: No commas in numbers, no spaces or $ in names.
+S: No commas in numbers; no spaces or `$` in names.
 
 #6 p402 a454
 Q: Which of the following cannot be a variable name in C?
@@ -768,7 +768,7 @@ c) `typedef char [] string;` and `typedef char *string;`
 d) Such expression cannot be generated in C
 K: b
 X: `typedef char *string;` makes `string` an alias for `char *`, so `string p = "HELLO";` works. `typedef char [] string;` is invalid syntax; an array typedef would be `typedef char string[];`.
-S: typedef char *string; → string = char *.
+S: `typedef char *string;` → string means `char *`.
 
 #55 p411 a457
 Q: What is the meaning of the following C statement?
@@ -2759,7 +2759,7 @@ b) Error
 c) type PFI, function (of two char * arguments) returning int
 d) type PFI, for pointer
 K: a
-X: Read it from the name outwards: PFI is a pointer (`*PFI`) to a function taking (char *, char *) and returning int. This example is from K&R, used for comparison functions like strcmp.
+X: Read it from the name outwards: PFI is a pointer (`*PFI`) to a function taking `(char *, char *)` and returning int. This example is from K&R, used for comparison functions like strcmp.
 S: (*PFI)(…) → pointer to function.
 
 #159 p439 a461
@@ -3268,7 +3268,7 @@ c) Compile error
 d) Run-time error
 K: b
 X: A `*` in the width or precision takes that number from the argument list, in order: width 5, precision 4, then the value. (Here 5700 should be a floating value, e.g. `5700.0`, for `%f` to print 5700.0000 correctly.)
-S: %*.*f → width, precision taken from args.
+S: `%*.*f` → width and precision taken from the arguments.
 
 #193 p445 a462
 Q: What will be the output of the following C code?
@@ -3597,9 +3597,9 @@ S: sizeof doesn't evaluate its operand.
 
 #220 p449 a464
 Q: Which among the following statement is right?
-a) sizeof(struct stemp*) > sizeof(union utemp*) > sizeof(char *)
-b) sizeof(struct stemp*) < sizeof(union utemp*) < sizeof(char *)
-c) sizeof(struct stemp*) = sizeof(union utemp*) = sizeof(char *)
+a) `sizeof(struct stemp*) > sizeof(union utemp*) > sizeof(char *)`
+b) `sizeof(struct stemp*) < sizeof(union utemp*) < sizeof(char *)`
+c) `sizeof(struct stemp*) = sizeof(union utemp*) = sizeof(char *)`
 d) The order depends on the compiler
 K: c
 X: A pointer's size depends on the machine, not on what it points to. On mainstream platforms all data pointers have the same size (4 bytes on 32-bit, 8 on 64-bit).

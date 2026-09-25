@@ -1,0 +1,51 @@
+## DBMS essentials
+- A **database** is an organised, accessible, updatable collection of data. A **DBMS** is the software that stores, retrieves, secures and shares it (Oracle, MySQL, DB2, SQL Server, Access).
+- **DBMS advantages:** less redundancy and inconsistency, **integrity, consistency, security (passwords)** (ISS 2024: all three), concurrency, backup and recovery, data independence.
+- **Metadata** = data about data, kept in the **data dictionary**. The **DBA** manages the DBMS, access, backups and tuning.
+- **Client–server DBMS:** the **server** manages access, security and integrity (ISS 2025); clients send queries.
+- **Three-schema architecture:** external (views) · conceptual (logical) · internal (physical). Logical and physical **data independence**.
+
+## Data models
+- **Hierarchical:** tree, one parent per child (IBM IMS). **Records arranged as a tree** (ISS 2021, 2024).
+- **Network:** graph, many parents allowed (CODASYL, Bachman's IDS, the first DBMS).
+- **Relational:** tables (E. F. Codd, 1970). **Object-oriented:** objects with methods. **NoSQL:** document (MongoDB), key-value (Redis), column (Cassandra), graph (Neo4j).
+- **ER model:** entity (rectangle), attribute (ellipse), relationship (diamond). A **weak entity** needs an owner (identifying) entity. **Cardinality:** 1:1, 1:N, M:N.
+
+## Relational vocabulary and keys
+- Relation = table · **tuple = row** · **attribute = column** · **domain** = permitted values · **degree** = number of columns · **cardinality** = number of rows.
+- **Schema** = logical design (static); **instance** = snapshot of the data (changes).
+- **Super key** ⊇ **candidate key** (minimal) → **primary key** (the chosen one: unique + NOT NULL). **Alternate key** = a candidate key not chosen.
+- **Foreign key** = refers to another table's primary key. It enforces **referential integrity**. The table with the FK is the referencing (child) table; the one with the PK is referenced (parent).
+- **Entity integrity:** the PK cannot be NULL.
+
+## SQL
+- **DDL:** CREATE, ALTER, DROP, TRUNCATE. **DML:** SELECT, INSERT, UPDATE, DELETE. **DCL:** GRANT, REVOKE. **TCL:** COMMIT, ROLLBACK, SAVEPOINT.
+- SQL can **query and update** a database, but a SELECT does **not** remove duplicates by itself; use DISTINCT (ISS 2023). UNION removes duplicates, UNION ALL keeps them.
+- **WHERE** filters rows before grouping; **HAVING** filters groups after GROUP BY (it allows aggregates). ORDER BY sorts (ASC by default).
+- DELETE removes rows (can be rolled back); TRUNCATE removes all rows quickly; **DROP** removes the table itself.
+- `LIKE`: `%` = any run of characters, `_` = exactly one character. Test NULL only with `IS NULL`. `char(n)` is fixed length, `varchar(n)` variable.
+- **Relational algebra** (procedural): σ select (rows), π project (columns), ∪, −, × (Cartesian product), ⋈ join, ρ rename. Relational **calculus** is non-procedural.
+
+## Transactions and normalisation
+- **ACID:** Atomicity, Consistency, Isolation, Durability. **Security is not an ACID property** (ISS 2022).
+- **Concurrency control** uses locks (shared/exclusive) and two-phase locking. **Recovery** uses the log (undo/redo).
+- **1NF:** atomic values. **2NF:** no partial dependency on part of a composite key. **3NF:** no transitive dependency. **BCNF:** every determinant is a candidate key. **4NF:** no multivalued dependency.
+- Normalisation removes redundancy and **insert/update/delete anomalies**; 3NF is the practical target.
+- **Index** (B-tree): faster reads, slower writes. **View:** a virtual table (a stored query). **Stored procedure:** saved, reusable SQL.
+
+## Multimedia and data formats (ISS topic C10)
+- **Raster images:** JPEG, GIF, PNG, BMP, TIFF. **Vector:** **SVG** (not raster, ISS 2021, 2022).
+- **Audio:** MP3, **WAV, WMA**, AAC, **MPEG** audio. TIFF is an image (ISS 2023).
+- **Multimedia** = text + audio + video + graphics/images + animation, all five (ISS 2025).
+- **Virtual reality:** created with multimedia, lets users move and react in a simulated world and stimulates sight, hearing and touch (ISS 2025: all three true).
+
+## PYQ: What ISS asked (2018–2026)
+- **2021 Q51 / 2024 Q60** Tree-structured model → **hierarchical**. **2022 Q80** Transaction properties → **atomicity, durability, isolation** (not security).
+- **2023 Q71** SQL queries ✓, updates ✓, auto-removes duplicates ✗ → **1 and 2 only**.
+- **2024 Q57** DBMS integrity ✓, consistency ✓, password security ✓ → **all three**. **2025 Q40** Client–server: access and security → **server**.
+- **2021 Q60 / 2022 Q36** Raster → **JPEG, GIF, PNG** (not SVG). **2023 Q62** Audio → **MPEG, WAV, WMA**.
+
+## Traps to avoid
+- **Degree = columns, cardinality = rows.** In ER diagrams, "cardinality" also means relationship counts (1:N).
+- **DELETE vs DROP:** DELETE keeps the table, DROP removes it.
+- Security, backup and "speed" are not part of ACID.
