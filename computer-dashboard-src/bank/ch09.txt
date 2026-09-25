@@ -817,7 +817,7 @@ c) Tot_cred
 d) ID
 K: d
 X: Several students can share a name, department or credit total. Only ID is unique for each student.
-S: Student PK → ID.
+S: The attribute unique for every row (ID) → primary key.
 
 #79 p357 a377
 Q: Which one of the following is a procedural language?
@@ -907,7 +907,7 @@ c) Query
 d) Relational Schema
 K: b
 X: DDL defines and changes structure: `CREATE`, `ALTER`, `DROP`, `TRUNCATE`, `RENAME`.
-S: Structure → DDL.
+S: Structure (CREATE/ALTER/DROP) → DDL; data (SELECT/INSERT…) → DML.
 
 #88 p358 a378
 Q: Which one of the following provides the ability to query information from the database and to insert tuples into, delete tuples from, and modify tuples in the database?
@@ -1000,7 +1000,7 @@ c) Relational
 d) DDL
 K: b
 X: INSERT adds data to a table, so it is a DML statement.
-S: INSERT → DML.
+S: INSERT / UPDATE / DELETE / SELECT → DML.
 
 #96 p359 a378
 Q: Updates that violate ________ are disallowed.
@@ -1020,7 +1020,7 @@ c) −
 d) ×
 K: b
 X: The relational algebra symbols are: ∪ union, ∩ intersection, − set difference, × Cartesian product, σ select, π project, ⋈ join, ρ rename.
-S: ∪ ∩ − × σ π ⋈ ρ.
+S: Algebra symbols: ∪ union · ∩ intersect · − minus · × product · σ select · π project · ⋈ join.
 
 #98 p359 a378
 Q: The intersection operator is used to get the ________ tuples.
@@ -1030,7 +1030,7 @@ c) All
 d) Repeating
 K: b
 X: r ∩ s keeps only the tuples present in both relations.
-S: ∩ → common.
+S: ∩ keeps only the common tuples; ∪ keeps either; − keeps first-not-second.
 
 #99 p359 a378
 Q: The union operation automatically ________, unlike the select clause.
@@ -1127,7 +1127,7 @@ c) Null value
 d) Old value
 K: c
 X: NULL means "value unknown or not applicable". It is not zero and not a blank string.
-S: NULL ≠ 0 ≠ ''.
+S: NULL = unknown or absent, not zero and not an empty string.
 
 #108 p361 a379
 Q: If the attribute phone number is included in the relation all the values need not be entered into the phone number column. This type of entry is given as ________
@@ -1383,7 +1383,7 @@ c) Hierarchical DBMS
 d) Object-Oriented DBMS
 K: a
 X: A relational DBMS stores data in tables of rows and columns.
-S: Tables → RDBMS.
+S: Rows × columns (tables) → relational DBMS.
 
 #132 p364 a381
 Q: What is the purpose of the SQL "GROUP BY" clause?

@@ -266,7 +266,7 @@ c) JavaScript
 d) PHP
 K: a
 X: HTML structures web content. CSS styles it, JavaScript adds interactivity, and PHP is a server-side scripting language.
-S: Structure → HTML.
+S: HTML = structure · CSS = style · JavaScript = behaviour.
 
 #27 p321 a338
 Q: The protocol commonly used for transferring data over the World Wide Web is:
@@ -608,7 +608,7 @@ c) It contains additional parameters or data to be sent to the web server
 d) It determines the format of the web page
 K: b
 X: The path identifies the resource on the server. Option a describes the host and option c the query string.
-S: Path ↔ resource.
+S: URL: scheme://host/path?query. The path names the resource on that host.
 
 #61 p325 a340
 Q: What is a search engine?
@@ -638,7 +638,7 @@ c) To index and retrieve web pages based on user queries
 d) To transfer data between web servers and browsers
 K: c
 X: A search engine indexes pages in advance, then retrieves and ranks the relevant ones when a query arrives.
-S: Index + retrieve.
+S: Search engine = crawl → index → rank → retrieve results.
 
 #64 p326 a340
 Q: How do search engines gather information about web pages?

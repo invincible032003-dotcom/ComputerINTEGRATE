@@ -484,7 +484,7 @@ c) CPU
 d) RAM
 K: a
 X: The power supply converts and delivers electrical power to the CPU (through the motherboard) and all other internal components.
-S: Power → PSU.
+S: PSU supplies power; the motherboard only routes it.
 
 #48 p78 a110
 Q: Which type of software allows users to create, edit, and manipulate documents, spreadsheets, and presentations?
@@ -1161,7 +1161,7 @@ c) ROM
 d) Virtual Memory
 K: c
 X: ROM contains firmware: permanent start-up and control instructions such as the BIOS.
-S: Firmware → ROM.
+S: Read-only + firmware/BIOS → ROM (flash/EEPROM today).
 
 #115 p85 a118
 Q: Which of the following is responsible for managing the memory resources and allocating them to different processes?
@@ -1293,7 +1293,7 @@ c) Power Supply
 d) Motherboard
 K: c
 X: The PSU provides regulated electrical power to all components.
-S: Power → PSU.
+S: Power source for every part → PSU (AC → DC).
 
 #128 p86 a120
 Q: Which type of software provides a platform for running applications and managing computer resources?
@@ -1377,7 +1377,7 @@ c) Operating System
 d) Hard Drive
 K: c
 X: The OS manages and coordinates I/O devices through device drivers, interrupts and spooling.
-S: I/O devices → OS.
+S: Coordinating I/O devices (software side) → OS via device drivers.
 
 #136 p87 a121
 Q: The process of converting digital signals into analog signals for output to analog devices is called:
@@ -2032,7 +2032,7 @@ c) Provide power to other components
 d) Execute program instructions
 K: c
 X: The PSU converts mains AC and supplies regulated DC power to the other components.
-S: PSU = power.
+S: PSU = converts AC mains to regulated DC for all parts.
 
 #201 p94 a129
 Q: Which of the following best describes the main idea behind Reduced Instruction Set Architecture (RISC)?
@@ -2613,7 +2613,7 @@ c) OPUS
 d) WMA
 K: c
 X: Opus is built for low-latency voice and audio over the internet, as used in VoIP and WebRTC calls.
-S: VoIP → Opus.
+S: Internet calls / voice → Opus codec (low latency).
 
 #258 p100 a135
 Q: Which sound file format is widely supported by web browsers for audio playback?
@@ -2643,7 +2643,7 @@ c) AAC
 d) AIFF
 K: a
 X: MP3's small size and universal support make it the usual podcast and streaming format.
-S: Podcasts → MP3.
+S: Podcasts and small streaming files → MP3 (lossy, universal).
 
 #261 p101 a135
 Q: Which video file format is commonly used for streaming videos on the internet?
@@ -2734,7 +2734,7 @@ d) FLV
 K: c
 B: a
 X: 3GP was defined by the 3GPP (3rd Generation Partnership Project) specifically for video on mobile phones, with small files for low bandwidth.
-S: 3GP = 3G phones.
+S: 3GP = made for 3G mobile phones (small, low-bitrate video).
 N: The book prints (a) MP4. MP4 plays well on phones but is a general-purpose format; the format specifically designed for mobile devices is 3GP, so the key is (c).
 
 #270 p102 a136

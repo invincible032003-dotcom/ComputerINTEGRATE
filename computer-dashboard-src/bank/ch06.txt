@@ -35,7 +35,7 @@ c) Third generation
 d) Fourth generation
 K: c
 X: Third-generation languages (FORTRAN, COBOL, BASIC, C, Pascal, Java) are the high-level, machine-independent languages with English-like statements, translated by compilers or interpreters.
-S: High-level = 3GL.
+S: 1GL machine · 2GL assembly · 3GL high-level · 4GL SQL · 5GL AI (Prolog).
 
 #4 p261 a277
 Q: Which generation of programming languages is associated with procedural programming?
@@ -106,7 +106,7 @@ c) Third generation
 d) Fourth generation
 K: d
 X: 4GL environments aim at rapid application development: generators, templates and reusable components produce applications with far less hand-written code.
-S: RAD → 4GL.
+S: Rapid application development → 4GL (less code, database-centric).
 
 #11 p262 a278
 Q: What is the primary characteristic of First Generation Language (1GL)?
@@ -216,7 +216,7 @@ c) It uses mnemonic codes to represent instructions.
 d) It focuses on high-level abstractions and features.
 K: c
 X: Assembly language (2GL) uses mnemonic codes — ADD, SUB, MOV, JMP — and symbolic names instead of binary.
-S: 2GL = mnemonics.
+S: 2GL = assembly = mnemonics (MOV, ADD) + an assembler.
 
 #22 p264 a280
 Q: What does an assembly language statement typically consist of?
@@ -410,7 +410,7 @@ c) Assembler
 d) Linker
 K: c
 X: The assembler translates assembly code into machine code.
-S: Assembler.
+S: Assembly → assembler; HLL → compiler / interpreter.
 
 #41 p267 a283
 Q: Which generation of programming languages is commonly referred to as high-level languages?
@@ -420,7 +420,7 @@ c) Third generation language (3GL)
 d) Fourth generation language (4GL)
 K: c
 X: 3GLs are the classic high-level languages (FORTRAN, COBOL, C, Java).
-S: High-level = 3GL.
+S: "High-level" = 3GL onwards (FORTRAN, COBOL, C, Java).
 
 #42 p267 a283
 Q: What was the primary goal behind the development of high-level languages?
@@ -460,7 +460,7 @@ c) Functional
 d) Declarative
 K: a
 X: Most 3GLs are procedural: programs are sequences of statements describing how to compute the result.
-S: 3GL = procedural.
+S: 3GL = procedural (step-by-step how); 4GL = non-procedural (what).
 
 #46 p267 a284
 Q: What must be done before a program written in a high-level language can be executed by a computer?
@@ -530,7 +530,7 @@ c) COBOL
 d) SQL
 K: d
 X: SQL is the classic 4GL: a non-procedural query language for databases. C and COBOL are 3GLs; assembly is a 2GL.
-S: SQL = 4GL.
+S: SQL is the textbook 4GL (non-procedural queries).
 
 #53 p268 a285
 Q: What is the main advantage of using Fourth Generation Languages (4GL)?
@@ -661,7 +661,7 @@ c) Database administration and management.
 d) Solving complex problems in artificial intelligence.
 K: d
 X: 5GLs were developed for artificial intelligence: expert systems, natural language processing and theorem proving.
-S: 5GL ↔ AI.
+S: 5GL is for AI problems (Prolog, Mercury); 4GL is for business/DB.
 
 #66 p270 a287
 Q: Which statement accurately describes the syntax of Fifth Generation Languages (5GL)?

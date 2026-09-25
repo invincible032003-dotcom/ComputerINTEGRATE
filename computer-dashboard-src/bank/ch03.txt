@@ -893,7 +893,7 @@ c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
 X: An ADC samples and quantises analog signals from microphones, sensors or scanners into digital numbers the CPU can process.
-S: Analog in → ADC.
+S: Analog in (mic, sensor) → ADC; digital out (speaker) → DAC.
 
 #89 p147 a176
 Q: Which unit of a computer system is responsible for managing the flow of data between the CPU and peripheral devices?
@@ -1407,7 +1407,7 @@ c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
 X: An ADC digitises analog signals from sensors and microphones by sampling them and quantising each sample into a binary number.
-S: Analog in → ADC.
+S: Analog → digital = ADC (sample + quantise).
 
 #140 p153 a182
 Q: Which unit of a computer system is responsible for controlling the power supply and regulating the voltage and current within the computer?
@@ -1591,7 +1591,7 @@ c) Control Unit
 d) Graphics Processing Unit (GPU)
 K: d
 X: The GPU converts the CPU's image data into the signal the display needs (analog for VGA monitors via a RAMDAC).
-S: Display → GPU.
+S: Screen image → GPU / graphics card (not CPU, RAM or CU).
 
 #158 p155 a184
 Q: Which unit of a computer system is responsible for storing frequently accessed instructions and data to improve processing speed?
@@ -1681,7 +1681,7 @@ c) Control Unit
 d) Analog-to-Digital Converter (ADC)
 K: d
 X: An ADC converts analog signals from external devices (microphones, sensors) into digital data.
-S: A → D = ADC.
+S: A → D = ADC; D → A = DAC. Read the letters in order.
 
 #167 p157 a185
 Q: Which unit of a computer system is responsible for managing the execution of instructions stored in the memory?
@@ -2382,7 +2382,7 @@ c) Control Unit
 d) Gamepad Interface Unit
 K: d
 X: The gamepad interface reads game-controller buttons and sticks (input).
-S: Gamepad = input.
+S: Gamepad, joystick, mouse → input devices.
 
 #237 p165 a192
 Q: Which unit of a computer system is responsible for managing the interaction between the CPU and the scanner for document and image scanning?

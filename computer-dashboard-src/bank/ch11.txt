@@ -230,7 +230,7 @@ c) `" "`
 d) `&`
 K: a
 X: Every preprocessor directive begins with the hash symbol `#`.
-S: Preprocessor → #.
+S: Every preprocessor line starts with # (#include, #define, #ifdef).
 
 #23 p404 a455
 Q: How is search done in `#include <somelibrary.h>` and `#include "somelibrary.h"` according to C standard?
@@ -2717,7 +2717,7 @@ c) `typedef char [] string;` and `typedef char *string;`
 d) Such expression cannot be generated in C
 K: b
 X: This repeats Q54: `typedef char *string;` makes `string` a pointer-to-char type.
-S: string ≡ char *.
+S: `typedef char *string;` → string now means `char *`.
 
 #155 p438 a461
 Q: Which of the given option is the correct method for initialization?
@@ -3204,7 +3204,7 @@ c) Data is padded with blank spaces
 d) Will give error
 K: b
 X: With the `-` flag (left justification), the `0` flag is ignored: padding goes on the right, and zeros there would change the value, e.g. `%-05d` of 42 prints "42   ".
-S: %-0… → 0 ignored.
+S: With `-` (left-justify) the `0` flag is ignored; zeros pad only on the left.
 
 #188 p444 a462
 Q: For floating point numbers, the precision flag specifies the number of decimal places to be printed. When no precision modifier is specified, printf() prints ______
@@ -3396,7 +3396,7 @@ c) stdio.h
 d) stdarg.h
 K: c
 X: `scanf` and `printf` are declared in `<stdio.h>` (same as Q32).
-S: I/O → stdio.h.
+S: printf / scanf / FILE → stdio.h; malloc / rand → stdlib.h; sqrt → math.h.
 
 #204 p446 a463
 Q: What does the C statement given below say?
@@ -3923,7 +3923,7 @@ c) To terminate the program
 d) To define a variable
 K: b
 X: A catch block names the exception type it handles and contains the code that deals with it.
-S: catch = handler.
+S: try = watch · catch = handle · throw = raise · finally = always run.
 N: The book prints no answer for this question. The key is supplied.
 
 #249 p453

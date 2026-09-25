@@ -285,7 +285,7 @@ c) Interacting with users and providing a means to execute commands or operation
 d) Managing hardware devices
 K: c
 X: The user interface (CLI or GUI) lets users give commands and see results.
-S: UI = user ↔ OS.
+S: UI (CLI or GUI) = the layer through which the user talks to the OS.
 
 #29 p297 a310
 Q: Which component of an operating system is responsible for handling user requests and managing system resources?
@@ -357,7 +357,7 @@ c) Windows
 d) Mac OS
 K: d
 X: The Macintosh system software, later called Mac OS, arrived in 1984 with the original Macintosh.
-S: 1984 → Macintosh.
+S: Apple + 1984 → Macintosh (Mac OS); IBM PC (1981) → MS-DOS.
 
 #36 p298 a311
 Q: Which operating system, released in 1995, marked a significant shift for Microsoft by providing a more user-friendly interface and enhanced multimedia capabilities?
@@ -488,7 +488,7 @@ c) Mac OS
 d) Linux
 K: c
 X: Mac OS runs only on Apple hardware. This tight hardware–software integration is known for design and ease of use.
-S: Apple → Mac OS.
+S: Apple hardware + design + ease of use → Mac OS.
 
 #49 p299 a312
 Q: Which operating system was developed by Microsoft as a successor to MS-DOS and became the foundation for the Windows operating system family?
@@ -749,7 +749,7 @@ c) Linux
 d) VxWorks
 K: d
 X: VxWorks (Wind River) is a widely used RTOS in aerospace, defence and industrial embedded systems. NASA's Mars rovers ran VxWorks.
-S: VxWorks → RTOS.
+S: Embedded RTOS names: VxWorks, QNX, FreeRTOS (not Windows or macOS).
 
 #75 p303 a315
 Q: What is the primary purpose of a network operating system (NOS)?

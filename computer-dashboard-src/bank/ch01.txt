@@ -1620,7 +1620,7 @@ c) Graphics editing software
 d) Video editing software
 K: b
 X: A DBMS (Oracle, MySQL, MS Access) stores, retrieves, secures and manipulates data in databases.
-S: Database → DBMS.
+S: Manages databases → DBMS (Oracle, MySQL, Access); not the OS or a spreadsheet.
 
 #159 p29 a62
 Q: Which software allows users to browse and access websites on the internet?
@@ -1762,7 +1762,7 @@ c) Microsoft Corporation
 d) Rambus Corporation
 K: d
 X: RDRAM was designed by Rambus Inc. and was used with some Intel Pentium 4 systems around 2000.
-S: RDRAM → Rambus.
+S: Name gives it away: Rambus DRAM → Rambus Inc. (used with the Pentium 4).
 
 #173 p31 a64
 Q: Which type of RAM is considered the most expensive?
@@ -2698,7 +2698,7 @@ c) Address Register (AR)
 d) Control Unit Register (CUR)
 K: a
 X: After the fetch, the program counter is incremented so it points to the next instruction in sequence.
-S: Fetch then PC++.
+S: Fetch → PC = PC + 1 (points to the next instruction) → decode → execute.
 
 #265 p41 a72
 Q: What does the decoding of the instruction determine?

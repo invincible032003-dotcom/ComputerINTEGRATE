@@ -357,7 +357,7 @@ d) 1011
 K: d
 B: c
 X: 11 = 8 + 2 + 1, so $11 = 1011_2$.
-S: 8 + 2 + 1 → 1011.
+S: Decimal → binary: pick powers of 2 that sum to it: 11 = 8 + 2 + 1 → 1011.
 N: The book keys (c) 111, which is 7; its own explanation gives 1011, and none of the printed options (101, 110, 111, 1001) equals 11. Option (d) has been changed from 1001 to 1011, the correct binary form.
 
 #33 p198 a228
@@ -398,7 +398,7 @@ c) 110
 d) 111
 K: b
 X: 5 = 4 + 1 = $101_2$.
-S: 4 + 1 → 101.
+S: 5 = 4 + 1 → 101; check: 1·4 + 0·2 + 1·1 = 5.
 
 #37 p198 a228
 Q: What is the decimal value of the binary number 1001?
@@ -408,7 +408,7 @@ c) 9
 d) 10
 K: c
 X: $1001_2 = 8 + 1 = 9$.
-S: 8 + 1 = 9.
+S: Binary → decimal: add the weights under the 1s (8 + 1 = 9).
 
 #38 p198 a228
 Q: What is the result of multiplying the binary numbers 101 and 11?
@@ -451,7 +451,7 @@ d) 25
 K: d
 B: b
 X: $11001_2 = 16 + 8 + 1 = 25$.
-S: 16 + 8 + 1 = 25.
+S: Weights 16-8-4-2-1: 11001 → 16 + 8 + 1 = 25.
 N: The book prints (b) 18. 11001₂ = 16 + 8 + 1 = 25, so the key is (d).
 
 #42 p199 a228
@@ -462,7 +462,7 @@ c) 1110
 d) 10011
 K: b
 X: 13 = 8 + 4 + 1 = $1101_2$.
-S: 8 + 4 + 1 → 1101.
+S: 13 = 8 + 4 + 1 → 1101 (a 1 under 8, 4 and 1).
 
 #43 p199 a228
 Q: What is the successor of the binary number 101011 in the binary number system?
@@ -552,7 +552,7 @@ c) 79
 d) 95
 K: c
 X: $1001111_2 = 64 + 8 + 4 + 2 + 1 = 79$.
-S: 64 + 15 = 79.
+S: 1001111 = 64 + (1111 = 15) = 79. Split off the trailing 1s block.
 
 #51 p200 a229
 Q: How many digits are used in the binary number system?
@@ -582,7 +582,7 @@ c) 8
 d) 10
 K: d
 X: $1010_2 = 8 + 2 = 10$.
-S: 1010 = 10.
+S: 1010 → 8 + 2 = 10 (memorise: 1010₂ = 10).
 
 #54 p200 a229
 Q: Which binary number represents the decimal number 9?
@@ -592,7 +592,7 @@ c) 1011
 d) 1110
 K: a
 X: 9 = 8 + 1 = $1001_2$.
-S: 8 + 1 → 1001.
+S: 9 = 8 + 1 → 1001; odd numbers always end in 1.
 
 #55 p200 a229
 Q: What is the binary representation of the decimal number 15?
@@ -759,7 +759,7 @@ d) 47
 K: d
 B: c
 X: $57_8 = 5\times8 + 7 = 47$.
-S: 5 × 8 + 7 = 47.
+S: Octal → decimal: first digit × 8 + second: 5 × 8 + 7 = 47.
 N: The book prints (c) 39. 57₈ = 40 + 7 = 47, so the key is (d).
 
 #70 p201 a230
@@ -781,7 +781,7 @@ d) 12
 K: d
 B: b
 X: $14_8 = 1\times8 + 4 = 12$.
-S: 8 + 4 = 12.
+S: Octal 14 = 1 × 8 + 4 = 12 (no 8s or 9s allowed in octal).
 N: The book prints (b) 6. 14₈ = 8 + 4 = 12, so the key is (d).
 
 #72 p202 a230
@@ -853,7 +853,7 @@ d) 51
 K: d
 B: c
 X: $63_8 = 6\times8 + 3 = 51$.
-S: 48 + 3 = 51.
+S: Octal 63 = 6 × 8 + 3 = 51.
 N: The book prints (c) 43. 63₈ = 51, so the key is (d).
 
 #78 p202 a231
@@ -889,7 +889,7 @@ d) 55
 K: c
 B: b
 X: $57_8 = 40 + 7 = 47$ (same as Q69).
-S: 5 × 8 + 7 = 47.
+S: Octal 57 = 5 × 8 + 7 = 47.
 N: The book prints (b) 39. 57₈ = 47, so the key is (c).
 
 #81 p203 a231
@@ -930,7 +930,7 @@ c) 1B
 d) 1F
 K: c
 X: 27 = 16 + 11 → $1B_{16}$.
-S: 27 − 16 = 11 = B.
+S: Decimal → hex: 27 = 1 × 16 + 11 → 1B (11 = B).
 
 #85 p203 a231
 Q: What is the result of adding the hexadecimal numbers 2B and 14?
@@ -963,7 +963,7 @@ c) 94
 d) 100
 K: c
 X: $5E_{16} = 5\times16 + 14 = 94$.
-S: 80 + 14 = 94.
+S: Hex 5E = 5 × 16 + 14 = 94 (E = 14).
 
 #88 p203 a231
 Q: What is the result of subtracting the hexadecimal number 2F from 4B?
@@ -1007,7 +1007,7 @@ c) 1001
 d) 1110
 K: a
 X: 10 = 8 + 2 = $1010_2$.
-S: 8 + 2 → 1010.
+S: 10 = 8 + 2 → 1010; even numbers end in 0.
 
 #92 p204 a232
 Q: What is the binary representation of the decimal number 25?
@@ -1029,7 +1029,7 @@ c) 101
 d) 110
 K: a
 X: 7 = 4 + 2 + 1 = $111_2$.
-S: 7 = 2³ − 1 → 111.
+S: 2ⁿ − 1 is n ones: 7 = 2³ − 1 → 111.
 
 #94 p204 a232
 Q: Which binary number represents the decimal number 15?
@@ -1039,7 +1039,7 @@ c) 1011
 d) 1111
 K: d
 X: 15 = $1111_2$.
-S: 1111.
+S: 15 = 2⁴ − 1 → four 1s: 1111.
 
 #95 p204 a232
 Q: What is the binary representation of the decimal number 42?
@@ -1071,7 +1071,7 @@ c) 101101
 d) 100111
 K: a
 X: 63 = $2^6 - 1$ = $111111_2$.
-S: Six 1s.
+S: 63 = 2⁶ − 1 → six 1s: 111111.
 
 #98 p204 a232
 Q: What is the binary equivalent of the decimal number 82?
@@ -2327,7 +2327,7 @@ c) 0.1011
 d) 0.1101
 K: a
 X: The octal digit 7 is 111 in three bits, so $0.7_8 = 0.111_2$ (= 0.875).
-S: Octal 7 = 111.
+S: Octal fraction → binary: each octal digit becomes 3 bits (7 → 111): 0.7₈ = 0.111₂.
 N: The book prints the fraction as "0.8", which is not a valid octal numeral (8 is not an octal digit). The stem has been corrected to 0.7, which gives the book's key (a) 0.111.
 
 #211 p216 a242
@@ -3100,7 +3100,7 @@ d) 1010
 K: a
 B: a
 X: 7 = 0111; the 2's complement of 5 (0101) is 1011. 0111 + 1011 = 1 0010; discard the carry → 0010 = 2.
-S: 7 − 5 = 2 → 0010.
+S: 2's-complement subtraction: add the 2's complement and drop the final carry: 7 − 5 = 2 → 0010.
 N: The book keys (a), printed as 0001, and none of its options equals 0010. Option (a) has been changed from 0001 to 0010, the correct result.
 
 #278 p222 a244
@@ -3112,7 +3112,7 @@ d) 0111
 K: c
 B: d
 X: The 2's complement of 2 (0010) is 1110. 0111 + 1110 = 1 0101; discard the carry → 0101 = 5.
-S: 7 − 2 = 5 → 0101.
+S: A − B = A + (2's complement of B); drop the carry: 7 − 2 = 5 → 0101.
 N: The book prints (d) 0111 (= 7). 7 − 2 = 5 = 0101, so the key is (c).
 
 #279 p222 a244

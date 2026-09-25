@@ -221,7 +221,7 @@ c) X (undefined)
 d) None of the above
 K: b
 X: A NOT gate (inverter) outputs the complement of its input: 0 → 1.
-S: NOT flips: 0 ↔ 1.
+S: NOT is an inverter: output is always the opposite (0 → 1).
 
 #22 p245 a254
 Q: How many inputs does a NOT gate typically have?
@@ -241,7 +241,7 @@ c) X (undefined)
 d) None of the above
 K: a
 X: NOT 1 = 0.
-S: NOT flips: 1 → 0.
+S: NOT is an inverter: 1 → 0 (the bubble means invert).
 
 #24 p246 a255
 Q: Which Boolean expression represents the operation of a NOT gate?
@@ -261,7 +261,7 @@ c) X (undefined)
 d) None of the above
 K: c
 X: The complement of an unknown value is unknown, so the output is X.
-S: NOT(X) = X.
+S: Unknown in → unknown out: NOT(X) = X.
 
 #26 p246 a255
 Q: In a logic circuit diagram, how is a NOT gate typically represented?
@@ -291,7 +291,7 @@ c) X (undefined)
 d) Both a) and b)
 K: d
 X: A NOT gate has one binary input, so its truth table has just two rows: 0 and 1.
-S: 1 input → 2 rows.
+S: n inputs → 2ⁿ rows; NOT has 1 input → 2 rows (0, 1).
 
 #29 p246 a255
 Q: What is the output of a NOT gate if the input is X (undefined)?
@@ -302,7 +302,7 @@ d) None of the above
 K: c
 B: b
 X: An undefined input gives an undefined output: NOT(X) = X.
-S: NOT(X) = X.
+S: Inverting an unknown is still unknown: NOT(X) = X.
 N: The book prints (b) 1, although its own explanation says the output is X. The key is (c).
 
 #30 p246 a255
