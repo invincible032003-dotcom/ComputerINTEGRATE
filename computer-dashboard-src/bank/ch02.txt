@@ -1,0 +1,2947 @@
+@chapter 2
+@title Computer Architecture
+@pages 74-104 105-137
+@codes C1 C2 C3 C5 C6 C8 C7
+@default C1
+@themes 1 IPOS cycle · input & output devices · RAM, ROM, cache · system vs application software
+@themes 2 Encoding & digitisation · buffering · CPU, RAM and OS roles · upload vs download
+@themes 3 Processing vs control operations · encryption & compression · streaming · sorting & indexing
+@themes 4 Motherboard parts · northbridge & southbridge · BIOS, CMOS, VRM · buses & interconnects
+@themes 5 RISC vs CISC · microprocessor basics · audio file formats
+@themes 6 Audio & video file formats · RISC vs CISC in depth
+
+#1 p74 a105
+Q: Which of the following is not considered an input device for a computer?
+a) Keyboard
+b) Mouse
+c) Monitor
+d) Scanner
+K: c
+X: The monitor is an output device that displays information. Keyboard, mouse and scanner all feed data into the computer.
+S: Monitor, printer, speaker, plotter → output; keyboard, mouse, scanner, mic, webcam → input.
+
+#2 p74 a105
+Q: Which component of a computer is responsible for temporarily storing data that can be accessed quickly?
+a) CPU
+b) RAM
+c) Hard Drive
+d) Power Supply
+K: b
+X: RAM temporarily holds the data and instructions in current use and gives the CPU fast access to them.
+S: Temporary + fast → RAM.
+
+#3 p74 a105
+Q: The process of converting data into a form that can be processed by a computer is called:
+a) Input
+b) Output
+c) Storage
+d) Encoding
+K: d
+X: Encoding converts information (characters, sound, images) into a coded binary form, such as ASCII or Unicode, that the computer can process.
+S: Human form → machine code = encoding; machine code → human form = decoding.
+
+#4 p74 a105
+Q: Which of the following is responsible for executing instructions and performing calculations in a computer?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: a
+X: The CPU fetches, decodes and executes program instructions; its ALU performs the calculations.
+S: Execute + calculate → CPU.
+
+#5 p74 a105
+Q: Which type of software acts as an intermediary between the user and the computer hardware?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: a
+X: The operating system sits between the user (and user programs) and the hardware, hiding hardware details and managing resources.
+S: OS = intermediary / interface between user and hardware.
+
+#6 p74 a105
+Q: Which of the following is an example of secondary storage in a computer?
+a) RAM
+b) CPU
+c) Hard Drive
+d) Cache Memory
+K: c
+X: A hard drive is secondary storage: large, non-volatile and used for long-term storage. RAM and cache are primary memory.
+S: Secondary = HDD, SSD, CD/DVD, pen drive, tape.
+
+#7 p74 a105
+Q: Which component of a computer is responsible for controlling and coordinating all the other hardware?
+a) CPU
+b) Motherboard
+c) Power Supply
+d) Hard Drive
+K: a
+B: b
+X: The CPU's control unit directs and coordinates all other hardware — memory, ALU and I/O — by issuing control signals. The motherboard is the circuit board that houses and connects the components.
+S: Controls/coordinates → CPU (control unit); houses/connects → motherboard.
+N: The book prints (b) Motherboard. Controlling and coordinating the other hardware is the function of the CPU's control unit, so the key is (a).
+
+#8 p74 a105
+Q: Which type of computer memory is non-volatile and retains its data even when the power is turned off?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: c
+X: ROM keeps its contents without power; it stores firmware such as the BIOS start-up routines.
+S: Non-volatile primary memory → ROM.
+
+#9 p74 a105
+Q: Which of the following is not a basic operation performed by a CPU?
+a) Arithmetic
+b) Input
+c) Logic
+d) Control
+K: b
+X: The CPU performs arithmetic, logic and control. Input is the job of input devices, which bring data into the computer.
+S: CPU = arithmetic + logic + control; input and output are peripheral jobs.
+
+#10 p75 a106
+Q: The process of displaying information or results to the user is referred to as:
+a) Input
+b) Output
+c) Processing
+d) Storage
+K: b
+X: Output presents processed results to the user — on screen, on paper or as sound.
+S: IPOS cycle: Input → Processing → Output → Storage.
+
+#11 p75 a106
+Q: Which component of a computer is responsible for storing instructions and data that are currently being used by the CPU?
+a) Hard Drive
+b) RAM
+c) GPU
+d) Power Supply
+K: b
+X: RAM holds the instructions and data the CPU is currently using; the hard drive keeps everything else.
+S: "Currently in use" → RAM.
+
+#12 p75 a106
+Q: Which of the following is an example of an output device for a computer?
+a) Keyboard
+b) Mouse
+c) Printer
+d) Scanner
+K: c
+X: A printer produces hard-copy output. The others are input devices.
+S: Printer = hard-copy output.
+
+#13 p75 a106
+Q: The process of retrieving information from a storage device and loading it into the computer's memory is known as:
+a) Input
+b) Output
+c) Processing
+d) Fetching
+K: d
+X: The book calls reading information from a storage device into main memory "fetching" (loading); it must be in memory before the CPU can use it.
+S: Storage → memory = fetch/load; memory → storage = save/write.
+
+#14 p75 a106
+Q: Which type of computer memory is the fastest but has the smallest storage capacity?
+a) RAM
+b) Cache Memory
+c) Hard Drive
+d) DVD Drive
+K: b
+X: Of the options, cache is the fastest and the smallest. (CPU registers would be faster and smaller still.)
+S: Fastest + smallest (in options) → cache.
+
+#15 p75 a106
+Q: Which of the following is responsible for interpreting and executing program instructions?
+a) CPU
+b) RAM
+c) GPU
+d) Motherboard
+K: a
+X: The CPU interprets (decodes) and executes program instructions.
+S: Interpret + execute → CPU.
+
+#16 p75 a106
+Q: The process of saving data or instructions to a storage device for future use is referred to as:
+a) Input
+b) Output
+c) Processing
+d) Storage
+K: c
+X: Storage is the step of keeping data or instructions on a storage device for later use.
+S: Keep for later → storage.
+
+#17 p75 a106
+Q: Which component of a computer is responsible for converting digital data into a format that can be displayed on a monitor?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: b
+X: The GPU (graphics card) renders images and converts them into the video signal the monitor displays.
+S: Picture on screen → GPU / graphics card.
+
+#18 p75 a106
+Q: Which type of software allows users to perform specific tasks, such as word processing or spreadsheet calculations?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: b
+X: Application software (word processors, spreadsheets) serves specific user tasks.
+S: User task → application software.
+
+#19 p75 a107
+Q: Which of the following is an example of an arithmetic operation performed by a CPU?
+a) Copying a file
+b) Sorting a list of numbers
+c) Calculating the square root of a number
+d) Displaying a web page
+K: c
+X: Calculating a square root is a mathematical computation done by the ALU. Sorting is mainly comparison (logic) and data movement.
+S: Maths → arithmetic; compare → logic; direct → control.
+
+#20 p76 a107
+Q: The process of permanently storing data and instructions on a storage device is called:
+a) Input
+b) Output
+c) Processing
+d) Saving
+K: d
+X: Saving writes data from volatile memory to a storage device so that it persists after power-off.
+S: Permanent → save to disk.
+
+#21 p76 a107
+Q: Which component of a computer is responsible for performing logical operations such as AND, OR, and NOT?
+a) CPU
+b) RAM
+c) Hard Drive
+d) GPU
+K: a
+X: Logical operations are performed by the ALU inside the CPU.
+S: AND/OR/NOT → ALU of the CPU (ISS 2025: logic unit).
+
+#22 p76 a107
+Q: Which of the following is an example of a volatile memory in a computer?
+a) RAM
+b) Hard Drive
+c) DVD Drive
+d) Flash Drive
+K: a
+X: RAM loses its contents when power is removed; hard drives, DVDs and flash drives retain data.
+S: Only RAM (and cache) forget at power-off.
+
+#23 p76 a107
+Q: The process of converting data into a human-readable form is called:
+a) Input
+b) Output
+c) Storage
+d) Decoding
+K: d
+X: Decoding converts coded (binary) data back into a form people can read.
+S: Decoding = machine form → human form.
+
+#24 p76 a107
+Q: Which type of software manages and controls the computer hardware and provides a user interface?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: a
+X: The operating system manages and controls the hardware and provides the user interface (CLI or GUI).
+S: Hardware control + UI → OS.
+
+#25 p76 a107
+Q: What component of a computer is responsible for storing the operating system, system files, and user files?
+a) CPU
+b) GPU
+c) RAM
+d) Hard Drive
+K: d
+X: The OS, system files and user files are stored permanently on the hard drive and loaded into RAM when needed.
+S: Permanent home of OS and files → hard drive.
+
+#26 p76 a107
+Q: Which type of computer memory is used as a temporary storage area for data that is frequently accessed by the CPU?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: b
+X: Cache is the temporary high-speed store for data the CPU accesses frequently.
+S: "Frequently accessed" → cache.
+
+#27 p76 a107
+Q: The process of carrying out a sequence of instructions in a computer is known as:
+a) Input
+b) Output
+c) Processing
+d) Storage
+K: c
+X: Processing is executing instructions — calculating, comparing and moving data.
+S: Executing instructions = processing.
+
+#28 p76 a108
+Q: Which component of a computer supplies power to all the other components?
+a) CPU
+b) Motherboard
+c) Power Supply
+d) Hard Drive
+K: c
+X: The power supply converts mains AC into the DC voltages that all other components use.
+S: Power → PSU.
+
+#29 p76 a108
+Q: Which type of computer memory stores the instructions and data that are permanently programmed into it?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: c
+X: ROM contains instructions and data permanently programmed into it during manufacture.
+S: Permanently programmed → ROM.
+
+#30 p76 a108
+Q: The process of transferring data from a computer to an external device, such as a printer or a USB drive, is called:
+a) Input
+b) Output
+c) Processing
+d) Saving
+K: b
+X: Sending data out of the computer to an external device is an output operation.
+S: Data leaves the computer → output.
+
+#31 p77 a108
+Q: Which component of a computer is responsible for performing arithmetic operations such as addition, subtraction, and multiplication?
+a) CPU
+b) GPU
+c) RAM
+d) Hard Drive
+K: a
+X: Arithmetic is done by the ALU inside the CPU.
+S: Arithmetic → ALU (CPU).
+
+#32 p77 a108
+Q: Which of the following is an example of an input device for a computer?
+a) Printer
+b) Speaker
+c) Webcam
+d) Monitor
+K: c
+X: A webcam captures video (and often audio) and sends it into the computer, so it is an input device.
+S: Webcam, microphone, scanner → input.
+
+#33 p77 a108
+Q: The process of rearranging, sorting, or organizing data in a specific order is known as:
+a) Input
+b) Output
+c) Storage
+d) Processing
+K: d
+X: Sorting, rearranging and organising data are processing operations carried out by the CPU.
+S: Any manipulation of data = processing.
+
+#34 p77 a108
+Q: Which type of computer memory is used as an extension of the computer's main memory when it runs out of available space?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: d
+X: Virtual memory extends RAM by using part of the disk (a swap or page file) as if it were main memory.
+S: RAM overflow onto disk → virtual memory.
+
+#35 p77 a108
+Q: Which of the following is responsible for coordinating the activities of all the other hardware components in a computer?
+a) CPU
+b) Motherboard
+c) Power Supply
+d) Hard Drive
+K: a
+B: b
+X: Coordination of all hardware is performed by the CPU's control unit, which sequences memory, ALU and I/O operations. The motherboard provides the connections along which this happens.
+S: Coordinator = CPU (control unit).
+N: The book prints (b) Motherboard. The motherboard connects the components, but coordinating their activities is the job of the CPU's control unit, so the key is (a).
+
+#36 p77 a109
+Q: The process of copying data from an external device, such as a CD or a USB drive, to a computer's storage is called:
+a) Input
+b) Output
+c) Processing
+d) Saving
+K: a
+X: Bringing data from an external device into the computer is an input operation.
+S: Data comes in → input.
+
+#37 p77 a109
+Q: Which component of a computer is responsible for generating visual output on a display device?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: b
+X: The GPU generates the images shown on the display.
+S: Visual output → GPU.
+
+#38 p77 a109
+Q: Which type of software is designed to perform specific tasks, such as editing photos or playing music?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: b
+X: Photo editors and music players are application software.
+S: Specific user task → application.
+
+#39 p77 a109
+Q: Which of the following is an example of a control operation performed by a CPU?
+a) Printing a document
+b) Checking for software updates
+c) Performing a comparison between two values
+d) Opening a web browser
+K: c
+X: The book counts comparing two values as a control operation, because the result of the comparison decides which instruction runs next (a branch). The comparison itself is done by the ALU's logic section.
+S: Compare → decide next step = control of program flow.
+
+#40 p78 a109
+Q: The process of storing data or instructions on a storage device for long-term use is referred to as:
+a) Input
+b) Output
+c) Processing
+d) Saving
+K: d
+X: Saving stores data on a storage device for long-term use.
+S: Long-term → save.
+
+#41 p78 a109
+Q: Which component of a computer is responsible for controlling the flow of data between the CPU and other devices?
+a) CPU
+b) RAM
+c) Motherboard
+d) Hard Drive
+K: c
+X: The book keys the motherboard: its chipset (northbridge/southbridge) and buses route and control the data traffic between the CPU and memory, drives and peripherals.
+S: CPU ↔ devices traffic → motherboard chipset and buses.
+
+#42 p78 a109
+Q: Which of the following is an example of an output device that produces sound?
+a) Printer
+b) Scanner
+c) Speaker
+d) Keyboard
+K: c
+X: A speaker converts electrical audio signals into sound.
+S: Sound out → speaker.
+
+#43 p78 a109
+Q: The process of temporarily storing data that is being transferred between two devices is called:
+a) Input
+b) Output
+c) Buffering
+d) Storing
+K: c
+X: Buffering holds data temporarily in a memory area (buffer) to smooth out speed differences between a sending and a receiving device, as in video streaming or printing.
+S: Temporary hold during transfer → buffer; queueing whole jobs to disk → spooling.
+
+#44 p78 a109
+Q: Which type of computer memory is read-only and cannot be modified or erased by normal computer operations?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: c
+X: ROM cannot be altered by normal computer operations; it holds fixed firmware.
+S: Read-only → ROM.
+
+#45 p78 a109
+Q: Which of the following is responsible for managing and controlling the overall operation of a computer system?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: a
+X: The operating system manages and controls the overall operation of the computer system and provides services to other programs.
+S: Overall control (software) → OS.
+
+#46 p78 a110
+Q: The process of converting information into a coded form to prevent unauthorized access is known as:
+a) Encryption
+b) Decoding
+c) Compression
+d) Decryption
+K: a
+X: Encryption scrambles plaintext into ciphertext with an algorithm and a key, so only authorised holders of the key can read it.
+S: Plaintext → ciphertext = encryption; back = decryption.
+
+#47 p78 a110
+Q: Which component of a computer is responsible for providing power to the CPU and other internal components?
+a) Power Supply
+b) Motherboard
+c) CPU
+d) RAM
+K: a
+X: The power supply converts and delivers electrical power to the CPU (through the motherboard) and all other internal components.
+S: Power → PSU.
+
+#48 p78 a110
+Q: Which type of software allows users to create, edit, and manipulate documents, spreadsheets, and presentations?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: b
+X: Office programs for documents, spreadsheets and presentations are application software.
+S: Office work → application software.
+
+#49 p78 a110
+Q: Which of the following is an example of a processing operation performed by a CPU?
+a) Saving a file
+b) Copying text from a document
+c) Sorting a list of names in alphabetical order
+d) Displaying an image on a screen
+K: c
+X: Sorting names alphabetically transforms data through comparisons and rearrangement — a processing operation.
+S: Transform data (sort, calculate) → processing.
+
+#50 p79 a110
+Q: The process of transferring data from a computer to an external network or the internet is called:
+a) Uploading
+b) Downloading
+c) Sharing
+d) Streaming
+K: a
+X: Uploading sends data from the local computer to a remote server or network; downloading brings data from the network to the computer.
+S: Up = local → internet; down = internet → local.
+
+#51 p79 a110
+Q: Which component of a computer is responsible for temporarily storing the results of calculations performed by the CPU?
+a) GPU
+b) RAM
+c) Hard Drive
+d) Power Supply
+K: b
+X: Among the options, RAM holds intermediate and final results of computations temporarily. Inside the CPU the immediate result goes first to a register such as the accumulator.
+S: Temporary results → registers/accumulator first, then RAM.
+
+#52 p79 a110
+Q: Which of the following is an example of an input device that captures images or documents?
+a) Printer
+b) Microphone
+c) Webcam
+d) Monitor
+K: c
+X: Of the options only the webcam captures images; the microphone captures sound and the printer and monitor are output devices. (A scanner would also fit.)
+S: Captures pictures → webcam or scanner.
+
+#53 p79 a110
+Q: The process of converting data from analog to digital form is called:
+a) Input
+b) Output
+c) Storage
+d) Digitization
+K: d
+X: Digitisation samples and quantises an analog signal (sound, image) into binary numbers the computer can store and process. An ADC (analog-to-digital converter) does this.
+S: Analog → digital = digitisation (ADC); digital → analog = DAC / modulation.
+
+#54 p79 a111
+Q: Which type of computer memory is used to store frequently accessed data that is closer to the CPU for faster retrieval?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: b
+X: Cache stores frequently accessed data physically close to the CPU for faster retrieval than RAM.
+S: Close to CPU + frequent → cache.
+
+#55 p79 a111
+Q: Which of the following is responsible for managing and controlling the allocation of system resources in a computer?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: Allocation of resources (CPU time, memory, devices) is decided by the operating system.
+S: Allocation of resources → OS.
+
+#56 p79 a111
+Q: The process of decoding and interpreting data received from an external device is called:
+a) Input
+b) Output
+c) Processing
+d) Decryption
+K: c
+B: b
+X: Data received from an external device is input; decoding and interpreting it once inside the computer is processing.
+S: Receive = input · interpret/transform = processing · present = output.
+N: The book prints (b) Output, but nothing is being presented to the user here — the data is being received and interpreted, which is processing. The key is (c).
+
+#57 p79 a111
+Q: Which component of a computer is responsible for storing the instructions and data that are currently being executed by the CPU?
+a) GPU
+b) RAM
+c) Power Supply
+d) Motherboard
+K: b
+X: A program must be in RAM for the CPU to execute it; RAM holds its instructions and data during execution.
+S: Executing program lives in RAM.
+
+#58 p79 a111
+Q: Which type of software provides a platform for running application programs and acts as an interface between the user and the computer hardware?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: a
+X: The operating system provides the platform on which applications run and the interface between user and hardware.
+S: Platform for apps → OS.
+
+#59 p79
+Q: Which of the following is an example of a control operation performed by a CPU?
+a) Playing a video game
+b) Running a virus scan
+c) Performing arithmetic calculations
+d) Saving a file
+K: b
+X: Following the book's pattern (Q79 and Q93 of this chapter), a virus scan is its example of a control operation: the CPU repeatedly compares data with virus signatures and branches on the result. Arithmetic calculation is an ALU operation, not a control one.
+S: Arithmetic is never the "control" answer; in this book "virus scan" is.
+N: The book prints no answer for this question; the key follows the book's own answer to the identical question at Q79 and Q93.
+
+#60 p80 a111
+Q: The process of transferring data from an external device to a computer's memory for processing or storage is called:
+a) Input
+b) Output
+c) Processing
+d) Downloading
+K: a
+X: Bringing data from an external device into the computer's memory is input.
+S: Into the computer → input.
+
+#61 p80 a111
+Q: Which component of a computer is responsible for executing instructions stored in the computer's memory?
+a) CPU
+b) GPU
+c) RAM
+d) Hard Drive
+K: a
+X: The CPU fetches instructions from memory and executes them (stored-program concept).
+S: Stored program executed by CPU (von Neumann idea).
+
+#62 p80 a112
+Q: Which of the following is an example of an output device that produces a printed copy of a document?
+a) Printer
+b) Scanner
+c) Speaker
+d) Keyboard
+K: a
+X: A printer turns digital documents into printed hard copy.
+S: Printed copy → printer.
+
+#63 p80 a112
+Q: The process of storing data in multiple storage locations simultaneously for redundancy and data protection is known as:
+a) Input
+b) Output
+c) Replication
+d) Archiving
+K: c
+X: Replication keeps copies of the same data in several places at once (e.g. RAID-1 mirroring, database replicas), so one failure does not lose data.
+S: Many live copies at once → replication; old data moved to long-term storage → archiving.
+
+#64 p80 a112
+Q: Which type of computer memory retains its data even when the power is turned off?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: c
+X: ROM is non-volatile.
+S: Non-volatile → ROM.
+
+#65 p80 a112
+Q: Which of the following is responsible for managing and controlling the input and output devices of a computer?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: The OS manages I/O devices through device drivers, handling buffering, spooling and access control.
+S: I/O management (software) → OS via device drivers.
+
+#66 p80 a112
+Q: The process of converting data from digital to analog form is called:
+a) Input
+b) Output
+c) Storage
+d) Analogization
+K: b
+X: The book treats digital-to-analog conversion as part of output: the computer's digital results are turned into analog signals (sound, video) for output devices such as speakers. The circuit that does it is a DAC.
+S: Book logic: digital → analog happens on the way out → output (DAC).
+
+#67 p80 a112
+Q: Which component of a computer is responsible for storing permanent data and programs even when the power is turned off?
+a) GPU
+b) RAM
+c) Power Supply
+d) Hard Drive
+K: d
+X: The hard drive stores programs and data permanently (non-volatile).
+S: Permanent → hard drive.
+
+#68 p80 a112
+Q: Which type of software is designed to perform specific tasks such as editing images, designing graphics, or creating animations?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: b
+X: Image editors, graphic-design and animation packages are application software.
+S: Graphics/animation tools → application software.
+
+#69 p80 a112
+Q: Which of the following is an example of a processing operation performed by a CPU?
+a) Printing a document
+b) Scanning a barcode
+c) Playing a music file
+d) Opening a web browser
+K: c
+X: The book's answer: to play a music file the CPU decodes the compressed audio data (e.g. MP3) into samples for the sound card — a processing task. Printing is output and scanning is input.
+S: Decode/transform data → processing.
+
+#70 p81 a112
+Q: The process of transferring data from a computer to an external device or network location is called:
+a) Uploading
+b) Downloading
+c) Sharing
+d) Streaming
+K: a
+X: Sending data from the local computer to a remote location is uploading.
+S: Local → remote = upload.
+
+#71 p81 a113
+Q: Which component of a computer is responsible for managing and executing the instructions of a computer program?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: a
+X: The CPU's control unit manages the instruction sequence and its ALU executes the operations.
+S: Program execution → CPU.
+
+#72 p81 a113
+Q: Which of the following is an example of an input device that detects and records hand movements?
+a) Printer
+b) Scanner
+c) Touchscreen
+d) Monitor
+K: c
+X: A touchscreen senses finger touches, taps and gestures and sends them as input; it is also a display, so it works as both input and output.
+S: Touchscreen = input + output device.
+
+#73 p81 a113
+Q: The process of compressing data to reduce its size for storage or transmission is known as:
+a) Input
+b) Output
+c) Encryption
+d) Compression
+K: d
+X: Compression reduces file size by removing redundancy — lossless (ZIP, PNG) or lossy (JPEG, MP3).
+S: Smaller file → compression; unreadable to outsiders → encryption.
+
+#74 p81 a113
+Q: Which type of computer memory acts as a bridge between the CPU and the larger, slower main memory?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: b
+X: Cache bridges the speed gap between the fast CPU and slower main memory.
+S: Bridge CPU ↔ RAM → cache.
+
+#75 p81 a113
+Q: Which of the following is responsible for managing and coordinating the resources of a computer system, such as memory, processors, and devices?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: The operating system manages and coordinates memory, processors and devices as a resource manager.
+S: Resources (memory, CPU, devices) → OS.
+
+#76 p81 a113
+Q: The process of converting encoded or encrypted data back into its original form is called:
+a) Input
+b) Output
+c) Decryption
+d) Compression
+K: c
+X: Decryption uses the key to turn ciphertext back into the original plaintext.
+S: Ciphertext → plaintext = decryption.
+
+#77 p81 a113
+Q: Which component of a computer is responsible for storing data and instructions that are frequently accessed by the CPU for quick retrieval?
+a) GPU
+b) RAM
+c) Power Supply
+d) Hard Drive
+K: b
+X: Of the options, RAM provides quick access to the data and instructions the CPU uses. (Cache would be the more precise answer if it were offered.)
+S: If cache is absent from the options → RAM.
+
+#78 p81 a113
+Q: Which type of software provides tools and utilities for managing and maintaining computer hardware and software?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: c
+X: System software includes the OS, device drivers and utilities that manage and maintain the computer.
+S: Maintenance tools and drivers → system software.
+
+#79 p81 a114
+Q: Which of the following is an example of a control operation performed by a CPU?
+a) Playing a video game
+b) Running a virus scan
+c) Editing a document
+d) Browsing the internet
+K: b
+X: The book's answer: in a virus scan the CPU runs the antivirus program's checks, comparing data with signatures and deciding what to do next — its example of control (decision-making) operations.
+S: Book's "control operation" example → virus scan.
+
+#80 p82 a114
+Q: The process of transferring data from an external device or network to a computer's memory for access or storage is called:
+a) Input
+b) Output
+c) Processing
+d) Downloading
+K: a
+X: Data entering the computer's memory from outside is input. (Downloading is the special case when the source is a network.)
+S: Anything coming in → input.
+
+#81 p82 a114
+Q: Which component of a computer is responsible for performing floating-point calculations and rendering graphics?
+a) CPU
+b) GPU
+c) RAM
+d) Hard Drive
+K: b
+X: A GPU's thousands of cores perform massive numbers of floating-point operations in parallel, which is exactly what graphics rendering needs.
+S: Parallel floating-point + graphics → GPU.
+
+#82 p82 a114
+Q: Which of the following is an example of an output device that displays text and images on a screen?
+a) Printer
+b) Scanner
+c) Monitor
+d) Keyboard
+K: c
+X: A monitor displays text and images as soft copy.
+S: Screen display → monitor.
+
+#83 p82 a114
+Q: The process of converting digital signals into analog signals for transmission over analog communication channels is called:
+a) Input
+b) Output
+c) Modulation
+d) Synchronization
+K: c
+X: Modulation impresses digital data onto an analog carrier wave for transmission (done by a modem); demodulation reverses it.
+S: Modem: modulation (D→A) / demodulation (A→D).
+
+#84 p82 a114
+Q: Which type of computer memory is non-volatile and retains its data even when the power is turned off?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: c
+X: ROM is non-volatile and holds permanent firmware.
+S: Non-volatile → ROM.
+
+#85 p82 a114
+Q: Which of the following is responsible for managing and controlling the communication between the computer hardware and software?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: The OS mediates between software and hardware through system calls and device drivers.
+S: Software ↔ hardware mediator → OS.
+
+#86 p82 a114
+Q: The process of encoding data to prevent unauthorized access or viewing is called:
+a) Encryption
+b) Decoding
+c) Compression
+d) Encoding
+K: a
+X: Encryption encodes data with a key so only authorised parties can read it; plain encoding (such as ASCII) is not secret.
+S: Secret encoding → encryption.
+
+#87 p82 a115
+Q: Which component of a computer is responsible for temporarily storing data that the CPU needs to access quickly?
+a) GPU
+b) RAM
+c) Power Supply
+d) Motherboard
+K: b
+X: RAM temporarily stores the data the CPU needs, with fast random access.
+S: Quick temporary storage → RAM.
+
+#88 p82 a115
+Q: Which type of software allows users to perform specific tasks such as word processing, spreadsheet calculations, or graphic design?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: b
+X: These task-specific programs are application software.
+S: Word, Excel, Photoshop → application software.
+
+#89 p82 a115
+Q: Which of the following is an example of a processing operation performed by a CPU?
+a) Printing a document
+b) Scanning a document
+c) Playing a music file
+d) Sending an email
+K: c
+X: The book's answer, as at Q69: decoding a music file for playback is processing. Printing is output and scanning is input.
+S: Decoding media → processing.
+
+#90 p83 a115
+Q: The process of transferring data from a network or the internet to a computer for storage or processing is called:
+a) Uploading
+b) Downloading
+c) Sharing
+d) Streaming
+K: b
+X: Downloading copies data from a remote network location to the local computer.
+S: Remote → local = download.
+
+#91 p83 a115
+Q: Which component of a computer is responsible for storing and retrieving data in a non-volatile manner?
+a) CPU
+b) Hard Drive
+c) RAM
+d) Motherboard
+K: b
+X: A hard drive stores data non-volatilely and retrieves it on demand.
+S: Non-volatile storage → hard drive.
+
+#92 p83 a115
+Q: Which of the following is an example of an input device that converts handwritten or printed text into digital form?
+a) Printer
+b) Scanner
+c) Touchpad
+d) Monitor
+K: b
+X: A scanner captures a page as a digital image; with OCR software the text can be converted to editable characters.
+S: Paper → digital → scanner (+ OCR for text).
+
+#93 p83 a115
+Q: The process of transferring data from one computer to another over a network or the internet is known as:
+a) Input
+b) Output
+c) Networking
+d) Transferring
+K: c
+X: The book calls data exchange between computers over a network "networking" — connecting computers so they can share data and resources.
+S: Computer-to-computer data exchange → networking.
+
+#94 p83 a115
+Q: Which type of computer memory is used to store frequently used instructions and data to improve processing speed?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: b
+X: Cache stores frequently used instructions and data to raise processing speed.
+S: Frequently used → cache.
+
+#95 p83 a116
+Q: Which of the following is responsible for managing the file system and providing access to files and folders in a computer?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: File management is an OS function; the hard drive only holds the data.
+S: Files and folders managed by → OS.
+
+#96 p83 a116
+Q: The process of converting analog signals into digital signals for processing and storage is called:
+a) Input
+b) Output
+c) Conversion
+d) Digitization
+K: d
+B: a
+X: Converting an analog signal into digital form by sampling and quantisation is digitisation (analog-to-digital conversion).
+S: Analog → digital = digitisation (ADC).
+N: The book prints (a) Input, although at Q53 it keys "Digitization" for the same conversion. The specific term is digitisation, so the key is (d).
+
+#97 p83 a116
+Q: Which component of a computer is responsible for controlling the flow of electricity to different parts of the computer?
+a) GPU
+b) RAM
+c) Power Supply
+d) Motherboard
+K: c
+X: The power supply regulates and distributes electrical power to the components.
+S: Electricity → PSU.
+
+#98 p83 a116
+Q: Which type of software allows users to perform basic computer operations, such as managing files and running applications?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: a
+X: Basic operations such as file management and launching programs are provided by the operating system.
+S: Basic operations → OS.
+
+#99 p83 a116
+Q: Which of the following is an example of a control operation performed by a CPU?
+a) Playing a video game
+b) Running a virus scan
+c) Editing a document
+d) Sending a message
+K: b
+X: As in Q79, the book's example of a control operation is running a virus scan, in which the CPU keeps comparing data and branching on the result.
+S: Book's "control operation" → virus scan.
+
+#100 p84 a116
+Q: The process of transmitting audio or video content over the internet in real-time is called:
+a) Uploading
+b) Downloading
+c) Streaming
+d) Sharing
+K: c
+X: Streaming delivers audio or video continuously so playback starts before the whole file arrives.
+S: Real-time playback while receiving → streaming.
+
+#101 p84 a116
+Q: Which component of a computer is responsible for executing instructions in a specific order and controlling the overall operation of the computer?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: a
+X: The CPU executes instructions in program order (with jumps and branches) and, through its control unit, controls the overall operation of the computer.
+S: Sequence + control → CPU.
+
+#102 p84 a116
+Q: Which of the following is an example of an output device that prints high-quality images and text on paper?
+a) Printer
+b) Scanner
+c) Projector
+d) Keyboard
+K: a
+X: A printer produces text and images on paper; a projector shows them on a screen.
+S: Paper output → printer.
+
+#103 p84 a117
+Q: The process of organizing and arranging data in a structured manner for efficient storage and retrieval is known as:
+a) Input
+b) Output
+c) Indexing
+d) Archiving
+K: c
+X: Indexing builds an organised lookup structure (like a book index or a database index) so records can be found quickly without scanning everything.
+S: Fast retrieval structure → index.
+
+#104 p84 a117
+Q: Which type of computer memory is used as a temporary storage area between the CPU and the main memory?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: b
+X: Cache is the temporary high-speed store between the CPU and main memory.
+S: Between CPU and RAM → cache.
+
+#105 p84 a117
+Q: Which of the following is responsible for managing the user interface, multitasking, and resource allocation in a computer system?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: User interface, multitasking and resource allocation are all operating-system functions.
+S: UI + multitasking + resources → OS.
+
+#106 p84 a117
+Q: The process of converting digital signals back into analog signals for output to analog devices is called:
+a) Input
+b) Output
+c) Demodulation
+d) Synchronization
+K: b
+X: The book files digital-to-analog conversion for analog devices (speakers, analog displays) under output. Demodulation is the reverse direction (analog → digital) and is wrong here.
+S: Digital → analog for a device = output (DAC); demodulation = analog → digital.
+
+#107 p84 a117
+Q: Which component of a computer is responsible for storing the operating system, programs, and data permanently?
+a) GPU
+b) RAM
+c) Power Supply
+d) Hard Drive
+K: d
+X: The OS, programs and data are stored permanently on the hard drive.
+S: Permanent → hard drive.
+
+#108 p84 a117
+Q: Which type of software is designed to perform specific tasks, such as photo editing, video editing, or web development?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: b
+X: Photo and video editors and web-development tools are application software.
+S: Task-specific → application.
+
+#109 p85 a117
+Q: Which of the following is an example of an arithmetic operation performed by a CPU?
+a) Printing a document
+b) Scanning a document
+c) Playing a music file
+d) Adding two numbers
+K: d
+X: Addition is an arithmetic operation carried out by the ALU.
+S: +, −, ×, ÷ → arithmetic.
+
+#110 p85 a117
+Q: The process of transferring data from a computer to a remote server or storage location over a network is called:
+a) Uploading
+b) Downloading
+c) Sharing
+d) Streaming
+K: a
+X: Sending data from the computer to a remote server is uploading.
+S: To the server → upload.
+
+#111 p85 a118
+Q: Which component of a computer is responsible for performing logical and arithmetic operations?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: a
+X: The CPU's ALU performs arithmetic and logical operations.
+S: Arithmetic + logic → ALU in CPU.
+
+#112 p85 a118
+Q: Which of the following is an example of an input device that captures sound and converts it into digital form?
+a) Printer
+b) Scanner
+c) Microphone
+d) Monitor
+K: c
+X: A microphone converts sound into an electrical signal, which the sound card digitises.
+S: Sound in → microphone; sound out → speaker.
+
+#113 p85 a118
+Q: The process of converting text or data into a coded form to prevent unauthorized access is known as:
+a) Input
+b) Output
+c) Encryption
+d) Encoding
+K: c
+X: Encryption converts data into a secret code (ciphertext) so that only authorised users with the key can read it. Encoding (ASCII, Base64) is not meant to be secret.
+S: Coded for secrecy → encryption.
+
+#114 p85 a118
+Q: Which type of computer memory is read-only and contains firmware or permanent instructions?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: c
+X: ROM contains firmware — permanent start-up and control instructions.
+S: Firmware → ROM.
+
+#115 p85 a118
+Q: Which of the following is responsible for managing the memory resources and allocating them to different processes?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: Memory allocation to processes is done by the operating system's memory manager.
+S: Memory to processes → OS memory manager.
+
+#116 p85 a118
+Q: The process of converting digital signals into analog signals for output to analog devices is called:
+a) Input
+b) Output
+c) Modulation
+d) Synchronization
+K: c
+X: Here the book keys modulation — converting digital data into an analog signal — the operation a modem performs before sending data over analog lines.
+S: D→A on a carrier = modulation (modem); A→D = demodulation.
+
+#117 p85 a118
+Q: Which component of a computer is responsible for distributing power to all other components?
+a) GPU
+b) RAM
+c) Power Supply
+d) Motherboard
+K: c
+X: The power supply distributes regulated power to all components through its cables and the motherboard.
+S: Power distribution → PSU.
+
+#118 p85 a118
+Q: Which type of software provides tools and utilities to maintain and optimize the performance of a computer system?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: c
+X: Maintenance and optimisation tools (disk cleanup, defragmenter, backup) are utility programs, which are part of system software.
+S: Utilities ⊂ system software.
+
+#119 p86 a119
+Q: Which of the following is an example of an output operation performed by a computer?
+a) Playing a video game
+b) Scanning a barcode
+c) Editing a document
+d) Opening a web browser
+K: a
+B: c
+X: Playing a video game continuously sends graphics to the monitor and sound to the speakers, which is output. Scanning a barcode is input, and editing a document is processing.
+S: Output = results sent to screen, speaker or printer.
+N: The book prints (c) Editing a document, but editing changes data (processing) rather than presenting it. Of the options, playing a video game is the output operation, so the key is (a).
+
+#120 p86 a119
+Q: The process of transferring data from a remote server or storage location to a computer over a network is called:
+a) Uploading
+b) Downloading
+c) Sharing
+d) Streaming
+K: b
+X: Copying data from a remote server to the local computer is downloading.
+S: From the server → download.
+
+#121 p86 a119
+Q: Which component of a computer is responsible for fetching, decoding, and executing instructions?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: a
+X: Fetch, decode and execute are the stages of the CPU's instruction cycle.
+S: Fetch-decode-execute → CPU.
+
+#122 p86 a119
+Q: Which of the following is an example of an output device that displays images and videos on a large screen?
+a) Printer
+b) Scanner
+c) Projector
+d) Keyboard
+K: c
+X: A projector casts the computer's display onto a large screen or wall.
+S: Large-screen display → projector.
+
+#123 p86 a119
+Q: The process of organizing and arranging data in a specific order to facilitate efficient searching is known as:
+a) Input
+b) Output
+c) Sorting
+d) Archiving
+K: c
+X: Sorting arranges data in ascending or descending order, which allows fast searching such as binary search.
+S: Specific order → sorting (enables binary search).
+
+#124 p86 a119
+Q: Which type of computer memory is used to temporarily store frequently accessed data for faster processing?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: b
+X: Cache temporarily stores frequently accessed data to speed up processing.
+S: Frequently accessed → cache.
+
+#125 p86 a119
+Q: Which of the following is responsible for managing and controlling the flow of data between the CPU and other devices?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: Here the book keys the operating system, which manages the data flow between the CPU and devices in software through device drivers, buffering and interrupts. (At the hardware level the transfers run over the motherboard's buses.)
+S: Software control of I/O data flow → OS (drivers).
+
+#126 p86 a119
+Q: The process of converting analog signals into digital signals for processing and storage is called:
+a) Input
+b) Output
+c) Conversion
+d) Analogization
+K: a
+X: With no "digitisation" option, the book classifies bringing analog signals into the computer in digital form as input (done by an ADC in the input device or sound card).
+S: Analog signal entering the computer → input (ADC).
+
+#127 p86 a119
+Q: Which component of a computer is responsible for providing electrical power to all other components?
+a) GPU
+b) RAM
+c) Power Supply
+d) Motherboard
+K: c
+X: The PSU provides electrical power to all components.
+S: Power → PSU.
+
+#128 p86 a120
+Q: Which type of software provides a platform for running applications and managing computer resources?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: a
+X: The operating system is the platform on which applications run, and it manages the computer's resources.
+S: Platform + resources → OS.
+
+#129 p87 a120
+Q: Which of the following is an example of a logical operation performed by a computer?
+a) Printing a document
+b) Scanning a document
+c) Playing a music file
+d) Comparing two numbers
+K: d
+X: Comparing two numbers (equal, greater, less) is a logical operation performed by the ALU.
+S: Compare → logic.
+
+#130 p87 a120
+Q: The process of transferring data from a computer to a remote location for backup or storage purposes is called:
+a) Uploading
+b) Downloading
+c) Sharing
+d) Archiving
+K: a
+B: b
+X: Sending data from the computer to a remote location — for example cloud backup — is uploading.
+S: Computer → remote = upload.
+N: The book prints (b) Downloading, and its explanation reverses the direction of transfer. Data going from the computer to a remote location is uploaded, so the key is (a).
+
+#131 p87 a120
+Q: Which component of a computer is responsible for controlling and coordinating the activities of all other hardware components?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: a
+B: d
+X: The CPU's control unit controls and coordinates the other hardware by issuing control signals; the motherboard is the board that connects everything.
+S: Control and coordinate → CPU.
+N: The book prints (d) Motherboard. Controlling and coordinating hardware is the job of the CPU's control unit (see also Q7 and Q35), so the key is (a).
+
+#132 p87 a120
+Q: Which of the following is an example of an input device that allows users to interact with the computer by touching the screen?
+a) Printer
+b) Scanner
+c) Touchscreen
+d) Keyboard
+K: c
+X: A touchscreen detects touches and gestures on the display surface.
+S: Touch → touchscreen.
+
+#133 p87 a120
+Q: The process of converting data into a format suitable for transmission over a network is known as:
+a) Input
+b) Output
+c) Formatting
+d) Networking
+K: c
+X: The book calls it formatting: data is structured into the format a network needs — packets with headers, encoding and framing — before transmission.
+S: Book answer: formatting (packetising) data for transmission.
+
+#134 p87 a120
+Q: Which type of computer memory is used to store frequently accessed instructions and data that are not currently in the main memory?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: b
+X: The book keys cache memory, the fast store that holds frequently accessed instructions and data so the CPU does not have to go to main memory for them.
+S: Frequently accessed → cache.
+
+#135 p87 a120
+Q: Which of the following is responsible for managing and coordinating input and output devices in a computer system?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: The OS manages and coordinates I/O devices through device drivers.
+S: I/O devices → OS.
+
+#136 p87 a121
+Q: The process of converting digital signals into analog signals for output to analog devices is called:
+a) Input
+b) Output
+c) Modulation
+d) Synchronization
+K: c
+X: As at Q116, the book keys modulation for converting digital data into an analog signal.
+S: D→A = modulation.
+
+#137 p87 a121
+Q: Which component of a computer is responsible for temporarily storing instructions and data that the CPU needs to access quickly?
+a) GPU
+b) RAM
+c) Power Supply
+d) Motherboard
+K: b
+X: RAM temporarily stores instructions and data for quick CPU access.
+S: Quick temporary → RAM.
+
+#138 p87 a121
+Q: Which type of software is designed to perform specific tasks, such as word processing, spreadsheet calculations, or graphic design?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: b
+X: These are application programs.
+S: Specific tasks → application software.
+
+#139 p88 a121
+Q: Which of the following is an example of a control operation performed by a computer?
+a) Printing a document
+b) Scanning a document
+c) Editing a document
+d) Sending a command to a peripheral device
+K: d
+X: Issuing a command that directs a peripheral device (start, stop, move the print head) is a control operation.
+S: Commanding a device → control.
+
+#140 p88 a121
+Q: The process of transferring data from a remote server or storage location to a computer over a network in real-time is called:
+a) Uploading
+b) Downloading
+c) Streaming
+d) Sharing
+K: c
+X: Streaming delivers data continuously in real time so it can be used while it arrives.
+S: Real-time delivery → streaming.
+
+#141 p88 a121
+Q: Which component of a computer is responsible for executing mathematical calculations and logical operations?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: a
+X: Mathematical and logical operations are executed by the CPU's ALU.
+S: Maths + logic → CPU.
+
+#142 p88 a121
+Q: Which of the following is an example of an output device that prints text and images on paper using ink or toner?
+a) Printer
+b) Scanner
+c) Projector
+d) Keyboard
+K: a
+X: Inkjet printers use ink and laser printers use toner to print on paper.
+S: Ink → inkjet; toner → laser printer.
+
+#143 p88 a122
+Q: The process of transforming data into a different representation while preserving its meaning is known as:
+a) Input
+b) Output
+c) Transformation
+d) Encoding
+K: c
+X: The book's answer is transformation — converting data into another representation (format, unit, structure) without changing what it means.
+S: Book answer: transformation.
+
+#144 p88 a122
+Q: Which type of computer memory is non-volatile and retains its data even when the power is turned off?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: c
+X: ROM is non-volatile.
+S: Non-volatile → ROM.
+
+#145 p88 a122
+Q: Which of the following is responsible for managing and controlling the execution of software programs on a computer?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: The OS loads programs, creates processes, schedules them and terminates them — it manages program execution.
+S: Program execution management → OS.
+
+#146 p88 a122
+Q: The process of converting analog signals into digital signals for processing and storage is called:
+a) Input
+b) Output
+c) Analog-to-digital conversion
+d) Signal modulation
+K: c
+X: Analog-to-digital conversion (ADC) samples and quantises an analog signal into digital values.
+S: ADC = analog → digital; DAC = digital → analog.
+
+#147 p88 a122
+Q: Which component of a computer is responsible for supplying power to the other components?
+a) GPU
+b) RAM
+c) Power Supply
+d) Motherboard
+K: c
+X: The power supply converts AC mains to DC and supplies it to the other components.
+S: Power → PSU.
+
+#148 p89 a122
+Q: Which type of software provides a platform for creating, editing, and managing documents, spreadsheets, and presentations?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: b
+X: Office suites are application software for documents, spreadsheets and presentations.
+S: Office suite → application.
+
+#149 p89 a122
+Q: Which of the following is an example of a data manipulation operation performed by a computer?
+a) Printing a document
+b) Scanning a document
+c) Sorting a list of names
+d) Playing a video file
+K: c
+X: Sorting rearranges data — a data-manipulation (processing) operation.
+S: Sort, merge, calculate → data manipulation.
+
+#150 p89 a122
+Q: The process of transferring data from a computer to a remote location or storage medium for backup or long-term storage is called:
+a) Uploading
+b) Downloading
+c) Archiving
+d) Sharing
+K: a
+X: The book keys uploading, since the data is sent from the computer to a remote location. When the purpose is long-term retention, the same activity is also described as archiving.
+S: Computer → remote = upload (book answer).
+
+#151 p89 a123
+Q: Which component of a computer is responsible for storing frequently accessed data and instructions for faster processing?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: c
+X: Of the options, RAM is the memory that keeps active data and instructions ready for the CPU. (Cache would be the more precise answer if listed.)
+S: No cache in the options → RAM.
+
+#152 p89 a123
+Q: Which of the following is an example of an input device that allows users to enter data by handwriting on a touch-sensitive surface?
+a) Printer
+b) Scanner
+c) Graphics tablet
+d) Keyboard
+K: c
+X: A graphics (digitiser) tablet lets the user draw or write with a stylus on a touch-sensitive pad.
+S: Stylus + pad → graphics tablet / digitiser.
+
+#153 p89 a123
+Q: The process of combining multiple sets of data into a single unit for efficient storage and processing is known as:
+a) Input
+b) Output
+c) Integration
+d) Aggregation
+K: d
+X: Aggregation combines many data items into one summary unit — totals, counts, averages or grouped records.
+S: Many → one summary = aggregation.
+
+#154 p89 a123
+Q: Which type of computer memory is used as an extension of the main memory to provide additional storage capacity?
+a) RAM
+b) Cache Memory
+c) ROM
+d) Virtual Memory
+K: d
+X: Virtual memory extends main memory with disk space managed by the OS through paging.
+S: Extension of RAM → virtual memory.
+
+#155 p89 a123
+Q: Which of the following is responsible for managing the communication between the computer's hardware components and the software applications?
+a) CPU
+b) Motherboard
+c) Operating System
+d) Hard Drive
+K: c
+X: Applications reach hardware only through the OS (system calls and drivers).
+S: Apps ↔ hardware via OS.
+
+#156 p89 a123
+Q: The process of converting digital signals into analog signals for output to analog devices, such as speakers or headphones, is called:
+a) Input
+b) Output
+c) Demodulation
+d) D/A conversion
+K: d
+B: b
+X: Turning digital samples into an analog voltage for speakers or headphones is digital-to-analog (D/A) conversion, done by the DAC on the sound card or audio codec.
+S: Digital → analog = D/A conversion (DAC).
+N: The book prints (b) Output. Output is the general stage, but the process named in the question is digital-to-analog conversion, which option (d) names exactly; the key is (d).
+
+#157 p89 a123
+Q: Which component of a computer is responsible for storing the computer's BIOS (Basic Input/Output System) and other firmware?
+a) GPU
+b) RAM
+c) Power Supply
+d) Motherboard
+K: d
+X: The BIOS/UEFI firmware lives in a flash (EEPROM) chip mounted on the motherboard.
+S: BIOS chip sits on the motherboard.
+
+#158 p90 a124
+Q: Which type of software provides tools and utilities for managing and controlling computer hardware resources?
+a) Operating System
+b) Application Software
+c) System Software
+d) Firmware
+K: c
+X: System software — the OS, device drivers and utilities — manages and controls the hardware resources.
+S: Manage hardware → system software (OS is one kind).
+
+#159 p90 a124
+Q: Which of the following is an example of a data processing operation performed by a computer?
+a) Printing a document
+b) Scanning a document
+c) Playing a music file
+d) Opening a web browser
+K: c
+X: The book's answer: playing a music file requires reading and decoding (processing) the audio data before it is sent to the speakers.
+S: Decode media → processing (book pattern).
+
+#160 p90 a124
+Q: The process of transferring data from a remote location or storage medium to a computer system is called:
+a) Uploading
+b) Downloading
+c) Sharing
+d) Syncing
+K: b
+X: Receiving data from a remote source onto the local computer is downloading.
+S: Remote → local = download.
+
+#161 p90 a124
+Q: Which component of a motherboard is responsible for providing power to the other components?
+a) CPU
+b) Power Supply
+c) RAM
+d) GPU
+K: b
+X: The PSU converts AC to DC and powers the motherboard and the components connected to it.
+S: Power → PSU.
+
+#162 p90 a124
+Q: Which component of a motherboard is responsible for controlling and coordinating the activities of all other hardware components?
+a) CPU
+b) BIOS
+c) Southbridge
+d) Northbridge
+K: a
+B: d
+X: The CPU (seated in the motherboard's socket) controls and coordinates all other hardware through its control unit. The northbridge only routes traffic between the CPU, memory and graphics.
+S: Controller of all hardware → CPU; traffic router → northbridge/southbridge.
+N: The book prints (d) Northbridge. The northbridge is a communications hub for the CPU, memory and graphics; control and coordination of all hardware belong to the CPU, so the key is (a).
+
+#163 p90 a124
+Q: Which component of a motherboard is responsible for connecting the processor to the memory and other components?
+a) Northbridge
+b) Southbridge
+c) CMOS
+d) PCI slot
+K: a
+X: The northbridge (memory controller hub) links the CPU to RAM and the graphics slot, the high-speed parts of the system.
+S: CPU ↔ RAM/graphics → northbridge.
+
+#164 p90 a124
+Q: Which component of a motherboard stores the system's Basic Input/Output System (BIOS)?
+a) CMOS
+b) Northbridge
+c) Southbridge
+d) EEPROM
+K: d
+X: The BIOS firmware is stored in an EEPROM/flash chip, which is why it can be updated ("flashed"). The CMOS stores only the settings.
+S: BIOS code → EEPROM/flash; BIOS settings → CMOS.
+
+#165 p90 a124
+Q: Which component of a motherboard provides temporary storage for data that the CPU needs to access quickly?
+a) RAM
+b) ROM
+c) Cache memory
+d) CMOS
+K: c
+X: Cache memory — on or next to the CPU — gives the quickest temporary storage for data the CPU needs.
+S: Quickest temporary store → cache.
+
+#166 p90 a125
+Q: Which component of a motherboard connects the CPU to peripheral devices such as hard drives and optical drives?
+a) SATA controller
+b) Northbridge
+c) Southbridge
+d) PCI Express slot
+K: a
+X: The SATA controller provides the interface through which hard drives and optical drives are connected (it is usually built into the southbridge).
+S: HDD/optical drive interface → SATA controller.
+
+#167 p91 a125
+Q: Which component of a motherboard handles the communication between the CPU and the memory modules?
+a) Northbridge
+b) Southbridge
+c) CMOS
+d) PCI slot
+K: a
+X: The northbridge manages CPU–memory traffic (in modern CPUs the memory controller has moved onto the processor itself).
+S: CPU ↔ RAM → northbridge.
+
+#168 p91 a125
+Q: Which component of a motherboard provides audio and video capabilities?
+a) Southbridge
+b) BIOS
+c) Audio codec
+d) Northbridge
+K: c
+X: The book keys the audio codec, the on-board chip that provides sound (converting between digital and analog audio). On-board video, where present, comes from integrated graphics.
+S: On-board sound → audio codec.
+
+#169 p91 a125
+Q: Which component of a motherboard provides expansion slots for adding additional hardware devices?
+a) PCI Express slot
+b) RAM slots
+c) CPU socket
+d) CMOS battery
+K: a
+X: PCI Express slots accept expansion cards such as graphics, network and sound cards.
+S: Add-on cards → PCIe slots.
+
+#170 p91 a125
+Q: Which component of a motherboard is responsible for storing configuration settings and maintaining the system's clock?
+a) CMOS
+b) BIOS
+c) Northbridge
+d) Southbridge
+K: a
+X: The battery-backed CMOS stores the BIOS settings and runs the real-time clock (date and time) while the PC is off.
+S: Settings + clock → CMOS (kept alive by the CMOS battery).
+
+#171 p91 a125
+Q: Which component of a motherboard is responsible for providing a connection interface between the CPU and other components?
+a) Southbridge
+b) PCI slot
+c) BIOS chip
+d) FSB (Front Side Bus)
+K: d
+X: The front side bus is the main bus that connected the CPU to the northbridge and, through it, to memory and other components.
+S: CPU's main highway → FSB.
+
+#172 p91 a125
+Q: Which component of a motherboard provides additional USB ports for connecting external devices?
+a) Northbridge
+b) CMOS battery
+c) Southbridge
+d) BIOS chip
+K: c
+X: The southbridge (I/O controller hub) provides the slower I/O interfaces: USB, SATA, audio and the BIOS connection.
+S: USB, SATA, audio → southbridge.
+
+#173 p91 a125
+Q: Which component of a motherboard is responsible for storing the system's firmware and BIOS?
+a) Northbridge
+b) CMOS
+c) EEPROM
+d) SATA controller
+K: c
+X: Firmware and BIOS code are stored in the EEPROM (flash) chip.
+S: Firmware → EEPROM/flash.
+
+#174 p91 a126
+Q: Which component of a motherboard provides power to the CPU?
+a) Power Supply
+b) Voltage Regulator Module (VRM)
+c) CMOS battery
+d) Northbridge
+K: b
+X: The VRM on the motherboard steps the PSU's 12 V down to the precise low voltage the CPU core needs and keeps it stable.
+S: CPU core voltage → VRM (on the board); raw DC → PSU.
+
+#175 p91 a126
+Q: Which component of a motherboard is responsible for handling communication between the CPU and the graphics card?
+a) Southbridge
+b) PCIe slot
+c) Northbridge
+d) CMOS battery
+K: c
+X: The northbridge handles the high-speed link between the CPU and the graphics card (AGP/PCIe x16).
+S: CPU ↔ graphics → northbridge.
+
+#176 p92 a126
+Q: Which component of a motherboard stores the computer's configuration data, including hardware settings?
+a) CMOS
+b) Northbridge
+c) SATA controller
+d) BIOS chip
+K: a
+X: Configuration data (hardware settings, boot order, time) is stored in CMOS memory.
+S: Configuration → CMOS.
+
+#177 p92 a126
+Q: Which component of a motherboard provides the connection interface for networking devices?
+a) SATA controller
+b) Ethernet port
+c) USB port
+d) BIOS chip
+K: b
+X: The Ethernet (RJ-45) port connects the computer to a wired network.
+S: Wired network → Ethernet RJ-45.
+
+#178 p92 a126
+Q: Which component of a motherboard is responsible for converting digital signals from the CPU into analog signals for audio output?
+a) Audio codec
+b) CMOS battery
+c) PCI slot
+d) SATA controller
+K: a
+X: The audio codec contains the DAC that converts digital audio into the analog signal for speakers (and an ADC for the microphone).
+S: Audio D↔A → audio codec.
+
+#179 p92 a126
+Q: Which component on the motherboard is responsible for managing the computer's memory and memory-related operations?
+a) Northbridge
+b) Southbridge
+c) Memory Controller
+d) BIOS Chip
+K: c
+X: The memory controller manages reads, writes and refresh of RAM; it used to be in the northbridge and is now built into the CPU.
+S: RAM management → memory controller.
+
+#180 p92 a126
+Q: What is the purpose of the CMOS battery on the motherboard?
+a) To provide power to the CPU
+b) To store the computer's firmware
+c) To regulate voltage for peripheral devices
+d) To maintain the computer's configuration data
+K: d
+X: The coin-cell CMOS battery keeps the CMOS settings and the real-time clock alive when the computer is unplugged.
+S: Dead CMOS battery → wrong date/time and lost BIOS settings.
+
+#181 p92 a126
+Q: Which of the following is a common interconnection method used to connect multiple computer units in a network?
+a) USB (Universal Serial Bus)
+b) HDMI (High-Definition Multimedia Interface)
+c) Ethernet
+d) VGA (Video Graphics Array)
+K: c
+X: Ethernet is the standard wired LAN technology for connecting computers; USB connects peripherals and HDMI/VGA connect displays.
+S: Computers in a LAN → Ethernet (IEEE 802.3).
+
+#182 p92 a126
+Q: What type of interconnection is used to connect the processor and memory modules on a computer motherboard?
+a) Bus
+b) Point-to-point
+c) Crossbar
+d) Switched
+K: a
+X: The processor and memory are joined by a bus — shared address, data and control lines.
+S: CPU ↔ memory → system bus.
+
+#183 p92 a127
+Q: Which interconnection method is commonly used for connecting peripheral devices such as printers and keyboards to a computer?
+a) USB (Universal Serial Bus)
+b) Ethernet
+c) Bluetooth
+d) Firewire (IEEE 1394)
+K: a
+X: USB is the common plug-and-play interface for printers, keyboards, mice and storage.
+S: Peripherals → USB.
+
+#184 p92 a127
+Q: What is the purpose of a bridge in computer interconnection?
+a) To connect two or more networks together
+b) To connect the processor and memory on a motherboard
+c) To connect peripheral devices to a computer
+d) To connect a computer to the internet
+K: a
+X: A bridge joins two network segments (LANs) and forwards frames between them using MAC addresses; it works at the data-link layer.
+S: Bridge = layer 2, joins LAN segments by MAC address.
+
+#185 p93 a127
+Q: Which interconnection method is commonly used to connect display devices, such as monitors, to a computer?
+a) HDMI (High-Definition Multimedia Interface)
+b) USB (Universal Serial Bus)
+c) VGA (Video Graphics Array)
+d) Thunderbolt
+K: a
+X: HDMI carries digital video and audio to monitors and TVs and is the common display link today.
+S: Modern display link → HDMI (digital A/V); legacy → VGA (analog).
+N: VGA (c) is also a display connection (the older, analog one); the book keys HDMI as today's common method.
+
+#186 p93 a127
+Q: What is the primary function of the bus in a computer system?
+a) To connect the CPU and memory
+b) To provide power to the computer components
+c) To connect peripheral devices to the computer
+d) To control the overall operation of the computer
+K: a
+X: A bus is a shared communication pathway; the system bus connects the CPU with memory (and I/O).
+S: Bus = shared pathway of wires.
+
+#187 p93 a127
+Q: Which type of bus is responsible for transferring data between the CPU and memory?
+a) Address bus
+b) Data bus
+c) Control bus
+d) Expansion bus
+K: b
+X: The data bus carries the data itself in both directions between the CPU and memory.
+S: Data travels on the data bus (bidirectional).
+
+#188 p93 a127
+Q: What is the purpose of the address bus in a computer system?
+a) To carry instructions from the CPU to memory
+b) To carry data between the CPU and memory
+c) To carry memory addresses from the CPU to memory
+d) To control the timing of data transfer in the system
+K: c
+X: The address bus carries the address of the memory location to be read or written, from the CPU to memory — it is unidirectional.
+S: Address bus = one-way, CPU → memory.
+
+#189 p93 a127
+Q: Which bus is responsible for transmitting control signals and coordinating the activities of various components in a computer?
+a) Address bus
+b) Data bus
+c) Control bus
+d) Expansion bus
+K: c
+X: The control bus carries control and timing signals (read, write, interrupt, clock) that coordinate the components.
+S: Control signals → control bus (ISS 2019: control bus).
+
+#190 p93 a127
+Q: Which type of bus is used to connect peripheral devices, such as printers and keyboards, to a computer?
+a) Address bus
+b) Data bus
+c) Control bus
+d) Expansion bus
+K: d
+X: Peripherals and add-on cards connect through the expansion (I/O) bus.
+S: Peripherals/cards → expansion bus.
+
+#191 p93 a127
+Q: Which component of a computer is responsible for processing data and executing instructions?
+a) CPU
+b) GPU
+c) RAM
+d) Motherboard
+K: a
+X: The CPU processes data and executes instructions.
+S: Process + execute → CPU.
+
+#192 p93 a127
+Q: What is the primary function of the motherboard in a computer system?
+a) Provide power to other components
+b) Store data and instructions
+c) Control input and output devices
+d) Connect and communicate between components
+K: d
+X: The motherboard is the hub that connects the components and carries the communication among them.
+S: Motherboard = connect + communicate.
+
+#193 p93 a128
+Q: Which component of a computer is responsible for storing data and program instructions permanently?
+a) Hard Drive
+b) RAM
+c) CPU
+d) Power Supply
+K: a
+X: The hard drive stores data and programs permanently.
+S: Permanent → hard drive.
+
+#194 p94 a128
+Q: Which component of a computer is responsible for displaying visual output?
+a) Monitor
+b) Keyboard
+c) Mouse
+d) Printer
+K: a
+X: The monitor displays visual output.
+S: Visual output → monitor.
+
+#195 p94 a128
+Q: What is the purpose of RAM (Random Access Memory) in a computer system?
+a) Store long-term data and programs
+b) Execute program instructions
+c) Provide power to other components
+d) Temporarily store data for quick access
+K: d
+X: RAM temporarily holds active data and programs for quick access by the CPU.
+S: RAM = temporary + quick.
+
+#196 p94 a128
+Q: Which component of a computer is responsible for controlling the flow of electricity to other components?
+a) Power Supply
+b) GPU
+c) Motherboard
+d) CPU
+K: a
+X: The power supply regulates and distributes electricity to the components.
+S: Electricity → PSU.
+
+#197 p94 a128
+Q: Which component of a computer is responsible for providing audio output?
+a) Speakers
+b) Microphone
+c) Sound card
+d) Hard Drive
+K: a
+X: Speakers produce the audible output; the sound card generates the signal that drives them.
+S: Audible output device → speakers.
+
+#198 p94 a128
+Q: What is the purpose of the graphics processing unit (GPU) in a computer system?
+a) Execute program instructions
+b) Control input and output devices
+c) Provide power to other components
+d) Render and display graphics
+K: d
+X: The GPU renders images and video for display.
+S: GPU → graphics rendering.
+
+#199 p94 a128
+Q: Which component of a computer is responsible for storing and retrieving data in a non-volatile manner?
+a) Hard Drive
+b) RAM
+c) CPU
+d) Motherboard
+K: a
+X: The hard drive stores data non-volatilely.
+S: Non-volatile → hard drive.
+
+#200 p94 a128
+Q: What is the function of the power supply unit in a computer system?
+a) Control input and output devices
+b) Store data and program instructions
+c) Provide power to other components
+d) Execute program instructions
+K: c
+X: The PSU converts and supplies power to the other components.
+S: PSU = power.
+
+#201 p94 a129
+Q: Which of the following best describes the main idea behind Reduced Instruction Set Architecture (RISC)?
+a) Using a large number of complex instructions for efficient execution
+b) Making hardware simpler by using a few basic instructions
+c) Increasing the number of instructions per program for improved performance
+d) Minimizing the number of cycles per instruction at the cost of program length
+K: b
+X: RISC keeps the instruction set small and simple — load/store architecture, fixed-length instructions, mostly one cycle each — so the hardware is simple and easy to pipeline.
+S: RISC = few simple instructions → simple hardware (ARM, MIPS, RISC-V).
+
+#202 p94 a129
+Q: Which of the following best describes the main idea behind Complex Instruction Set Architecture (CISC)?
+a) Using a small number of simple instructions for efficient execution
+b) Making hardware simpler by using a few basic instructions
+c) Increasing the number of cycles per instruction at the cost of program length
+d) Minimizing the number of instructions per program for improved performance
+K: d
+B: c
+X: CISC provides powerful instructions that can load, compute and store in one step, so a program needs fewer instructions — at the cost of more cycles per instruction and more complex hardware (e.g. x86).
+S: CISC ↓ instructions per program, ↑ cycles per instruction; RISC the reverse.
+N: The book prints (c), a garbled statement, although its own explanation (one instruction does loading, evaluating and storing) describes minimising the number of instructions per program. The key is (d).
+
+#203 p95 a129
+Q: Which approach tries to reduce the cycles per instruction at the cost of the number of instructions per program?
+a) Reduced Instruction Set Architecture (RISC)
+b) Complex Instruction Set Architecture (CISC)
+c) Both RISC and CISC
+d) Neither RISC nor CISC
+K: a
+X: RISC aims for about one cycle per instruction, accepting that programs need more instructions.
+S: Time = instructions × CPI × cycle time: RISC cuts CPI, CISC cuts the instruction count.
+
+#204 p95 a129
+Q: Which approach attempts to minimize the number of instructions per program but at the cost of an increase in the number of cycles per instruction?
+a) Reduced Instruction Set Architecture (RISC)
+b) Complex Instruction Set Architecture (CISC)
+c) Both RISC and CISC
+d) Neither RISC nor CISC
+K: b
+X: CISC packs more work into each instruction, reducing instruction count but increasing cycles per instruction.
+S: Fewer instructions, more cycles each → CISC.
+
+#205 p95 a129
+Q: Which characteristic is associated with RISC?
+a) Complex instruction decoding
+b) Instructions larger than one-word size
+c) Instructions taking a single clock cycle to execute
+d) Less number of general-purpose registers
+K: c
+X: RISC instructions are simple, fit in one word and typically execute in a single clock cycle; RISC chips also have many general-purpose registers. Options (a), (b) and (d) describe CISC.
+S: RISC: 1 cycle, 1 word, simple decode, many registers. CISC: the opposite.
+
+#206 p95 a129
+Q: Which characteristic is associated with CISC?
+a) Simple instruction decoding
+b) Instructions coming under the size of one word
+c) Instructions taking a single clock cycle to execute
+d) Less number of general-purpose registers
+K: d
+X: CISC machines have relatively few general-purpose registers because many operations work directly on memory operands. Simple decoding, one-word instructions and single-cycle execution are RISC traits.
+S: Few registers + memory operands → CISC.
+N: The book prints option (d) as "More general-purpose registers" (a RISC trait) but explains that CISC has fewer general-purpose registers. Option (d) has been corrected to "Less number of general-purpose registers", which is what the book keys.
+
+#207 p95 a129
+Q: Which architecture allows the use of a pipeline?
+a) Reduced Instruction Set Architecture (RISC)
+b) Complex Instruction Set Architecture (CISC)
+c) Both RISC and CISC
+d) Neither RISC nor CISC
+K: a
+X: RISC's uniform, single-cycle instructions are what make pipelining efficient; the book therefore keys RISC. (Modern CISC chips also pipeline by translating instructions into RISC-like micro-operations.)
+S: Pipelining is the hallmark of RISC.
+
+#208 p95 a129
+Q: Which architecture requires fewer transistors due to less complex commands?
+a) Reduced Instruction Set Architecture (RISC)
+b) Complex Instruction Set Architecture (CISC)
+c) Both RISC and CISC
+d) Neither RISC nor CISC
+K: a
+X: Simple commands need simpler decoding and control logic, so RISC chips use fewer transistors, which also cuts cost and power.
+S: Simpler → fewer transistors → less power → RISC in phones.
+
+#209 p95 a130
+Q: When two 8-bit numbers are added, which approach divides the operation into parts (separate load, add and store instructions)?
+a) Reduced Instruction Set Architecture (RISC)
+b) Complex Instruction Set Architecture (CISC)
+c) Both RISC and CISC
+d) Neither RISC nor CISC
+K: a
+X: A RISC machine performs the addition as separate simple steps — load each operand into a register, add, store the result. A CISC machine can do it with one instruction that works on memory.
+S: Multi-step load/add/store → RISC; one complex instruction → CISC.
+N: The book refers to "the given example" of adding two 8-bit numbers, which is not reproduced; the stem has been completed so that it stands on its own.
+
+#210 p96 a130
+Q: Which approach requires more memory to store longer programs?
+a) Reduced Instruction Set Architecture (RISC)
+b) Complex Instruction Set Architecture (CISC)
+c) Both RISC and CISC
+d) Neither RISC nor CISC
+K: a
+X: RISC programs need more (simple) instructions, so code is longer and takes more memory.
+S: RISC → longer code → more memory.
+
+#211 p96 a130
+Q: Which of the following is an advantage of RISC processors?
+a) Reduced code size
+b) More memory efficient
+c) Simpler instructions
+d) Widely used
+K: c
+X: RISC's advantage is its simple instructions, which are fast to decode and execute. Reduced code size and memory efficiency are CISC advantages.
+S: RISC pros: simple, fast, low power. CISC pros: compact code, memory-efficient.
+
+#212 p96 a130
+Q: RISC processors execute instructions faster than CISC processors due to:
+a) Reduced code size
+b) More memory efficiency
+c) Simpler instructions
+d) Larger user base
+K: c
+X: Simple, uniform instructions can be decoded quickly and pipelined, so RISC executes each instruction faster.
+S: Speed of RISC ← simplicity.
+
+#213 p96 a130
+Q: RISC processors are preferred for portable devices because they:
+a) Have a larger user base
+b) Require less memory
+c) Consume less power
+d) Execute instructions more quickly
+K: c
+X: Fewer transistors and simpler logic mean lower power consumption and longer battery life, which is why phones and tablets use ARM (RISC) chips.
+S: Battery devices → RISC (ARM) for low power (ISS 2023: ARM is RISC).
+
+#214 p96 a130
+Q: Which of the following is a disadvantage of RISC processors?
+a) Slower execution
+b) More complex design
+c) Higher power consumption
+d) Increased memory usage
+K: d
+X: Because each task needs more instructions, RISC programs are larger and use more memory.
+S: RISC con → bigger code / more memory.
+
+#215 p96 a130
+Q: Complex instructions in CISC processors result in:
+a) Reduced code size
+b) More memory efficiency
+c) Simpler instructions
+d) Slower execution
+K: d
+X: The book keys slower execution: complex instructions take several cycles to decode and execute.
+S: CISC con → slower per-instruction execution.
+N: Complex instructions also reduce code size (a) and improve memory efficiency (b) — these are CISC advantages; the book's key is the disadvantage, slower execution.
+
+#216 p96 a130
+Q: CISC processors are advantageous in terms of memory efficiency because they:
+a) Have a larger user base
+b) Require less memory
+c) Execute instructions more quickly
+d) Use complex instructions
+K: d
+X: One complex CISC instruction does the work of several simple ones, so programs are shorter and use less memory.
+S: Memory efficiency of CISC ← complex (multi-operation) instructions.
+
+#217 p96 a131
+Q: Which of the following is an advantage of CISC processors?
+a) Simpler instructions
+b) Reduced code size
+c) More memory efficiency
+d) Lower power consumption
+K: b
+B: d
+X: CISC's advantage is compact code: complex instructions reduce the number of instructions and so the program size. Lower power consumption is an advantage of RISC, not CISC.
+S: CISC advantage → reduced code size (and memory efficiency).
+N: The book prints (d) Lower power consumption, which contradicts its own Q220 (higher power consumption is a CISC disadvantage). Reduced code size is the CISC advantage; (c) memory efficiency is a consequence of the same property.
+
+#218 p96 a131
+Q: The complexity of CISC processors makes them more difficult to:
+a) Decode instructions
+b) Execute instructions quickly
+c) Design and manufacture
+d) Store instructions in memory
+K: c
+X: Large, variable-length instruction sets need intricate control logic (often microcode), which makes CISC chips harder to design and manufacture.
+S: CISC con → complex design.
+
+#219 p96 a131
+Q: CISC processors have a larger user base and more available software due to:
+a) Reduced code size
+b) More memory efficiency
+c) Simpler instructions
+d) Long-standing usage
+K: d
+X: The x86 CISC family has dominated PCs for decades, so a huge body of software exists for it.
+S: x86 legacy → big software base.
+
+#220 p97 a131
+Q: Higher power consumption is a disadvantage associated with:
+a) RISC processors
+b) CISC processors
+c) Simpler instructions
+d) Larger user base
+K: b
+X: More complex decoding and control logic makes CISC processors consume more power than RISC processors.
+S: Power hungry → CISC.
+
+#221 p97 a131
+Q: What is the function of a microprocessor?
+a) Storage of data
+b) Execution of instructions
+c) Control of peripherals
+d) All of the above
+K: b
+X: A microprocessor is a CPU on a single chip; its main function is to execute instructions. Storage is the job of memory.
+S: Microprocessor = CPU on a chip → executes instructions.
+
+#222 p97 a131
+Q: Which technology is commonly used to construct microprocessors?
+a) CMOS
+b) TTL
+c) PMOS
+d) FPGA
+K: a
+X: CMOS (complementary metal-oxide-semiconductor) is used for virtually all modern microprocessors because it draws very little power and allows very high integration density.
+S: Microprocessors → CMOS (low power, high density).
+
+#223 p97 a131
+Q: What is the word length of a microprocessor?
+a) The number of clock cycles required to execute an instruction
+b) The size of the memory address space
+c) The number of bits processed in a single instruction
+d) The number of transistors on the chip
+K: c
+X: Word length is the number of bits the processor handles in one operation (8, 16, 32, 64); a longer word means more processing power per instruction.
+S: Word length = bits per operation.
+
+#224 p97 a131
+Q: Which factor determines the speed of execution for a microprocessor?
+a) Word length
+b) Clock speed
+c) Instruction set
+d) Memory capacity
+K: b
+X: Execution speed is set mainly by the clock speed (MHz/GHz): each step of an instruction happens on a clock tick.
+S: Speed → clock (GHz).
+
+#225 p97 a131
+Q: Which architecture uses a small set of simple instructions executed in one clock cycle?
+a) RISC
+b) CISC
+c) EPIC
+d) FPGA
+K: a
+X: RISC uses a reduced set of simple, uniform instructions, most executing in one clock cycle.
+S: One cycle, simple → RISC.
+
+#226 p97 a132
+Q: Which microprocessor architecture offers hundreds of instructions of variable sizes?
+a) RISC
+b) CISC
+c) EPIC
+d) FPGA
+K: b
+X: CISC offers a large set of instructions of variable length and many addressing modes (x86 instructions are 1 to 15 bytes long).
+S: Hundreds of variable-length instructions → CISC (ISS 2023: CISC instructions are variable length).
+
+#227 p97 a132
+Q: Which microprocessor architecture combines the best features of RISC and CISC?
+a) RISC
+b) CISC
+c) EPIC
+d) FPGA
+K: c
+X: EPIC (Explicitly Parallel Instruction Computing, Intel IA-64/Itanium) is presented in the book as combining RISC and CISC strengths, with the compiler scheduling several operations to run in parallel.
+S: EPIC = explicit parallelism (Itanium).
+
+#228 p97 a132
+Q: Which microprocessor architecture is known for its simplicity and low cost?
+a) RISC
+b) CISC
+c) EPIC
+d) FPGA
+K: a
+X: RISC designs are simple and use fewer transistors, making them cheaper to design and manufacture.
+S: Simple + cheap → RISC.
+
+#229 p98 a132
+Q: Which microprocessor architecture reduces the program size and increases the overall speed of execution?
+a) RISC
+b) CISC
+c) EPIC
+d) FPGA
+K: b
+X: The book keys CISC: its powerful instructions reduce program size, and fewer instructions have to be fetched from memory.
+S: Smaller programs → CISC.
+
+#230 p98 a132
+Q: Which microprocessor architecture implements parallel processing of instructions?
+a) RISC
+b) CISC
+c) EPIC
+d) FPGA
+K: c
+X: EPIC is explicitly designed for instruction-level parallelism: the compiler bundles independent instructions that execute simultaneously.
+S: "Explicitly Parallel" → EPIC.
+
+#231 p98 a132
+Q: What is an example of an audio file?
+a) Cat.mp3
+b) Cat.avi
+c) Cat.jpg
+d) Cat.png
+K: a
+X: .mp3 is an audio format; .avi is video, and .jpg and .png are images.
+S: Audio: mp3, wav, aac, ogg, flac, midi · Video: avi, mp4, mov, wmv, mkv · Image: jpg, png, gif, bmp.
+
+#232 p98 a132
+Q: Which audio file is bigger?
+a) Car.mp3 at 25 KB
+b) Car.ogg at 20 KB
+c) Car.avi at 20 MB
+d) Car.wav at 12 MB
+K: d
+B: c
+X: .avi is a video container, not an audio format, so the largest audio file listed is Car.wav at 12 MB. (WAV is uncompressed, which is why it is so much larger than the MP3 and OGG files.)
+S: First check the extension (avi = video), then compare sizes.
+N: The book prints (c) Car.avi at 20 MB, but AVI is a video format. Among the audio files the largest is Car.wav, so the key is (d).
+
+#233 p98 a132
+Q: Which of the following is not a valid file extension of an audio file?
+a) .mp3
+b) .rar
+c) .wav
+d) .mid
+K: b
+X: .rar is a compressed archive format (like .zip). .mp3, .wav and .mid (MIDI) are audio formats.
+S: rar/zip/7z = archives.
+
+#234 p98 a133
+Q: Which file is usually larger and has the best quality?
+a) WAV
+b) OGG
+c) AVI
+d) MOV
+K: a
+X: WAV stores uncompressed PCM audio, so its files are large but lossless in quality.
+S: Uncompressed → biggest + best quality → WAV (or AIFF).
+
+#235 p98 a133
+Q: Which audio file is the most common sound format and close to CD quality?
+a) WAV
+b) MP3
+c) OGG
+d) PNG
+K: b
+X: MP3 (MPEG-1 Audio Layer III) is the most common audio format; at good bit-rates it sounds close to CD quality at about one-tenth of the size.
+S: Common + near-CD + small → MP3.
+
+#236 p98 a133
+Q: Which audio file is a newer format, open source, and patent free?
+a) JPG
+b) PNG
+c) OGG
+d) WAV
+K: c
+X: Ogg (usually Ogg Vorbis audio) is an open-source, patent-free format from the Xiph.org Foundation.
+S: Open-source and patent-free audio → OGG.
+
+#237 p98 a133
+Q: Bonnie wants to animate a graphic image of a Trojan for the Olympics website. Which file format should she use?
+a) GIF
+b) JPG
+c) OGG
+d) PNG
+K: a
+X: GIF supports simple frame-by-frame animation; JPG and PNG are still images and OGG is audio.
+S: Animation on the web (classic) → GIF.
+
+#238 p98 a133
+Q: Which audio type is supported by only a few web browsers, such as Chrome 6+, Firefox 3.6+, and Opera 10+?
+a) WAV
+b) MP3
+c) OGG
+d) AVI
+K: c
+X: At the time, the Ogg format played natively only in Chrome 6+, Firefox 3.6+ and Opera 10+ (not in Internet Explorer or Safari).
+S: Limited browser support (old HTML5 table) → OGG.
+
+#239 p98 a133
+Q: Which audio file is uncompressed and has a larger file size?
+a) OGG
+b) WAV
+c) WMV
+d) WebM
+K: b
+X: WAV holds uncompressed audio, so its files are large. OGG is compressed audio; WMV and WebM are video formats.
+S: Uncompressed audio → WAV.
+
+#240 p98 a133
+Q: Which legislation protects an author's right to make money from an audio sequence she has recorded and edited?
+a) Trademark
+b) Copyright
+c) Legal Mark
+d) Intellectual mark
+K: b
+X: Copyright protects original creative works — music, recordings, text, software — and the author's right to earn from them. A trademark protects brand names and logos.
+S: Creative work → copyright; brand → trademark; invention → patent.
+
+#241 p99 a133
+Q: Which audio file format is widely used for compressed music playback and streaming?
+a) WAV
+b) MP3
+c) AAC
+d) FLAC
+K: b
+X: MP3 is the most widely used lossy compressed format for music playback and streaming.
+S: Compressed music → MP3.
+
+#242 p99 a133
+Q: Which audio file format is known for its high-quality lossless compression?
+a) WAV
+b) MP3
+c) AAC
+d) FLAC
+K: d
+X: FLAC (Free Lossless Audio Codec) compresses audio without losing any information, usually to about half the WAV size.
+S: Lossless compressed → FLAC; lossy → MP3/AAC/OGG; uncompressed → WAV/AIFF.
+
+#243 p99 a133
+Q: Which audio file format is commonly used for CD audio tracks?
+a) WAV
+b) MP3
+c) AAC
+d) AIFF
+K: d
+X: The book keys AIFF, an uncompressed PCM format (Apple's counterpart of WAV) that stores CD-quality audio tracks. CD audio itself is raw 16-bit, 44.1 kHz PCM, which WAV can hold equally well.
+S: CD-quality uncompressed → AIFF / WAV (book answer: AIFF).
+
+#244 p99 a133
+Q: Which audio file format supports multichannel audio and is commonly used for DVDs?
+a) WAV
+b) MP3
+c) AAC
+d) AC3
+K: d
+X: AC3 (Dolby Digital) carries multichannel surround sound (5.1) and is the standard audio format on DVDs.
+S: DVD surround → AC3 (Dolby Digital).
+
+#245 p99 a134
+Q: Which audio file format is widely supported by Apple devices and iTunes?
+a) WAV
+b) MP3
+c) AAC
+d) AIFF
+K: c
+X: AAC (Advanced Audio Coding) is the default format of iTunes and Apple devices, with better quality than MP3 at the same bit-rate.
+S: Apple/iTunes → AAC.
+
+#246 p99 a134
+Q: Which audio file format is commonly used in professional audio production and recording?
+a) WAV
+b) MP3
+c) AAC
+d) AIFF
+K: a
+X: Professional recording and editing use uncompressed WAV so that no quality is lost during processing.
+S: Studio work → WAV (uncompressed).
+
+#247 p99 a134
+Q: Which audio file format is known for its small file size and is commonly used for online streaming?
+a) WAV
+b) MP3
+c) AAC
+d) FLAC
+K: b
+X: MP3's lossy compression gives small files suitable for online streaming.
+S: Small + streaming → MP3.
+
+#248 p99 a134
+Q: Which audio file format is an open-source alternative to MP3, providing similar compression but with improved sound quality?
+a) WAV
+b) MP3
+c) AAC
+d) OGG
+K: d
+X: Ogg Vorbis is the open-source, royalty-free alternative to MP3, offering similar or better quality at the same size.
+S: Open-source MP3 rival → OGG Vorbis.
+
+#249 p99 a134
+Q: Which audio file format is commonly used for storing and exchanging MIDI data?
+a) WAV
+b) DPS
+c) AAC
+d) MIDI
+K: d
+X: A MIDI (.mid) file stores musical instructions — which notes, when, how loud — rather than recorded sound, so it is tiny.
+S: MIDI = instructions, not sound samples.
+
+#250 p100 a134
+Q: Which audio file format is optimized for internet telephony and voice recordings?
+a) WAV
+b) MP3
+c) AAC
+d) OPUS
+K: d
+X: Opus is a low-latency codec designed for real-time voice and audio over the internet (WebRTC, VoIP, WhatsApp calls).
+S: VoIP / real-time voice → Opus.
+
+#251 p100 a134
+Q: Which sound file format is commonly used for CD audio tracks?
+a) MP3
+b) WAV
+c) FLAC
+d) AAC
+K: b
+X: CD audio is uncompressed 16-bit, 44.1 kHz PCM, and WAV is the standard file format for that data on PCs.
+S: CD-quality uncompressed → WAV.
+
+#252 p100 a134
+Q: Which sound file format is known for its lossless compression and high-quality audio?
+a) MP3
+b) WAV
+c) FLAC
+d) AAC
+K: c
+X: FLAC compresses audio losslessly, so quality is identical to the original.
+S: Lossless compression → FLAC.
+
+#253 p100 a134
+Q: Which sound file format is widely used for streaming and online distribution of music?
+a) MP3
+b) WAV
+c) FLAC
+d) OGG
+K: a
+X: MP3's efficient lossy compression made it the standard for online music distribution.
+S: Online music → MP3.
+
+#254 p100 a134
+Q: Which sound file format is specifically designed for speech and low bit rate applications?
+a) MP3
+b) WAV
+c) VOC
+d) AIFF
+K: c
+X: VOC (Creative Voice File, from Creative Labs' Sound Blaster) was designed for digitised speech and low bit-rate sound.
+S: VOC = VOiCe files.
+
+#255 p100 a134
+Q: Which sound file format is commonly used in Apple devices and iTunes?
+a) MP3
+b) WAV
+c) M4A
+d) FLAC
+K: c
+X: M4A is the MPEG-4 audio file (usually AAC-encoded) used by iTunes and Apple devices.
+S: Apple audio file → M4A (AAC inside).
+
+#256 p100 a135
+Q: Which sound file format supports multichannel audio and is commonly used for DVDs?
+a) MP3
+b) WAV
+c) AC3
+d) OGG
+K: c
+X: AC3 (Dolby Digital) supports 5.1 multichannel surround and is standard on DVDs.
+S: DVD surround → AC3.
+
+#257 p100 a135
+Q: Which sound file format is optimized for internet telephony and voice recordings?
+a) MP3
+b) WAV
+c) OPUS
+d) WMA
+K: c
+X: Opus is built for low-latency voice and audio over the internet.
+S: VoIP → Opus.
+
+#258 p100 a135
+Q: Which sound file format is widely supported by web browsers for audio playback?
+a) MP3
+b) WAV
+c) OGG
+d) AAC
+K: c
+X: The book keys OGG, the open, royalty-free format adopted for HTML5 audio. (Today MP3 plays in every major browser as well.)
+S: Book answer: OGG (open web audio).
+
+#259 p100 a135
+Q: Which sound file format is commonly used for MIDI (Musical Instrument Digital Interface) files?
+a) MP3
+b) WAV
+c) MIDI
+d) WMA
+K: c
+X: MIDI data is stored in Standard MIDI Files (.mid/.midi), which contain note events rather than recorded audio.
+S: MIDI files → .mid.
+
+#260 p101 a135
+Q: Which sound file format is known for its small file size and is commonly used for online streaming and podcasting?
+a) MP3
+b) WAV
+c) AAC
+d) AIFF
+K: a
+X: MP3's small size and universal support make it the usual podcast and streaming format.
+S: Podcasts → MP3.
+
+#261 p101 a135
+Q: Which video file format is commonly used for streaming videos on the internet?
+a) MP4
+b) AVI
+c) MOV
+d) WMV
+K: a
+X: MP4 (MPEG-4 Part 14, usually with H.264 video) is the dominant format for internet video.
+S: Web video → MP4 (H.264).
+
+#262 p101 a135
+Q: Which video file format is widely supported by Apple devices and iTunes?
+a) MP4
+b) AVI
+c) MKV
+d) FLV
+K: a
+X: Apple devices and iTunes play MP4 (and its variant M4V) natively.
+S: Apple video → MP4/M4V (or MOV).
+
+#263 p101 a135
+Q: Which video file format is known for its high-quality and lossless compression?
+a) MP4
+b) AVI
+c) MOV
+d) FLV
+K: c
+X: The book keys MOV, Apple's QuickTime container, which can hold very high-quality (even lossless) codecs and is widely used for editing.
+S: QuickTime → MOV (editing/high quality).
+
+#264 p101 a135
+Q: Which video file format is specifically designed for DVDs and supports menu navigation?
+a) MP4
+b) AVI
+c) MPEG-2
+d) WMV
+K: c
+X: DVD-Video uses MPEG-2 video (in VOB files) together with menu navigation data.
+S: DVD → MPEG-2; Blu-ray → H.264/AVC (MPEG-4) or HEVC.
+
+#265 p101 a135
+Q: Which video file format is commonly used for animated graphics and supports transparency?
+a) MP4
+b) AVI
+c) GIF
+d) WMV
+K: c
+X: GIF supports simple animation and one transparent colour, so it is used for small animated web graphics.
+S: Animated + transparent (web) → GIF.
+
+#266 p101 a135
+Q: Which video file format is known for its high quality and is commonly used in professional video editing?
+a) MP4
+b) AVI
+c) ProRes
+d) FLV
+K: c
+X: Apple ProRes is a high-quality intermediate codec used throughout professional editing and post-production.
+S: Pro editing codec → ProRes.
+
+#267 p101 a135
+Q: Which video file format is optimized for web streaming and is commonly used by YouTube?
+a) MP4
+b) AVI
+c) WebM
+d) MOV
+K: c
+X: WebM (VP8/VP9 video, Opus/Vorbis audio) is Google's open, royalty-free web format and is used heavily by YouTube.
+S: Google/YouTube open format → WebM.
+
+#268 p101 a136
+Q: Which video file format is commonly used for 3D video content?
+a) MP4
+b) AVI
+c) MKV
+d) SBS
+K: c
+X: The book keys MKV (Matroska), a flexible container that can store stereoscopic 3D as well as HD video. SBS (side-by-side) is a frame layout used inside such files, not a file format.
+S: Book answer: MKV (flexible container, supports 3D).
+
+#269 p102 a136
+Q: Which video file format is specifically designed for video playback on mobile devices?
+a) MP4
+b) AVI
+c) 3GP
+d) FLV
+K: c
+B: a
+X: 3GP was defined by the 3GPP (3rd Generation Partnership Project) specifically for video on mobile phones, with small files for low bandwidth.
+S: 3GP = 3G phones.
+N: The book prints (a) MP4. MP4 plays well on phones but is a general-purpose format; the format specifically designed for mobile devices is 3GP, so the key is (c).
+
+#270 p102 a136
+Q: Which video file format is commonly used for Blu-ray discs and supports high-definition video?
+a) MP4
+b) AVI
+c) MPEG-4 AVC
+d) WMV
+K: c
+X: Blu-ray uses MPEG-4 AVC (H.264) — along with MPEG-2 and VC-1 — for high-definition video.
+S: Blu-ray HD → H.264 / MPEG-4 AVC.
+
+#271 p102 a136
+Q: RISC stands for:
+a) Random Integrated System Chip
+b) Reduced Instruction Set Computer
+c) Realistic Instructional System Code
+d) Rapid Interconnected Software Compiler
+K: b
+X: RISC = Reduced Instruction Set Computer.
+S: RISC = Reduced Instruction Set Computer; CISC = Complex Instruction Set Computer.
+
+#272 p102 a136
+Q: CISC stands for:
+a) Complex Integrated System Chip
+b) Compact Instructional System Code
+c) Complex Instruction Set Computer
+d) Complete Interconnected Software Compiler
+K: c
+X: CISC = Complex Instruction Set Computer.
+S: C for Complex.
+
+#273 p102 a136
+Q: In RISC architecture, the emphasis is on:
+a) Complex instructions and addressing modes
+b) Minimizing the number of instructions
+c) High-level programming languages
+d) Parallel processing
+K: b
+X: Read "number of instructions" as the size of the instruction set: RISC keeps it small — a reduced set of simple instructions and addressing modes.
+S: RISC → small set of simple instructions.
+
+#274 p102 a136
+Q: In CISC architecture, the emphasis is on:
+a) Complex instructions and addressing modes
+b) Minimizing the number of instructions
+c) Low-level programming languages
+d) Serial processing
+K: a
+X: CISC provides many complex instructions and addressing modes so that each instruction does more work.
+S: CISC → rich, complex instructions + many addressing modes.
+N: The book prints option (a) as "Simple instructions and addressing modes" but explains that CISC emphasises complex instructions and addressing modes; option (a) has been corrected to match the book's key and explanation.
+
+#275 p102 a136
+Q: RISC processors typically have:
+a) Large instruction sets
+b) Variable-length instructions
+c) Complex instruction execution units
+d) Small and fixed instruction sets
+K: d
+X: RISC processors have a small instruction set of fixed-length instructions, which simplifies decoding and pipelining.
+S: RISC = small + fixed-length.
+
+#276 p102 a136
+Q: CISC processors typically have:
+a) Small instruction sets
+b) Fixed-length instructions
+c) Simple instruction execution units
+d) Large and variable-length instruction sets
+K: d
+X: CISC processors have large instruction sets with variable-length instructions.
+S: CISC = large + variable-length.
+
+#277 p102 a136
+Q: Which type of architecture favors pipelining and instruction-level parallelism?
+a) RISC
+b) CISC
+c) Both RISC and CISC
+d) Neither RISC nor CISC
+K: a
+X: Uniform, fixed-length, single-cycle RISC instructions flow smoothly through a pipeline and suit instruction-level parallelism.
+S: Pipelining → RISC.
+
+#278 p103 a136
+Q: RISC processors use a load/store architecture, which means:
+a) Data processing operations are performed directly on memory
+b) Data is loaded and stored only in registers
+c) The architecture does not support memory operations
+d) The architecture uses a cache memory for load/store operations
+K: b
+X: In a load/store architecture only LOAD and STORE instructions touch memory; all arithmetic and logic work on registers.
+S: Load/store = memory only via LOAD/STORE; ALU works on registers.
+
+#279 p103 a136
+Q: CISC processors often include:
+a) Simple and specialized instructions
+b) Only arithmetic and logical instructions
+c) Complex branching instructions
+d) Single-cycle execution units
+K: a
+X: A CISC instruction set contains both simple instructions and many specialised complex ones (string moves, memory-to-memory arithmetic), giving the programmer flexibility.
+S: CISC = everything from simple to specialised instructions.
+
+#280 p103 a136
+Q: Which type of architecture is generally more power-efficient?
+a) RISC
+b) CISC
+c) Both RISC and CISC
+d) Neither RISC nor CISC
+K: a
+X: Simpler logic and fewer transistors make RISC more power-efficient.
+S: Power-efficient → RISC.
+
+#281 p103 a137
+Q: Which of the following is a characteristic of RISC architecture?
+a) Large instruction set
+b) Variable-length instructions
+c) Complex instruction execution units
+d) Emphasis on optimizing for code size
+K: b
+X: RISC instructions are fixed-length and uniform (for example 32 bits in classic ARM and MIPS), which makes fetching and decoding simple and fast.
+S: RISC → fixed length; CISC → variable length.
+N: The book prints option (b) as "Variable-length instructions" and explains that RISC uses variable-length instructions, which is wrong — that is a CISC trait (as the book itself says at Q275–276). The option has been corrected to "Fixed-length instructions".
+
+#282 p103 a137
+Q: Which type of architecture typically requires fewer transistors to implement?
+a) RISC
+b) CISC
+c) Both RISC and CISC require the same number of transistors
+d) Transistor count is not related to architecture type
+K: a
+X: RISC's simple control logic needs fewer transistors.
+S: Fewer transistors → RISC.
+
+#283 p103 a137
+Q: Which of the following is an advantage of CISC architecture?
+a) Reduced instruction execution time
+b) Smaller program size
+c) Fewer clock cycles per instruction
+d) Greater hardware complexity
+K: b
+B: d
+X: CISC's advantage is smaller program size: complex instructions do more work each, so fewer are needed. Greater hardware complexity is a disadvantage.
+S: CISC advantage = compact code.
+N: The book prints (d) Greater hardware complexity, which is a drawback of CISC, not an advantage. The advantage among the options is smaller program size, so the key is (b).
+
+#284 p103 a137
+Q: Which type of architecture is more commonly used in embedded systems and mobile devices?
+a) RISC
+b) CISC
+c) Both RISC and CISC are equally common
+d) Neither RISC nor CISC is used in embedded systems
+K: a
+X: ARM and other RISC cores dominate embedded systems and mobile devices because of their low power and cost.
+S: Phones and embedded → RISC (ARM).
+
+#285 p103 a137
+Q: In which type of architecture are instructions typically executed in a single clock cycle?
+a) RISC
+b) CISC
+c) Both RISC and CISC require multiple clock cycles per instruction
+d) Instruction execution time is not related to architecture type
+K: a
+X: RISC aims to complete most instructions in a single clock cycle.
+S: Single cycle → RISC.
+
+#286 p103 a137
+Q: Which of the following is a characteristic of CISC architecture?
+a) Simple instruction sets
+b) Fixed-length instructions
+c) Emphasis on optimizing for code size
+d) Support for complex addressing modes
+K: d
+X: CISC supports many complex addressing modes (indirect, indexed, memory-to-memory). It also optimises for code size, so (c) is true as well; the book keys the addressing modes.
+S: Many addressing modes → CISC.
+
+#287 p104 a137
+Q: Which type of architecture is generally easier to program for?
+a) RISC
+b) CISC
+c) Both RISC and CISC have similar programming complexity
+d) Programming complexity is not related to architecture type
+K: a
+X: The book's view: RISC's small, regular instruction set and predictable timing make it easier to program for, especially for compilers. (Some texts argue that CISC's rich instructions make hand-written assembly shorter.)
+S: Book answer: RISC (small, regular instruction set).
+
+#288 p104 a137
+Q: Which of the following is true about RISC processors?
+a) They typically have higher clock speeds than CISC processors
+b) They execute instructions using microcode
+c) They require more memory access than CISC processors
+d) They have a larger number of instructions than CISC processors
+K: a
+X: Simple hard-wired control lets RISC processors run at high clock speeds. Microcode is a CISC technique, and RISC has fewer instructions.
+S: Hard-wired control → RISC; microprogrammed control → CISC.
+
+#289 p104 a137
+Q: Which type of architecture is generally more suitable for applications that require high performance and efficiency?
+a) RISC
+b) CISC
+c) Both RISC and CISC are equally suitable
+d) Neither RISC nor CISC is suitable for high-performance applications
+K: a
+X: The book keys RISC: streamlined instructions, pipelining and power efficiency give high performance per watt.
+S: Performance + efficiency → RISC (book answer).
+
+#290 p104 a137
+Q: Which of the following is a disadvantage of RISC architecture?
+a) Limited instruction set flexibility
+b) Increased complexity of instruction execution
+c) Larger program size
+d) Slower clock speeds compared to CISC processors
+K: a
+X: With only simple instructions, complex operations need sequences of instructions — limited flexibility of the instruction set. Larger program size (c) follows from the same limitation.
+S: RISC cons: limited instructions → longer programs.
+
