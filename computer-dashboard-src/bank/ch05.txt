@@ -3,8 +3,8 @@
 @pages 243-252 253-260
 @codes C4 C1
 @default C4
-@themes 1 AND, OR and NOT gates · outputs · expressions · truth tables
-@themes 2 NAND, NOR, XOR and XNOR gates · universal gates · truth tables
+@themes 1 AND, OR and NOT gates · NAND · outputs · expressions · truth tables
+@themes 2 NOR, XOR and XNOR gates · universal gates + 10 ISS Boosters (De Morgan, adders, flip-flops, Boolean laws)
 
 #1 p243 a253
 Q: What is the output of an AND gate if both inputs are 1?
@@ -739,3 +739,110 @@ K: b
 X: XNOR: output 1 when the inputs are equal — 00→1, 01→0, 10→0, 11→1.
 S: XNOR = equality detector: 1 when inputs match.
 
+
+#71 iss
+Q: According to De Morgan's theorem, the complement of (A + B) is equal to:
+a) A' + B'
+b) A'·B'
+c) A·B
+d) A'·B
+K: b
+R: ISS Paper-I logic-gate questions (e.g. 2021 Q58)
+X: De Morgan: (A + B)' = A'·B' and (A·B)' = A' + B'. To complement, complement every variable and swap + with ·. So NOR = AND of inverted inputs, and NAND = OR of inverted inputs.
+S: "Break the bar, change the sign": (A+B)' = A'B'; (AB)' = A'+B'.
+
+#72 iss
+Q: What is the result of the bitwise AND of the binary numbers 110110 and 101011?
+a) 100010
+b) 111111
+c) 011101
+d) 100011
+K: a
+R: ISS 2021 Q58 (bitwise AND of binary numbers)
+X: AND gives 1 only where both bits are 1. Column by column: 1·1 = 1, 1·0 = 0, 0·1 = 0, 1·0 = 0, 1·1 = 1, 0·1 = 0, which gives 100010. The distractors are the OR result (111111) and the XOR result (011101).
+S: AND → 1 only on 1-1; OR → 0 only on 0-0; XOR → 1 on mismatch.
+
+#73 iss
+Q: In a half adder, the Sum and Carry outputs are produced respectively by which gates?
+a) XOR and AND
+b) AND and XOR
+c) OR and AND
+d) XNOR and NOR
+K: a
+X: Adding two bits: 0+0 = 0, 0+1 = 1, 1+0 = 1, 1+1 = 10. The Sum bit is 1 when the inputs differ, which is XOR. The Carry is 1 only for 1 + 1, which is AND. A full adder adds a carry-in and needs two half adders plus an OR gate.
+S: Half adder: Sum = A ⊕ B, Carry = A·B.
+
+#74 iss
+Q: Which of the following is a sequential circuit that can store one bit of data?
+a) Multiplexer
+b) Flip-flop
+c) Decoder
+d) Half adder
+K: b
+R: ISS 2020 Q58
+X: A flip-flop (SR, JK, D, T) is a 1-bit memory element: its output depends on the present inputs and on its stored state. Registers and counters are built from flip-flops. Multiplexers, decoders and adders are combinational and store nothing.
+S: Stores a bit → flip-flop (sequential); no memory → combinational.
+
+#75 iss
+Q: Which of the following is a combinational circuit?
+a) Flip-flop
+b) Counter
+c) Register
+d) Multiplexer
+K: d
+X: In a combinational circuit (multiplexer, decoder, encoder, adder, comparator) the outputs depend only on the present inputs. Flip-flops, counters and registers are sequential: they have memory, and their output also depends on the past.
+S: MUX / DEMUX / encoder / decoder / adder = combinational.
+
+#76 iss
+Q: How many rows does the complete truth table of a Boolean function of 4 variables have?
+a) 8
+b) 16
+c) 4
+d) 32
+K: b
+X: Each variable can be 0 or 1, so n variables give 2^n input combinations: 2^4 = 16 rows.
+S: Truth-table rows = 2^n.
+
+#77 iss
+Q: The Boolean expression A + A·B simplifies to:
+a) A
+b) B
+c) A·B
+d) A + B
+K: a
+X: This is the absorption law: A + A·B = A(1 + B) = A·1 = A. Its dual is A·(A + B) = A. Do not confuse it with A + A'·B = A + B.
+S: Absorption: A + AB = A; A(A + B) = A; A + A'B = A + B.
+
+#78 iss
+Q: What is the minimum number of 2-input NAND gates needed to realise a 2-input AND gate?
+a) 1
+b) 2
+c) 3
+d) 4
+K: b
+X: The first NAND gives (A·B)'. A second NAND with both inputs tied together acts as an inverter and restores A·B. The standard counts: NOT = 1, AND = 2, OR = 3, XOR = 4 NAND gates.
+S: With NAND: NOT 1 · AND 2 · OR 3 · XOR 4.
+
+#79 iss
+Q: Consider the following statements:
+- NAND and NOR are universal gates.
+- The output of an XOR gate is 1 when both its inputs are equal.
+- The dual of A + 0 = A is A·1 = A.
+?: Which of the statements given above are correct?
+a) 1 and 2 only
+b) 1 and 3 only
+c) 2 and 3 only
+d) 1, 2 and 3
+K: b
+X: Statement 1 is true: any Boolean function can be built from NAND alone or NOR alone. Statement 2 is false: XOR is 1 when the inputs differ (XNOR is 1 when they are equal). Statement 3 is true: the dual swaps + with · and 0 with 1, so A + 0 = A becomes A·1 = A.
+S: XOR = "odd one out" detector; XNOR = equality detector.
+
+#80 iss
+Q: If A = 1011 and B = 0110 (binary), then A XOR B is:
+a) 1101
+b) 0010
+c) 1111
+d) 0100
+K: a
+X: XOR gives 1 where the bits differ: 1⊕0 = 1, 0⊕1 = 1, 1⊕1 = 0, 1⊕0 = 1, which gives 1101. 0010 is A AND B and 1111 is A OR B, both common traps.
+S: XOR bit = 1 only where the two bits differ.

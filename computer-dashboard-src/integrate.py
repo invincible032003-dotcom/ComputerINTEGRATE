@@ -97,12 +97,12 @@ def parse_bank(path):
             else:
                 meta[k] = v.strip()
             continue
-        m = re.match(r'^#(\d+)\s+p(\d+)(?:\s+a(\d+))?\s*$', s)
+        m = re.match(r'^#(\d+)\s+(?:p(\d+)(?:\s+a(\d+))?|(iss))\s*$', s)
         if m:
-            cur = {'n': int(m.group(1)), 'qPage': int(m.group(2)),
-                   'aPage': int(m.group(3)) if m.group(3) else None,
+            cur = {'n': int(m.group(1)), 'qPage': int(m.group(2)) if m.group(2) else None,
+                   'aPage': int(m.group(3)) if m.group(3) else None, 'booster': bool(m.group(4)),
                    'Q': '', 'code': [], 'stmts': [], 'ask': '', 'opts': [], 'K': '', 'B': '',
-                   'X': '', 'S': '', 'N': '', 'T': '', 'C': ''}
+                   'X': '', 'S': '', 'N': '', 'T': '', 'C': '', 'R': ''}
             items.append(cur)
             field = None
             continue
@@ -116,7 +116,7 @@ def parse_bank(path):
             cur['opts'].append(m.group(2).strip())
             field = 'opt'
             continue
-        m = re.match(r'^([QKBXSNTC]):\s?(.*)$', s)
+        m = re.match(r'^([QKBXSNTCR]):\s?(.*)$', s)
         if m:
             field = m.group(1)
             cur[field] = m.group(2).strip()
@@ -212,12 +212,18 @@ def build_bank(bank_dir, sheet_dir, provisional=None):
         default = meta.get('default', allowed[0])
         items.sort(key=lambda x: x['n'])
         sizes = plan_sets(len(items))
+        bad = [z for z in sizes if not SET_MIN <= z <= SET_MAX]
+        if bad:
+            raise SystemExit(f'{fn}: {len(items)} questions give sets {sizes}; every set must hold '
+                             f'{SET_MIN}-{SET_MAX} questions (add ISS Booster items)')
+        nb = 0
         sets = []
         pos = 0
         for k, sz in enumerate(sizes, 1):
             chunk = items[pos:pos + sz]
             pos += sz
-            sets.append({'k': k, 'n': sz, 'from': chunk[0]['n'], 'to': chunk[-1]['n'],
+            bk = [it for it in chunk if not it['booster']]
+            sets.append({'k': k, 'n': sz, 'from': bk[0]['n'], 'to': bk[-1]['n'], 'boost': sz - len(bk),
                          'themes': meta['themes'].get(k, '')})
             for it in chunk:
                 it['set'] = k
@@ -235,6 +241,12 @@ def build_bank(bank_dir, sheet_dir, provisional=None):
             if book != key:
                 total_fix += 1
             code = topic_code(it, allowed, default)
+            if it['booster']:
+                nb += 1
+                if it['B'] or it['qPage']:
+                    raise SystemExit(f'{fn} #{it["n"]}: a booster has no book key or page')
+            elif not it['qPage']:
+                raise SystemExit(f'{fn} #{it["n"]}: book item without page')
             data.append({
                 'id': f'CS-{num:02d}.{it["n"]:03d}', 'globalId': 300000 + num * 1000 + it['n'],
                 'isCS': True, 'provenance': 'COMPUTER BOOK BANK', 'year': 'Book',
@@ -247,9 +259,12 @@ def build_bank(bank_dir, sheet_dir, provisional=None):
                 'tipsTricks': [], 'solution': [],
                 'csChapter': num, 'csNum': it['n'], 'csSet': it['set'],
                 'qPage': it['qPage'], 'aPage': it['aPage'],
+                'isBooster': it['booster'], 'pyqRef': it['R'],
+                'csLabel': ('Booster ' + str(nb)) if it['booster'] else ('Q' + str(it['n'])),
             })
         qp, ap = meta.get('pages', '').split() if meta.get('pages') else ('', '')
-        chapters.append({'num': num, 'title': meta['title'], 'n': len(items), 'sets': sets,
+        chapters.append({'num': num, 'title': meta['title'], 'n': len(items), 'nBook': len(items) - nb,
+                         'nBoost': nb, 'sets': sets,
                          'relCodes': allowed, 'qPages': qp, 'aPages': ap})
         sp = os.path.join(sheet_dir, fn)
         if os.path.exists(sp):
@@ -258,14 +273,16 @@ def build_bank(bank_dir, sheet_dir, provisional=None):
     meta = {
         'label': 'COMPUTER BOOK BANK', 'source': SOURCE, 'pages': PAGES,
         'setMin': SET_MIN, 'setMax': SET_MAX,
-        'total': len(data), 'nSets': sum(len(c['sets']) for c in chapters), 'nKeyFixes': total_fix,
+        'total': len(data), 'nBoost': sum(1 for q in data if q['isBooster']), 'nSets': sum(len(c['sets']) for c in chapters), 'nKeyFixes': total_fix,
         'provenance': (
-            'Every question, option and answer key here comes from ' + SOURCE + ', read from the 465 '
-            'scanned pages and proof-read. The explanations are edited from the book\'s own, and each '
-            'exam shortcut was written for this dashboard. Where the printed key is wrong, the correct '
-            'answer is used and an answer-key note says what the book prints and why it is wrong (' +
-            str(total_fix) + ' such corrections). None of these is a UPSC previous-year question and '
-            'none enters a year, sectional, topic, subtopic or custom PYQ mock.'),
+            'Every book question, option and answer key here comes from ' + SOURCE + ', read from the '
+            '465 scanned pages, retyped as text and proof-read (code as code blocks, figures redrawn). '
+            'The explanations and exam shortcuts were written fresh for this dashboard. Where the printed '
+            'key is wrong, the correct answer is used and an answer-key note says what the book prints and '
+            'why it is wrong (' + str(total_fix) + ' such corrections). Where a chapter\'s total cannot fill '
+            'sets of 40-50, original ISS Booster questions, modelled on ISS Paper-I PYQs and marked as not '
+            'from the book, complete the last set. None of these is a UPSC previous-year question and none '
+            'enters a year, sectional, topic, subtopic or custom PYQ mock.'),
         'chapters': chapters, 'sheets': sheets,
     }
     return meta, data
@@ -324,12 +341,12 @@ def integrate(meta, data):
 
     # badges, meta line, reveal, options, body
     s = sub1(s, "  if (q.isGK) return '<span class=\"gk-badge\">GUPTA KAPOOR &middot; Ch ' + q.gkChapter + ' &middot; not PYQ</span>';",
-             "  if (q.isCS) return '<span class=\"cs-badge\">COMPUTER BOOK &middot; Ch ' + q.csChapter + ' &middot; Set ' + q.csSet + ' &middot; not PYQ</span>';\n"
+             "  if (q.isCS) return '<span class=\"cs-badge' + (q.isBooster ? ' boost\">ISS BOOSTER' : '\">COMPUTER BOOK') + ' &middot; Ch ' + q.csChapter + ' &middot; Set ' + q.csSet + ' &middot; not PYQ</span>';\n"
              "  if (q.isGK) return '<span class=\"gk-badge\">GUPTA KAPOOR &middot; Ch ' + q.gkChapter + ' &middot; not PYQ</span>';",
              'badge')
     s = sub1(s, "    (q.isGK ? '<span>' + E(q.gkTopicLabel) + '</span><span>\\u00a7' + E(q.gkSection) + '</span>' : '') + '</div>';",
              "    (q.isGK ? '<span>' + E(q.gkTopicLabel) + '</span><span>\\u00a7' + E(q.gkSection) + '</span>' : '') +\n"
-             "    (q.isCS ? '<span>Book Q' + q.csNum + ' \\u00b7 PDF p. ' + q.qPage + '</span>' : '') + '</div>';",
+             "    (q.isCS ? '<span>' + (q.isBooster ? q.csLabel + ' \\u00b7 added, not in the book' : 'Book ' + q.csLabel + ' \\u00b7 PDF p. ' + q.qPage) + '</span>' : '') + '</div>';",
              'meta line')
     s = sub1(s, '  if (q.isGK) return gkRevealPanes(q, chosenOriginal, opts);',
              '  if (q.isCS) return csRevealPanes(q, chosenOriginal, opts);\n'

@@ -3,9 +3,9 @@
 @pages 261-276 277-293
 @codes C6 C5 C8 C9
 @default C6
-@themes 1 Language generations 1GL–5GL · machine language · assembly language basics
-@themes 2 Assembly vs high-level · 3GL · 4GL & 5GL · language classifications
-@themes 3 Paradigms · compile, link, load · symbol table · dynamic linking · relocation · translators
+@themes 1 Language generations 1GL–5GL · machine language · assembly language & assemblers
+@themes 2 High-level languages · 3GL, 4GL & 5GL · language classifications · paradigms
+@themes 3 Compile, link, load · symbol table · dynamic linking · relocation · translators + 10 ISS Boosters
 
 #1 p261 a277
 Q: Which generation of programming languages is characterized by machine language?
@@ -1114,3 +1114,122 @@ d) Execute the program line by line
 K: a
 X: A translator (compiler, interpreter or assembler) converts a program from its source language into machine code.
 S: Translator = source → machine code.
+
+#111 iss
+Q: Which one of the following is NOT system software?
+a) Operating system
+b) Compiler
+c) Device driver
+d) Word processor
+K: d
+R: ISS 2021 Q57
+X: System software runs and manages the computer or supports programming: the OS, compilers, assemblers, linkers, loaders, device drivers and utilities. A word processor (MS Word) is application software, used for an end-user task.
+S: Helps the machine → system software; helps the user's task → application.
+
+#112 iss
+Q: A software program stored permanently in ROM, which cannot easily be modified, is called:
+a) Firmware
+b) Freeware
+c) Shareware
+d) Middleware
+K: a
+C: C5
+R: ISS 2018 Q77
+X: Firmware is software burnt into ROM/flash, e.g. the BIOS/UEFI or the code in a washing machine or router. Freeware is free software, shareware is try-before-you-buy, and middleware connects applications (e.g. to databases).
+S: Software in ROM → firmware (BIOS).
+
+#113 iss
+Q: What is the output of the lexical analyser phase of a compiler?
+a) A list of tokens
+b) A parse tree
+c) Object code
+d) Optimised intermediate code
+K: a
+R: ISS 2021 Q80
+X: Compiler phases in order: lexical analysis (characters → tokens), syntax analysis (tokens → parse tree), semantic analysis, intermediate code generation, optimisation and code generation (→ object code). The lexer also removes whitespace and comments.
+S: Lexer → tokens; parser → tree; code generator → object code.
+
+#114 iss
+Q: Consider the following statements:
+- Both a compiler and an interpreter translate a high-level language program into machine-level instructions.
+- An interpreter translates the whole program into machine code before execution.
+- A compiler reports the errors after scanning the whole program.
+?: Which of the statements given above are correct?
+a) 1 and 2 only
+b) 1 and 3 only
+c) 2 and 3 only
+d) 1, 2 and 3
+K: b
+R: ISS 2024 Q47
+X: Statement 1 is true: both are translators. Statement 2 is false: that describes a compiler, while an interpreter translates and executes one statement at a time. Statement 3 is true: a compiler scans the whole program and lists all its errors, whereas an interpreter stops at the first one.
+S: Compiler: whole program, all errors, fast run; interpreter: line by line, stops at the first error.
+
+#115 iss
+Q: A program compiles and runs to completion but produces a wrong result. The program contains:
+a) A syntax error
+b) A logical error
+c) A linker error
+d) A compile-time type error
+K: b
+R: ISS 2018 Q78
+X: A logical error is a mistake in the algorithm (e.g. `<` instead of `<=`), so the program runs but gives wrong output. Only testing and debugging find it. Syntax and type errors stop compilation, and linker errors stop the build.
+S: Runs but wrong → logical error; won't compile → syntax error.
+
+#116 iss
+Q: Which programming language was designed by Microsoft to work with its .NET platform?
+a) Java
+b) C#
+c) Python
+d) Swift
+K: b
+R: ISS 2020 Q47
+X: C# (C-sharp, Anders Hejlsberg, 2000) is Microsoft's language for .NET. Java is from Sun, Python from Guido van Rossum, and Swift from Apple.
+S: .NET → C#; Apple → Swift; Sun/Oracle → Java.
+
+#117 iss
+Q: Consider the following statements in respect of Python:
+- It can be used to create web applications.
+- It is an interpreted language.
+- It is platform-independent.
+?: Which of the statements given above are correct?
+a) 1 and 2 only
+b) 2 and 3 only
+c) 1 and 3 only
+d) 1, 2 and 3
+K: d
+R: ISS 2026 Q67 (also 2021 Q53)
+X: Python is interpreted (source → bytecode → Python virtual machine), runs unchanged on any OS that has an interpreter, and powers web back ends (Django, Flask). All three statements are true.
+S: Python = interpreted + portable + web (Django/Flask).
+
+#118 iss
+Q: The UNIX operating system is written mainly in which language?
+a) Assembly language
+b) C
+c) Java
+d) Pascal
+K: b
+R: ISS 2026 Q70
+X: Ritchie and Thompson rewrote UNIX in C in 1973, which made it the first widely portable OS. Only a small machine-dependent part stays in assembly.
+S: UNIX ↔ C (Bell Labs, 1973).
+
+#119 iss
+Q: In high-level programming languages, what role does the runtime environment play?
+a) It converts source code into tokens
+b) It manages memory allocation, garbage collection and other tasks while the program runs
+c) It links object files into an executable
+d) It designs the user interface
+K: b
+R: ISS 2025 Q38
+X: A runtime environment, such as the JVM or Python's runtime, supports a running program: it allocates memory, collects garbage, handles exceptions and provides library services. Tokenising is the lexer's job and linking is the linker's.
+S: While running → runtime (memory + GC); while building → compiler/linker.
+
+#120 iss
+Q: Antivirus software falls in which category?
+a) System software (operating system)
+b) Application software
+c) Utility software
+d) Debugger
+K: c
+R: ISS 2019 Q45 (also 2024 Q43)
+X: Utility programs maintain and protect the computer: antivirus, backup, disk cleanup, compression, file managers and data recovery. They sit between the OS and applications and are usually counted as system software.
+S: Antivirus / backup / compression / disk cleanup → utility software.

@@ -3,10 +3,10 @@
 @pages 346-367 369-384
 @codes C10
 @default C10
-@themes 1 DBMS basics · features & components · keys & integrity · SQL clauses · data models
-@themes 2 Advanced SQL & OLAP · RAID · schema vs instance · relational terms · super, candidate & primary keys
+@themes 1 DBMS basics · features & components · keys & integrity · SQL clauses · data models · views
+@themes 2 ROLLUP, OLAP & RAID · schema vs instance · relational terms · super, candidate, primary & foreign keys
 @themes 3 Relational algebra · DDL vs DML · char vs varchar · set operations · LIKE, NULL & three-valued logic
-@themes 4 Core SQL commands & clauses · ACID · normalization · NoSQL · views, indexes, transactions
+@themes 4 Core SQL commands · ACID · normalization · NoSQL · views, indexes, transactions + 4 ISS Boosters (SQL, client–server, media formats)
 
 #1 p346 a369
 Q: What is the full form of DBMS?
@@ -1634,3 +1634,58 @@ d) To create a new database
 K: c
 X: ROLLBACK cancels all uncommitted changes of the current transaction, returning the database to its state at the start of the transaction (or at a SAVEPOINT). COMMIT makes the changes permanent.
 S: TCL: COMMIT (save) · ROLLBACK (undo) · SAVEPOINT (marker).
+
+#157 iss
+Q: Consider the following statements in respect of SQL:
+- SQL can execute queries against a database.
+- SQL can update records in a database.
+- An SQL SELECT query automatically eliminates duplicate rows.
+?: Which of the statements given above are correct?
+a) 1 and 2 only
+b) 2 and 3 only
+c) 1 and 3 only
+d) 1, 2 and 3
+K: a
+R: ISS 2023 Q71
+X: SQL queries data (SELECT) and modifies it (INSERT, UPDATE, DELETE). But a SELECT keeps duplicate rows unless you write DISTINCT, so statement 3 is false. (UNION does remove duplicates; UNION ALL keeps them.)
+S: SELECT keeps duplicates → need DISTINCT.
+
+#158 iss
+Q: In a client–server DBMS architecture, which component is primarily responsible for managing database access, security and data integrity?
+a) The client
+b) The server
+c) The network cable
+d) The web browser
+K: b
+R: ISS 2025 Q40
+X: The database server runs the DBMS: it stores the data, controls access and security, enforces integrity constraints and handles concurrency and recovery. Clients only send requests (queries) and display the results.
+S: Client asks; server stores, secures and enforces.
+
+#159 iss
+Q: Which one of the following is NOT a raster (bitmap) image format?
+a) JPEG
+b) GIF
+c) PNG
+d) SVG
+K: d
+C: C10
+R: ISS 2021 Q60 (also 2022 Q36)
+X: A raster image is a grid of pixels: JPEG (lossy photos), GIF (256 colours, animation), PNG (lossless, transparency), BMP and TIFF. SVG (Scalable Vector Graphics) stores shapes as XML, so it scales without losing quality.
+S: SVG = vector; JPEG / GIF / PNG / BMP / TIFF = raster.
+
+#160 iss
+Q: Which of the following are audio file formats?
+- MP3
+- WAV
+- TIFF
+- WMA
+?: Select the correct answer using the code given below.
+a) 1, 2 and 4
+b) 1, 2 and 3
+c) 2, 3 and 4
+d) 1, 3 and 4
+K: a
+C: C10
+R: ISS 2023 Q62
+X: MP3 (compressed audio), WAV (uncompressed audio) and WMA (Windows Media Audio) are audio formats. TIFF is a raster image format. Video formats include MP4, AVI and MKV.
+S: Audio: MP3 · WAV · WMA · AAC; image: TIFF · JPEG · PNG · GIF.

@@ -3,9 +3,9 @@
 @pages 294-307 308-318
 @codes C5
 @default C5
-@themes 1 What an OS is · functions · components (kernel, shell, drivers, file system) · OS history milestones
-@themes 2 OS generations · batch · multiprogramming · time-sharing · real-time OS
-@themes 3 Network & distributed OS · UNIX · kernel types · UNIX file types · MS-DOS
+@themes 1 What an OS is · functions · kernel, shell, drivers, file system · OS history (MS-DOS to Windows 10)
+@themes 2 OS generations · batch · multiprogramming · time-sharing · real-time · network OS
+@themes 3 Distributed OS · UNIX · kernel types · UNIX files · MS-DOS + 10 ISS Boosters (deadlock, paging, process states)
 
 #1 p294 a308
 Q: What is an operating system?
@@ -1124,3 +1124,115 @@ B: a
 X: Classic MS-DOS (3.31–6.22) used the FAT16 file system, where a file, and indeed a partition, can be at most 2 GB. The 64 KB figure is the size of one memory segment (the limit for a `.COM` program), not a file-size limit. Later FAT32 versions (MS-DOS 7.1 with Windows 95 OSR2) raised the limit to 4 GB − 1 byte.
 S: FAT16 → 2 GB · FAT32 → 4 GB · 64 KB = one segment / `.COM` size.
 N: The book prints (a) 64 KB. That is the 8086 segment size, which limits a `.COM` program, not a file on disk. MS-DOS on FAT16 stores files up to 2 GB, so the key is (b).
+
+#111 iss
+Q: Which one of the following is NOT one of the four necessary conditions for a deadlock?
+a) Mutual exclusion
+b) Hold and wait
+c) Circular wait
+d) Pre-emption of resources
+K: d
+R: ISS 2022 Q33
+X: Coffman's four necessary conditions are mutual exclusion, hold and wait, no pre-emption and circular wait. Deadlock needs all four, so allowing pre-emption (taking resources away) is one way to prevent it.
+S: Deadlock = ME + H&W + NO pre-emption + circular wait (break any one).
+
+#112 iss
+Q: A running process issues an I/O request. Into which state does it move?
+a) Ready
+b) Waiting (blocked)
+c) Terminated
+d) New
+K: b
+R: ISS 2022 Q72 (process life cycle)
+X: Process states: New → Ready → Running, then Running → Waiting on an I/O or event request, Waiting → Ready when the I/O completes, Running → Ready on a time-slice interrupt, and Running → Terminated on exit.
+S: I/O request → waiting; I/O done → ready; quantum over → ready.
+
+#113 iss
+Q: Which of the following is NOT a process state?
+a) Ready
+b) Running
+c) Waiting
+d) Deadlock
+K: d
+R: ISS 2026 Q64
+X: The process states are new, ready, running, waiting (blocked) and terminated, plus suspended states in some OSs. Deadlock is a situation involving several blocked processes, not a state of a single process.
+S: States: New · Ready · Running · Waiting · Terminated.
+
+#114 iss
+Q: A page fault occurs when a process:
+a) Accesses a page that is not currently in main memory
+b) Finds its page table corrupted
+c) Writes to a full disk
+d) Shares a page with another process
+K: a
+R: ISS 2026 Q77
+X: With virtual memory, a reference to a page that is not in RAM traps to the OS (a page fault). The OS then loads the page from disk and restarts the instruction. A page fault is normal behaviour, not an error.
+S: Page not in RAM → page fault → OS loads it.
+
+#115 iss
+Q: Loading a page into memory only when it is actually referenced (paging with swapping) is called:
+a) Demand paging
+b) Segmentation
+c) Thrashing
+d) Spooling
+K: a
+R: ISS 2026 Q65
+X: Demand paging is lazy loading: pages start on disk and come into RAM only when a page fault demands them. Segmentation divides memory into variable-size logical segments instead of fixed pages.
+S: Load on demand → demand paging.
+
+#116 iss
+Q: A system spends more time swapping pages in and out than executing processes. This condition is called:
+a) Thrashing
+b) Spooling
+c) Deadlock
+d) Starvation
+K: a
+X: Thrashing happens when the frames given to processes are fewer than their working sets, so page faults are constant and CPU utilisation collapses. The cure is to reduce the degree of multiprogramming or add RAM. Starvation is a process waiting indefinitely for the CPU.
+S: Too much paging, too little work → thrashing.
+
+#117 iss
+Q: Which method is used for interprocess communication in distributed systems, where processes do not share memory?
+a) Shared memory
+b) Message passing
+c) Cache memory
+d) Semaphores on a common bus
+K: b
+R: ISS 2024 Q53 (also 2022 Q78, 2019 Q63)
+X: The two IPC models are shared memory (processes on one machine) and message passing (send/receive, e.g. over a network or with RPC). Distributed systems have no common memory or bus, so they use message passing.
+S: Same machine → shared memory possible; distributed → message passing.
+
+#118 iss
+Q: Which of the following is an example of an embedded operating system?
+a) Windows CE
+b) Windows 10 Pro
+c) macOS
+d) Ubuntu Desktop
+K: a
+R: ISS 2021 Q79
+X: Windows CE (Embedded Compact) was built for handheld and embedded devices. Other embedded or real-time OSs are VxWorks, QNX, FreeRTOS and embedded Linux. The other options are desktop OSs.
+S: Embedded OS names: Windows CE · VxWorks · QNX · FreeRTOS.
+
+#119 iss
+Q: Consider the following in respect of the Linux operating system:
+- It is a multi-user operating system.
+- It supports multitasking.
+- It is open source.
+?: Which of the statements given above are correct?
+a) 1 and 2 only
+b) 2 and 3 only
+c) 1 and 3 only
+d) 1, 2 and 3
+K: d
+R: ISS 2025 Q36 (also 2023 Q69)
+X: Linux is a Unix-like OS: multi-user, multitasking, multiprocessor-capable and open source under the GPL. It is general-purpose, not a real-time OS (ISS 2021 Q55).
+S: Linux = multi-user + multitasking + open source, not an RTOS.
+
+#120 iss
+Q: SPOOLING, used for example to queue jobs for a printer, stands for:
+a) Simultaneous Peripheral Operations On-Line
+b) Serial Processing Of Online Logs
+c) System Priority Output On Line
+d) Sequential Program Operation On Line
+K: a
+X: Spooling places I/O jobs, e.g. print jobs, in a buffer on disk so that the slow device works through them while the CPU carries on with other work. It is the classic way to overlap I/O with computation.
+S: Print queue → spooling (Simultaneous Peripheral Operations On-Line).

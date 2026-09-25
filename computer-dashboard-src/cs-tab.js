@@ -85,6 +85,11 @@ function csRelatedPyqs(c) {
 
 function csSourceLine(q) {
   var c = csChapter(q.csChapter);
+  if (q.isBooster) {
+    return 'ISS Booster question, written for this dashboard (not in the book) to complete Chapter ' +
+      q.csChapter + (c ? ' (' + E(c.title) + ')' : '') + ' Set ' + q.csSet +
+      (q.pyqRef ? ' &middot; modelled on ' + E(q.pyqRef) : '');
+  }
   return 'Sunrise Classes, <i>Computer MCQ &mdash; Chapter-wise Practice Set</i>, Chapter ' + q.csChapter +
     (c ? ' (' + E(c.title) + ')' : '') + ', Q' + q.csNum + ' &middot; question on PDF p. ' + q.qPage +
     (q.aPage ? ', explanation on PDF p. ' + q.aPage : '') + ' &middot; Set ' + q.csSet;
@@ -182,10 +187,10 @@ function csItem(q, n) {
   var pick = CS.pick.hasOwnProperty(q.id) ? CS.pick[q.id] : null;
   var open = pick !== null || !!CS.open[q.id];
   var h = '<li class="cs-item" id="cs-' + E(q.id.replace(/[^A-Za-z0-9-]/g, '-')) + '">' +
-    '<div class="top"><span class="cs-n">Q' + q.csNum + '</span><span class="id">' + E(q.id) + '</span>' +
+    '<div class="top"><span class="cs-n">' + E(q.csLabel) + '</span><span class="id">' + E(q.id) + '</span>' +
     '<span class="chip">' + E(q.questionType) + '</span>' +
     '<span class="chip">' + E(q.topicCode) + '</span>' +
-    '<span class="chip">p. ' + q.qPage + '</span>' +
+    (q.isBooster ? '<span class="chip brand">ISS Booster</span>' : '<span class="chip">p. ' + q.qPage + '</span>') +
     (q.keyNote ? '<span class="chip warn" title="The printed answer key was corrected">key corrected</span>' : '') +
     '</div>' +
     '<div class="qtext">' + csBody(q) + '</div>' + csOptionList(q, pick) +
@@ -229,7 +234,7 @@ function csSetsView(c) {
     var rec = sets[c.num + '-' + s.k];
     var sc = csCov(qs);
     h += '<div class="cs-set' + (s.k === next ? ' next' : '') + '">' +
-      '<div class="hd"><b>Set ' + s.k + '</b><span class="rng">Q ' + s.from + '–' + s.to + ' · ' + s.n + ' questions</span></div>' +
+      '<div class="hd"><b>Set ' + s.k + '</b><span class="rng">Q ' + s.from + '–' + s.to + (s.boost ? ' + ' + s.boost + ' ISS Booster' + (s.boost > 1 ? 's' : '') : '') + ' · ' + s.n + ' questions</span></div>' +
       (s.themes ? '<div class="themes">' + E(s.themes) + '</div>' : '') +
       '<div class="progbar"><i class="' + (sc.seen === sc.n ? 'ok' : '') + '" style="width:' + fx(pct(sc.seen, sc.n), 1) + '%"></i></div>' +
       '<div class="stat"><span><b>' + sc.seen + '/' + sc.n + '</b> covered</span>' +
@@ -409,7 +414,7 @@ function csStartSet(k, mode) {
     kind: 'cs',
     name: csSetName(c.num, k),
     desc: 'COMPUTER BOOK BANK (not PYQ) · Chapter ' + c.num + ' ' + c.title + ' · Q ' +
-      qs[0].csNum + '–' + qs[qs.length - 1].csNum + ' · ' + qs.length + ' questions · mode: ' +
+      c.sets[k - 1].from + '–' + c.sets[k - 1].to + (c.sets[k - 1].boost ? ' + ' + c.sets[k - 1].boost + ' boosters' : '') + ' · ' + qs.length + ' questions · mode: ' +
       (exam ? 'Strict Exam' : 'Learning'),
     mode: exam ? 'exam' : 'learn',
     questions: qs,

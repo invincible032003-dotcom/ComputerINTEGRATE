@@ -3,6 +3,7 @@
 .cs-badge{display:inline-block;padding:1px 7px;border-radius:999px;vertical-align:middle;
   background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-line);
   font-size:11px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.cs-badge.boost{background:var(--mark-bg);color:var(--mark);border-color:var(--mark)}
 .cs-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 12px}
 @media (min-width:640px){.cs-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:980px){.cs-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}}
