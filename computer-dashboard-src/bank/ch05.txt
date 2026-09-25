@@ -1,0 +1,741 @@
+@chapter 5
+@title Boolean Algebra & Logic Gates
+@pages 243-252 253-260
+@codes C4 C1
+@default C4
+@themes 1 AND, OR and NOT gates · outputs · expressions · truth tables
+@themes 2 NAND, NOR, XOR and XNOR gates · universal gates · truth tables
+
+#1 p243 a253
+Q: What is the output of an AND gate if both inputs are 1?
+a) 1
+b) 0
+c) X (undefined)
+d) None of the above
+K: a
+X: AND: output 1 only when all inputs are 1. With inputs 1 and 1 the output is 1.
+S: AND = series switches: any 0 → 0.
+
+#2 p243 a253
+Q: How many inputs does an AND gate typically have?
+a) 1
+b) 2
+c) 3
+d) It can vary
+K: b
+X: The basic AND gate has two inputs (multi-input versions exist, but the standard gate is 2-input).
+S: Every basic gate except NOT is drawn with 2 inputs; NOT has 1.
+
+#3 p243 a253
+Q: What is the output of an AND gate if one input is 0 and the other is 1?
+a) 1
+b) 0
+c) X (undefined)
+d) None of the above
+K: b
+X: AND: output 1 only when all inputs are 1. With inputs 0 and 1 the output is 0.
+S: AND = series switches: any 0 → 0.
+
+#4 p243 a253
+Q: Which Boolean expression represents the operation of an AND gate?
+a) `A + B`
+b) `A * B`
+c) `A XOR B`
+d) `A' + B'`
+K: b
+X: The AND operation is written `A * B` (A·B).
+S: AND = ·, OR = +, NOT = ′ (bar), NAND = (A·B)′, NOR = (A+B)′, XOR = ⊕.
+
+#5 p243 a253
+Q: What is the output of an AND gate if both inputs are 0?
+a) 1
+b) 0
+c) X (undefined)
+d) None of the above
+K: b
+X: AND: output 1 only when all inputs are 1. With inputs 0 and 0 the output is 0.
+S: AND = series switches: any 0 → 0.
+N: The printed book omits the stem of this question (only its options appear); it has been restored from the book's own explanation, which refers to both inputs being 0.
+
+#6 p243 a253
+Q: In a truth table, what are the possible combinations of inputs for an AND gate?
+a) 0 and 1
+b) 0 and 0
+c) 1 and 1
+d) All of the above
+K: d
+X: A 2-input truth table lists every input pair — 00, 01, 10 and 11 — so all the listed combinations occur.
+S: n inputs → 2ⁿ rows (2 inputs → 4 rows).
+
+#7 p243 a253
+Q: What is the output of an AND gate if one or both inputs are X (undefined)?
+a) 1
+b) 0
+c) X (undefined)
+d) None of the above
+K: c
+B: b
+X: An undefined (X) input generally gives an undefined output. Only a 0 on the other input would force the AND output to 0.
+S: X in → X out, unless a controlling value (0 for AND) forces the result.
+N: The book prints (b) 0, which holds only when the other input is 0. In general an undefined input makes the AND output undefined, so the key is (c).
+
+#8 p243 a253
+Q: In a logic circuit diagram, how is an AND gate typically represented?
+a) Triangle
+b) Rectangle
+c) Circle
+d) Diamond
+K: b
+X: In the distinctive-shape (ANSI) convention the AND gate is a D shape; in the rectangular IEC 60617 / IEEE 91 convention every gate is a rectangle with a function label (such as &, ≥1 or =1). Among the options only "rectangle" fits.
+S: Triangle (+ bubble) = NOT/buffer; other gates are rectangles in IEC notation.
+
+#9 p243 a253
+Q: What is the result of an AND operation between any input and 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+X: A · 0 = 0 for every A (null/annulment law).
+S: A·0 = 0, A·1 = A, A+1 = 1, A+0 = A.
+
+#10 p244 a253
+Q: What is the truth table representation of an AND gate with two inputs?
+a) A B → Output: 00→0, 01→1, 10→1, 11→0
+b) A B → Output: 00→0, 01→0, 10→0, 11→1
+c) A B → Output: 00→0, 01→1, 10→0, 11→1
+d) A B → Output: 00→1, 01→1, 10→1, 11→0
+K: b
+B: c
+X: AND: output 1 only when all inputs are 1 — 00→0, 01→0, 10→0, 11→1.
+S: AND = series switches: any 0 → 0.
+N: The book prints (c), which is the table 00→0, 01→1, 10→0, 11→1. The AND gate gives 00→0, 01→0, 10→0, 11→1, so the key is (b).
+
+#11 p244 a254
+Q: What is the output of an OR gate if both inputs are 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+B: b
+X: OR: output 1 when at least one input is 1. With inputs 0 and 0 the output is 0.
+S: OR = parallel switches: any 1 → 1.
+N: The book prints (b) 1. For inputs 0 and 0 the OR gate gives 0, so the key is (a).
+
+#12 p244 a254
+Q: How many inputs does an OR gate typically have?
+a) 1
+b) 2
+c) 3
+d) It can vary
+K: b
+X: The basic OR gate has two inputs (multi-input versions exist, but the standard gate is 2-input).
+S: Every basic gate except NOT is drawn with 2 inputs; NOT has 1.
+
+#13 p244 a254
+Q: What is the output of an OR gate if one input is 1 and the other is 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: OR: output 1 when at least one input is 1. With inputs 1 and 0 the output is 1.
+S: OR = parallel switches: any 1 → 1.
+
+#14 p244 a254
+Q: Which Boolean expression represents the operation of an OR gate?
+a) `A + B`
+b) `A * B`
+c) `A XOR B`
+d) `A' + B'`
+K: a
+X: The OR operation is written `A + B`.
+S: AND = ·, OR = +, NOT = ′ (bar), NAND = (A·B)′, NOR = (A+B)′, XOR = ⊕.
+
+#15 p244 a254
+Q: What is the output of an OR gate if both inputs are 1?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: OR: output 1 when at least one input is 1. With inputs 1 and 1 the output is 1.
+S: OR = parallel switches: any 1 → 1.
+
+#16 p244 a254
+Q: In a truth table, what are the possible combinations of inputs for an OR gate?
+a) 0 and 1
+b) 0 and 0
+c) 1 and 1
+d) All of the above
+K: d
+X: A 2-input truth table lists every input pair — 00, 01, 10 and 11 — so all the listed combinations occur.
+S: n inputs → 2ⁿ rows (2 inputs → 4 rows).
+
+#17 p245 a254
+Q: What is the output of an OR gate if one or both inputs are X (undefined)?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: c
+X: An undefined (X) input propagates to an undefined output. (If the other input is 1 the output is forced to 1; otherwise it stays unknown.)
+S: X in → X out, unless a controlling value forces the result (0 for AND, 1 for OR).
+
+#18 p245 a254
+Q: In a logic circuit diagram, how is an OR gate typically represented?
+a) Triangle
+b) Rectangle
+c) Circle
+d) Diamond
+K: b
+X: In the distinctive-shape (ANSI) convention the OR gate is a curved shield shape; in the rectangular IEC 60617 / IEEE 91 convention every gate is a rectangle with a function label (such as &, ≥1 or =1). Among the options only "rectangle" fits.
+S: Triangle (+ bubble) = NOT/buffer; other gates are rectangles in IEC notation.
+
+#19 p245 a254
+Q: What is the result of an OR operation between any input and 1?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: A + 1 = 1 for every A (null law for OR).
+S: A + 1 = 1, A + 0 = A.
+
+#20 p245 a254
+Q: What is the truth table representation of an OR gate with two inputs?
+a) A B → Output: 00→0, 01→0, 10→0, 11→1
+b) A B → Output: 00→0, 01→1, 10→1, 11→0
+c) A B → Output: 00→0, 01→1, 10→1, 11→1
+d) A B → Output: 00→1, 01→0, 10→0, 11→0
+K: c
+X: OR: output 1 when at least one input is 1 — 00→0, 01→1, 10→1, 11→1.
+S: OR = parallel switches: any 1 → 1.
+
+#21 p245 a254
+Q: What is the output of a NOT gate if the input is 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: A NOT gate (inverter) outputs the complement of its input: 0 → 1.
+S: NOT flips: 0 ↔ 1.
+
+#22 p245 a254
+Q: How many inputs does a NOT gate typically have?
+a) 1
+b) 2
+c) 3
+d) It can vary
+K: a
+X: The NOT gate is the only basic gate with a single input.
+S: NOT = 1 input, 1 output.
+
+#23 p245 a255
+Q: What is the output of a NOT gate if the input is 1?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+X: NOT 1 = 0.
+S: NOT flips: 1 → 0.
+
+#24 p246 a255
+Q: Which Boolean expression represents the operation of a NOT gate?
+a) `A + B`
+b) `A * B`
+c) `A XOR B`
+d) `A'`
+K: d
+X: NOT is written A′ (A-bar, or ¬A).
+S: Complement = prime or bar: A′, Ā.
+
+#25 p246 a255
+Q: What is the output of a NOT gate if the input is X (undefined)?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: c
+X: The complement of an unknown value is unknown, so the output is X.
+S: NOT(X) = X.
+
+#26 p246 a255
+Q: In a logic circuit diagram, how is a NOT gate typically represented?
+a) Triangle
+b) Rectangle
+c) Circle
+d) Diamond
+K: a
+X: The NOT gate is drawn as a triangle with a small bubble (circle) at the output; the bubble denotes inversion.
+S: Triangle + bubble = NOT; triangle alone = buffer.
+
+#27 p246 a255
+Q: What is the result of applying a NOT operation twice (NOT(NOT)) to an input?
+a) The original input
+b) 0
+c) 1
+d) X (undefined)
+K: a
+X: NOT(NOT A) = A — double inversion cancels (involution law).
+S: Double NOT = original (A″ = A).
+
+#28 p246 a255
+Q: In a truth table, what are the possible values of the input for a NOT gate?
+a) 0
+b) 1
+c) X (undefined)
+d) Both a) and b)
+K: d
+X: A NOT gate has one binary input, so its truth table has just two rows: 0 and 1.
+S: 1 input → 2 rows.
+
+#29 p246 a255
+Q: What is the output of a NOT gate if the input is X (undefined)?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: c
+B: b
+X: An undefined input gives an undefined output: NOT(X) = X.
+S: NOT(X) = X.
+N: The book prints (b) 1, although its own explanation says the output is X. The key is (c).
+
+#30 p246 a255
+Q: What is the truth table representation of a NOT gate?
+a) Input → Output: 0→0, 1→1
+b) Input → Output: 0→1, 1→0
+c) Input → Output: 0→0, 1→0
+d) Input → Output: 0→1, 1→1
+K: b
+B: a
+X: The inverter maps 0 → 1 and 1 → 0.
+S: NOT table: 0→1, 1→0.
+N: The book prints (a), the table 0→0, 1→1, which is a buffer (it passes the input through unchanged). The inverter table is 0→1, 1→0, so the key is (b).
+
+#31 p246 a256
+Q: What is the output of a NAND gate if both inputs are 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: NAND: NOT of AND — output 0 only when all inputs are 1. With inputs 0 and 0 the output is 1.
+S: NAND = AND then invert: only 11 gives 0. Universal gate.
+
+#32 p247 a256
+Q: How many inputs does a NAND gate typically have?
+a) 1
+b) 2
+c) 3
+d) It can vary
+K: b
+X: The basic NAND gate has two inputs (multi-input versions exist, but the standard gate is 2-input).
+S: Every basic gate except NOT is drawn with 2 inputs; NOT has 1.
+
+#33 p247 a256
+Q: What is the output of a NAND gate if one input is 1 and the other is 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+B: a
+X: NAND: NOT of AND — output 0 only when all inputs are 1. With inputs 1 and 0 the output is 1.
+S: NAND = AND then invert: only 11 gives 0. Universal gate.
+N: The book prints (a) 0. For inputs 1 and 0 the NAND gate gives 1, so the key is (b).
+
+#34 p247 a256
+Q: Which Boolean expression represents the operation of a NAND gate?
+a) `A + B`
+b) `A * B`
+c) `A XOR B`
+d) `(A * B)'`
+K: d
+X: The NAND operation is written `(A * B)'`.
+S: AND = ·, OR = +, NOT = ′ (bar), NAND = (A·B)′, NOR = (A+B)′, XOR = ⊕.
+
+#35 p247 a256
+Q: What is the output of a NAND gate if both inputs are 1?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+X: NAND: NOT of AND — output 0 only when all inputs are 1. With inputs 1 and 1 the output is 0.
+S: NAND = AND then invert: only 11 gives 0. Universal gate.
+
+#36 p247 a256
+Q: In a truth table, what are the possible combinations of inputs for a NAND gate?
+a) 0 and 1
+b) 0 and 0
+c) 1 and 1
+d) All of the above
+K: d
+X: A 2-input truth table lists every input pair — 00, 01, 10 and 11 — so all the listed combinations occur.
+S: n inputs → 2ⁿ rows (2 inputs → 4 rows).
+
+#37 p247 a256
+Q: What is the output of a NAND gate if one or both inputs are X (undefined)?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: c
+B: b
+X: An undefined (X) input propagates to an undefined output. (A 0 on the other input would force the output to 1; otherwise it stays unknown.)
+S: X in → X out, unless a controlling value forces the result (0 for AND, 1 for OR).
+N: The book prints (b) 1. An undefined input generally makes the NAND output undefined (X), so the key is (c).
+
+#38 p247 a256
+Q: In a logic circuit diagram, how is a NAND gate typically represented?
+a) Triangle
+b) Rectangle
+c) Circle
+d) Diamond
+K: b
+X: In the distinctive-shape (ANSI) convention the NAND gate is a D shape with a bubble; in the rectangular IEC 60617 / IEEE 91 convention every gate is a rectangle with a function label (such as &, ≥1 or =1). Among the options only "rectangle" fits.
+S: Triangle (+ bubble) = NOT/buffer; other gates are rectangles in IEC notation.
+
+#39 p247 a257
+Q: What is the result of applying a NAND operation twice (NAND(NAND)) to an input?
+a) The original input
+b) 0
+c) 1
+d) X (undefined)
+K: a
+X: A NAND gate with its inputs tied together acts as NOT, so applying it twice inverts twice and returns the original input.
+S: Double NOT = original (A″ = A).
+
+#40 p247 a257
+Q: What is the truth table representation of a NAND gate with two inputs?
+a) A B → Output: 00→0, 01→1, 10→1, 11→1
+b) A B → Output: 00→1, 01→0, 10→0, 11→0
+c) A B → Output: 00→1, 01→1, 10→1, 11→0
+d) A B → Output: 00→0, 01→0, 10→0, 11→1
+K: c
+X: NAND: NOT of AND — output 0 only when all inputs are 1 — 00→1, 01→1, 10→1, 11→0.
+S: NAND = AND then invert: only 11 gives 0. Universal gate.
+
+#41 p248 a257
+Q: What is the output of a NOR gate if both inputs are 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: NOR: NOT of OR — output 1 only when all inputs are 0. With inputs 0 and 0 the output is 1.
+S: NOR = OR then invert: only 00 gives 1. Universal gate.
+
+#42 p248 a257
+Q: How many inputs does a NOR gate typically have?
+a) 1
+b) 2
+c) 3
+d) It can vary
+K: b
+X: The basic NOR gate has two inputs (multi-input versions exist, but the standard gate is 2-input).
+S: Every basic gate except NOT is drawn with 2 inputs; NOT has 1.
+
+#43 p248 a257
+Q: What is the output of a NOR gate if one input is 1 and the other is 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+X: NOR: NOT of OR — output 1 only when all inputs are 0. With inputs 1 and 0 the output is 0.
+S: NOR = OR then invert: only 00 gives 1. Universal gate.
+
+#44 p248 a257
+Q: Which Boolean expression represents the operation of a NOR gate?
+a) `A + B`
+b) `A * B`
+c) `A XOR B`
+d) `(A + B)'`
+K: d
+X: The NOR operation is written `(A + B)'`.
+S: AND = ·, OR = +, NOT = ′ (bar), NAND = (A·B)′, NOR = (A+B)′, XOR = ⊕.
+
+#45 p248 a257
+Q: What is the output of a NOR gate if both inputs are 1?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+X: NOR: NOT of OR — output 1 only when all inputs are 0. With inputs 1 and 1 the output is 0.
+S: NOR = OR then invert: only 00 gives 1. Universal gate.
+
+#46 p248 a257
+Q: In a truth table, what are the possible combinations of inputs for a NOR gate?
+a) 0 and 1
+b) 0 and 0
+c) 1 and 1
+d) All of the above
+K: d
+X: A 2-input truth table lists every input pair — 00, 01, 10 and 11 — so all the listed combinations occur.
+S: n inputs → 2ⁿ rows (2 inputs → 4 rows).
+
+#47 p248 a257
+Q: What is the output of a NOR gate if one or both inputs are X (undefined)?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: c
+B: b
+X: An undefined (X) input propagates to an undefined output. (A 1 on the other input would force the output to 0; otherwise it stays unknown.)
+S: X in → X out, unless a controlling value forces the result (0 for AND, 1 for OR).
+N: The book prints (b) 1. An undefined input generally makes the NOR output undefined (X), so the key is (c).
+
+#48 p249 a258
+Q: In a logic circuit diagram, how is a NOR gate typically represented?
+a) Triangle
+b) Rectangle
+c) Circle
+d) Diamond
+K: b
+X: In the distinctive-shape (ANSI) convention the NOR gate is a curved shield with a bubble; in the rectangular IEC 60617 / IEEE 91 convention every gate is a rectangle with a function label (such as &, ≥1 or =1). Among the options only "rectangle" fits.
+S: Triangle (+ bubble) = NOT/buffer; other gates are rectangles in IEC notation.
+
+#49 p249 a258
+Q: What is the result of applying a NOR operation twice (NOR(NOR)) to an input?
+a) The original input
+b) 0
+c) 1
+d) X (undefined)
+K: a
+X: A NOR gate with its inputs tied together acts as NOT, so applying it twice returns the original input.
+S: Double NOT = original (A″ = A).
+
+#50 p249 a258
+Q: What is the truth table representation of a NOR gate with two inputs?
+a) A B → Output: 00→0, 01→1, 10→1, 11→1
+b) A B → Output: 00→1, 01→0, 10→0, 11→0
+c) A B → Output: 00→1, 01→1, 10→1, 11→0
+d) A B → Output: 00→0, 01→0, 10→0, 11→1
+K: b
+B: c
+X: NOR: NOT of OR — output 1 only when all inputs are 0 — 00→1, 01→0, 10→0, 11→0.
+S: NOR = OR then invert: only 00 gives 1. Universal gate.
+N: The book prints (c), which is the table 00→1, 01→1, 10→1, 11→0. The NOR gate gives 00→1, 01→0, 10→0, 11→0, so the key is (b).
+
+#51 p249 a258
+Q: What is the output of an XOR gate if both inputs are 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+B: b
+X: XOR: output 1 when the inputs differ. With inputs 0 and 0 the output is 0.
+S: XOR = "odd-one-out" / inequality detector: 1 when inputs differ.
+N: The book prints (b) 1. For inputs 0 and 0 the XOR gate gives 0, so the key is (a).
+
+#52 p249 a258
+Q: How many inputs does an XOR gate typically have?
+a) 1
+b) 2
+c) 3
+d) It can vary
+K: b
+X: The basic XOR gate has two inputs (multi-input versions exist, but the standard gate is 2-input).
+S: Every basic gate except NOT is drawn with 2 inputs; NOT has 1.
+
+#53 p249 a258
+Q: What is the output of an XOR gate if one input is 1 and the other is 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: XOR: output 1 when the inputs differ. With inputs 1 and 0 the output is 1.
+S: XOR = "odd-one-out" / inequality detector: 1 when inputs differ.
+
+#54 p249 a258
+Q: Which Boolean expression represents the operation of an XOR gate?
+a) `A + B`
+b) `A * B`
+c) `A XOR B`
+d) `(A + B)'`
+K: c
+X: The XOR operation is written `A XOR B` (A ⊕ B = A′B + AB′).
+S: AND = ·, OR = +, NOT = ′ (bar), NAND = (A·B)′, NOR = (A+B)′, XOR = ⊕.
+
+#55 p250 a258
+Q: What is the output of an XOR gate if both inputs are 1?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+B: b
+X: XOR: output 1 when the inputs differ. With inputs 1 and 1 the output is 0.
+S: XOR = "odd-one-out" / inequality detector: 1 when inputs differ.
+N: The book prints (b) 1. For inputs 1 and 1 the XOR gate gives 0, so the key is (a).
+
+#56 p250 a258
+Q: In a truth table, what are the possible combinations of inputs for an XOR gate?
+a) 0 and 1
+b) 0 and 0
+c) 1 and 1
+d) All of the above
+K: d
+X: A 2-input truth table lists every input pair — 00, 01, 10 and 11 — so all the listed combinations occur.
+S: n inputs → 2ⁿ rows (2 inputs → 4 rows).
+
+#57 p250 a259
+Q: What is the output of an XOR gate if one or both inputs are X (undefined)?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: c
+B: b
+X: An undefined (X) input propagates to an undefined output. (No value of the other input can force an XOR output, so it is always unknown.)
+S: X in → X out, unless a controlling value forces the result (0 for AND, 1 for OR).
+N: The book prints (b) 1. An undefined input generally makes the XOR output undefined (X), so the key is (c).
+
+#58 p250 a259
+Q: In a logic circuit diagram, how is an XOR gate typically represented?
+a) Triangle
+b) Rectangle
+c) Circle
+d) Diamond
+K: b
+B: d
+X: In the distinctive-shape (ANSI) convention the XOR gate is an OR shape with an extra curved line at the input; in the rectangular IEC 60617 / IEEE 91 convention every gate is a rectangle with a function label (such as &, ≥1 or =1). Among the options only "rectangle" fits.
+S: Triangle (+ bubble) = NOT/buffer; other gates are rectangles in IEC notation.
+N: The book prints (d) Diamond, but no standard draws the XOR gate as a diamond. Of the options, only the rectangle (the IEC / IEEE Std 91 rectangular symbol) is a recognised form, so the key is (b).
+
+#59 p250 a259
+Q: What is the result of applying an XOR operation twice (XOR(XOR)) to an input?
+a) The original input
+b) 0
+c) 1
+d) X (undefined)
+K: a
+X: XOR-ing a value twice with the same operand restores it: (A ⊕ B) ⊕ B = A — the basis of XOR encryption and parity tricks.
+S: Double NOT = original (A″ = A).
+
+#60 p250 a259
+Q: What is the truth table representation of an XOR gate with two inputs?
+a) A B → Output: 00→0, 01→1, 10→1, 11→0
+b) A B → Output: 00→1, 01→0, 10→0, 11→1
+c) A B → Output: 00→0, 01→0, 10→0, 11→1
+d) A B → Output: 00→1, 01→1, 10→1, 11→0
+K: a
+B: b
+X: XOR: output 1 when the inputs differ — 00→0, 01→1, 10→1, 11→0.
+S: XOR = "odd-one-out" / inequality detector: 1 when inputs differ.
+N: The book prints (b), which is the table 00→1, 01→0, 10→0, 11→1. The XOR gate gives 00→0, 01→1, 10→1, 11→0, so the key is (a).
+
+#61 p250 a259
+Q: What is the output of an XNOR gate if both inputs are 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: XNOR: output 1 when the inputs are equal. With inputs 0 and 0 the output is 1.
+S: XNOR = equality detector: 1 when inputs match.
+
+#62 p250 a259
+Q: How many inputs does an XNOR gate typically have?
+a) 1
+b) 2
+c) 3
+d) It can vary
+K: b
+X: The basic XNOR gate has two inputs (multi-input versions exist, but the standard gate is 2-input).
+S: Every basic gate except NOT is drawn with 2 inputs; NOT has 1.
+
+#63 p251 a259
+Q: What is the output of an XNOR gate if one input is 1 and the other is 0?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: a
+X: XNOR: output 1 when the inputs are equal. With inputs 1 and 0 the output is 0.
+S: XNOR = equality detector: 1 when inputs match.
+
+#64 p251 a259
+Q: Which Boolean expression represents the operation of an XNOR gate?
+a) `A + B`
+b) `A * B`
+c) `A XNOR B`
+d) `(A + B)'`
+K: c
+X: The XNOR operation is written `A XNOR B` (A ⊙ B = AB + A′B′).
+S: AND = ·, OR = +, NOT = ′ (bar), NAND = (A·B)′, NOR = (A+B)′, XOR = ⊕.
+
+#65 p251 a260
+Q: What is the output of an XNOR gate if both inputs are 1?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: b
+X: XNOR: output 1 when the inputs are equal. With inputs 1 and 1 the output is 1.
+S: XNOR = equality detector: 1 when inputs match.
+
+#66 p251 a260
+Q: In a truth table, what are the possible combinations of inputs for an XNOR gate?
+a) 0 and 1
+b) 0 and 0
+c) 1 and 1
+d) All of the above
+K: d
+X: A 2-input truth table lists every input pair — 00, 01, 10 and 11 — so all the listed combinations occur.
+S: n inputs → 2ⁿ rows (2 inputs → 4 rows).
+
+#67 p251 a260
+Q: What is the output of an XNOR gate if one or both inputs are X (undefined)?
+a) 0
+b) 1
+c) X (undefined)
+d) None of the above
+K: c
+B: b
+X: An undefined (X) input propagates to an undefined output. (No value of the other input can force an XNOR output, so it is always unknown.)
+S: X in → X out, unless a controlling value forces the result (0 for AND, 1 for OR).
+N: The book prints (b) 1. An undefined input generally makes the XNOR output undefined (X), so the key is (c).
+
+#68 p251 a260
+Q: In a logic circuit diagram, how is an XNOR gate typically represented?
+a) Triangle
+b) Rectangle
+c) Circle
+d) Diamond
+K: b
+B: d
+X: In the distinctive-shape (ANSI) convention the XNOR gate is an XOR shape with a bubble; in the rectangular IEC 60617 / IEEE 91 convention every gate is a rectangle with a function label (such as &, ≥1 or =1). Among the options only "rectangle" fits.
+S: Triangle (+ bubble) = NOT/buffer; other gates are rectangles in IEC notation.
+N: The book prints (d) Diamond, but no standard draws the XNOR gate as a diamond. Of the options, only the rectangle (the IEC / IEEE Std 91 rectangular symbol) is a recognised form, so the key is (b).
+
+#69 p251 a260
+Q: What is the result of applying an XNOR operation twice (XNOR(XNOR)) to an input?
+a) The original input
+b) 0
+c) 1
+d) X (undefined)
+K: a
+X: XNOR-ing twice with the same operand restores the value: (A ⊙ B) ⊙ B = A.
+S: Double NOT = original (A″ = A).
+
+#70 p251 a260
+Q: What is the truth table representation of an XNOR gate with two inputs?
+a) A B → Output: 00→0, 01→1, 10→1, 11→0
+b) A B → Output: 00→1, 01→0, 10→0, 11→1
+c) A B → Output: 00→0, 01→0, 10→0, 11→1
+d) A B → Output: 00→1, 01→1, 10→1, 11→0
+K: b
+X: XNOR: output 1 when the inputs are equal — 00→1, 01→0, 10→0, 11→1.
+S: XNOR = equality detector: 1 when inputs match.
+
