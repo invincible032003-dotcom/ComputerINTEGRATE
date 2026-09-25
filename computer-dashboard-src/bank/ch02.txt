@@ -27,8 +27,8 @@ b) RAM
 c) Hard Drive
 d) Power Supply
 K: b
-X: RAM temporarily holds the data and instructions in current use and gives the CPU fast access to them.
-S: Temporary + fast → RAM.
+X: RAM is the fast, temporary working store: it holds the data and instructions in current use and loses them at power-off. The CPU processes rather than stores, the hard drive is permanent but slow, and the power supply only supplies electricity.
+S: Temporary + fast → RAM; permanent + slow → hard drive.
 
 #3 p74 a105
 Q: The process of converting data into a form that can be processed by a computer is called:
@@ -47,8 +47,8 @@ b) GPU
 c) RAM
 d) Motherboard
 K: a
-X: The CPU fetches, decodes and executes program instructions; its ALU performs the calculations.
-S: Execute + calculate → CPU.
+X: The CPU fetches, decodes and executes program instructions, and its ALU does the calculations. The GPU specialises in graphics, RAM stores and the motherboard connects; none of them executes general program instructions.
+S: Brain = CPU; graphics = GPU; memory = RAM; backbone = motherboard.
 
 #5 p74 a105
 Q: Which type of software acts as an intermediary between the user and the computer hardware?
@@ -89,8 +89,8 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: c
-X: ROM keeps its contents without power; it stores firmware such as the BIOS start-up routines.
-S: Non-volatile primary memory → ROM.
+X: ROM is non-volatile: its contents (BIOS firmware) survive power-off. RAM and cache are volatile, and virtual memory is only disk space borrowed to extend RAM.
+S: Among memories, only ROM (and flash) remember without power.
 
 #9 p74 a105
 Q: Which of the following is not a basic operation performed by a CPU?
@@ -109,8 +109,8 @@ b) Output
 c) Processing
 d) Storage
 K: b
-X: Output presents processed results to the user — on screen, on paper or as sound.
-S: IPOS cycle: Input → Processing → Output → Storage.
+X: Output presents processed results to the user: on screen (soft copy), on paper (hard copy) or as sound. Input brings data in, processing works on it, and storage keeps it.
+S: IPOS: Input → Processing → Output → Storage.
 
 #11 p75 a106
 Q: Which component of a computer is responsible for storing instructions and data that are currently being used by the CPU?
@@ -119,7 +119,7 @@ b) RAM
 c) GPU
 d) Power Supply
 K: b
-X: RAM holds the instructions and data the CPU is currently using; the hard drive keeps everything else.
+X: RAM holds the instructions and data the CPU is using right now. The hard drive keeps everything else, the GPU handles graphics and the PSU supplies power.
 S: "Currently in use" → RAM.
 
 #12 p75 a106
@@ -129,8 +129,8 @@ b) Mouse
 c) Printer
 d) Scanner
 K: c
-X: A printer produces hard-copy output. The others are input devices.
-S: Printer = hard-copy output.
+X: A printer produces hard-copy output on paper. Keyboard, mouse and scanner all send data into the computer, so they are input devices.
+S: Printer / monitor / speaker / plotter → output.
 
 #13 p75 a106
 Q: The process of retrieving information from a storage device and loading it into the computer's memory is known as:
@@ -159,7 +159,7 @@ b) RAM
 c) GPU
 d) Motherboard
 K: a
-X: The CPU interprets (decodes) and executes program instructions.
+X: The CPU interprets (decodes) and executes program instructions. RAM only holds them, the GPU renders graphics and the motherboard wires everything together.
 S: Interpret + execute → CPU.
 
 #16 p75 a106
@@ -181,7 +181,7 @@ b) GPU
 c) RAM
 d) Motherboard
 K: b
-X: The GPU (graphics card) renders images and converts them into the video signal the monitor displays.
+X: The GPU (graphics card) renders images and turns them into the video signal a monitor displays. The CPU prepares the data, but the conversion to a display signal is the GPU's job.
 S: Picture on screen → GPU / graphics card.
 
 #18 p75 a106
@@ -191,8 +191,8 @@ b) Application Software
 c) System Software
 d) Firmware
 K: b
-X: Application software (word processors, spreadsheets) serves specific user tasks.
-S: User task → application software.
+X: Application software (word processors, spreadsheets, browsers) serves a specific user task. The OS and other system software run the machine, and firmware lives in ROM.
+S: User's task → application; machine's needs → system software.
 
 #19 p75 a107
 Q: Which of the following is an example of an arithmetic operation performed by a CPU?
@@ -211,8 +211,8 @@ b) Output
 c) Processing
 d) Saving
 K: d
-X: Saving writes data from volatile memory to a storage device so that it persists after power-off.
-S: Permanent → save to disk.
+X: Saving writes data from volatile RAM to a storage device so that it persists after power-off. Input, output and processing do not make data permanent.
+S: RAM → disk = save (persists).
 
 #21 p76 a107
 Q: Which component of a computer is responsible for performing logical operations such as AND, OR, and NOT?
@@ -221,8 +221,8 @@ b) RAM
 c) Hard Drive
 d) GPU
 K: a
-X: Logical operations are performed by the ALU inside the CPU.
-S: AND/OR/NOT → ALU of the CPU (ISS 2025: logic unit).
+X: AND, OR and NOT are logical operations performed by the ALU inside the CPU. ISS 2025 asked exactly this: AND/OR belong to the logic unit. RAM stores, and the GPU is for graphics.
+S: AND / OR / NOT → ALU (logic unit) of the CPU.
 
 #22 p76 a107
 Q: Which of the following is an example of a volatile memory in a computer?
@@ -231,8 +231,8 @@ b) Hard Drive
 c) DVD Drive
 d) Flash Drive
 K: a
-X: RAM loses its contents when power is removed; hard drives, DVDs and flash drives retain data.
-S: Only RAM (and cache) forget at power-off.
+X: RAM is volatile: it loses its contents when the power is removed. Hard drives, DVDs and flash drives are all non-volatile storage.
+S: Only RAM and cache forget at power-off.
 
 #23 p76 a107
 Q: The process of converting data into a human-readable form is called:
@@ -241,8 +241,8 @@ b) Output
 c) Storage
 d) Decoding
 K: d
-X: Decoding converts coded (binary) data back into a form people can read.
-S: Decoding = machine form → human form.
+X: Decoding converts coded (binary) data back into a form people can read, e.g. binary to characters on screen. The book treats it separately from output, which is the presentation step.
+S: Encode = human → machine; decode = machine → human.
 
 #24 p76 a107
 Q: Which type of software manages and controls the computer hardware and provides a user interface?
@@ -251,7 +251,7 @@ b) Application Software
 c) System Software
 d) Firmware
 K: a
-X: The operating system manages and controls the hardware and provides the user interface (CLI or GUI).
+X: The operating system manages and controls the hardware and provides the user interface (CLI or GUI). Application software serves user tasks, and firmware is the low-level start-up code in ROM.
 S: Hardware control + UI → OS.
 
 #25 p76 a107
@@ -271,8 +271,8 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: b
-X: Cache is the temporary high-speed store for data the CPU accesses frequently.
-S: "Frequently accessed" → cache.
+X: Cache memory is the small, fast SRAM store for data the CPU accesses frequently. It sits between the CPU and RAM and is checked first (ISS 2021).
+S: "Frequently accessed" → cache (checked first).
 
 #27 p76 a107
 Q: The process of carrying out a sequence of instructions in a computer is known as:
@@ -281,7 +281,7 @@ b) Output
 c) Processing
 d) Storage
 K: c
-X: Processing is executing instructions — calculating, comparing and moving data.
+X: Processing means carrying out the program's instructions: calculating, comparing and moving data. It is the CPU's role in the IPOS cycle.
 S: Executing instructions = processing.
 
 #28 p76 a108
@@ -291,8 +291,8 @@ b) Motherboard
 c) Power Supply
 d) Hard Drive
 K: c
-X: The power supply converts mains AC into the DC voltages that all other components use.
-S: Power → PSU.
+X: The power supply unit converts mains AC into the regulated DC voltages all other components use. The motherboard only routes that power onwards.
+S: Power source → PSU; power routing → motherboard.
 
 #29 p76 a108
 Q: Which type of computer memory stores the instructions and data that are permanently programmed into it?
@@ -301,8 +301,8 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: c
-X: ROM contains instructions and data permanently programmed into it during manufacture.
-S: Permanently programmed → ROM.
+X: ROM contains instructions and data permanently programmed into it at manufacture (such as the BIOS). RAM and cache are temporary, and virtual memory is disk space.
+S: Permanently programmed → ROM (firmware).
 
 #30 p76 a108
 Q: The process of transferring data from a computer to an external device, such as a printer or a USB drive, is called:
@@ -311,7 +311,7 @@ b) Output
 c) Processing
 d) Saving
 K: b
-X: Sending data out of the computer to an external device is an output operation.
+X: Sending data out of the computer to an external device (printer, USB drive) is an output operation. Saving is writing to storage; processing is working on the data.
 S: Data leaves the computer → output.
 
 #31 p77 a108
@@ -321,7 +321,7 @@ b) GPU
 c) RAM
 d) Hard Drive
 K: a
-X: Arithmetic is done by the ALU inside the CPU.
+X: Arithmetic (addition, subtraction, multiplication) is performed by the ALU inside the CPU. The GPU also does maths, but for graphics; the question means the general-purpose unit.
 S: Arithmetic → ALU (CPU).
 
 #32 p77 a108
@@ -331,8 +331,8 @@ b) Speaker
 c) Webcam
 d) Monitor
 K: c
-X: A webcam captures video (and often audio) and sends it into the computer, so it is an input device.
-S: Webcam, microphone, scanner → input.
+X: A webcam captures video and sends it into the computer, so it is an input device (ISS 2021 and 2024: a webcam is not an output device). Printer, speaker and monitor are output devices.
+S: Webcam / microphone / scanner → input.
 
 #33 p77 a108
 Q: The process of rearranging, sorting, or organizing data in a specific order is known as:
@@ -341,7 +341,7 @@ b) Output
 c) Storage
 d) Processing
 K: d
-X: Sorting, rearranging and organising data are processing operations carried out by the CPU.
+X: Rearranging, sorting and organising data are processing operations carried out by the CPU. Nothing enters or leaves the computer, so it is neither input nor output.
 S: Any manipulation of data = processing.
 
 #34 p77 a108
@@ -351,8 +351,8 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: d
-X: Virtual memory extends RAM by using part of the disk (a swap or page file) as if it were main memory.
-S: RAM overflow onto disk → virtual memory.
+X: Virtual memory extends RAM by using part of the disk (a swap or page file) as if it were main memory. The OS manages it through paging (ISS 2021, 2023). It gives a large address space, not extra disk space (ISS 2025).
+S: RAM overflow onto disk → virtual memory (paging).
 
 #35 p77 a108
 Q: Which of the following is responsible for coordinating the activities of all the other hardware components in a computer?
@@ -373,7 +373,7 @@ b) Output
 c) Processing
 d) Saving
 K: a
-X: Bringing data from an external device into the computer is an input operation.
+X: Bringing data from an external device (CD, USB drive) into the computer is an input operation. The direction of travel decides: inward = input, outward = output.
 S: Data comes in → input.
 
 #37 p77 a109
@@ -383,7 +383,7 @@ b) GPU
 c) RAM
 d) Motherboard
 K: b
-X: The GPU generates the images shown on the display.
+X: The GPU generates the images shown on the display. The CPU computes the program's logic, RAM stores and the motherboard connects.
 S: Visual output → GPU.
 
 #38 p77 a109
@@ -393,7 +393,7 @@ b) Application Software
 c) System Software
 d) Firmware
 K: b
-X: Photo editors and music players are application software.
+X: Photo editors and music players are application software: they serve specific user tasks. The OS and system software run the computer itself.
 S: Specific user task → application.
 
 #39 p77 a109
@@ -413,8 +413,8 @@ b) Output
 c) Processing
 d) Saving
 K: d
-X: Saving stores data on a storage device for long-term use.
-S: Long-term → save.
+X: Saving stores data on a storage device for long-term use. It moves data from volatile RAM to non-volatile storage.
+S: Long-term → save to storage.
 
 #41 p78 a109
 Q: Which component of a computer is responsible for controlling the flow of data between the CPU and other devices?
@@ -433,8 +433,8 @@ b) Scanner
 c) Speaker
 d) Keyboard
 K: c
-X: A speaker converts electrical audio signals into sound.
-S: Sound out → speaker.
+X: A speaker converts electrical audio signals (through a DAC and amplifier) into sound, so it is an output device (ISS 2021). Printers output on paper; scanners and keyboards are input.
+S: Sound out → speaker; sound in → microphone.
 
 #43 p78 a109
 Q: The process of temporarily storing data that is being transferred between two devices is called:
@@ -453,8 +453,8 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: c
-X: ROM cannot be altered by normal computer operations; it holds fixed firmware.
-S: Read-only → ROM.
+X: ROM cannot be altered by normal computer operations: it holds fixed firmware. Only special processes (UV for EPROM, electrical for EEPROM and flash) can rewrite programmable ROMs.
+S: Read-only, normal writes impossible → ROM.
 
 #45 p78 a109
 Q: Which of the following is responsible for managing and controlling the overall operation of a computer system?
@@ -493,8 +493,8 @@ b) Application Software
 c) System Software
 d) Firmware
 K: b
-X: Office programs for documents, spreadsheets and presentations are application software.
-S: Office work → application software.
+X: Office programs for documents, spreadsheets and presentations (MS Office, LibreOffice) are application software.
+S: Office suite = application software.
 
 #49 p78 a110
 Q: Which of the following is an example of a processing operation performed by a CPU?
@@ -553,8 +553,8 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: b
-X: Cache stores frequently accessed data physically close to the CPU for faster retrieval than RAM.
-S: Close to CPU + frequent → cache.
+X: Cache memory stores frequently accessed data physically close to the CPU (often on the same chip), so retrieval is much faster than from RAM.
+S: On or near the CPU + frequent → cache.
 
 #55 p79 a111
 Q: Which of the following is responsible for managing and controlling the allocation of system resources in a computer?
@@ -563,8 +563,8 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: Allocation of resources (CPU time, memory, devices) is decided by the operating system.
-S: Allocation of resources → OS.
+X: Allocating system resources (CPU time, memory, devices) is the operating system's job. The CPU executes, the motherboard connects and the hard drive stores (ISS 2024: the OS manages resources).
+S: Allocate resources → OS.
 
 #56 p79 a111
 Q: The process of decoding and interpreting data received from an external device is called:
@@ -616,8 +616,8 @@ b) Output
 c) Processing
 d) Downloading
 K: a
-X: Bringing data from an external device into the computer's memory is input.
-S: Into the computer → input.
+X: Transferring data from an external device into the computer's memory is input. Downloading is the special case where the source is a network.
+S: Into memory from outside → input.
 
 #61 p80 a111
 Q: Which component of a computer is responsible for executing instructions stored in the computer's memory?
@@ -626,8 +626,8 @@ b) GPU
 c) RAM
 d) Hard Drive
 K: a
-X: The CPU fetches instructions from memory and executes them (stored-program concept).
-S: Stored program executed by CPU (von Neumann idea).
+X: The CPU fetches instructions from memory and executes them: von Neumann's stored-program concept. RAM holds them, and the GPU only handles graphics.
+S: Stored program executed by the CPU (von Neumann).
 
 #62 p80 a112
 Q: Which of the following is an example of an output device that produces a printed copy of a document?
@@ -636,8 +636,8 @@ b) Scanner
 c) Speaker
 d) Keyboard
 K: a
-X: A printer turns digital documents into printed hard copy.
-S: Printed copy → printer.
+X: A printer turns digital documents into printed hard copy. Scanners and keyboards are input devices, and speakers output sound.
+S: Hard copy → printer.
 
 #63 p80 a112
 Q: The process of storing data in multiple storage locations simultaneously for redundancy and data protection is known as:
@@ -656,7 +656,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: c
-X: ROM is non-volatile.
+X: ROM is non-volatile, so it retains its data with the power off. RAM and cache are volatile, and virtual memory is a disk-backed extension of RAM.
 S: Non-volatile → ROM.
 
 #65 p80 a112
@@ -666,8 +666,8 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: The OS manages I/O devices through device drivers, handling buffering, spooling and access control.
-S: I/O management (software) → OS via device drivers.
+X: The OS manages input and output devices through device drivers, handling buffering, spooling and access control (ISS 2019: device management is an OS function).
+S: I/O device management → OS (drivers).
 
 #66 p80 a112
 Q: The process of converting data from digital to analog form is called:
@@ -686,7 +686,7 @@ b) RAM
 c) Power Supply
 d) Hard Drive
 K: d
-X: The hard drive stores programs and data permanently (non-volatile).
+X: The hard drive stores programs and data permanently (non-volatile). RAM loses its contents at power-off, and the GPU and PSU store nothing.
 S: Permanent → hard drive.
 
 #68 p80 a112
@@ -696,8 +696,8 @@ b) Application Software
 c) System Software
 d) Firmware
 K: b
-X: Image editors, graphic-design and animation packages are application software.
-S: Graphics/animation tools → application software.
+X: Image editors, graphic-design and animation packages are application software, used for specific creative tasks.
+S: Photoshop / CorelDRAW / Blender → application.
 
 #69 p80 a112
 Q: Which of the following is an example of a processing operation performed by a CPU?
@@ -716,8 +716,8 @@ b) Downloading
 c) Sharing
 d) Streaming
 K: a
-X: Sending data from the local computer to a remote location is uploading.
-S: Local → remote = upload.
+X: Sending data from the local computer to a remote location (server, cloud) is uploading. Downloading is the reverse, and streaming is real-time playback.
+S: Up = to the server; down = from the server.
 
 #71 p81 a113
 Q: Which component of a computer is responsible for managing and executing the instructions of a computer program?
@@ -726,8 +726,8 @@ b) GPU
 c) RAM
 d) Motherboard
 K: a
-X: The CPU's control unit manages the instruction sequence and its ALU executes the operations.
-S: Program execution → CPU.
+X: The CPU manages and executes program instructions: its control unit sequences them and its ALU does the work.
+S: Program execution → CPU (CU + ALU).
 
 #72 p81 a113
 Q: Which of the following is an example of an input device that detects and records hand movements?
@@ -746,8 +746,8 @@ b) Output
 c) Encryption
 d) Compression
 K: d
-X: Compression reduces file size by removing redundancy — lossless (ZIP, PNG) or lossy (JPEG, MP3).
-S: Smaller file → compression; unreadable to outsiders → encryption.
+X: Compression reduces file size by removing redundancy, either losslessly (ZIP, PNG: exact restore) or lossily (JPEG, MP3: some detail lost). Encryption hides meaning; it does not reduce size.
+S: Smaller → compression; secret → encryption.
 
 #74 p81 a113
 Q: Which type of computer memory acts as a bridge between the CPU and the larger, slower main memory?
@@ -756,7 +756,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: b
-X: Cache bridges the speed gap between the fast CPU and slower main memory.
+X: Cache bridges the speed gap between the very fast CPU and the slower main memory (RAM).
 S: Bridge CPU ↔ RAM → cache.
 
 #75 p81 a113
@@ -766,8 +766,8 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: The operating system manages and coordinates memory, processors and devices as a resource manager.
-S: Resources (memory, CPU, devices) → OS.
+X: The operating system is the resource manager: it coordinates memory, processors and devices (ISS 2024: the OS is the principal system software, managing resources and providing the interface).
+S: Resource manager → OS.
 
 #76 p81 a113
 Q: The process of converting encoded or encrypted data back into its original form is called:
@@ -776,7 +776,7 @@ b) Output
 c) Decryption
 d) Compression
 K: c
-X: Decryption uses the key to turn ciphertext back into the original plaintext.
+X: Decryption uses the key to turn ciphertext back into the original plaintext. Encryption goes the other way (ISS 2023: encryption does not convert ciphertext into plaintext).
 S: Ciphertext → plaintext = decryption.
 
 #77 p81 a113
@@ -796,8 +796,8 @@ b) Application Software
 c) System Software
 d) Firmware
 K: c
-X: System software includes the OS, device drivers and utilities that manage and maintain the computer.
-S: Maintenance tools and drivers → system software.
+X: System software includes the OS, device drivers and utility programs (antivirus, backup, disk tools) that manage and maintain the computer. Application software serves user tasks.
+S: Maintenance tools + drivers → system software (utilities).
 
 #79 p81 a114
 Q: Which of the following is an example of a control operation performed by a CPU?
@@ -838,8 +838,8 @@ b) Scanner
 c) Monitor
 d) Keyboard
 K: c
-X: A monitor displays text and images as soft copy.
-S: Screen display → monitor.
+X: A monitor displays text and images as soft copy. A printer gives hard copy, and scanners and keyboards are input devices.
+S: Soft copy → monitor; hard copy → printer.
 
 #83 p82 a114
 Q: The process of converting digital signals into analog signals for transmission over analog communication channels is called:
@@ -858,8 +858,8 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: c
-X: ROM is non-volatile and holds permanent firmware.
-S: Non-volatile → ROM.
+X: ROM is non-volatile: it keeps permanent firmware such as the BIOS even with the power off.
+S: Non-volatile + firmware → ROM.
 
 #85 p82 a114
 Q: Which of the following is responsible for managing and controlling the communication between the computer hardware and software?
@@ -868,7 +868,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: The OS mediates between software and hardware through system calls and device drivers.
+X: The OS mediates between software and hardware: applications make system calls, and the OS drives the hardware through device drivers. The CPU and motherboard are hardware themselves.
 S: Software ↔ hardware mediator → OS.
 
 #86 p82 a114
@@ -888,8 +888,8 @@ b) RAM
 c) Power Supply
 d) Motherboard
 K: b
-X: RAM temporarily stores the data the CPU needs, with fast random access.
-S: Quick temporary storage → RAM.
+X: RAM temporarily stores the data the CPU needs, with fast random access to any location. It is volatile, unlike the hard drive.
+S: Fast temporary store → RAM.
 
 #88 p82 a115
 Q: Which type of software allows users to perform specific tasks such as word processing, spreadsheet calculations, or graphic design?
@@ -898,7 +898,7 @@ b) Application Software
 c) System Software
 d) Firmware
 K: b
-X: These task-specific programs are application software.
+X: Word processing, spreadsheet and graphic-design programs are application software, each built for a specific user task.
 S: Word, Excel, Photoshop → application software.
 
 #89 p82 a115
@@ -918,7 +918,7 @@ b) Downloading
 c) Sharing
 d) Streaming
 K: b
-X: Downloading copies data from a remote network location to the local computer.
+X: Downloading copies data from a remote network location to the local computer. Uploading is the reverse direction.
 S: Remote → local = download.
 
 #91 p83 a115
@@ -928,7 +928,7 @@ b) Hard Drive
 c) RAM
 d) Motherboard
 K: b
-X: A hard drive stores data non-volatilely and retrieves it on demand.
+X: A hard drive stores data non-volatilely and retrieves it on demand. RAM is volatile, and the CPU and motherboard do not store user data.
 S: Non-volatile storage → hard drive.
 
 #92 p83 a115
@@ -958,7 +958,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: b
-X: Cache stores frequently used instructions and data to raise processing speed.
+X: Cache stores frequently used instructions and data to raise processing speed. It works because programs reuse recent data (locality of reference).
 S: Frequently used → cache.
 
 #95 p83 a116
@@ -968,8 +968,8 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: File management is an OS function; the hard drive only holds the data.
-S: Files and folders managed by → OS.
+X: File management (creating, organising, protecting files and folders) is an OS function. The hard drive only holds the data physically.
+S: Files and folders managed by → OS (file system).
 
 #96 p83 a116
 Q: The process of converting analog signals into digital signals for processing and storage is called:
@@ -990,7 +990,7 @@ b) RAM
 c) Power Supply
 d) Motherboard
 K: c
-X: The power supply regulates and distributes electrical power to the components.
+X: The power supply regulates and distributes electrical power (DC rails) to every part of the computer.
 S: Electricity → PSU.
 
 #98 p83 a116
@@ -1000,7 +1000,7 @@ b) Application Software
 c) System Software
 d) Firmware
 K: a
-X: Basic operations such as file management and launching programs are provided by the operating system.
+X: Basic operations such as managing files and running applications are provided by the operating system: it is the platform everything else runs on.
 S: Basic operations → OS.
 
 #99 p83 a116
@@ -1020,8 +1020,8 @@ b) Downloading
 c) Streaming
 d) Sharing
 K: c
-X: Streaming delivers audio or video continuously so playback starts before the whole file arrives.
-S: Real-time playback while receiving → streaming.
+X: Streaming delivers audio or video continuously, so playback starts before the whole file has arrived (buffered playback). Downloading stores the complete file first.
+S: Play while receiving → streaming.
 
 #101 p84 a116
 Q: Which component of a computer is responsible for executing instructions in a specific order and controlling the overall operation of the computer?
@@ -1040,7 +1040,7 @@ b) Scanner
 c) Projector
 d) Keyboard
 K: a
-X: A printer produces text and images on paper; a projector shows them on a screen.
+X: A printer produces high-quality text and images on paper. A projector shows them on a screen, and a scanner reads paper in.
 S: Paper output → printer.
 
 #103 p84 a117
@@ -1060,7 +1060,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: b
-X: Cache is the temporary high-speed store between the CPU and main memory.
+X: Cache is the temporary high-speed store between the CPU and main memory. Registers are faster still, but they sit inside the CPU.
 S: Between CPU and RAM → cache.
 
 #105 p84 a117
@@ -1070,7 +1070,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: User interface, multitasking and resource allocation are all operating-system functions.
+X: The user interface, multitasking and resource allocation are all operating-system functions.
 S: UI + multitasking + resources → OS.
 
 #106 p84 a117
@@ -1090,8 +1090,8 @@ b) RAM
 c) Power Supply
 d) Hard Drive
 K: d
-X: The OS, programs and data are stored permanently on the hard drive.
-S: Permanent → hard drive.
+X: The OS, programs and data are stored permanently on the hard drive and copied into RAM to run.
+S: Permanent home → hard drive.
 
 #108 p84 a117
 Q: Which type of software is designed to perform specific tasks, such as photo editing, video editing, or web development?
@@ -1100,7 +1100,7 @@ b) Application Software
 c) System Software
 d) Firmware
 K: b
-X: Photo and video editors and web-development tools are application software.
+X: Photo editors, video editors and web-development tools are application software.
 S: Task-specific → application.
 
 #109 p85 a117
@@ -1110,8 +1110,8 @@ b) Scanning a document
 c) Playing a music file
 d) Adding two numbers
 K: d
-X: Addition is an arithmetic operation carried out by the ALU.
-S: +, −, ×, ÷ → arithmetic.
+X: Adding two numbers is an arithmetic operation carried out by the ALU. Printing, scanning and playing files are I/O tasks, not arithmetic.
+S: +, −, ×, ÷ → arithmetic (ALU).
 
 #110 p85 a117
 Q: The process of transferring data from a computer to a remote server or storage location over a network is called:
@@ -1120,7 +1120,7 @@ b) Downloading
 c) Sharing
 d) Streaming
 K: a
-X: Sending data from the computer to a remote server is uploading.
+X: Sending data from the computer to a remote server over a network is uploading.
 S: To the server → upload.
 
 #111 p85 a118
@@ -1130,8 +1130,8 @@ b) GPU
 c) RAM
 d) Motherboard
 K: a
-X: The CPU's ALU performs arithmetic and logical operations.
-S: Arithmetic + logic → ALU in CPU.
+X: The CPU's ALU performs arithmetic and logical operations. The GPU is specialised for graphics, and RAM only stores.
+S: Arithmetic + logic → ALU in the CPU.
 
 #112 p85 a118
 Q: Which of the following is an example of an input device that captures sound and converts it into digital form?
@@ -1140,8 +1140,8 @@ b) Scanner
 c) Microphone
 d) Monitor
 K: c
-X: A microphone converts sound into an electrical signal, which the sound card digitises.
-S: Sound in → microphone; sound out → speaker.
+X: A microphone converts sound into an electrical signal, which the sound card's ADC digitises. It is an input device.
+S: Sound in → microphone (ADC); sound out → speaker (DAC).
 
 #113 p85 a118
 Q: The process of converting text or data into a coded form to prevent unauthorized access is known as:
@@ -1160,7 +1160,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: c
-X: ROM contains firmware — permanent start-up and control instructions.
+X: ROM contains firmware: permanent start-up and control instructions such as the BIOS.
 S: Firmware → ROM.
 
 #115 p85 a118
@@ -1170,7 +1170,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: Memory allocation to processes is done by the operating system's memory manager.
+X: Memory is allocated to processes by the operating system's memory manager, using paging and virtual memory (ISS 2019).
 S: Memory to processes → OS memory manager.
 
 #116 p85 a118
@@ -1190,7 +1190,7 @@ b) RAM
 c) Power Supply
 d) Motherboard
 K: c
-X: The power supply distributes regulated power to all components through its cables and the motherboard.
+X: The power supply distributes regulated power to all components through its cables and the motherboard's power connectors.
 S: Power distribution → PSU.
 
 #118 p85 a118
@@ -1232,8 +1232,8 @@ b) GPU
 c) RAM
 d) Motherboard
 K: a
-X: Fetch, decode and execute are the stages of the CPU's instruction cycle.
-S: Fetch-decode-execute → CPU.
+X: Fetch, decode and execute are the stages of the CPU's instruction (machine) cycle. ISS 2024 lists fetch, decode, execute and store as the CPU's main operations.
+S: Machine cycle: fetch → decode → execute → store (ISS 2022, 2024).
 
 #122 p86 a119
 Q: Which of the following is an example of an output device that displays images and videos on a large screen?
@@ -1242,7 +1242,7 @@ b) Scanner
 c) Projector
 d) Keyboard
 K: c
-X: A projector casts the computer's display onto a large screen or wall.
+X: A projector casts the computer's display onto a large screen or wall. It is an output device.
 S: Large-screen display → projector.
 
 #123 p86 a119
@@ -1292,7 +1292,7 @@ b) RAM
 c) Power Supply
 d) Motherboard
 K: c
-X: The PSU provides electrical power to all components.
+X: The PSU provides regulated electrical power to all components.
 S: Power → PSU.
 
 #128 p86 a120
@@ -1312,8 +1312,8 @@ b) Scanning a document
 c) Playing a music file
 d) Comparing two numbers
 K: d
-X: Comparing two numbers (equal, greater, less) is a logical operation performed by the ALU.
-S: Compare → logic.
+X: Comparing two numbers (equal, greater, less) is a logical operation performed by the ALU. The other options are I/O tasks.
+S: Compare → logic (ALU).
 
 #130 p87 a120
 Q: The process of transferring data from a computer to a remote location for backup or storage purposes is called:
@@ -1323,7 +1323,7 @@ c) Sharing
 d) Archiving
 K: a
 B: b
-X: Sending data from the computer to a remote location — for example cloud backup — is uploading.
+X: Sending data from the computer to a remote location, for example a cloud backup, is uploading.
 S: Computer → remote = upload.
 N: The book prints (b) Downloading, and its explanation reverses the direction of transfer. Data going from the computer to a remote location is uploaded, so the key is (a).
 
@@ -1346,8 +1346,8 @@ b) Scanner
 c) Touchscreen
 d) Keyboard
 K: c
-X: A touchscreen detects touches and gestures on the display surface.
-S: Touch → touchscreen.
+X: A touchscreen detects touches and gestures on the display surface, so it is both input and output (ISS 2024: a touchscreen is a pointing device).
+S: Touch → touchscreen (input + output).
 
 #133 p87 a120
 Q: The process of converting data into a format suitable for transmission over a network is known as:
@@ -1376,7 +1376,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: The OS manages and coordinates I/O devices through device drivers.
+X: The OS manages and coordinates I/O devices through device drivers, interrupts and spooling.
 S: I/O devices → OS.
 
 #136 p87 a121
@@ -1386,8 +1386,8 @@ b) Output
 c) Modulation
 d) Synchronization
 K: c
-X: As at Q116, the book keys modulation for converting digital data into an analog signal.
-S: D→A = modulation.
+X: As at Q116, the book keys modulation for converting digital data into an analog signal. A modem modulates for transmission (ISS 2023); in audio the same job is called D/A conversion (a DAC).
+S: Transmission: modulation (modem); audio: DAC.
 
 #137 p87 a121
 Q: Which component of a computer is responsible for temporarily storing instructions and data that the CPU needs to access quickly?
@@ -1406,7 +1406,7 @@ b) Application Software
 c) System Software
 d) Firmware
 K: b
-X: These are application programs.
+X: Word processing, spreadsheet calculations and graphic design are done with application programs.
 S: Specific tasks → application software.
 
 #139 p88 a121
@@ -1426,7 +1426,7 @@ b) Downloading
 c) Streaming
 d) Sharing
 K: c
-X: Streaming delivers data continuously in real time so it can be used while it arrives.
+X: Streaming delivers data continuously in real time so it can be used while it arrives, e.g. live video.
 S: Real-time delivery → streaming.
 
 #141 p88 a121
@@ -1437,7 +1437,7 @@ c) RAM
 d) Motherboard
 K: a
 X: Mathematical and logical operations are executed by the CPU's ALU.
-S: Maths + logic → CPU.
+S: Maths + logic → CPU (ALU).
 
 #142 p88 a121
 Q: Which of the following is an example of an output device that prints text and images on paper using ink or toner?
@@ -1446,7 +1446,7 @@ b) Scanner
 c) Projector
 d) Keyboard
 K: a
-X: Inkjet printers use ink and laser printers use toner to print on paper.
+X: Inkjet printers spray liquid ink, while laser printers fuse powdered toner. Both are output devices that print on paper.
 S: Ink → inkjet; toner → laser printer.
 
 #143 p88 a122
@@ -1466,7 +1466,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: c
-X: ROM is non-volatile.
+X: ROM is non-volatile: it keeps its contents without power.
 S: Non-volatile → ROM.
 
 #145 p88 a122
@@ -1486,7 +1486,7 @@ b) Output
 c) Analog-to-digital conversion
 d) Signal modulation
 K: c
-X: Analog-to-digital conversion (ADC) samples and quantises an analog signal into digital values.
+X: Analog-to-digital conversion (by an ADC) samples and quantises an analog signal into digital values.
 S: ADC = analog → digital; DAC = digital → analog.
 
 #147 p88 a122
@@ -1497,7 +1497,7 @@ c) Power Supply
 d) Motherboard
 K: c
 X: The power supply converts AC mains to DC and supplies it to the other components.
-S: Power → PSU.
+S: AC → DC supply → PSU.
 
 #148 p89 a122
 Q: Which type of software provides a platform for creating, editing, and managing documents, spreadsheets, and presentations?
@@ -1506,7 +1506,7 @@ b) Application Software
 c) System Software
 d) Firmware
 K: b
-X: Office suites are application software for documents, spreadsheets and presentations.
+X: Office suites for documents, spreadsheets and presentations are application software.
 S: Office suite → application.
 
 #149 p89 a122
@@ -1516,7 +1516,7 @@ b) Scanning a document
 c) Sorting a list of names
 d) Playing a video file
 K: c
-X: Sorting rearranges data — a data-manipulation (processing) operation.
+X: Sorting rearranges data, which makes it a data-manipulation (processing) operation. Printing, scanning and playing files are I/O.
 S: Sort, merge, calculate → data manipulation.
 
 #150 p89 a122
@@ -1546,7 +1546,7 @@ b) Scanner
 c) Graphics tablet
 d) Keyboard
 K: c
-X: A graphics (digitiser) tablet lets the user draw or write with a stylus on a touch-sensitive pad.
+X: A graphics (digitiser) tablet lets the user draw or write with a stylus on a touch-sensitive pad. It is an input device.
 S: Stylus + pad → graphics tablet / digitiser.
 
 #153 p89 a123
@@ -1566,7 +1566,7 @@ b) Cache Memory
 c) ROM
 d) Virtual Memory
 K: d
-X: Virtual memory extends main memory with disk space managed by the OS through paging.
+X: Virtual memory extends main memory with disk space managed by the OS through paging. It gives each program a larger address space than physical RAM (ISS 2025).
 S: Extension of RAM → virtual memory.
 
 #155 p89 a123
@@ -1576,7 +1576,7 @@ b) Motherboard
 c) Operating System
 d) Hard Drive
 K: c
-X: Applications reach hardware only through the OS (system calls and drivers).
+X: Applications reach the hardware only through the OS, using system calls and device drivers.
 S: Apps ↔ hardware via OS.
 
 #156 p89 a123
@@ -1598,8 +1598,8 @@ b) RAM
 c) Power Supply
 d) Motherboard
 K: d
-X: The BIOS/UEFI firmware lives in a flash (EEPROM) chip mounted on the motherboard.
-S: BIOS chip sits on the motherboard.
+X: The BIOS/UEFI firmware lives in a flash (EEPROM) chip mounted on the motherboard. It runs the POST and boots the system (ISS 2024).
+S: BIOS chip sits on the motherboard (POST + boot).
 
 #158 p90 a124
 Q: Which type of software provides tools and utilities for managing and controlling computer hardware resources?
@@ -1608,8 +1608,8 @@ b) Application Software
 c) System Software
 d) Firmware
 K: c
-X: System software — the OS, device drivers and utilities — manages and controls the hardware resources.
-S: Manage hardware → system software (OS is one kind).
+X: System software (the OS, device drivers and utilities) manages and controls the hardware resources.
+S: Manage hardware → system software (the OS is one kind).
 
 #159 p90 a124
 Q: Which of the following is an example of a data processing operation performed by a computer?
@@ -1638,8 +1638,8 @@ b) Power Supply
 c) RAM
 d) GPU
 K: b
-X: The PSU converts AC to DC and powers the motherboard and the components connected to it.
-S: Power → PSU.
+X: The PSU converts mains AC to DC and powers the motherboard and everything plugged into it. The CPU, RAM and GPU all consume power; none of them supplies it.
+S: Power source → PSU.
 
 #162 p90 a124
 Q: Which component of a motherboard is responsible for controlling and coordinating the activities of all other hardware components?
@@ -1680,8 +1680,8 @@ b) ROM
 c) Cache memory
 d) CMOS
 K: c
-X: Cache memory — on or next to the CPU — gives the quickest temporary storage for data the CPU needs.
-S: Quickest temporary store → cache.
+X: Cache memory, on or next to the CPU, is the quickest temporary store for data the CPU needs. RAM is slower, ROM is permanent firmware, and CMOS only keeps BIOS settings and the clock.
+S: Quickest temporary store → cache; settings → CMOS; firmware → ROM.
 
 #166 p90 a125
 Q: Which component of a motherboard connects the CPU to peripheral devices such as hard drives and optical drives?
@@ -1720,7 +1720,7 @@ b) RAM slots
 c) CPU socket
 d) CMOS battery
 K: a
-X: PCI Express slots accept expansion cards such as graphics, network and sound cards.
+X: PCI Express slots accept expansion cards (graphics, network, sound, NVMe adapters). RAM slots take memory modules only, the CPU socket holds the processor, and the CMOS battery powers the settings memory.
 S: Add-on cards → PCIe slots.
 
 #170 p91 a125
@@ -1760,8 +1760,8 @@ b) CMOS
 c) EEPROM
 d) SATA controller
 K: c
-X: Firmware and BIOS code are stored in the EEPROM (flash) chip.
-S: Firmware → EEPROM/flash.
+X: The system firmware (BIOS/UEFI) is stored in an EEPROM/flash chip, which can be updated ("flashed") but survives power-off. CMOS only holds the settings, and the northbridge and SATA controller move data.
+S: BIOS code → EEPROM/flash; BIOS settings → CMOS.
 
 #174 p91 a126
 Q: Which component of a motherboard provides power to the CPU?
@@ -1780,8 +1780,8 @@ b) PCIe slot
 c) Northbridge
 d) CMOS battery
 K: c
-X: The northbridge handles the high-speed link between the CPU and the graphics card (AGP/PCIe x16).
-S: CPU ↔ graphics → northbridge.
+X: On classic chipsets the northbridge handled the fast links (CPU ↔ RAM ↔ graphics card over AGP/PCIe x16). The southbridge handled slower I/O. Modern CPUs have absorbed the northbridge.
+S: Northbridge = fast (CPU, RAM, GPU); southbridge = slow I/O.
 
 #176 p92 a126
 Q: Which component of a motherboard stores the computer's configuration data, including hardware settings?
@@ -1790,8 +1790,8 @@ b) Northbridge
 c) SATA controller
 d) BIOS chip
 K: a
-X: Configuration data (hardware settings, boot order, time) is stored in CMOS memory.
-S: Configuration → CMOS.
+X: Configuration data (hardware settings, boot order, date and time) lives in battery-backed CMOS memory. The BIOS chip holds the firmware program itself, not the user's settings.
+S: Settings + clock → CMOS (coin-cell battery).
 
 #177 p92 a126
 Q: Which component of a motherboard provides the connection interface for networking devices?
@@ -1800,8 +1800,8 @@ b) Ethernet port
 c) USB port
 d) BIOS chip
 K: b
-X: The Ethernet (RJ-45) port connects the computer to a wired network.
-S: Wired network → Ethernet RJ-45.
+X: The Ethernet (RJ-45) port connects the computer to a wired network through the NIC. USB connects peripherals, SATA connects drives, and the BIOS chip stores firmware.
+S: Wired network → Ethernet RJ-45 (IEEE 802.3).
 
 #178 p92 a126
 Q: Which component of a motherboard is responsible for converting digital signals from the CPU into analog signals for audio output?
@@ -1850,8 +1850,8 @@ b) Point-to-point
 c) Crossbar
 d) Switched
 K: a
-X: The processor and memory are joined by a bus — shared address, data and control lines.
-S: CPU ↔ memory → system bus.
+X: The processor and memory are joined by the system bus: shared address, data and control lines. Point-to-point links and crossbars are other interconnect styles used in advanced systems.
+S: CPU ↔ memory → system bus (address + data + control).
 
 #183 p92 a127
 Q: Which interconnection method is commonly used for connecting peripheral devices such as printers and keyboards to a computer?
@@ -1860,8 +1860,8 @@ b) Ethernet
 c) Bluetooth
 d) Firewire (IEEE 1394)
 K: a
-X: USB is the common plug-and-play interface for printers, keyboards, mice and storage.
-S: Peripherals → USB.
+X: USB is the common plug-and-play, hot-swappable interface for printers, keyboards, mice and storage. Ethernet is for networking, Bluetooth is wireless, and FireWire is an older video interface.
+S: Peripherals → USB (plug-and-play, hot-swap).
 
 #184 p92 a127
 Q: What is the purpose of a bridge in computer interconnection?
@@ -1880,8 +1880,8 @@ b) USB (Universal Serial Bus)
 c) VGA (Video Graphics Array)
 d) Thunderbolt
 K: a
-X: HDMI carries digital video and audio to monitors and TVs and is the common display link today.
-S: Modern display link → HDMI (digital A/V); legacy → VGA (analog).
+X: HDMI carries digital video and audio in one cable to monitors and TVs, and is the usual display link today. VGA is the older analog video port, USB is for peripherals, and Thunderbolt is a general high-speed link.
+S: Modern display → HDMI (digital A/V); legacy → VGA (analog).
 N: VGA (c) is also a display connection (the older, analog one); the book keys HDMI as today's common method.
 
 #186 p93 a127
@@ -1891,8 +1891,8 @@ b) To provide power to the computer components
 c) To connect peripheral devices to the computer
 d) To control the overall operation of the computer
 K: a
-X: A bus is a shared communication pathway; the system bus connects the CPU with memory (and I/O).
-S: Bus = shared pathway of wires.
+X: A bus is a shared communication pathway. The system bus connects the CPU with memory (and I/O) through address, data and control lines. It does not supply power or control overall operation.
+S: Bus = shared data highway.
 
 #187 p93 a127
 Q: Which type of bus is responsible for transferring data between the CPU and memory?
@@ -1901,8 +1901,8 @@ b) Data bus
 c) Control bus
 d) Expansion bus
 K: b
-X: The data bus carries the data itself in both directions between the CPU and memory.
-S: Data travels on the data bus (bidirectional).
+X: The data bus carries the data itself, in both directions, between the CPU and memory. The address bus carries locations (one way), and the control bus carries read/write and timing signals.
+S: Data bus = two-way; address bus = one-way (CPU → memory).
 
 #188 p93 a127
 Q: What is the purpose of the address bus in a computer system?
@@ -1931,7 +1931,7 @@ b) Data bus
 c) Control bus
 d) Expansion bus
 K: d
-X: Peripherals and add-on cards connect through the expansion (I/O) bus.
+X: Peripherals and add-on cards connect through the expansion (I/O) bus, e.g. PCIe or USB. The address, data and control buses are the internal system buses.
 S: Peripherals/cards → expansion bus.
 
 #191 p93 a127
@@ -1941,7 +1941,7 @@ b) GPU
 c) RAM
 d) Motherboard
 K: a
-X: The CPU processes data and executes instructions.
+X: The CPU processes data and executes instructions. The GPU is for graphics, RAM stores and the motherboard connects.
 S: Process + execute → CPU.
 
 #192 p93 a127
@@ -1951,8 +1951,8 @@ b) Store data and instructions
 c) Control input and output devices
 d) Connect and communicate between components
 K: d
-X: The motherboard is the hub that connects the components and carries the communication among them.
-S: Motherboard = connect + communicate.
+X: The motherboard is the main circuit board: it connects all components and carries communication among them through buses and the chipset. Power comes from the PSU and storage from drives.
+S: Motherboard = connect + communicate (backbone).
 
 #193 p93 a128
 Q: Which component of a computer is responsible for storing data and program instructions permanently?
@@ -1961,7 +1961,7 @@ b) RAM
 c) CPU
 d) Power Supply
 K: a
-X: The hard drive stores data and programs permanently.
+X: The hard drive stores data and programs permanently (non-volatile). RAM is temporary, the CPU processes, and the PSU supplies power.
 S: Permanent → hard drive.
 
 #194 p94 a128
@@ -1971,8 +1971,8 @@ b) Keyboard
 c) Mouse
 d) Printer
 K: a
-X: The monitor displays visual output.
-S: Visual output → monitor.
+X: The monitor displays visual output as soft copy. Keyboard and mouse are input devices, and a printer gives hard copy.
+S: Visual soft copy → monitor.
 
 #195 p94 a128
 Q: What is the purpose of RAM (Random Access Memory) in a computer system?
@@ -1981,7 +1981,7 @@ b) Execute program instructions
 c) Provide power to other components
 d) Temporarily store data for quick access
 K: d
-X: RAM temporarily holds active data and programs for quick access by the CPU.
+X: RAM temporarily holds active data and programs for quick access by the CPU. Long-term storage is the disk's job, and execution is the CPU's.
 S: RAM = temporary + quick.
 
 #196 p94 a128
@@ -1991,8 +1991,8 @@ b) GPU
 c) Motherboard
 d) CPU
 K: a
-X: The power supply regulates and distributes electricity to the components.
-S: Electricity → PSU.
+X: The power supply regulates and distributes electricity to all components. The motherboard only routes it.
+S: Electricity source → PSU.
 
 #197 p94 a128
 Q: Which component of a computer is responsible for providing audio output?
@@ -2001,7 +2001,7 @@ b) Microphone
 c) Sound card
 d) Hard Drive
 K: a
-X: Speakers produce the audible output; the sound card generates the signal that drives them.
+X: Speakers produce the audible output. The sound card generates the signal that drives them, and a microphone is input.
 S: Audible output device → speakers.
 
 #198 p94 a128
@@ -2011,8 +2011,8 @@ b) Control input and output devices
 c) Provide power to other components
 d) Render and display graphics
 K: d
-X: The GPU renders images and video for display.
-S: GPU → graphics rendering.
+X: The GPU renders images and video for display with thousands of parallel cores. Executing general program instructions is the CPU's job.
+S: GPU → graphics rendering (parallel).
 
 #199 p94 a128
 Q: Which component of a computer is responsible for storing and retrieving data in a non-volatile manner?
@@ -2021,7 +2021,7 @@ b) RAM
 c) CPU
 d) Motherboard
 K: a
-X: The hard drive stores data non-volatilely.
+X: The hard drive stores data non-volatilely and retrieves it when asked. RAM is volatile.
 S: Non-volatile → hard drive.
 
 #200 p94 a128
@@ -2031,7 +2031,7 @@ b) Store data and program instructions
 c) Provide power to other components
 d) Execute program instructions
 K: c
-X: The PSU converts and supplies power to the other components.
+X: The PSU converts mains AC and supplies regulated DC power to the other components.
 S: PSU = power.
 
 #201 p94 a129
@@ -2063,8 +2063,8 @@ b) Complex Instruction Set Architecture (CISC)
 c) Both RISC and CISC
 d) Neither RISC nor CISC
 K: a
-X: RISC aims for about one cycle per instruction, accepting that programs need more instructions.
-S: Time = instructions × CPI × cycle time: RISC cuts CPI, CISC cuts the instruction count.
+X: CPU time = instructions × CPI × cycle time. RISC cuts the cycles per instruction (CPI ≈ 1) at the cost of more instructions per program. CISC does the opposite: fewer, more complex multi-cycle instructions.
+S: RISC ↓CPI (↑instructions); CISC ↓instructions (↑CPI).
 
 #204 p95 a129
 Q: Which approach attempts to minimize the number of instructions per program but at the cost of an increase in the number of cycles per instruction?
@@ -2135,7 +2135,7 @@ b) Complex Instruction Set Architecture (CISC)
 c) Both RISC and CISC
 d) Neither RISC nor CISC
 K: a
-X: RISC programs need more (simple) instructions, so code is longer and takes more memory.
+X: RISC programs need more (simpler) instructions, so the code is longer and takes more memory. CISC packs more work into each instruction, giving compact code.
 S: RISC → longer code → more memory.
 
 #211 p96 a130
@@ -2175,8 +2175,8 @@ b) More complex design
 c) Higher power consumption
 d) Increased memory usage
 K: d
-X: Because each task needs more instructions, RISC programs are larger and use more memory.
-S: RISC con → bigger code / more memory.
+X: Because each task needs more instructions, RISC programs are larger and use more memory. RISC is not slower, more complex or more power-hungry; those are CISC traits.
+S: RISC's one drawback → bigger code / more memory.
 
 #215 p96 a130
 Q: Complex instructions in CISC processors result in:
@@ -2185,8 +2185,8 @@ b) More memory efficiency
 c) Simpler instructions
 d) Slower execution
 K: d
-X: The book keys slower execution: complex instructions take several cycles to decode and execute.
-S: CISC con → slower per-instruction execution.
+X: The book keys slower execution: complex instructions take several cycles to decode and execute. Reduced code size and memory efficiency are CISC advantages, not results of slowness.
+S: CISC con → multi-cycle, slower per instruction.
 N: Complex instructions also reduce code size (a) and improve memory efficiency (b) — these are CISC advantages; the book's key is the disadvantage, slower execution.
 
 #216 p96 a130
@@ -2230,7 +2230,7 @@ b) More memory efficiency
 c) Simpler instructions
 d) Long-standing usage
 K: d
-X: The x86 CISC family has dominated PCs for decades, so a huge body of software exists for it.
+X: The x86 CISC family has dominated PCs for decades, so a huge body of software exists for it. The advantage is historical, not technical.
 S: x86 legacy → big software base.
 
 #220 p97 a131
@@ -2240,8 +2240,8 @@ b) CISC processors
 c) Simpler instructions
 d) Larger user base
 K: b
-X: More complex decoding and control logic makes CISC processors consume more power than RISC processors.
-S: Power hungry → CISC.
+X: More complex decoding and control logic makes CISC processors consume more power than RISC processors. That is why phones use RISC (ARM) chips.
+S: Power-hungry → CISC (x86); phones use RISC (ARM).
 
 #221 p97 a131
 Q: What is the function of a microprocessor?
@@ -2290,8 +2290,8 @@ b) CISC
 c) EPIC
 d) FPGA
 K: a
-X: RISC uses a reduced set of simple, uniform instructions, most executing in one clock cycle.
-S: One cycle, simple → RISC.
+X: RISC uses a small set of simple, uniform (fixed 32-bit, ISS 2026) instructions, most executing in one clock cycle. EPIC is Intel's Itanium approach, and an FPGA is reconfigurable hardware.
+S: One cycle + simple → RISC.
 
 #226 p97 a132
 Q: Which microprocessor architecture offers hundreds of instructions of variable sizes?
@@ -2320,7 +2320,7 @@ b) CISC
 c) EPIC
 d) FPGA
 K: a
-X: RISC designs are simple and use fewer transistors, making them cheaper to design and manufacture.
+X: RISC designs are simple and use fewer transistors, so they are cheaper to design and manufacture.
 S: Simple + cheap → RISC.
 
 #229 p98 a132
@@ -2350,8 +2350,8 @@ b) Cat.avi
 c) Cat.jpg
 d) Cat.png
 K: a
-X: .mp3 is an audio format; .avi is video, and .jpg and .png are images.
-S: Audio: mp3, wav, aac, ogg, flac, midi · Video: avi, mp4, mov, wmv, mkv · Image: jpg, png, gif, bmp.
+X: .mp3 is an audio format. .avi is video, and .jpg and .png are images.
+S: Audio: mp3, wav, aac, ogg, flac, midi · Video: avi, mp4, mov, mkv · Image: jpg, png, gif, bmp.
 
 #232 p98 a132
 Q: Which audio file is bigger?
@@ -2373,7 +2373,7 @@ c) .wav
 d) .mid
 K: b
 X: .rar is a compressed archive format (like .zip). .mp3, .wav and .mid (MIDI) are audio formats.
-S: rar/zip/7z = archives.
+S: rar / zip / 7z = archives, not audio.
 
 #234 p98 a133
 Q: Which file is usually larger and has the best quality?
@@ -2382,8 +2382,8 @@ b) OGG
 c) AVI
 d) MOV
 K: a
-X: WAV stores uncompressed PCM audio, so its files are large but lossless in quality.
-S: Uncompressed → biggest + best quality → WAV (or AIFF).
+X: WAV stores uncompressed PCM audio, so its files are large but lossless in quality. OGG is compressed audio, and AVI and MOV are video containers.
+S: Uncompressed → biggest + best → WAV (or AIFF).
 
 #235 p98 a133
 Q: Which audio file is the most common sound format and close to CD quality?
@@ -2402,8 +2402,8 @@ b) PNG
 c) OGG
 d) WAV
 K: c
-X: Ogg (usually Ogg Vorbis audio) is an open-source, patent-free format from the Xiph.org Foundation.
-S: Open-source and patent-free audio → OGG.
+X: Ogg (usually Ogg Vorbis audio) is an open-source, patent-free format from the Xiph.org Foundation. JPG and PNG are images, and WAV is an old Microsoft/IBM format.
+S: Open-source, patent-free audio → OGG.
 
 #237 p98 a133
 Q: Bonnie wants to animate a graphic image of a Trojan for the Olympics website. Which file format should she use?
@@ -2412,8 +2412,8 @@ b) JPG
 c) OGG
 d) PNG
 K: a
-X: GIF supports simple frame-by-frame animation; JPG and PNG are still images and OGG is audio.
-S: Animation on the web (classic) → GIF.
+X: GIF supports simple frame-by-frame animation (and one transparent colour). JPG and PNG are still images, and OGG is audio.
+S: Web animation (classic) → GIF.
 
 #238 p98 a133
 Q: Which audio type is supported by only a few web browsers, such as Chrome 6+, Firefox 3.6+, and Opera 10+?
@@ -2452,7 +2452,7 @@ b) MP3
 c) AAC
 d) FLAC
 K: b
-X: MP3 is the most widely used lossy compressed format for music playback and streaming.
+X: MP3 is the most widely used lossy compressed format for music playback and streaming. WAV is uncompressed, FLAC is lossless, and AAC is MP3's more efficient successor.
 S: Compressed music → MP3.
 
 #242 p99 a133
@@ -2482,7 +2482,7 @@ b) MP3
 c) AAC
 d) AC3
 K: d
-X: AC3 (Dolby Digital) carries multichannel surround sound (5.1) and is the standard audio format on DVDs.
+X: AC3 (Dolby Digital) carries multichannel 5.1 surround sound and is the standard audio format on DVDs.
 S: DVD surround → AC3 (Dolby Digital).
 
 #245 p99 a134
@@ -2502,8 +2502,8 @@ b) MP3
 c) AAC
 d) AIFF
 K: a
-X: Professional recording and editing use uncompressed WAV so that no quality is lost during processing.
-S: Studio work → WAV (uncompressed).
+X: Professional recording and editing use uncompressed WAV so that no quality is lost during processing. MP3 and AAC are lossy delivery formats.
+S: Studio master → WAV; delivery → MP3/AAC.
 
 #247 p99 a134
 Q: Which audio file format is known for its small file size and is commonly used for online streaming?
@@ -2512,7 +2512,7 @@ b) MP3
 c) AAC
 d) FLAC
 K: b
-X: MP3's lossy compression gives small files suitable for online streaming.
+X: MP3's lossy compression gives small files suited to online streaming. WAV and FLAC are much larger.
 S: Small + streaming → MP3.
 
 #248 p99 a134
@@ -2552,7 +2552,7 @@ b) WAV
 c) FLAC
 d) AAC
 K: b
-X: CD audio is uncompressed 16-bit, 44.1 kHz PCM, and WAV is the standard file format for that data on PCs.
+X: CD audio is uncompressed 16-bit, 44.1 kHz PCM, and WAV is the standard file format for that data on PCs. MP3 and AAC are lossy, and FLAC is compressed.
 S: CD-quality uncompressed → WAV.
 
 #252 p100 a134
@@ -2562,8 +2562,8 @@ b) WAV
 c) FLAC
 d) AAC
 K: c
-X: FLAC compresses audio losslessly, so quality is identical to the original.
-S: Lossless compression → FLAC.
+X: FLAC compresses audio losslessly, so quality is identical to the original at about half the size of WAV.
+S: Lossless compression → FLAC; lossy → MP3/AAC.
 
 #253 p100 a134
 Q: Which sound file format is widely used for streaming and online distribution of music?
@@ -2612,7 +2612,7 @@ b) WAV
 c) OPUS
 d) WMA
 K: c
-X: Opus is built for low-latency voice and audio over the internet.
+X: Opus is built for low-latency voice and audio over the internet, as used in VoIP and WebRTC calls.
 S: VoIP → Opus.
 
 #258 p100 a135
@@ -2652,7 +2652,7 @@ b) AVI
 c) MOV
 d) WMV
 K: a
-X: MP4 (MPEG-4 Part 14, usually with H.264 video) is the dominant format for internet video.
+X: MP4 (MPEG-4 Part 14, usually with H.264 video) is the dominant format for internet video. AVI, MOV and WMV are older, platform-tied containers.
 S: Web video → MP4 (H.264).
 
 #262 p101 a135
@@ -2662,8 +2662,8 @@ b) AVI
 c) MKV
 d) FLV
 K: a
-X: Apple devices and iTunes play MP4 (and its variant M4V) natively.
-S: Apple video → MP4/M4V (or MOV).
+X: Apple devices and iTunes play MP4 (and its variant M4V) natively. MKV and FLV need third-party players.
+S: Apple video → MP4 / M4V (or MOV).
 
 #263 p101 a135
 Q: Which video file format is known for its high-quality and lossless compression?
@@ -2683,7 +2683,7 @@ c) MPEG-2
 d) WMV
 K: c
 X: DVD-Video uses MPEG-2 video (in VOB files) together with menu navigation data.
-S: DVD → MPEG-2; Blu-ray → H.264/AVC (MPEG-4) or HEVC.
+S: DVD → MPEG-2; Blu-ray → H.264/AVC or HEVC.
 
 #265 p101 a135
 Q: Which video file format is commonly used for animated graphics and supports transparency?
@@ -2692,7 +2692,7 @@ b) AVI
 c) GIF
 d) WMV
 K: c
-X: GIF supports simple animation and one transparent colour, so it is used for small animated web graphics.
+X: GIF supports simple animation and one transparent colour, so it is used for small animated web graphics. MP4, AVI and WMV are full video formats.
 S: Animated + transparent (web) → GIF.
 
 #266 p101 a135
@@ -2744,7 +2744,7 @@ b) AVI
 c) MPEG-4 AVC
 d) WMV
 K: c
-X: Blu-ray uses MPEG-4 AVC (H.264) — along with MPEG-2 and VC-1 — for high-definition video.
+X: Blu-ray uses MPEG-4 AVC (H.264), along with MPEG-2 and VC-1, for high-definition video.
 S: Blu-ray HD → H.264 / MPEG-4 AVC.
 
 #271 p102 a136
@@ -2754,8 +2754,8 @@ b) Reduced Instruction Set Computer
 c) Realistic Instructional System Code
 d) Rapid Interconnected Software Compiler
 K: b
-X: RISC = Reduced Instruction Set Computer.
-S: RISC = Reduced Instruction Set Computer; CISC = Complex Instruction Set Computer.
+X: RISC = Reduced Instruction Set Computer: a small, simple instruction set designed for fast, pipelined execution (e.g. ARM, MIPS, RISC-V).
+S: RISC = Reduced Instruction Set Computer (ARM).
 
 #272 p102 a136
 Q: CISC stands for:
@@ -2764,8 +2764,8 @@ b) Compact Instructional System Code
 c) Complex Instruction Set Computer
 d) Complete Interconnected Software Compiler
 K: c
-X: CISC = Complex Instruction Set Computer.
-S: C for Complex.
+X: CISC = Complex Instruction Set Computer: a large set of powerful, variable-length instructions (e.g. Intel x86).
+S: CISC = Complex Instruction Set Computer (x86).
 
 #273 p102 a136
 Q: In RISC architecture, the emphasis is on:
@@ -2784,8 +2784,8 @@ b) Minimizing the number of instructions
 c) Low-level programming languages
 d) Serial processing
 K: a
-X: CISC provides many complex instructions and addressing modes so that each instruction does more work.
-S: CISC → rich, complex instructions + many addressing modes.
+X: CISC provides many complex instructions and addressing modes so each instruction does more work, even operating directly on memory.
+S: CISC → rich instructions + many addressing modes.
 N: The book prints option (a) as "Simple instructions and addressing modes" but explains that CISC emphasises complex instructions and addressing modes; option (a) has been corrected to match the book's key and explanation.
 
 #275 p102 a136
@@ -2805,8 +2805,8 @@ b) Fixed-length instructions
 c) Simple instruction execution units
 d) Large and variable-length instruction sets
 K: d
-X: CISC processors have large instruction sets with variable-length instructions.
-S: CISC = large + variable-length.
+X: CISC processors have large instruction sets with variable-length instructions (ISS 2023). RISC instructions are fixed-length (32-bit, ISS 2026).
+S: CISC = large + variable-length; RISC = small + fixed 32-bit.
 
 #277 p102 a136
 Q: Which type of architecture favors pipelining and instruction-level parallelism?
@@ -2845,8 +2845,8 @@ b) CISC
 c) Both RISC and CISC
 d) Neither RISC nor CISC
 K: a
-X: Simpler logic and fewer transistors make RISC more power-efficient.
-S: Power-efficient → RISC.
+X: Simpler logic and fewer transistors make RISC more power-efficient, which is why ARM (RISC) dominates phones and tablets.
+S: Power-efficient → RISC (ARM in phones).
 
 #281 p103 a137
 Q: Which of the following is a characteristic of RISC architecture?
@@ -2866,8 +2866,8 @@ b) CISC
 c) Both RISC and CISC require the same number of transistors
 d) Transistor count is not related to architecture type
 K: a
-X: RISC's simple control logic needs fewer transistors.
-S: Fewer transistors → RISC.
+X: RISC's simple, hard-wired control logic needs fewer transistors than CISC's complex, often microprogrammed decoder.
+S: Fewer transistors → RISC (hard-wired control).
 
 #283 p103 a137
 Q: Which of the following is an advantage of CISC architecture?
@@ -2898,7 +2898,7 @@ b) CISC
 c) Both RISC and CISC require multiple clock cycles per instruction
 d) Instruction execution time is not related to architecture type
 K: a
-X: RISC aims to complete most instructions in a single clock cycle.
+X: RISC aims to complete most instructions in a single clock cycle, helped by pipelining. CISC instructions often take several cycles.
 S: Single cycle → RISC.
 
 #286 p103 a137
