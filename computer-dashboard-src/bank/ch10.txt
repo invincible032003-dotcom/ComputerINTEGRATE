@@ -1,0 +1,733 @@
+@chapter 10
+@title Flowchart & Algorithm
+@pages 386-393 394-401
+@codes C9 C8
+@default C9
+@themes 1 Flowchart symbols & structures · macro vs micro flowcharts · what an algorithm is · data structures
+@themes 2 Control statements · maintenance & testing · cyclomatic complexity · GDB debugging · network security basics
+
+#1 p386 a394
+Q: The symbol shown denotes ______ (figure redrawn: a box with rounded ends).
+```
+  ╭────────────────╮
+  │                │
+  ╰────────────────╯
+```
+a) I/O
+b) Flow
+c) Terminal
+d) Decision
+K: c
+X: The rounded rectangle (oval/capsule) is the terminal symbol. It marks the START and STOP of a flowchart.
+S: Oval = terminal · parallelogram = I/O · rectangle = process · diamond = decision · circle = connector.
+
+#2 p386 a394
+Q: In computer science, algorithm refers to a pictorial representation of a flowchart.
+a) True
+b) False
+K: b
+X: The statement has the two terms backwards. A flowchart is the pictorial representation of an algorithm. An algorithm is the finite, step-by-step procedure itself.
+S: Algorithm = steps; flowchart = picture of the steps.
+
+#3 p386 a394
+Q: The process of drawing a flowchart for an algorithm is called ______
+a) Performance
+b) Evaluation
+c) Algorithmic Representation
+d) Flowcharting
+K: d
+X: Drawing a flowchart for an algorithm is called flowcharting.
+S: Drawing flowcharts = flowcharting.
+
+#4 p386 a394
+Q: Actual instructions in flowcharting are represented in ______
+a) Circles
+b) Boxes
+c) Arrows
+d) Lines
+K: b
+X: Instructions are written inside boxes (rectangles for processing), and arrows (flow lines) connect the boxes to show the order.
+S: Boxes hold instructions; arrows show flow.
+
+#5 p386 a394
+Q: The following box denotes? (figure redrawn: a diamond)
+```
+      ╱╲
+     ╱  ╲
+     ╲  ╱
+      ╲╱
+```
+a) Decision
+b) Initiation
+c) Initialization
+d) I/O
+K: a
+X: The diamond is the decision symbol. It holds a condition and has two exits, true/yes and false/no.
+S: Diamond = decision (2 exits).
+
+#6 p386 a394
+Q: A box that can represent two different conditions.
+a) Rectangle
+b) Diamond
+c) Circle
+d) Parallelogram
+K: b
+X: The diamond (decision box) tests a condition and branches two ways, depending on whether it is true or false.
+S: Two-way branch → diamond.
+
+#7 p386 a394
+Q: There should be certain set standards on the amount of details that should be provided in a flowchart.
+a) True
+b) False
+K: b
+X: There is no fixed standard for how much detail a flowchart should show. It can be a macro (outline) or a micro (detailed) flowchart, depending on its purpose.
+S: Detail level is flexible → macro vs micro.
+
+#8 p386 a394
+Q: A detailed flowchart is called ______
+a) Stack
+b) Macro
+c) Micro
+d) Union
+K: c
+X: A micro flowchart is a detailed one that shows every step. A macro flowchart shows only the main segments.
+S: Micro = detailed; macro = outline.
+
+#9 p386 a394
+Q: Which of the following is not an advantage of a flowchart?
+a) Better communication
+b) Efficient coding
+c) Systematic testing
+d) Improper documentation
+K: d
+X: Flowcharts improve communication, coding, debugging and testing, and they provide proper documentation. "Improper documentation" is therefore not an advantage. The limitations of flowcharts are that complex logic is hard to draw and changes mean redrawing.
+S: Flowchart pluses: communication · analysis · coding · testing · documentation.
+
+#10 p387 a394
+Q: A flowchart that outlines the main segments of a program.
+a) Queue
+b) Macro
+c) Micro
+d) Union
+K: b
+X: A macro flowchart shows the big picture, i.e. the main components of a program, without the fine detail.
+S: Main segments → macro.
+
+#11 p387 a394
+Q: A ______ is a diagram that depicts the flow of a program.
+a) Algorithm
+b) Hash Table
+c) Graph
+d) Flowchart
+K: d
+X: A flowchart is the diagram of a program's flow of control. An algorithm is the written procedure, not a diagram.
+S: Diagram of program flow → flowchart.
+
+#12 p387 a395
+Q: Terminals are represented by diagonals in a flowchart.
+a) True
+b) False
+K: b
+X: Terminals (start/stop) are drawn as rounded rectangles (ovals), not diagonals. Diamonds are for decisions.
+S: Terminal = oval, not diamond.
+
+#13 p387 a395
+Q: The operation represented by parallelograms.
+a) Input/Output
+b) Assignment
+c) Comparison
+d) Conditions
+K: a
+X: Parallelograms stand for input and output, e.g. READ A, B or PRINT SUM. Assignments go in rectangles, and comparisons or conditions go in diamonds.
+S: Parallelogram = input/output.
+
+#14 p387 a395
+Q: Which of the following is not a flowchart structure?
+a) Process
+b) Sequence
+c) Repetition
+d) Case
+K: a
+X: The four flowchart control structures are sequence, decision (selection), repetition (loop) and case (multi-way selection). A process is a symbol (rectangle), not a structure.
+S: Structures: sequence · decision · repetition · case.
+
+#15 p387 a395
+Q: The action performed by a ______ structure must eventually cause the loop to terminate.
+a) Sequence
+b) Case
+c) Repetition
+d) Process
+K: c
+X: In a repetition (loop) structure, the body must eventually make the loop condition false. Otherwise the result is an infinite loop.
+S: Loop must progress toward exit → else infinite loop.
+
+#16 p387 a395
+Q: The following symbol denotes: (figure redrawn: a rectangle with an extra vertical line near each end)
+```
+  ┌──┬──────────────┬──┐
+  │  │              │  │
+  └──┴──────────────┴──┘
+```
+a) Module
+b) Terminal
+c) Process
+d) I/O operation
+K: a
+X: A rectangle with double vertical sides is the predefined process symbol. It stands for a module or subroutine defined elsewhere. A plain rectangle is an ordinary process.
+S: Double-sided rectangle = predefined process / module.
+
+#17 p387 a395
+Q: What type of structure is this? (figure redrawn: flow enters a decision; one exit runs through an action box and loops back above the decision, the other exit leaves)
+```
+          │
+          ▼  ◄───────────────┐
+      ◇ condition ──yes──► [ action ]
+          │ no
+          ▼
+```
+a) Sequence
+b) Case
+c) Repetition
+d) Process
+K: c
+X: The arrow from the action box returns to the decision, so the action is repeated while the condition holds. That makes it a repetition (loop) structure.
+S: Arrow looping back → repetition.
+
+#18 p387 a395
+Q: What type of a structure is this? (figure redrawn: one decision fans out into several parallel boxes that rejoin into one exit)
+```
+                 ◇
+     ┌──────┬────┴───┬──────┐
+     ▼      ▼        ▼      ▼
+  [case1][case2]  [case3][default]
+     └──────┴────┬───┴──────┘
+                 ▼
+```
+a) Sequence
+b) Case
+c) Repetition
+d) Process
+K: b
+X: One selector branches to many alternatives (cases plus a default), which then rejoin. This is the case (multi-way selection) structure, like `switch` in C.
+S: One decision → many branches → case (switch).
+
+#19 p387 a395
+Q: ______ is a connector showing the relationship between the representative shapes.
+a) Line
+b) Arrow
+c) Process
+d) Box
+K: b
+X: Arrows (flow lines) connect the symbols and show the direction of flow. (The connector symbol proper, used to join separated parts of a chart, is a small circle.)
+S: Flow direction → arrows; on-page connector → small circle.
+
+#20 p388 a395
+Q: What does a flowchart symbol with two parallel lines represent?
+a) A process or action
+b) A decision point
+c) A start or end point
+d) The start or end of two or more simultaneous (parallel) operations
+K: d
+X: In the ISO 5807 flowchart standard, a pair of parallel lines is the parallel-mode symbol. It marks where two or more simultaneous operations begin or end. The ordinary connector, joining parts of a chart, is a small circle.
+S: Two parallel lines = parallel mode; small circle = connector.
+N: The book's option (d) read "A connector between flowchart sections". The standard connector is a small circle (off-page: a home-plate pentagon), not two parallel lines. The keyed option (d) has been reworded to what two parallel lines actually denote.
+
+#21 p388 a395
+Q: The word ______ comes from the name of a Persian mathematician Abu Ja'far Mohammed ibn-i Musa al Khowarizmi.
+a) Flowchart
+b) Flow
+c) Algorithm
+d) Syntax
+K: c
+X: "Algorithm" comes from al-Khwarizmi, the 9th-century Persian mathematician whose book on the Hindu–Arabic numerals was translated into Latin as "Algoritmi de numero Indorum". "Algebra" comes from his other famous book.
+S: al-Khwarizmi → algorithm (& algebra).
+
+#22 p388 a395
+Q: In computer science, algorithm refers to a special method usable by a computer for the solution to a problem.
+a) True
+b) False
+K: a
+X: An algorithm is a finite, well-defined, effective sequence of steps that a computer can follow to solve a problem. Its properties are input, output, definiteness, finiteness and effectiveness.
+S: Algorithm properties: input · output · definite · finite · effective.
+
+#23 p388 a396
+Q: This characteristic often draws the line between what is feasible and what is impossible.
+a) Performance
+b) System Evaluation
+c) Modularity
+d) Reliability
+K: a
+X: Performance (time and space efficiency) often decides whether a problem can be solved in practice. An exponential algorithm may be useless for large inputs where an efficient one succeeds.
+S: Feasible vs impossible → performance (efficiency).
+
+#24 p388 a396
+Q: The ______ time that depends on the input: an already sorted sequence is easier to sort.
+a) Process
+b) Evaluation
+c) Running
+d) Input
+K: c
+X: An algorithm's running time depends on the input (its size and arrangement). Insertion sort, for example, takes linear time on already-sorted data.
+S: Running time = f(input size & order).
+
+#25 p388 a396
+Q: Which of the following is incorrect? Algorithms can be represented:
+a) as pseudo codes
+b) as syntax
+c) as programs
+d) as flowcharts
+K: b
+X: Algorithms are represented in natural language, pseudocode, flowcharts or programs. "Syntax" is the grammar of a language, not a way to represent an algorithm.
+S: Represent algorithms: steps · pseudocode · flowchart · program.
+
+#26 p388 a396
+Q: When an algorithm is written in the form of a programming language, it becomes a ______
+a) Flowchart
+b) Program
+c) Pseudo code
+d) Syntax
+K: b
+X: An algorithm coded in a programming language is a program. Every program implements some algorithm.
+S: Algorithm + language = program.
+
+#27 p388 a396
+Q: Which of the following best describes the term "algorithm" in computer science?
+a) A type of computer hardware
+b) A step-by-step procedure to solve a problem
+c) A programming language
+d) A type of computer network
+K: b
+X: An algorithm is a step-by-step procedure (a finite set of instructions) for solving a problem.
+S: Algorithm = step-by-step procedure.
+
+#28 p389 a396
+Q: A system wherein items are added from one end and removed from the other end.
+a) Stack
+b) Queue
+c) Linked List
+d) Array
+K: b
+X: A queue inserts at the rear and deletes from the front (FIFO). A stack inserts and deletes at the same end, the top (LIFO).
+S: Queue = two ends (FIFO); stack = one end (LIFO).
+
+#29 p389 a397
+Q: Another name for 1-D arrays.
+a) Linear arrays
+b) Lists
+c) Horizontal array
+d) Vertical array
+K: a
+X: A one-dimensional array is a linear array: elements stored one after another in a single row and reached with one index, e.g. `a[i]`.
+S: 1-D = linear array.
+
+#30 p389 a397
+Q: A data structure that follows the FIFO principle.
+a) Queue
+b) LL
+c) Stack
+d) Union
+K: a
+X: A queue is First In, First Out, like a ticket line. A stack is LIFO, like a pile of plates.
+S: FIFO → queue; LIFO → stack.
+
+#31 p389 a397
+Q: Programming based on stepwise refinement process.
+a) Structural
+b) C programming
+c) Procedural
+d) Fine
+K: a
+X: Structured programming (Dijkstra, Wirth) develops a program by stepwise refinement, i.e. top-down decomposition. It uses only sequence, selection and iteration, with no goto.
+S: Stepwise refinement / top-down → structured programming.
+
+#32 p389 a397
+Q: What is the primary characteristic of structural programming?
+a) It emphasizes using only a single programming language.
+b) It focuses on breaking down a program into smaller, manageable functions or modules.
+c) It encourages the use of complex and nested control structures.
+d) It relies on object-oriented principles for program design.
+K: b
+X: Structured programming splits a program into small, self-contained modules with single entry and exit points, which makes it easier to read, test and maintain.
+S: Structured = modular + sequence/selection/iteration.
+
+#33 p389 a397
+Q: A ______ is a directed graph that describes the flow of execution control of the program.
+a) Flowchart
+b) Flow graph
+c) Complexity curve
+d) Algorithm
+K: a
+X: A flowchart is a directed graph: its symbols are the nodes and its arrows the edges, together showing the flow of control.
+S: Directed graph of control flow → flowchart (book).
+N: In software testing, the control flow graph (flow graph, option b) is also a directed graph of a program's control flow; it is the basis of cyclomatic complexity (Q46–Q48). The book's intended answer is the flowchart.
+
+#34 p389 a397
+Q: A program should be ______
+a) Secure
+b) Sequential
+c) Ordered
+d) Simple
+K: b
+X: The book's point: a structured program is written as a sequence of program structures (sequences, choices and loops), each following the last.
+S: Structured program = sequence of structures.
+
+#35 p389 a397
+Q: The following is the syntax for: ______ (condition) action
+a) Else
+b) Elif
+c) If
+d) Switch
+K: c
+X: `if (condition) action` is the simple selection statement. `else` has no condition of its own, and `switch` takes an expression and a list of cases.
+S: if (condition) action.
+
+#36 p390 a397
+Q: Which of the following is a loop statement?
+a) IF
+b) ELSE
+c) WHILE
+d) DO
+K: c
+X: `while (condition) action` repeats the action while the condition is true. IF and ELSE are selection statements. DO needs a WHILE to form a loop (do…while).
+S: Loops: for · while · do-while.
+
+#37 p390 a397
+Q: What is the correct syntax of for statement?
+a) for(initialization;condition;update)
+b) for(initialization,condition,update)
+c) for(condition;initialization;update)
+d) for(initialization;condition;)
+K: a
+X: The three parts of the for header are separated by semicolons, in the order initialisation; condition; update, e.g. `for (i = 0; i < n; i++)`. Option d is legal C but omits the update, so it is not the standard form.
+S: for (init ; test ; update).
+
+#38 p390 a397
+Q: Semicolon is used after:
+a) Function definition
+b) Function call
+c) for loop
+d) while loop
+K: b
+X: A function call is a statement, so it ends with a semicolon, e.g. `sum(a, b);`. A semicolon after a function definition's header, or straight after `for(...)` or `while(...)`, is an error or a silent bug (empty loop body). The exception is `do { } while (cond);`, which does end with a semicolon.
+S: Call → `;`; header of def/for/while → no `;`.
+
+#39 p390 a397
+Q: The number of values a function can return at a time?
+a) 1
+b) 0
+c) 2
+d) More than 2
+K: a
+X: In C, `return` sends back only one value. `return (x, 12);` uses the comma operator and returns only 12. To pass back several values, use pointers, arrays or a struct.
+S: C function → one return value.
+
+#40 p390 a398
+Q: Which of the following isn't a loop statement?
+a) for
+b) elif
+c) while
+d) do-while
+K: b
+X: `elif` (else-if) belongs to a selection statement. for, while and do-while are loops.
+S: elif = selection, not loop.
+
+#41 p390 a398
+Q: Maintenance and review add to the useful life of the system but can consume large amounts of ______
+a) Documents
+b) Software
+c) Devices
+d) Resources
+K: d
+X: Maintenance often takes most of a system's lifetime cost, in effort, time and money.
+S: Maintenance = biggest share of life-cycle cost.
+
+#42 p390 a398
+Q: Which of the following is NOT a key activity in system maintenance?
+a) Bug fixing
+b) Enhancing system features
+c) Writing the initial system code
+d) Monitoring system performance
+K: c
+X: Maintenance happens after delivery: corrective (bug fixes), adaptive (environment changes), perfective (enhancements) and preventive. Writing the initial code belongs to development.
+S: Maintenance types: corrective · adaptive · perfective · preventive.
+
+#43 p390 a398
+Q: This is not a part of the signing on procedure.
+a) Identification
+b) Verification
+c) Execution
+d) Authorization
+K: c
+X: Signing on (logging in) involves identification (user ID), verification (password) and authorisation (granting rights). Running programs comes afterwards and is not part of signing on.
+S: Sign-on = identify → verify → authorise.
+
+#44 p391 a398
+Q: A ______ is a documented set of activities that are executed on the software in order to confirm its behavior to certain set of inputs.
+a) Process
+b) Document
+c) Use case
+d) Test case
+K: d
+X: A test case specifies inputs, execution steps and expected outputs, used to check that the software behaves correctly.
+S: Inputs + steps + expected output = test case.
+
+#45 p391 a398
+Q: Type of testing that is conducted at the software interface.
+a) Grey box
+b) Black box
+c) Red box
+d) White box
+K: b
+X: Black-box testing checks the software through its interface (inputs and outputs) without looking at the code. White-box testing examines the internal logic and paths, and grey-box testing uses partial knowledge of the internals.
+S: Interface / functional → black box; code paths → white box.
+
+#46 p391 a398
+Q: A simple notation for the representation of control flow.
+a) System flow
+b) Flow graph
+c) Flow program
+d) System program
+K: b
+X: A flow graph shows control flow with nodes (circles for statements or blocks) and edges (arrows). It is used to compute cyclomatic complexity.
+S: Nodes + edges of control → flow graph.
+
+#47 p391 a398
+Q: A software metric that provides a quantitative measure of the logical complexity of a program.
+a) Cyclomatic complexity
+b) Index matrix
+c) Quantitative complexity
+d) System complexity
+K: a
+X: McCabe's cyclomatic complexity measures logical complexity: the number of independent paths, and so the minimum number of test cases needed for basis-path testing.
+S: McCabe → cyclomatic complexity = independent paths.
+
+#48 p391 a398
+Q: An expression for the calculation of cyclomatic complexity.
+a) V(G) = E − N + 2
+b) V(G) = E + N + 2
+c) V(G) = E − N − 2
+d) V(G) = E + N − 2
+K: a
+X: V(G) = E − N + 2, where E is the number of edges and N the number of nodes of the flow graph. Equivalent forms are V(G) = P + 1 (P = number of predicate/decision nodes) and V(G) = number of regions.
+S: V(G) = E − N + 2 = P + 1 = regions.
+
+#49 p391 a398
+Q: The probability of failure-free operation of a software application in a specified environment for a specified time.
+a) Software Reliability
+b) Software Quality
+c) Software availability
+d) Software Safety
+K: a
+X: Software reliability is the probability of failure-free operation for a specified time in a specified environment, often measured by MTBF (mean time between failures).
+S: Failure-free probability over time → reliability (MTBF).
+
+#50 p391 a399
+Q: SCM stands for ______
+a) Software configuration monitoring
+b) System configuration management
+c) Software configuration management
+d) System configuration monitoring
+K: c
+X: Software Configuration Management (SCM, or change management) identifies, controls and tracks changes to software items, e.g. with version control such as Git.
+S: SCM = Software Configuration Management (version/change control).
+
+#51 p391 a399
+Q: Examination of the program step by step is called ______
+a) Controlling
+b) Tracing
+c) Stepping
+d) Testing
+K: c
+X: In a debugger, stepping means executing the program one statement at a time (e.g. GDB `step`/`next`) while inspecting variables.
+S: One statement at a time → stepping.
+
+#52 p391 a399
+Q: Which of the following is a common debugging technique used to locate the source of a bug in code?
+a) Writing more code to work around the issue
+b) Ignoring the bug and hoping it won't cause problems
+c) Using print statements to display variable values
+d) Deleting the entire code and starting from scratch
+K: c
+X: Print (trace) statements show how variables change as the program runs and help narrow down where the bug is. Breakpoints and stepping in a debugger do the same job.
+S: Debug: print tracing · breakpoints · stepping.
+
+#53 p392 a399
+Q: A freeware GNU Debugger is ______
+a) GDB
+b) GNB
+c) FDB
+d) FNB
+K: a
+X: GDB (the GNU Project Debugger) is free software for Unix-like systems. It debugs C, C++, Fortran and other languages.
+S: GNU Debugger = GDB.
+
+#54 p392 a399
+Q: Which of the following is written for getting help in GDB?
+a) he
+b) h
+c) assist
+d) assistant
+K: b
+X: In GDB, `help` or its abbreviation `h` gives help. `help` alone lists the command classes, and `help command` describes that command. `he`, `assist` and `assistant` are not GDB commands.
+S: GDB help → `help` / `h`.
+
+#55 p392 a399
+Q: h command gives ______
+a) A list of all the commands starting from h
+b) Describes all the commands
+c) Displays a short description of the command
+d) Displays all the programs
+K: c
+X: `h command-name` shows a short description of that command. `h` on its own lists the classes of commands.
+S: `h cmd` → short description.
+
+#56 p392 a399
+Q: ______ creates an inferior process that runs your program.
+a) run
+b) exit
+c) execute
+d) die
+K: a
+X: GDB's `run` (or `r`) starts the program being debugged as an "inferior" (child) process under GDB's control.
+S: GDB start program → `run` / `r`.
+
+#57 p392 a399
+Q: Which of the following does not affect the execution of the program?
+a) Arguments
+b) Environment
+c) Control
+d) I/O
+K: c
+X: Per the GDB manual, a program's execution depends on its arguments, environment, working directory and standard input/output. "Control" is not one of them.
+S: GDB run context: args · environment · working dir · I/O.
+
+#58 p392 a399
+Q: 'set args' without arguments can ______
+a) initialize all the arguments
+b) remove all the arguments
+c) no change
+d) show all the arguments
+K: b
+X: `set args arg1 arg2 …` sets the arguments for the next run. `set args` with nothing after it clears them all. `show args` displays them.
+S: `set args` (empty) → clear; `show args` → display.
+
+#59 p392 a399
+Q: Which is not involved in debugging?
+a) Identifying
+b) Isolating
+c) Test
+d) Fixing
+K: c
+X: Debugging means identifying, isolating and fixing a bug. Testing is a separate activity that finds failures; debugging then locates and removes their cause.
+S: Testing finds; debugging fixes.
+
+#60 p392 a399
+Q: run > outfile command is used to ______
+a) direct output to the file outfile
+b) jump to a file outfile
+c) enter a file outfile
+d) edit a file outfile
+K: a
+X: In GDB, `run > outfile` starts the program with its standard output redirected into the file outfile, using the usual shell redirection syntax.
+S: `>` = redirect output to file.
+
+#61 p392 a400
+Q: The field that covers a variety of computer networks, both public and private, that are used in everyday jobs.
+a) Artificial Intelligence
+b) ML
+c) Network Security
+d) IT
+K: c
+C: C8
+X: Network security protects the public and private networks used in everyday work (transactions, communication) from unauthorised access, misuse and attack.
+S: Protect networks → network security.
+
+#62 p392 a400
+Q: What is a common method of authentication used in network security to verify a user's identity?
+a) MAC address filtering
+b) Password authentication
+c) IP address masking
+d) DNS resolution
+K: b
+X: Passwords, i.e. something you know, are the most common authentication factor. The other factor types are something you have (OTP, token) and something you are (fingerprint).
+S: Factors: know (password) · have (OTP) · are (biometric).
+
+#63 p393 a400
+Q: Which is not an objective of network security?
+a) Identification
+b) Authentication
+c) Access control
+d) Lock
+K: d
+X: The objectives are identification, authentication and access control (plus confidentiality, integrity and availability). "Lock" is not a security objective.
+S: Security objectives: identify · authenticate · control access (CIA).
+
+#64 p393 a400
+Q: Which of these is a part of network identification?
+a) UserID
+b) Password
+c) OTP
+d) Fingerprint
+K: a
+X: Identification means claiming who you are, e.g. entering a user ID. Password, OTP and fingerprint are authentication factors that prove the claim.
+S: User ID = identification; password/OTP/biometric = authentication.
+
+#65 p393 a400
+Q: The process of verifying the identity of a user.
+a) Authentication
+b) Identification
+c) Validation
+d) Verification
+K: a
+X: Authentication verifies a claimed identity using passwords, smart cards, OTPs or biometrics. Authorisation then decides what that user may do.
+S: Authentication = who you are; authorisation = what you may do.
+
+#66 p393 a400
+Q: A concern of authentication that deals with user rights.
+a) General access
+b) Functional authentication
+c) Functional authorization
+d) Auto verification
+K: c
+X: Functional authorisation deals with each user's rights: which functions and resources an authenticated user may use.
+S: User rights → authorisation.
+
+#67 p393 a400
+Q: CHAP stands for?
+a) Challenge Handshake authentication protocol
+b) Challenge Hardware authentication protocol
+c) Circuit Hardware authentication protocol
+d) Circuit Handshake authentication protocol
+K: a
+X: CHAP (Challenge Handshake Authentication Protocol, used with PPP) has the server send a random challenge. The client replies with a hash (MD5) of the challenge and the shared secret, so the password never crosses the network in plain text. PAP, by contrast, sends it in plain text.
+S: CHAP = challenge + hashed reply; PAP = plaintext password.
+
+#68 p393 a400
+Q: Security features that control who can access resources in the OS.
+a) Authentication
+b) Identification
+c) Validation
+d) Access control
+K: d
+X: Access control (e.g. file permissions, access control lists) decides which authenticated users may use which resources, and how.
+S: Who can use which resource → access control (ACL).
+
+#69 p393 a400
+Q: An algorithm in encryption is called ______
+a) Algorithm
+b) Procedure
+c) Cipher
+d) Module
+K: c
+X: An encryption algorithm is called a cipher, e.g. AES, DES or RSA. The cipher transforms plaintext into ciphertext using a key.
+S: Encryption algorithm = cipher.
+
+#70 p393 a401
+Q: The information that gets transformed in encryption is ______
+a) Plain text
+b) Parallel text
+c) Encrypted text
+d) Decrypted text
+K: a
+X: Encryption turns plaintext (readable data) into ciphertext using a cipher and a key. Decryption turns it back.
+S: Plaintext → (cipher + key) → ciphertext.
