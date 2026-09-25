@@ -343,14 +343,15 @@ V.cs = function () {
   h += '<div class="card cs-head"><h1>Computer <span class="cs-badge">CHAPTER-WISE SETS · ISS PAPER-I</span></h1>' +
     '<p class="card-sub">Every question of ' + E(CMETA.source) + ' (' + CMETA.pages + ' pages), dealt chapter by ' +
     'chapter into sets of ' + CMETA.setMin + '–' + CMETA.setMax + '. Each answer opens with the verdict, then the ' +
-    'explanation, then a one-line exam shortcut. Every chapter also has a crisp-pointer sheet for the objective paper.</p>' +
+    'explanation, then a 15-second exam shortcut. Every chapter also has a crisp-pointer sheet for the objective paper.</p>' +
     '<div class="kpis">' +
     '<div class="kpi"><div class="v">' + CMETA.total + '</div><div class="l">Questions</div></div>' +
     '<div class="kpi"><div class="v">' + CMETA.chapters.length + '</div><div class="l">Chapters</div></div>' +
     '<div class="kpi"><div class="v">' + CMETA.nSets + '</div><div class="l">Practice sets</div></div>' +
     '<div class="kpi ok"><div class="v">' + fx(pct(all.seen, all.n), 0) + '%</div><div class="l">Covered</div></div>' +
     '</div>' +
-    '<div class="banner info mt"><b>Book bank, not previous-year questions.</b> ' + E(CMETA.provenance) + '</div></div>';
+    '<details class="cs-prov"><summary>Book bank, not previous-year questions · about the source</summary>' +
+    '<div class="banner info">' + E(CMETA.provenance) + '</div></details></div>';
 
   h += '<div class="cs-tabs" role="tablist" aria-label="Chapters">';
   CMETA.chapters.forEach(function (cc) {

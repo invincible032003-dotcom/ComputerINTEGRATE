@@ -6,6 +6,7 @@ Inputs (all in computer-dashboard-src/):
   bank/chNN.txt      curated question bank, one file per book chapter
   sheets/chNN.txt    crisp pointers (UPSC ISS Paper-I) per chapter
   cs-tab.css / cs-tab.js   the tab's styles and screens
+  mobile.css / mobile.js   Android-style phone shell (bottom nav, session bar, swipe, back button)
 
 Output:
   ../UPSC-ISS-Statistics-Dashboard-STANDALONE.html
@@ -304,10 +305,19 @@ def js_safe(obj):
 def integrate(meta, data):
     s = open(BASE, encoding='utf-8').read()
     css = open(os.path.join(HERE, 'cs-tab.css'), encoding='utf-8').read()
+    css += open(os.path.join(HERE, 'mobile.css'), encoding='utf-8').read()
     js = open(os.path.join(HERE, 'cs-tab.js'), encoding='utf-8').read()
+    js += '\n' + open(os.path.join(HERE, 'mobile.js'), encoding='utf-8').read()
 
     # styles
     s = sub1(s, '/* GK-CSS-END */\n', '/* GK-CSS-END */\n/* CS-CSS-BEGIN */\n' + css + '/* CS-CSS-END */\n', 'css')
+
+    # Android: tint the browser toolbar to match the top app bar
+    s = sub1(s, '<meta name="color-scheme" content="light dark">\n',
+             '<meta name="color-scheme" content="light dark">\n'
+             '<meta name="theme-color" content="#17457a" media="(prefers-color-scheme: light)">\n'
+             '<meta name="theme-color" content="#15263c" media="(prefers-color-scheme: dark)">\n'
+             '<meta name="mobile-web-app-capable" content="yes">\n', 'theme-color')
 
     # data, right after the Gupta & Kapoor bank
     i = s.index('<script id="gk-data">')
@@ -338,6 +348,12 @@ def integrate(meta, data):
              "  return (q.id + ' ' + (q.isCS ? 'computer book chapter ' + q.csChapter + ' ' + q.subtopic + ' set ' +\n"
              "          q.csSet + ' ' + q.questionType + ' ' + (q.code || '') : q.isForecast ? 'forecast 2027' : q.isGK ? 'gupta kapoor chapter ' +",
              'search index')
+
+    # learning-mode prompt: Computer items reveal explanation then shortcut
+    s = sub1(s, "    h += '<div class=\"banner mt\">Choose an option to reveal the verdict, the exam shortcut, ' +\n      'the tips and the full solution.</div>';",
+             "    h += '<div class=\"banner mt\">' + (q.isCS ? 'Choose an option to reveal the verdict, the explanation and ' +\n"
+             "      'the 15-second exam shortcut.' : 'Choose an option to reveal the verdict, the exam shortcut, ' +\n"
+             "      'the tips and the full solution.') + '</div>';", 'learn prompt')
 
     # badges, meta line, reveal, options, body
     s = sub1(s, "  if (q.isGK) return '<span class=\"gk-badge\">GUPTA KAPOOR &middot; Ch ' + q.gkChapter + ' &middot; not PYQ</span>';",

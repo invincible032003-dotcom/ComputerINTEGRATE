@@ -12,7 +12,7 @@ const path = require('path');
     const w = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
     if (w[0] > w[1] + 1) errors.push(`${label}: horizontal overflow ${w[0]} > ${w[1]}`);
   };
-  for (const [name, vp] of [['desktop', { width: 1280, height: 900 }], ['phone', { width: 390, height: 844 }]]) {
+  for (const [name, vp] of [['desktop', { width: 1280, height: 900 }], ['phone', { width: 360, height: 800 }]]) {
     const page = await browser.newPage({ viewport: vp });
     page.on('pageerror', e => errors.push(`${name} pageerror: ${e.message}`));
     page.on('console', m => { if (m.type() === 'error') errors.push(`${name} console: ${m.text()}`); });
@@ -22,7 +22,8 @@ const path = require('path');
     const info = await page.evaluate(() => ({ cs: window.ISSApp.cs.total, audit: window.ISSApp.cs.audit }));
     if (name === 'desktop') console.log('bank', info.cs, 'audit ok', info.audit.ok, info.audit.errors.slice(0, 5));
     await page.screenshot({ path: `${out}/${name}-home.png`, fullPage: false });
-    await page.click('#topbar [data-r="cs"]');
+    const nav = name === 'phone' ? '#bnav' : '#topbar';
+    await page.click(nav + ' [data-r="cs"]');
     await page.waitForSelector('.cs-tabs');
     await check(page, name + ' cs');
     await page.screenshot({ path: `${out}/${name}-cs.png`, fullPage: true });
@@ -43,14 +44,14 @@ const path = require('path');
     await page.waitForSelector('.pane.cs-exp');
     await check(page, name + ' learn');
     await page.screenshot({ path: `${out}/${name}-learn.png`, fullPage: true });
-    await page.click('[data-act="nextQ"]');
+    await page.click(name === 'phone' ? '#msess [data-proxy="nextQ"]' : '[data-act="nextQ"]');
     await page.keyboard.press('2');
     await page.click('[data-act="submitMock"]');
     await page.waitForSelector('.kpis');
     await page.screenshot({ path: `${out}/${name}-result.png`, fullPage: false });
     await page.click('[data-act="reviewAt"][data-i="0"]');
     await page.waitForSelector('.pane.cs-short');
-    await page.click('[data-r="cs"]');
+    await page.click(nav + ' [data-r="cs"]');
     await page.waitForSelector('.cs-set');
     // exam session on chapter 2 set 2
     await page.click('[data-act="csCh"][data-ch="2"]');
@@ -65,7 +66,7 @@ const path = require('path');
     const prog = await page.evaluate(() => localStorage.getItem('upsc.iss.cs.v1'));
     if (name === 'desktop') console.log('progress', prog && prog.slice(0, 200));
     // search + audit
-    await page.click('#topbar [data-r="search"]');
+    await page.click(nav + ' [data-r="search"]');
     await page.selectOption('[data-act="searchBank"]', 'cs');
     await page.fill('#sq', 'binary');
     await page.waitForTimeout(400);
