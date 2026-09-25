@@ -1,0 +1,2760 @@
+@chapter 1
+@title Computer Fundamentals
+@pages 11-41 42-73
+@codes C1 C2 C3 C5 C6 C7 C8
+@default C1
+@themes 1 Generations · types of computers · core hardware · CPU units
+@themes 2 Clock speed · registers · primary memory · cache · memory units
+@themes 3 Memory hierarchy · virtual memory · buses · interface unit · motherboard
+@themes 4 Motherboard & BIOS · chipset · software types · RAM types (DRAM, SRAM, DDR) · ROM
+@themes 5 Secondary storage · hard disk, floppy, tape · CD-ROM / CD-R / CD-RW · OS functions
+@themes 6 Kernel & user interface · booting (POST, CMOS, MBR) · instruction cycle
+
+#1 p11 a42
+Q: Which generation of computers used vacuum tubes for circuitry?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: a
+X: First-generation computers (about 1946–1958, e.g. ENIAC, UNIVAC) used vacuum tubes for circuitry and magnetic drums for memory; they were huge, power-hungry and produced a lot of heat.
+S: Vacuum tube → 1G · Transistor → 2G · IC → 3G · Microprocessor (VLSI) → 4G · AI / ULSI → 5G.
+
+#2 p11 a42
+Q: The first generation of computers were primarily used for:
+a) Scientific calculations
+b) Data storage
+c) Personal use
+d) Internet connectivity
+K: a
+X: First-generation machines were built for scientific and military number-crunching — ballistics tables, atomic research and wartime code-breaking. Personal use and the internet came generations later.
+S: 1G = giant calculators for science and defence; "personal" and "internet" are 4G ideas — eliminate them.
+
+#3 p11 a42
+Q: Which generation of computers introduced transistors as a replacement for vacuum tubes?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: b
+X: The second generation (about 1959–1965) replaced vacuum tubes with transistors, which were smaller, faster, more reliable and ran much cooler.
+S: Transistor (invented 1947 at Bell Labs) → 2nd generation.
+
+#4 p11 a42
+Q: Integrated circuits (ICs) were first introduced in which generation of computers?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: c
+X: The third generation (about 1965–1971) used integrated circuits, which pack many transistors and other components on a single silicon chip, making computers smaller and more powerful (e.g. IBM System/360).
+S: IC → 3rd generation (SSI/MSI chips); LSI/VLSI and the microprocessor → 4th.
+
+#5 p11 a42
+Q: Which generation of computers saw the development of microprocessors?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+B: c
+X: The microprocessor — a whole CPU on one VLSI chip, first the Intel 4004 in 1971 — is the defining technology of the fourth generation. It is what made personal computers possible.
+S: Microprocessor = 4G (Intel 4004, 1971). If the option says "whole CPU on one chip", answer 4th.
+N: The book prints (c) Third generation. Third-generation machines used integrated circuits but not microprocessors; the microprocessor (Intel 4004, 1971) marks the fourth generation, so the key is (d).
+
+#6 p11 a42
+Q: The development of high-level programming languages like COBOL and FORTRAN occurred during which generation of computers?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: b
+B: c
+X: High-level languages arrived with the second generation: FORTRAN (1957) and COBOL (1959) replaced machine and assembly language for most programming on transistor machines.
+S: 1G machine language · 2G assembly + early high-level (FORTRAN, COBOL) · 3G more HLLs + OS · 4G GUI, C/C++ · 5G AI/natural language.
+N: The book prints (c) Third generation. FORTRAN (1957) and COBOL (1959) were introduced in the second generation, so the key is (b).
+
+#7 p11 a42
+Q: The use of graphical user interfaces (GUIs) and personal computers became prominent in which generation of computers?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+X: Personal computers and GUIs (Apple Macintosh 1984, Microsoft Windows) belong to the fourth generation, which began in the 1970s with microprocessor-based machines and continues to today.
+S: PC + GUI + mouse = microprocessor era = 4G.
+
+#8 p11 a43
+Q: Which generation of computers is characterized by the use of large-scale integration (LSI) and very large-scale integration (VLSI) circuits?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+X: Fourth-generation computers use LSI and VLSI chips, which put thousands to millions of transistors on one chip; this made the microprocessor and the personal computer possible.
+S: SSI/MSI → 3G; LSI/VLSI → 4G; ULSI → 5G.
+
+#9 p11 a43
+Q: The introduction of the internet and the World Wide Web (WWW) took place during which generation of computers?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+X: The public internet and the World Wide Web (proposed by Tim Berners-Lee in 1989) spread in the fourth, microprocessor-based generation of computers.
+S: WWW → Tim Berners-Lee, 1989, CERN → 4th-generation era.
+
+#10 p12 a43
+Q: Which generation of computers is associated with artificial intelligence (AI) and parallel processing?
+a) First generation
+b) Second generation
+c) Third generation
+d) Fourth generation
+K: d
+X: In the standard classification AI and massive parallel processing are the aims of the fifth generation. The book limits the options to four generations and keys the fourth, the only one listed in which parallel processors and AI research actually grew.
+S: Textbook answer is 5G (AI, ULSI, parallel processing); if 5G is not offered, pick the latest generation listed.
+N: If an option "Fifth generation" were present it would be the answer; among the four options given, (d) is the closest.
+
+#11 p12 a43
+Q: Which type of computer is designed to be used by a single user at a time?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Embedded computer
+K: c
+X: A personal computer (desktop or laptop) is a microcomputer meant for one user at a time. Mainframes and supercomputers serve many users or jobs at once.
+S: "Single user" → PC / microcomputer; "hundreds of users" → mainframe.
+
+#12 p12 a43
+Q: Which type of computer is specifically designed to perform complex calculations at incredibly high speeds?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Minicomputer
+K: b
+X: A supercomputer is built for raw computing speed, using thousands of processors in parallel for weather forecasting, scientific simulation and cryptography. Its speed is measured in FLOPS.
+S: Speed / FLOPS / weather / simulation → supercomputer; many users + bulk data → mainframe.
+
+#13 p12 a43
+Q: Which type of computer is commonly used in large organizations for centralized data storage and processing?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Minicomputer
+K: a
+X: Mainframes serve large organisations — banks, railways, insurance — with centralised storage and processing for thousands of simultaneous users and transactions, with high reliability.
+S: Bulk transactions + many terminals (banking, railway reservation) → mainframe.
+
+#14 p12 a44
+Q: Which type of computer is integrated into other devices or systems to perform specific tasks?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Embedded computer
+K: d
+X: An embedded computer is a dedicated processor built into a larger device — washing machine, car, microwave, phone — to do one specific job, usually with its program in ROM/firmware.
+S: "Built into a device, dedicated task" → embedded system.
+
+#15 p12 a44
+Q: Which type of computer is characterized by its small size, portability, and battery power?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Laptop computer
+K: d
+X: A laptop (notebook) computer is a portable personal computer with an integrated screen, keyboard and battery.
+S: Portable + battery → laptop/notebook.
+
+#16 p12 a44
+Q: Which type of computer is used for general-purpose computing tasks and is commonly found in homes and offices?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Minicomputer
+K: c
+X: The personal computer is the general-purpose machine of homes and offices, used for documents, spreadsheets, browsing and similar everyday tasks.
+S: Home/office, general purpose → PC.
+
+#17 p12 a44
+Q: Which type of computer is known for its high processing power, massive memory capacity, and ability to handle complex simulations?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Minicomputer
+K: b
+X: Supercomputers combine the highest processing power with huge memory to run complex simulations such as climate models, nuclear research and molecular modelling.
+S: "Complex simulations" → supercomputer (e.g. PARAM, India's first, 1991).
+
+#18 p12 a44
+Q: Which type of computer is designed to perform specific tasks and is often used in industrial control systems?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Embedded computer
+K: d
+X: Embedded computers (microcontrollers, PLCs) run dedicated control programs inside industrial machines, robots and appliances.
+S: Specific task + control of a machine → embedded.
+
+#19 p13 a44
+Q: Which type of computer is used in scientific research, weather forecasting, and advanced calculations?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Minicomputer
+K: b
+X: Weather forecasting and large scientific calculations need the parallel number-crunching power of a supercomputer.
+S: Weather forecasting is the classic supercomputer example.
+
+#20 p13 a44
+Q: Which type of computer is built with multiple processors and is used to solve complex problems by dividing the tasks among the processors?
+a) Mainframe computer
+b) Supercomputer
+c) Personal computer
+d) Minicomputer
+K: b
+X: Supercomputers split a large problem into parts that many processors solve at the same time (massively parallel processing).
+S: "Divide the task among many processors" = parallel processing → supercomputer.
+
+#21 p13 a44
+Q: Which component of a computer is responsible for executing instructions and performing calculations?
+a) Central Processing Unit (CPU)
+b) Random Access Memory (RAM)
+c) Hard Disk Drive (HDD)
+d) Graphics Processing Unit (GPU)
+K: a
+X: The CPU — the "brain" of the computer — fetches, decodes and executes program instructions; its ALU does the arithmetic and logic.
+S: Execute instructions → CPU (ALU calculates, CU controls).
+
+#22 p13 a45
+Q: Which device is used to input data into a computer system?
+a) Monitor
+b) Keyboard
+c) Printer
+d) Speakers
+K: b
+X: The keyboard is the standard input device. The monitor, printer and speakers are all output devices.
+S: Input devices send data IN (keyboard, mouse, scanner); monitor/printer/speaker bring data OUT.
+
+#23 p13 a45
+Q: Which component of a computer is responsible for storing data and program instructions even when the computer is turned off?
+a) Central Processing Unit (CPU)
+b) Random Access Memory (RAM)
+c) Hard Disk Drive (HDD)
+d) Solid State Drive (SSD)
+K: c
+X: A hard disk drive is non-volatile secondary storage: data and programs stay on it when power is off, unlike RAM, which is volatile.
+S: Volatile = RAM (lost at power-off); non-volatile = ROM, HDD, SSD, flash.
+N: An SSD is also non-volatile, so (d) is equally true. The book keys (c), the hard disk, as the standard example of secondary storage.
+
+#24 p13 a45
+Q: Which device is responsible for displaying visual output from a computer system?
+a) Monitor
+b) Keyboard
+c) Printer
+d) Speakers
+K: a
+X: The monitor (visual display unit) shows text, images and video — soft-copy output. A printer gives hard-copy output.
+S: Monitor = soft copy; printer = hard copy.
+
+#25 p13 a45
+Q: Which component of a computer is responsible for long-term storage of data and programs?
+a) Central Processing Unit (CPU)
+b) Random Access Memory (RAM)
+c) Hard Disk Drive (HDD)
+d) Graphics Processing Unit (GPU)
+K: c
+X: The hard disk drive provides large, permanent (non-volatile) storage for files and installed programs on magnetic platters.
+S: Long-term / permanent storage → secondary storage (HDD, SSD); RAM is temporary.
+
+#26 p13 a45
+Q: Which device is used to produce a permanent physical copy of information from a computer?
+a) Monitor
+b) Keyboard
+c) Printer
+d) Speakers
+K: c
+X: A printer produces hard copy — a permanent physical copy on paper or other media.
+S: "Permanent / physical copy" = hard copy → printer (or plotter).
+
+#27 p13 a45
+Q: Which component of a computer is responsible for providing power to the system and regulating electrical flow?
+a) Power Supply Unit (PSU)
+b) Random Access Memory (RAM)
+c) Hard Disk Drive (HDD)
+d) Central Processing Unit (CPU)
+K: a
+X: The power supply unit converts mains AC into the regulated low-voltage DC the components need and distributes it to them.
+S: PSU: AC in → regulated DC out.
+
+#28 p14 a45
+Q: Which device is responsible for producing sound output from a computer system?
+a) Monitor
+b) Keyboard
+c) Printer
+d) Speakers
+K: d
+X: Speakers (and headphones) are the audio output devices; the sound card converts digital audio into the analog signal they play.
+S: Sound out → speakers; sound in → microphone.
+
+#29 p14 a45
+Q: Which component of a computer is responsible for managing and controlling the flow of data within the system?
+a) Motherboard
+b) Random Access Memory (RAM)
+c) Hard Disk Drive (HDD)
+d) Central Processing Unit (CPU)
+K: d
+B: a
+X: Control of data movement belongs to the CPU, whose control unit issues the signals that move data between memory, registers and I/O. The motherboard only carries the buses and chipset along which that data travels.
+S: "Controls / coordinates" → CPU's control unit; "connects / carries" → motherboard and buses.
+N: The book prints (a) Motherboard. The motherboard is the circuit board that connects components; the flow of data is controlled by the CPU's control unit, so the key is (d).
+
+#30 p14 a45
+Q: Which device is used to control the movement of the cursor on a computer screen?
+a) Monitor
+b) Keyboard
+c) Mouse
+d) Speakers
+K: c
+X: A mouse is a pointing device that moves the on-screen cursor and selects items with its buttons.
+S: Pointing devices: mouse, trackball, touchpad, joystick, light pen.
+
+#31 p14 a46
+Q: Which type of computer memory retains its data even when the power is turned off?
+a) RAM (Random Access Memory)
+b) ROM (Read-Only Memory)
+c) Cache Memory
+d) Virtual Memory
+K: b
+X: ROM is non-volatile: its contents (such as the BIOS firmware) are written at manufacture and survive power-off. RAM and cache are volatile.
+S: ROM = non-volatile, read-only, holds BIOS; RAM = volatile, read-write.
+
+#32 p14 a46
+Q: What component of a computer is responsible for converting digital signals to analog signals for transmission over telephone lines?
+a) Modem
+b) Network Interface Card (NIC)
+c) Sound Card
+d) Graphics Card
+K: a
+X: A modem (MOdulator–DEModulator) modulates digital data into analog signals for the telephone line and demodulates them back at the other end.
+S: MODEM = MOdulate (D→A) + DEModulate (A→D).
+
+#33 p14 a46
+Q: Which type of computer port is used to connect external devices such as printers and scanners?
+a) USB (Universal Serial Bus) port
+b) HDMI (High-Definition Multimedia Interface) port
+c) VGA (Video Graphics Array) port
+d) Ethernet port
+K: a
+X: USB is the universal plug-and-play port for peripherals such as printers, scanners, keyboards, mice and flash drives. HDMI and VGA carry video; Ethernet carries network traffic.
+S: Peripherals → USB; video → HDMI/VGA; network → Ethernet (RJ-45).
+
+#34 p14 a46
+Q: Which component of a computer is responsible for managing and coordinating the activities of all other hardware components?
+a) Central Processing Unit (CPU)
+b) Motherboard
+c) Power Supply Unit (PSU)
+d) Graphics Processing Unit (GPU)
+K: a
+B: b
+X: The CPU, through its control unit, directs and coordinates every other unit — memory, ALU and input/output. The motherboard is the board that interconnects the parts; it does not direct them.
+S: Coordinates all units → CPU / control unit ("the manager"); motherboard = the wiring.
+N: The book prints (b) Motherboard. Coordinating the activities of the other components is the job of the CPU's control unit; the motherboard only connects them, so the key is (a).
+
+#35 p14 a46
+Q: Which device is used to read data from and write data to optical discs such as CDs and DVDs?
+a) Hard Disk Drive (HDD)
+b) Solid State Drive (SSD)
+c) Optical Drive
+d) USB Flash Drive
+K: c
+X: An optical drive uses a laser to read and write CDs, DVDs and Blu-ray discs.
+S: Laser + CD/DVD/Blu-ray → optical drive.
+
+#36 p14 a46
+Q: Which type of computer memory is the fastest and is used to temporarily store data that the CPU needs to access quickly?
+a) RAM (Random Access Memory)
+b) ROM (Read-Only Memory)
+c) Cache Memory
+d) Virtual Memory
+K: c
+X: Cache is small, very fast SRAM between the CPU and main memory that holds frequently used data and instructions. Of the options it is the fastest; only the CPU registers are faster.
+S: Speed order: registers > cache > RAM > SSD > HDD > optical/tape.
+
+#37 p15 a46
+Q: Which component of a computer is responsible for providing power to all other hardware components?
+a) Power Supply Unit (PSU)
+b) Motherboard
+c) Central Processing Unit (CPU)
+d) Random Access Memory (RAM)
+K: a
+X: The PSU converts mains AC to regulated DC and feeds it to the motherboard, drives and other components.
+S: Power → PSU (SMPS in desktops).
+
+#38 p15 a47
+Q: Which device is used to display text and graphics on a computer screen?
+a) Monitor
+b) Keyboard
+c) Printer
+d) Speakers
+K: a
+X: The monitor displays text and graphics sent by the graphics card; it is the main soft-copy output device.
+S: Screen output → monitor (VDU).
+
+#39 p15 a47
+Q: Which type of computer port is used to connect external devices such as keyboards, mice, and printers?
+a) USB (Universal Serial Bus) port
+b) HDMI (High-Definition Multimedia Interface) port
+c) VGA (Video Graphics Array) port
+d) Ethernet port
+K: a
+X: USB ports connect almost every external peripheral — keyboard, mouse, printer, scanner, storage — and are hot-pluggable.
+S: "Universal" peripherals → USB.
+
+#40 p15 a47
+Q: Which component of a computer is responsible for processing and rendering images, videos, and animations?
+a) Central Processing Unit (CPU)
+b) Graphics Processing Unit (GPU)
+c) Sound Card
+d) Network Interface Card (NIC)
+K: b
+X: The GPU is a massively parallel processor specialised for rendering images, video and 3-D graphics, taking that load off the CPU.
+S: Graphics/rendering → GPU.
+
+#41 p15 a47
+Q: Which component of the CPU holds the address of the next instruction to be executed?
+a) Instruction Register (IR)
+b) Program Counter (PC)
+c) Arithmetic Logic Unit (ALU)
+d) Control Unit (CU)
+K: b
+X: The program counter holds the memory address of the next instruction and is incremented after each fetch. The instruction register holds the instruction currently being executed.
+S: PC → address of NEXT instruction; IR → CURRENT instruction (asked in ISS 2022).
+
+#42 p15 a47
+Q: Which part of the CPU performs arithmetic and logical operations?
+a) Instruction Register (IR)
+b) Program Counter (PC)
+c) Arithmetic Logic Unit (ALU)
+d) Control Unit (CU)
+K: c
+X: The ALU performs arithmetic (add, subtract, multiply, divide) and logical operations (AND, OR, NOT, comparisons).
+S: Calculate or compare → ALU; direct and control → CU.
+
+#43 p15 a47
+Q: What is the role of the control unit in the CPU?
+a) It holds the current instruction being executed.
+b) It performs arithmetic and logical operations.
+c) It coordinates the transfer of data between main memory and registers.
+d) It controls and synchronizes the pace of operations.
+K: d
+X: The control unit directs and times every operation: it fetches and decodes instructions and issues timing and control signals to the ALU, memory and I/O. Holding the instruction is the IR's job and arithmetic is the ALU's.
+S: CU = director and timekeeper; it executes nothing itself.
+
+#44 p15 a47
+Q: Which circuit in the control unit interprets instructions and determines the appropriate action?
+a) Instruction decoding circuit
+b) Control and timing circuit
+c) Arithmetic Logic Unit (ALU)
+d) Clock cycle circuit
+K: a
+X: The instruction decoder reads the opcode of the fetched instruction and works out which operation and operands are required; the timing circuits then sequence the steps.
+S: Interpret the opcode → decoder; sequence the steps → timing/control circuit.
+
+#45 p15 a47
+Q: What is the purpose of cache memory in a CPU?
+a) It holds the current instruction being executed.
+b) It performs arithmetic and logical operations.
+c) It coordinates the transfer of data between main memory and registers.
+d) It improves computer performance by minimizing the need to access slow main memory.
+K: d
+X: Cache keeps copies of frequently used data and instructions close to the CPU, so most accesses avoid slow main memory (locality of reference).
+S: Cache exists to bridge the CPU–RAM speed gap; a "hit" avoids the RAM trip.
+
+#46 p16 a48
+Q: How is the processing power of a CPU measured?
+a) Number of clock cycles per second
+b) Number of instructions executed per second
+c) Number of cache memory accesses per second
+d) Number of registers in the CPU
+K: a
+X: The book measures processing power by clock frequency — clock cycles per second, in MHz or GHz. Throughput is also quoted in MIPS (millions of instructions per second) or FLOPS, but clock speed is the figure printed on every processor.
+S: Clock speed → Hz (MHz/GHz); throughput → MIPS/FLOPS; capacity → bytes.
+
+#47 p16 a48
+Q: What is a clock cycle in a computer system?
+a) The time it takes to execute an instruction
+b) The time it takes to access cache memory
+c) The time it takes to transfer data between registers and main memory
+d) The time between two consecutive pulses emitted by the internal clock
+K: d
+X: A clock cycle is the interval between two consecutive pulses of the system clock — the basic time unit that paces every CPU operation. One instruction usually takes several cycles.
+S: Cycle time = 1 / clock frequency (1 GHz → 1 ns).
+
+#48 p16 a48
+Q: What is the unit used to measure the clock frequency of a computer system?
+a) Hertz (Hz)
+b) Megabyte (MB)
+c) Gigabyte (GB)
+d) Kilohertz (kHz)
+K: a
+X: Clock frequency is measured in hertz, cycles per second; modern processors run at gigahertz. MB and GB measure storage, not speed.
+S: Hz family = speed; byte family = size.
+
+#49 p16 a48
+Q: What does the term "multi-core processor" refer to?
+a) A CPU with multiple registers for data storage
+b) A CPU with multiple arithmetic logic units
+c) A CPU with multiple clock cycles per instruction
+d) A CPU with multiple processors on a single chip
+K: d
+X: A multi-core processor has two or more independent processing cores on a single chip, so several threads run truly in parallel (dual-core, quad-core, octa-core).
+S: Core = a complete processor; multi-core = several on one die.
+
+#50 p16 a48
+Q: How is CPU speed typically measured?
+a) Megahertz (MHz) or gigahertz (GHz)
+b) Kilobytes (KB) or megabytes (MB)
+c) Terabytes (TB) or petabytes (PB)
+d) Bits (b) or bytes (B)
+K: a
+X: CPU speed is the clock rate, quoted in MHz or GHz. KB, MB, TB and PB measure storage capacity.
+S: Speed → hertz; storage → bytes.
+
+#51 p16 a48
+Q: Which component of the CPU temporarily stores data values during processing?
+a) Cache memory
+b) Hard disk drive (HDD)
+c) Random access memory (RAM)
+d) Solid-state drive (SSD)
+K: c
+X: The book keys RAM, the working memory that holds data and programs while they are being processed. Strictly, RAM sits outside the CPU; inside the CPU the registers (and cache) hold values during processing.
+S: Working/temporary store while a program runs → RAM; permanent store → HDD/SSD.
+
+#52 p16 a48
+Q: What is the purpose of the instruction register (IR) in the CPU?
+a) It holds the current instruction being executed.
+b) It stores temporary data values during processing.
+c) It coordinates the transfer of data between main memory and registers.
+d) It performs arithmetic and logical operations.
+K: a
+X: After each fetch, the instruction register holds the instruction currently being decoded and executed (its opcode and operand fields).
+S: IR = current instruction; PC = address of the next one; MAR = address; MDR/MBR = data.
+
+#53 p17 a49
+Q: Which part of the CPU is responsible for directing all other parts of the computer by producing control signals?
+a) Motherboard
+b) Power supply unit (PSU)
+c) Control and timing circuit
+d) Graphics processing unit (GPU)
+K: c
+X: The control unit's control-and-timing circuitry generates the control signals that direct memory, the ALU and the I/O devices in the correct sequence.
+S: Control signals come from the control unit — never from the motherboard or PSU.
+
+#54 p17 a49
+Q: What is the function of the arithmetic logic unit (ALU) in the CPU?
+a) It stores program instructions for execution.
+b) It performs arithmetic operations like addition and subtraction.
+c) It coordinates the transfer of data between main memory and registers.
+d) It provides power to all other hardware components.
+K: b
+X: The ALU carries out arithmetic (addition, subtraction, multiplication, division) and logic operations (AND, OR, NOT, comparisons) on data held in registers.
+S: ALU = calculator + comparator of the CPU.
+
+#55 p17 a49
+Q: Which component of the CPU is responsible for controlling the transfer of data and instructions between main memory and registers?
+a) Control unit (CU)
+b) Graphics processing unit (GPU)
+c) Random access memory (RAM)
+d) Instruction register (IR)
+K: a
+X: The control unit issues the read/write and transfer signals that move instructions and data between main memory and the CPU registers.
+S: Anything that "controls transfer" → control unit.
+
+#56 p17 a49
+Q: What is the purpose of the clock cycles in a computer system?
+a) To determine the size of the cache memory.
+b) To coordinate the execution of instructions in the CPU.
+c) To synchronize the transfer of data between main memory and registers.
+d) To regulate the speed at which the computer operates.
+K: b
+X: Clock pulses act as the heartbeat of the CPU: every fetch, decode and execute step is triggered on a clock tick, so the clock coordinates instruction execution. (Its frequency also sets the operating speed.)
+S: Clock = metronome of the CPU; each step happens on a tick.
+
+#57 p17 a49
+Q: What is the basic unit of computer clock frequency?
+a) Hertz (Hz)
+b) Megabyte (MB)
+c) Gigabyte (GB)
+d) Kilohertz (kHz)
+K: a
+X: The SI unit of frequency is the hertz (one cycle per second); kHz, MHz and GHz are multiples of it.
+S: Base unit = hertz; kHz/MHz/GHz are multiples.
+
+#58 p17 a49
+Q: What does the term "multi-core processor" refer to?
+a) A CPU with multiple registers for data storage.
+b) A CPU with multiple arithmetic logic units.
+c) A CPU with multiple clock cycles per instruction.
+d) A CPU with multiple processors on a single chip.
+K: d
+X: A multi-core CPU places several complete processor cores on one integrated-circuit chip; each core can execute its own instruction stream.
+S: Multi-core = several CPUs in one package (not just more registers or ALUs).
+
+#59 p17 a49
+Q: What is the purpose of cache memory in a CPU?
+a) To store permanent data and program instructions.
+b) To store temporary data values during processing.
+c) To provide power to all other hardware components.
+d) To improve computer performance by reducing memory access time.
+K: d
+X: Cache holds recently and frequently used data close to the processor, cutting the average memory access time and so speeding up the whole system.
+S: Cache → lower average access time → higher performance.
+
+#60 p18 a50
+Q: How is the processing power of a CPU typically measured?
+a) Number of clock cycles per second.
+b) Number of instructions executed per second.
+c) Number of cache memory accesses per second.
+d) Number of registers in the CPU.
+K: a
+X: The book again keys clock frequency (cycles per second, in GHz). Instruction throughput (MIPS) is a second common measure of computing power.
+S: Same question as Q46 → clock cycles per second.
+
+#61 p18 a50
+Q: What is the purpose of a memory unit in a computer?
+a) To store instructions and data permanently
+b) To store instructions and data temporarily
+c) To control data traffic in the CPU
+d) To form the working area of the program
+K: b
+X: The memory unit (primary memory, RAM) holds the instructions and data of running programs temporarily; its contents are lost when power goes off. Permanent storage is the job of secondary memory.
+S: Memory unit = temporary working store; storage device = permanent.
+
+#62 p18 a50
+Q: How are data stored in computer memory?
+a) As binary digits called bits
+b) As characters and numbers
+c) As sequences of bytes
+d) As unique addresses
+K: c
+X: Memory is organised as a sequence of addressable bytes (8 bits each), and every character or number is stored in one or more bytes. At the lowest level each byte is of course made of bits.
+S: Memory is byte-addressable: each address → one byte.
+
+#63 p18 a50
+Q: How many bits are there in a single byte of memory?
+a) 4 bits
+b) 8 bits
+c) 16 bits
+d) 32 bits
+K: b
+X: A byte is 8 bits. Half a byte (4 bits) is a nibble.
+S: 4 bits = nibble · 8 bits = byte · 16/32/64 bits = word (machine-dependent).
+
+#64 p18 a50
+Q: What is the purpose of registers in the CPU?
+a) To store and manipulate data and instructions
+b) To store permanent data and program instructions
+c) To control and coordinate the activities of the computer
+d) To access data directly from the main memory
+K: a
+X: Registers are tiny, very fast storage cells inside the CPU that hold the instruction, operands, addresses and intermediate results being worked on right now.
+S: Registers = fastest memory, inside the CPU, holding what is being processed now.
+
+#65 p18 a50
+Q: What are the two main types of memory used in a computer system?
+a) Primary memory and secondary memory
+b) Cache memory and main memory
+c) Flip-flops memory and data traffic memory
+d) Random Access Memory (RAM) and Read-Only Memory (ROM)
+K: a
+B: d
+X: Computer memory is classified first into primary (main) memory, which the CPU accesses directly, and secondary (auxiliary) memory for permanent bulk storage. RAM and ROM are the two kinds of primary memory.
+S: Memory → primary (RAM, ROM, cache) + secondary (HDD, SSD, CD, tape).
+N: The book prints (d) RAM and ROM. Those are the two types of primary memory; the two main types of memory are primary and secondary, so the key is (a).
+
+#66 p18 a51
+Q: Which memory is also known as main memory?
+a) Primary memory
+b) Secondary memory
+c) Cache memory
+d) Flip-flops memory
+K: a
+X: Primary memory — RAM plus ROM — is called main memory because the CPU accesses it directly while running programs.
+S: Main = primary = internal memory; auxiliary = secondary.
+
+#67 p18 a51
+Q: What is the primary characteristic of Random Access Memory (RAM)?
+a) It can be accessed directly and is volatile in nature.
+b) It can be accessed directly and is non-volatile in nature.
+c) It can only be accessed sequentially and is volatile in nature.
+d) It can only be accessed sequentially and is non-volatile in nature.
+K: a
+X: Any RAM location can be reached directly in the same time (random access), and its contents vanish when power is removed (volatile).
+S: RAM = random/direct access + volatile. Sequential access = magnetic tape.
+
+#68 p19 a51
+Q: What happens to the contents of RAM when power is switched off?
+a) Contents are preserved.
+b) Contents are destroyed.
+c) Contents are transferred to secondary memory.
+d) Contents are stored in cache memory.
+K: b
+X: RAM is volatile, so everything in it is lost when power is cut; that is why work must be saved to secondary storage.
+S: Volatile → lost at power-off → "save your file".
+
+#69 p19 a51
+Q: Which type of memory is limited in size, consumes low power, and is faster compared to secondary memory?
+a) Primary memory
+b) Secondary memory
+c) Cache memory
+d) Flip-flops memory
+K: c
+X: Cache memory is small (limited in size), very fast and sits between the CPU and main memory, so it is far faster than secondary storage.
+S: Smallest + fastest + costliest per byte (after registers) → cache.
+
+#70 p19 a51
+Q: What is cache memory in a computer system?
+a) A type of volatile memory
+b) A type of non-volatile memory
+c) A high-speed memory that stores frequently accessed data
+d) Memory module consisting of flip-flops and data traffic control circuitry
+K: c
+X: Cache is a small, high-speed (SRAM) memory that keeps copies of the data and instructions the CPU uses most often. It is also volatile, but its defining feature is the high-speed buffering of frequently used data.
+S: Define cache by its job: high-speed buffer for frequently used data.
+
+#71 p19 a51
+Q: How does cache memory improve the performance of a computer?
+a) By storing permanent data and program instructions
+b) By providing a large storage area for data and programs
+c) By allowing the processor to access data more rapidly than from main memory
+d) By controlling and coordinating the activities of the computer
+K: c
+X: Data found in the cache (a cache hit) is delivered in a few cycles instead of the much longer main-memory access, so the processor waits less.
+S: Performance gain = hits served at cache speed instead of RAM speed.
+
+#72 p19 a51
+Q: What is the management goal of data stored in cache memory?
+a) To ensure that all data needed by the processor is stored in cache
+b) To minimize the time required to search for data in the cache
+c) To ensure that 20% of the total time is spent searching for data in the cache
+d) To maximize the storage capacity of the cache memory
+K: b
+X: Cache management (mapping and replacement policies) aims to find the needed data quickly and keep the most useful blocks in the cache, so the average time spent looking for data is as small as possible.
+S: Cache policy goal = high hit ratio and fast lookup, i.e. minimum average access time.
+
+#73 p19 a52
+Q: The required data is found in the cache for 90 out of every 100 memory accesses. What is the cache miss rate?
+a) 50%
+b) 30%
+c) 20%
+d) 10%
+K: d
+X: Hit rate = hits ÷ total accesses = 90%, so miss rate = 1 − hit rate = 10%.
+S: Miss rate = 1 − hit rate.
+N: The printed question ("the fraction of time during which the data needed is found in cache") has no correct option — the book itself says the answer is not among the choices. It has been reworded around the printed options so that it can be scored.
+
+#74 p19 a52
+Q: What is the primary advantage of cache memory compared to main memory?
+a) Larger storage capacity
+b) Lower cost
+c) Faster access time
+d) Non-volatile nature
+K: c
+X: Cache is faster than main memory; it is smaller, costlier per byte and just as volatile, so speed is its only advantage.
+S: Cache: faster ✔ but smaller, costlier, volatile.
+
+#75 p20 a52
+Q: How is the performance of a computer measured in terms of memory?
+a) By the number of clock cycles per second
+b) By the size of cache memory
+c) By the number of instructions executed per second
+d) By the capacity of primary memory
+K: c
+X: The book measures overall performance by throughput — instructions executed per second (MIPS) — which reflects how well the processor and memory system work together.
+S: Throughput measure → MIPS (instructions per second).
+
+#76 p20 a52
+Q: What is the term used for a sequence number that identifies a memory address?
+a) Flip-flop number
+b) Cache number
+c) Memory location
+d) Address index
+K: d
+X: Each memory location is identified by a unique sequential number, its address (the book calls it the address index); the CPU uses it to read or write that location.
+S: Location = the cell; address (index) = the number that names the cell.
+
+#77 p20 a52
+Q: Which memory unit is accessed directly by the processor?
+a) Primary memory
+b) Secondary memory
+c) Cache memory
+d) Flip-flops memory
+K: a
+X: The CPU can address primary (main) memory directly; data on secondary storage must first be loaded into main memory.
+S: Direct CPU access → primary memory; secondary goes through I/O into RAM first.
+
+#78 p20 a52
+Q: Which type of memory is expensive and limited in size?
+a) Primary memory
+b) Secondary memory
+c) Cache memory
+d) Flip-flops memory
+K: c
+B: b
+X: Cache memory is built from fast SRAM, so it is the most expensive memory per byte and is kept small. Secondary memory is the opposite: large and cheap.
+S: Cost per byte ↑ and size ↓ as you move up the hierarchy: disk → RAM → cache → registers.
+N: The book prints (b) Secondary memory, but secondary memory is large and inexpensive. Of the options, cache memory is the expensive and limited one, so the key is (c).
+
+#79 p20 a53
+Q: What is the purpose of secondary memory in a computer system?
+a) To provide a large storage area for data and programs
+b) To store temporary data and program instructions
+c) To improve the speed of data access
+d) To control and coordinate the activities of the computer
+K: a
+X: Secondary memory (hard disk, SSD, optical disc, tape) gives large, permanent, low-cost storage for data and programs.
+S: Secondary = big + permanent + cheap + slow.
+
+#80 p20 a53
+Q: What term describes the fraction of memory accesses for which the required data is NOT found in the cache?
+a) Cache efficiency
+b) Cache hit rate
+c) Cache miss rate
+d) Cache storage capacity
+K: c
+X: A cache miss occurs when the requested data is not in the cache and must be fetched from main memory; the miss rate is the fraction of accesses that miss (= 1 − hit rate).
+S: Hit rate = found ÷ total; miss rate = not found ÷ total = 1 − hit rate.
+N: The printed stem ("the fraction of time during which the cache memory is searched for data") is not a standard definition; it has been reworded to match the book's key, cache miss rate.
+
+#81 p20 a53
+Q: What is the main characteristic of secondary memory?
+a) Large and volatile storage
+b) Small and fast storage
+c) Large, non-volatile, and inexpensive storage
+d) Small, volatile, and expensive storage
+K: c
+X: Secondary storage offers large capacity, keeps data without power and costs little per byte; it is slower than primary memory.
+S: Secondary: large, non-volatile, cheap — but slow.
+
+#82 p20 a53
+Q: Which operation retrieves data from memory?
+a) Read operation
+b) Write operation
+c) Copy operation
+d) Delete operation
+K: a
+X: A read copies the contents of an addressed memory location to the CPU without changing them.
+S: Read = memory → CPU (non-destructive); write = CPU → memory (overwrites).
+
+#83 p20 a53
+Q: Which operation stores data in memory?
+a) Read operation
+b) Write operation
+c) Copy operation
+d) Delete operation
+K: b
+X: A write stores new data into an addressed location, replacing whatever was there.
+S: Write = store (old contents overwritten).
+
+#84 p20 a53
+Q: What is the common unit of memory?
+a) Bit
+b) Byte
+c) Kilobyte
+d) Megabyte
+K: b
+X: The byte (8 bits) is the basic addressable unit in which memory is organised and measured. The bit is the smallest unit of data.
+S: Smallest unit = bit; basic unit of memory = byte.
+
+#85 p21 a53
+Q: How many bits are there in a byte?
+a) 4 bits
+b) 8 bits
+c) 16 bits
+d) 32 bits
+K: b
+X: One byte = 8 bits, enough to hold one character code such as an ASCII letter.
+S: 1 byte = 8 bits; 1 nibble = 4 bits.
+
+#86 p21 a53
+Q: What is the maximum capacity of memory measured in?
+a) Bits
+b) Bytes
+c) Kilobytes
+d) Gigabytes
+K: b
+X: Memory capacity is expressed in bytes and their multiples (KB, MB, GB, TB).
+S: Capacity → bytes (and multiples of 1024).
+
+#87 p21 a54
+Q: How many bytes are in a kilobyte (KB)?
+a) 1024 bytes
+b) 1000 bytes
+c) 512 bytes
+d) 2048 bytes
+K: a
+X: In the binary convention used for memory, 1 KB = 2¹⁰ = 1024 bytes. (The SI kilo = 1000 is used for some storage marketing, and 1024 bytes is strictly a kibibyte, KiB.)
+S: 2¹⁰ = 1024: KB → MB → GB → TB → PB → EB → ZB → YB, each ×1024.
+
+#88 p21 a54
+Q: What is the next unit of memory after a gigabyte (GB)?
+a) Terabyte (TB)
+b) Megabyte (MB)
+c) Kilobyte (KB)
+d) Petabyte (PB)
+K: a
+X: 1 TB = 1024 GB. The order is bit, nibble, byte, KB, MB, GB, TB, PB, EB, ZB, YB.
+S: Mnemonic "K-M-G-T-P-E-Z-Y": Kind Men Give Tea Promptly Every Zero Year.
+
+#89 p21 a54
+Q: Which term refers to the number of bits a CPU can manipulate at one time?
+a) Word size
+b) Byte size
+c) Register size
+d) Circuit size
+K: a
+X: Word size (word length) is the number of bits the CPU processes as one unit — e.g. 32 or 64 bits. It usually equals the width of the general-purpose registers.
+S: "Bits handled at a time" → word length (32-bit, 64-bit CPU).
+
+#90 p21 a54
+Q: What is the word size of a 32-bit processor?
+a) 16 bits
+b) 32 bits
+c) 64 bits
+d) 128 bits
+K: b
+X: A 32-bit processor has a word size of 32 bits: its registers and ALU handle 32-bit quantities in one operation.
+S: n-bit processor → word = n bits.
+
+#91 p21 a54
+Q: What does a 32-bit processor mean?
+a) It has 32-bit secondary memory.
+b) It can process 32 bits of data at a time.
+c) It has 32-bit registers in the ALU.
+d) It can store 32 bits of data in cache memory.
+K: b
+X: "32-bit" describes the word length: the processor handles 32 bits of data in a single operation. With 32-bit addresses it can reach 2³² bytes = 4 GB of memory.
+S: 32-bit → processes 32 bits at a time → 4 GB address space.
+
+#92 p21 a54
+Q: Which factor contributes to increased computer performance?
+a) Larger secondary memory capacity
+b) Faster access time in primary memory
+c) Smaller word size in the CPU
+d) Larger word size in the CPU
+K: b
+X: Faster primary-memory access means the CPU waits less for instructions and data, so programs run faster. A larger secondary memory only adds capacity, and a smaller word size lowers performance.
+S: Performance ↑ with faster memory, higher clock, larger word, more cache — never with a smaller word.
+N: A larger word size (d) also raises performance; the book keys (b), faster primary-memory access.
+
+#93 p21 a54
+Q: What is the purpose of registers in the ALU?
+a) To store instructions and data permanently
+b) To control memory operations
+c) To manipulate data during processing
+d) To access secondary memory directly
+K: c
+X: Registers such as the accumulator hold operands and intermediate results while the ALU works on them.
+S: Accumulator = the ALU's working register for results.
+
+#94 p21 a54
+Q: Which unit of memory is non-volatile in nature?
+a) Secondary memory
+b) Cache memory
+c) Primary memory
+d) Flip-flops memory
+K: a
+X: Secondary memory (HDD, SSD, optical disc, tape) keeps its contents without power. Cache, RAM and flip-flop storage are volatile.
+S: Non-volatile: ROM + all secondary storage.
+
+#95 p22 a54
+Q: Which memory operation allows for data copying?
+a) Read operation
+b) Write operation
+c) Copy operation
+d) Delete operation
+K: c
+X: A copy reads data from a source location and writes it to a destination, leaving the original intact — a read followed by a write.
+S: Copy = read (source) + write (destination).
+
+#96 p22 a54
+Q: What is the purpose of the interface circuit in memory?
+a) To control memory operations
+b) To logically access data from the memory
+c) To store data permanently
+d) To increase the word size of the CPU
+K: b
+X: The memory interface circuit sits between the memory cells and the system bus; it decodes addresses and handles the read/write handshaking so that data can be accessed logically from the memory.
+S: Interface = go-between (bus ↔ memory cells); it neither stores nor widens words.
+
+#97 p22 a55
+Q: What is the smallest block of memory?
+a) Bit
+b) Byte
+c) Kilobyte
+d) Megabyte
+K: a
+X: A bit (binary digit, 0 or 1) is the smallest unit of storage; 8 bits make a byte.
+S: Smallest = bit; smallest addressable = byte.
+
+#98 p22 a55
+Q: What is the purpose of secondary storage?
+a) To store data temporarily during program execution
+b) To provide fast access to frequently used data
+c) To store data for long periods of time
+d) To control and synchronize memory operations
+K: c
+X: Secondary storage keeps data and programs for the long term because it is non-volatile. Temporary working storage is RAM, and fast access to frequently used data is cache.
+S: Temporary → RAM · frequent/fast → cache · long-term → secondary.
+
+#99 p22 a55
+Q: Which unit is used to express the memory capacity of a computer system?
+a) Bit
+b) Byte
+c) Kilobyte
+d) Hertz
+K: b
+B: c
+X: Memory capacity is counted in bytes; kilobytes, megabytes and gigabytes are simply multiples of the byte. Hertz measures frequency, not capacity.
+S: Capacity → byte (and its multiples); speed → hertz.
+N: The book prints (c) Kilobyte. The kilobyte is only a multiple of the basic unit; the unit of memory capacity is the byte (the book itself keys "Byte" for the same question at Q109), so the key is (b).
+
+#100 p22 a55
+Q: What is the purpose of cache memory?
+a) To store frequently accessed data
+b) To provide non-volatile storage
+c) To increase the word size of the CPU
+d) To control memory operations
+K: a
+X: Cache keeps frequently accessed data and instructions in fast memory close to the CPU so they can be read without a slow trip to main memory.
+S: Cache = copy of the hot data, next to the CPU.
+
+#101 p22 a55
+Q: Which type of memory is directly accessed by the processor during program execution?
+a) Secondary memory
+b) Cache memory
+c) Primary memory
+d) Flip-flops memory
+K: c
+X: Programs execute from primary memory (RAM): the CPU fetches instructions and data from it directly. Secondary storage must first be loaded into RAM.
+S: Program must be in RAM to run → primary memory.
+
+#102 p22 a55
+Q: What is the main characteristic of secondary memory?
+a) Large capacity and fast access time
+b) Volatile storage and high cost
+c) Non-volatile storage and low cost
+d) Small capacity and fast access time
+K: c
+X: Secondary memory is non-volatile and cheap per byte; its drawback is slower access.
+S: Secondary: non-volatile ✔ cheap ✔ large ✔ fast ✘.
+
+#103 p22 a56
+Q: Which memory operation retrieves data from memory?
+a) Copy
+b) Read
+c) Write
+d) Delete
+K: b
+X: A read operation fetches (retrieves) the contents of a memory location without altering them.
+S: Retrieve = read; store = write.
+
+#104 p23 a56
+Q: What is the smallest unit of memory?
+a) Bit
+b) Byte
+c) Kilobyte
+d) Megabyte
+K: a
+X: The bit is the smallest unit of information, a single 0 or 1.
+S: Bit → nibble (4) → byte (8).
+
+#105 p23 a56
+Q: What is the purpose of cache memory in a computer system?
+a) To provide permanent storage for data
+b) To increase the capacity of primary memory
+c) To speed up data access by storing frequently used data
+d) To synchronize memory operations
+K: c
+X: By holding frequently used data close to the processor, cache reduces the average time to access memory and speeds up the system.
+S: Cache → speed, never capacity or permanence.
+
+#106 p23 a56
+Q: How is the memory capacity typically expressed?
+a) Megahertz (MHz)
+b) Gigabytes (GB)
+c) Clock cycles
+d) Binary digits (bits)
+K: b
+X: Memory capacity is quoted in bytes and their multiples — today usually gigabytes of RAM. MHz and clock cycles describe speed.
+S: RAM size → GB; CPU speed → GHz.
+
+#107 p23 a56
+Q: Which memory is volatile in nature?
+a) Primary memory
+b) Secondary memory
+c) Cache memory
+d) Register memory
+K: a
+X: Primary memory (RAM) needs continuous power and loses its contents at switch-off. Secondary memory is non-volatile.
+S: Volatile = needs power to remember → RAM (and cache, registers).
+N: Cache and registers are also volatile, so (c) and (d) are true as well; the book keys (a), primary memory (RAM), as the standard example.
+
+#108 p23 a56
+Q: What is the purpose of the interface circuit in memory?
+a) To control memory operations
+b) To store data permanently
+c) To increase the word size of the CPU
+d) To logically access data from the memory
+K: d
+X: The interface circuit connects the memory to the system bus and lets the processor access stored data logically through addresses and read/write signals.
+S: Same idea as Q96 — interface = logical access.
+
+#109 p23 a56
+Q: Which unit is used to express the memory capacity of a computer system?
+a) Hertz (Hz)
+b) Byte
+c) Kilobyte (KB)
+d) Petabyte (PB)
+K: b
+X: The byte (8 bits) is the unit of memory capacity; KB, MB, GB and PB are its multiples.
+S: Unit = byte; the rest are multiples.
+
+#110 p23 a56
+Q: What is the word size of a 64-bit processor?
+a) 8 bits
+b) 16 bits
+c) 32 bits
+d) 64 bits
+K: d
+X: A 64-bit processor handles 64-bit words, so its registers and data paths are 64 bits wide.
+S: n-bit processor → n-bit word.
+
+#111 p23 a57
+Q: Which of the following is true about the memory hierarchy in a computer system?
+a) It consists of only primary memory.
+b) It consists of primary memory and cache memory.
+c) It consists of primary memory, cache memory, and secondary memory.
+d) It consists of primary memory, cache memory, secondary memory, and virtual memory.
+K: c
+X: The memory hierarchy arranges storage by speed, cost and size: registers and cache at the top, main (primary) memory next and secondary storage at the bottom. Virtual memory is a technique that uses secondary storage, not a separate level.
+S: Top→bottom: registers → cache → RAM → SSD/HDD → tape; speed and cost fall, size grows.
+
+#112 p23 a57
+Q: Which level of the memory hierarchy has the fastest access time?
+a) Primary memory
+b) Cache memory
+c) Secondary memory
+d) Virtual memory
+K: b
+X: Among the options, cache has the fastest access time; only CPU registers are faster.
+S: Fastest in options → cache (registers if listed).
+
+#113 p24 a57
+Q: What is the main purpose of the memory hierarchy in a computer system?
+a) To increase the storage capacity of the system.
+b) To reduce the overall cost of the system.
+c) To improve the performance of memory access.
+d) To provide backup storage for data.
+K: c
+X: The hierarchy gives an average access time close to that of the fastest level at a cost per byte close to that of the cheapest, by keeping frequently used data in the small fast levels.
+S: Hierarchy = speed of cache at the price of disk.
+
+#114 p24 a57
+Q: Which type of memory is closest to the CPU in the memory hierarchy?
+a) Primary memory
+b) Cache memory
+c) Secondary memory
+d) Virtual memory
+K: b
+X: Cache sits on or next to the CPU chip, between the processor and main memory. Registers, inside the CPU, would be closer still.
+S: Closest (after registers) → cache (L1 on the core).
+
+#115 p24 a57
+Q: Which of the following is a characteristic of cache memory?
+a) Large capacity and low cost
+b) Slow access time and nonvolatile storage
+c) Small capacity and fast access time
+d) Non-volatile storage and high cost
+K: c
+X: Cache is small and fast (and expensive and volatile).
+S: Cache = small + fast + costly + volatile.
+
+#116 p24 a57
+Q: Which memory level is typically made up of solid-state drives (SSDs) or hard disk drives (HDDs)?
+a) Primary memory
+b) Cache memory
+c) Secondary memory
+d) Virtual memory
+K: c
+X: HDDs and SSDs are secondary (auxiliary) storage devices.
+S: Any "drive" → secondary storage.
+
+#117 p24 a58
+Q: What is the role of virtual memory in the memory hierarchy?
+a) To provide additional storage capacity beyond the physical memory.
+b) To store frequently accessed data for fast access.
+c) To provide a temporary storage area for data during processing.
+d) To store instructions and data permanently.
+K: a
+X: Virtual memory lets programs use more memory than the physical RAM by keeping parts of them on disk (a page or swap file) and bringing pages into RAM on demand.
+S: Virtual memory = RAM + disk illusion (paging/swapping); a page fault loads the missing page.
+
+#118 p24 a58
+Q: Which level of the memory hierarchy has the largest storage capacity?
+a) Primary memory
+b) Cache memory
+c) Secondary memory
+d) Virtual memory
+K: c
+X: Secondary storage offers the largest capacity — terabytes on a single drive.
+S: Largest and slowest → bottom of the hierarchy → secondary.
+
+#119 p24 a58
+Q: Which memory level has the highest cost per byte of storage?
+a) Primary memory
+b) Cache memory
+c) Secondary memory
+d) Virtual memory
+K: b
+B: a
+X: Cost per byte rises as memory gets faster: secondary storage is cheapest, main memory (DRAM) costs more, and cache (SRAM) is the most expensive per byte of the options.
+S: Cost per byte: registers > cache > RAM > SSD > HDD > tape.
+N: The book prints (a) Primary memory. Cache (SRAM) costs more per byte than primary memory (DRAM), so the key is (b).
+
+#120 p24 a58
+Q: How is data transferred between different levels of the memory hierarchy?
+a) Directly between any two levels
+b) Only from lower levels to higher levels
+c) Only from higher levels to lower levels
+d) Through a controlled movement based on data usage patterns
+K: d
+X: Blocks move up the hierarchy when they are needed and back down when they are replaced or written back, under control of caching and paging policies driven by usage (locality of reference).
+S: Movement is on demand, guided by locality — both directions.
+
+#121 p25
+Q: What is the main function of the interface unit in a computer system?
+a) Connect the CPU to the power supply
+b) Interconnect the CPU with memory and I/O devices
+c) Control the flow of data within the CPU
+d) Manage the cooling system of the computer
+K: b
+X: The interface unit links the processor with memory and the input/output devices over the system buses so that they can exchange data and control signals.
+S: Interface unit = CPU ↔ memory ↔ I/O connector.
+N: The book gives no printed answer or explanation for Q121–130 (its answer list jumps from 120 to 131); the key and explanation here were supplied for this dashboard.
+
+#122 p25
+Q: Which type of bus is responsible for carrying actual data between components?
+a) Data bus
+b) Address bus
+c) Control bus
+d) Expansion bus
+K: a
+X: The data bus carries the data itself and is bidirectional; the address bus carries locations and the control bus carries control and timing signals.
+S: Data bus = data (bidirectional) · address bus = where (unidirectional, CPU → memory) · control bus = how/when.
+N: No printed key in the book for this question; the key was supplied.
+
+#123 p25
+Q: What type of information does the control bus carry?
+a) Actual data
+b) Memory addresses
+c) Control signals and status information
+d) Device-specific formatting information
+K: c
+X: The control bus carries signals such as memory read/write, I/O read/write, interrupt, clock and bus-request/acknowledge, along with status lines.
+S: Control bus → read/write, interrupt, clock, status.
+N: No printed key in the book for this question; the key was supplied.
+
+#124 p25
+Q: What is the role of a device controller?
+a) Connect devices directly to the internal bus
+b) Coordinate the activities of specific peripherals
+c) Provide power supply to the devices
+d) Convert data between analog and digital formats
+K: b
+X: A device controller is the electronics that operates one kind of peripheral (disk, printer, keyboard), buffering its data and handling its signals on behalf of the CPU.
+S: Controller = device's local manager; driver = its software counterpart.
+N: No printed key in the book for this question; the key was supplied.
+
+#125 p25
+Q: How does the processor interact with input and output devices?
+a) Through the address bus
+b) By directly connecting to the internal bus
+c) Via the device controllers
+d) By using the control bus exclusively
+K: c
+X: The CPU does not drive peripherals directly; it talks to each device's controller (through I/O ports or memory-mapped registers), and the controller operates the device.
+S: CPU → controller → device.
+N: No printed key in the book for this question; the key was supplied.
+
+#126 p25
+Q: What is the purpose of assigning addresses to input/output devices?
+a) To establish physical connections between devices
+b) To enable the devices to communicate with each other
+c) To provide a unique identifier for each device
+d) To control the power supply to the devices
+K: c
+X: Each I/O device (port) gets a unique address so the CPU can select exactly which device it is reading from or writing to.
+S: Address = unique ID so the CPU picks the right device.
+N: No printed key in the book for this question; the key was supplied.
+
+#127 p25
+Q: What is the function of the motherboard in a computer system?
+a) Connect the computer to the internet
+b) Store data and instructions permanently
+c) Provide physical connections among components
+d) Control the execution of computer programs
+K: c
+X: The motherboard is the main printed circuit board: it carries the CPU socket, memory slots, chipset, buses and connectors that physically link all components.
+S: Motherboard = the backbone board that connects everything.
+N: No printed key in the book for this question; the key was supplied.
+
+#128 p26
+Q: Which component is responsible for mounting and connecting all the computer system's components?
+a) Power supply unit
+b) Central processing unit
+c) Interface unit
+d) Motherboard
+K: d
+X: All major components — CPU, RAM, expansion cards, storage and peripheral connectors — are mounted on or cabled to the motherboard.
+S: Mount + connect → motherboard.
+N: No printed key in the book for this question; the key was supplied.
+
+#129 p26
+Q: What is the alternative name for the motherboard?
+a) Main board
+b) Processor unit
+c) Control unit
+d) Expansion board
+K: a
+X: The motherboard is also called the main board, system board or logic board.
+S: Motherboard = mainboard = system board.
+N: No printed key in the book for this question; the key was supplied.
+
+#130 p26
+Q: Which component on the motherboard is responsible for controlling the flow of electricity to different parts of the computer?
+a) Central processing unit
+b) Random access memory
+c) Power supply unit
+d) Interface unit
+K: c
+X: The power supply unit converts and distributes electrical power, feeding the motherboard and drives through its connectors.
+S: Electricity → PSU.
+N: No printed key in the book for this question; the key was supplied.
+
+#131 p26 a58
+Q: Which bus type is responsible for connecting expansion cards to the motherboard?
+a) Data bus
+b) Address bus
+c) Control bus
+d) Expansion bus
+K: d
+X: Expansion slots (PCI, PCI Express) are on the expansion bus, which connects add-on cards — graphics, sound, network — to the motherboard.
+S: Add-on cards → expansion bus (PCI/PCIe slots).
+
+#132 p26 a58
+Q: What is the primary purpose of the expansion bus?
+a) Carry control signals between the CPU and peripherals
+b) Transfer data between the CPU and main memory
+c) Connect the CPU to input/output devices
+d) Provide a way to connect additional components to the motherboard
+K: d
+X: The expansion bus lets you add components (cards) to extend the computer's capabilities beyond what is built into the motherboard.
+S: Expansion = add more capability via slots.
+
+#133 p26 a59
+Q: Which component is responsible for managing the cooling system of the computer?
+a) Interface unit
+b) Power supply unit
+c) Central processing unit
+d) Motherboard
+K: b
+X: The book keys the power supply unit, which powers the system fans (and has its own fan). In practice fan speed is regulated by the motherboard's hardware monitor using temperature sensors.
+S: Book answer: PSU powers the cooling fans.
+
+#134 p26 a59
+Q: Which bus type carries memory addresses?
+a) Data bus
+b) Address bus
+c) Control bus
+d) Expansion bus
+K: b
+X: The address bus carries the address of the memory location or I/O port the CPU wants; its width fixes how much memory can be addressed (n lines → 2ⁿ locations).
+S: Address bus width n → 2ⁿ addressable locations (32 lines → 4 GB).
+
+#135 p26 a59
+Q: What is the purpose of the control signals carried by the control bus?
+a) Report the status of various devices
+b) Carry actual data between components
+c) Provide power to the devices
+d) Convert analog signals to digital signals
+K: a
+X: Control-bus lines carry commands and status: read/write, interrupt requests, acknowledgements and ready/busy signals that report the state of devices.
+S: Control bus = commands + status; data bus = data.
+
+#136 p26 a59
+Q: How are devices connected to the computer's internal bus?
+a) Through the device controllers
+b) By direct physical connections
+c) Using wireless technology
+d) Via the address bus
+K: a
+X: Peripherals attach to the system bus through their controllers (adapters), which translate between the bus protocol and the device.
+S: Device → controller → system bus.
+
+#137 p27 a59
+Q: What is the purpose of the power supply unit in a computer system?
+a) Connect the CPU to the motherboard
+b) Store data and instructions temporarily
+c) Provide power to all components of the computer
+d) Control the flow of data within the CPU
+K: c
+X: The PSU converts AC mains power to the regulated DC voltages (e.g. +12 V, +5 V, +3.3 V) that all components use.
+S: PSU = power only; it never touches data.
+
+#138 p27 a59
+Q: Which component on the motherboard is responsible for temporarily storing data and instructions during processing?
+a) Power supply unit
+b) Central processing unit
+c) Random access memory
+d) Interface unit
+K: c
+X: RAM modules in the motherboard's memory slots hold the programs and data currently in use.
+S: Temporary working storage → RAM.
+
+#139 p27 a59
+Q: What is the advantage of using a motherboard in a computer system?
+a) It increases the processing speed of the CPU
+b) It provides additional storage capacity
+c) It allows easy connection and integration of components
+d) It reduces the power consumption of the computer
+K: c
+X: A motherboard gives standard sockets, slots and connectors so that components can be connected, integrated and upgraded easily.
+S: Motherboard's value = integration and connectivity, not speed or storage.
+
+#140 p27 a60
+Q: How does the motherboard facilitate the communication between the CPU and memory?
+a) Through the control bus
+b) By directly connecting the CPU to memory modules
+c) Via the expansion bus
+d) By providing physical connections and buses
+K: d
+X: The motherboard carries the buses (address, data and control lines) and the traces that join the CPU socket to the memory slots, so the two can exchange data.
+S: Communication path = buses on the motherboard.
+
+#141 p27 a60
+Q: What is the function of the motherboard in a computer system?
+a) Store data and instructions
+b) Control the flow of electricity
+c) Connect all hardware components
+d) Manage the cooling system
+K: c
+X: The motherboard is the main circuit board that physically and electrically connects the CPU, RAM, storage, expansion cards and peripherals.
+S: Motherboard = connector of all components.
+
+#142 p27 a60
+Q: Which component is NOT typically found on a motherboard?
+a) Central processing unit (CPU)
+b) Random access memory (RAM)
+c) Power supply unit (PSU)
+d) Graphics processing unit (GPU)
+K: c
+X: The PSU is a separate box inside the cabinet that feeds power to the motherboard through cables. The CPU and RAM sit in motherboard sockets and slots, and a GPU is either integrated or plugged into a slot.
+S: PSU is cabled to the board, not mounted on it.
+
+#143 p27 a60
+Q: The motherboard connects to the CPU using:
+a) Expansion slots
+b) USB ports
+c) SATA connectors
+d) CPU sockets
+K: d
+X: The processor sits in a CPU socket (e.g. LGA or PGA) that provides its physical and electrical connection to the motherboard.
+S: CPU → socket · RAM → DIMM slot · cards → PCIe slot · drives → SATA/M.2.
+
+#144 p27 a60
+Q: The main circuitry on a motherboard is usually made up of:
+a) Transistors
+b) Capacitors
+c) Integrated circuits (ICs)
+d) Resistors
+K: c
+X: A motherboard's main circuitry — chipset, BIOS chip, controllers — consists of integrated circuits, each containing many transistors, resistors and capacitors on one chip.
+S: Board circuitry = ICs (chips).
+
+#145 p27 a60
+Q: Which bus is responsible for connecting expansion cards to the motherboard?
+a) Data bus
+b) Address bus
+c) Control bus
+d) Expansion bus
+K: d
+X: Expansion cards plug into slots on the expansion bus (PCI/PCIe), which links them to the CPU and memory.
+S: Expansion card → expansion bus.
+
+#146 p28 a60
+Q: What does the BIOS (Basic Input/Output System) on the motherboard do?
+a) Control the power supply unit
+b) Manage the cooling system
+c) Initialize the hardware and start the operating system
+d) Connect the motherboard to the CPU
+K: c
+X: The BIOS is firmware in ROM/flash on the motherboard. At power-on it runs the POST (power-on self-test), initialises the hardware and loads the bootstrap loader that starts the operating system.
+S: BIOS → POST → boot loader → OS (ISS 2024 asked all three BIOS functions).
+
+#147 p28 a61
+Q: The form factor of a motherboard refers to:
+a) Its physical size and shape
+b) The number of expansion slots
+c) The brand and model of the motherboard
+d) The type of CPU socket it supports
+K: a
+X: Form factor is the standard for a board's physical size, shape and mounting layout — ATX, Micro-ATX, Mini-ITX — which decides the cabinet it fits.
+S: Form factor = size and shape (ATX family).
+
+#148 p28 a61
+Q: Which component is responsible for storing the CMOS settings on the motherboard?
+a) Northbridge
+b) Southbridge
+c) BIOS chip
+d) Clock generator
+K: c
+X: The book keys the BIOS chip: the BIOS setup values (date, time, boot order) are kept in a small battery-backed CMOS memory that works with the BIOS. On modern boards this CMOS RAM is built into the chipset's real-time clock.
+S: BIOS settings live in battery-backed CMOS; remove the battery → settings reset.
+
+#149 p28 a61
+Q: The chipset on a motherboard consists of:
+a) RAM slots and connectors
+b) CPU and GPU
+c) Northbridge and Southbridge
+d) USB and Ethernet ports
+K: c
+X: The classic chipset has two chips: the northbridge (fast links — CPU, RAM, graphics) and the southbridge (slower I/O — USB, SATA, audio, BIOS).
+S: North = near the CPU, fast; South = slow I/O.
+
+#150 p28 a61
+Q: Overclocking refers to:
+a) Upgrading the BIOS firmware
+b) Increasing the clock speed of the CPU
+c) Adding more RAM to the motherboard
+d) Connecting multiple hard drives in a RAID configuration
+K: b
+X: Overclocking runs a CPU (or GPU/RAM) at a clock speed higher than its rated speed to gain performance, at the cost of more heat and possible instability.
+S: Over-clock = run faster than rated.
+
+#151 p28 a61
+Q: Which of the following is an example of system software?
+a) Word processing program
+b) Web browser
+c) Operating system
+d) Spreadsheet application
+K: c
+X: System software runs the computer itself: operating system, device drivers, utilities, language translators. Word processors, browsers and spreadsheets are application software.
+S: System software serves the machine; application software serves the user's task.
+
+#152 p28 a61
+Q: What is the purpose of an operating system?
+a) Run applications
+b) Manage hardware resources
+c) Create documents
+d) Connect to the internet
+K: b
+X: The operating system manages the hardware resources — processor, memory, storage and devices — and provides the interface and services that applications and users rely on.
+S: OS = resource manager + user interface.
+
+#153 p28 a61
+Q: Which type of software allows users to perform specific tasks or applications?
+a) System software
+b) Application software
+c) Utility software
+d) Firmware
+K: b
+X: Application software is written for specific user tasks: word processing, spreadsheets, graphics, accounting, browsing.
+S: Specific user task → application software.
+
+#154 p28 a62
+Q: Which of the following is an example of application software?
+a) Device driver
+b) Antivirus program
+c) Web browser
+d) Disk defragmenter
+K: c
+X: A web browser is an application program. Device drivers are system software; antivirus programs and disk defragmenters are utilities.
+S: Drivers, defragmenters, antivirus → system/utility; browser → application.
+
+#155 p28 a62
+Q: Which programming language is widely used for developing web applications?
+a) C++
+b) Java
+c) Python
+d) HTML
+K: b
+X: Java (with JSP/servlets and frameworks such as Spring) is widely used for server-side web applications. HTML is a markup language, not a programming language; it only structures web pages.
+S: HTML = markup, not programming — never pick it for "programming language".
+
+#156 p29 a62
+Q: Which software allows users to create and edit documents, spreadsheets, and presentations?
+a) Web browser
+b) Operating system
+c) Office suite
+d) Media player
+K: c
+X: An office suite (Microsoft Office, LibreOffice, Google Workspace) bundles a word processor, spreadsheet and presentation program.
+S: Word + Excel + PowerPoint = office suite.
+
+#157 p29 a62
+Q: Which software is designed to protect against malicious software and threats?
+a) Firewall
+b) Antivirus software
+c) File compression software
+d) Disk cleanup utility
+K: b
+X: Antivirus software detects, quarantines and removes malware such as viruses, worms and trojans. A firewall filters network traffic rather than scanning files for malware.
+S: Malware scanner → antivirus; traffic filter → firewall.
+
+#158 p29 a62
+Q: Which software is used to manage and organize databases?
+a) Spreadsheet application
+b) Database management system
+c) Graphics editing software
+d) Video editing software
+K: b
+X: A DBMS (Oracle, MySQL, MS Access) stores, retrieves, secures and manipulates data in databases.
+S: Database → DBMS.
+
+#159 p29 a62
+Q: Which software allows users to browse and access websites on the internet?
+a) Antivirus program
+b) Media player
+c) Web browser
+d) Email client
+K: c
+X: A web browser (Chrome, Firefox, Edge, Safari) requests web pages over HTTP/HTTPS and displays them.
+S: Websites → browser; mail → email client.
+
+#160 p29 a62
+Q: Which type of software helps optimize and improve the performance of a computer?
+a) Operating system
+b) Utility software
+c) Application software
+d) Firmware
+K: b
+X: Utility software maintains and tunes the system: disk cleanup, defragmenters, backup, compression and antivirus tools.
+S: Maintenance and tuning → utility software.
+
+#161 p29 a62
+Q: Which type of memory is used as primary memory in modern computers?
+a) Hard disk drive (HDD)
+b) Flash memory
+c) Semiconductor memory
+d) Magnetic tape
+K: c
+X: Primary memory (RAM and ROM) is built from semiconductor chips; magnetic disks and tapes are secondary storage.
+S: Primary memory = semiconductor chips.
+
+#162 p29 a62
+Q: What does "random access" mean in the context of memory?
+a) Accessing memory randomly without a specific order
+b) Reading data from memory only
+c) Writing data to memory only
+d) Accessing any storage location directly for both read and write operations
+K: d
+X: Random (direct) access means any location can be reached directly, in the same time, for reading or writing — unlike sequential access on tape.
+S: Random access = direct access, any address in equal time.
+
+#163 p29 a63
+Q: Which type of memory is faster, cheaper, and provides more storage space in lesser physical area?
+a) Magnetic memory
+b) Optical memory
+c) Semiconductor memory
+d) Magnetic tape memory
+K: c
+X: Semiconductor memory is faster and packs far more bits into a small area than older magnetic-core memory, which it replaced as primary memory.
+S: Speed + density → semiconductor.
+
+#164 p29 a63
+Q: What is the main drawback of semiconductor memory?
+a) Volatility
+b) Slowness
+c) Expensiveness
+d) Limited storage capacity
+K: a
+X: Semiconductor RAM is volatile: it loses its contents when power is switched off, so permanent data must go to secondary storage.
+S: Semiconductor RAM's weakness = volatility.
+
+#165 p30 a63
+Q: Which type of memory holds the data and instructions waiting to be processed by the processor?
+a) ROM (Read-Only Memory)
+b) Cache memory
+c) RAM (Random Access Memory)
+d) Virtual memory
+K: c
+X: RAM holds the programs and data currently in use, waiting to be fetched and processed by the CPU.
+S: Work in progress → RAM.
+
+#166 p30
+Q: What are the two types of RAM used in computer systems?
+a) Dynamic RAM (DRAM) and Static RAM (SRAM)
+b) Synchronous RAM (SRAM) and Asynchronous RAM (ARAM)
+c) Volatile RAM and Non-volatile RAM
+d) Primary RAM and Secondary RAM
+K: a
+X: RAM comes in two basic types: dynamic RAM (DRAM), which stores bits as charge on capacitors and needs refreshing, and static RAM (SRAM), which uses flip-flops and needs no refresh.
+S: DRAM = capacitor + refresh + cheap + main memory; SRAM = flip-flop + no refresh + fast + cache.
+N: The book prints no answer for Q166–167 (its answers jump from 165 to 168); the key was supplied.
+
+#167 p30
+Q: Which type of RAM requires refreshing circuits to retain its content?
+a) Dynamic RAM (DRAM)
+b) Static RAM (SRAM)
+c) Synchronous RAM (SRAM)
+d) Double Data Rate RAM (DDR RAM)
+K: a
+X: DRAM stores each bit as charge on a tiny capacitor that leaks away, so it must be refreshed thousands of times a second. SRAM holds its bits in flip-flops and needs no refresh while powered.
+S: "Refresh" → DRAM (D for "decays").
+N: No printed key in the book for this question; the key was supplied.
+
+#168 p30 a63
+Q: How does Dynamic RAM (DRAM) store data?
+a) Using transistors
+b) Using capacitors
+c) Using flip flop circuits
+d) Using junction capacitors
+K: b
+X: Each DRAM cell is one transistor plus one capacitor; a charged capacitor represents 1 and a discharged one 0.
+S: DRAM → capacitor; SRAM → flip-flop (6 transistors).
+
+#169 p30 a63
+Q: Which type of RAM is typically used as processor caches and I/O buffers?
+a) SDRAM (Synchronous Dynamic RAM)
+b) RDRAM (Rambus Dynamic RAM)
+c) DDR RAM (Double Data Rate RAM)
+d) SRAM (Static RAM)
+K: d
+X: SRAM is fast and needs no refresh, so it is used for CPU caches and buffers, where speed matters more than cost or density.
+S: Cache = SRAM; main memory = DRAM.
+
+#170 p30 a63
+Q: Which type of RAM gives faster performance by transmitting data on both rising and falling edges of each clock pulse?
+a) SDRAM (Synchronous Dynamic RAM)
+b) RDRAM (Rambus Dynamic RAM)
+c) DDR RAM (Double Data Rate RAM)
+d) SRAM (Static RAM)
+K: c
+X: DDR SDRAM transfers data on both the rising and falling edges of the clock, doubling the transfer rate of ordinary SDRAM at the same clock.
+S: Both clock edges → Double Data Rate.
+
+#171 p30 a63
+Q: What is the purpose of Video RAM (VRAM)?
+a) Store image data for the visual display monitor
+b) Act as a data storage buffer between the processor and the visual display unit
+c) Store operating system instructions
+d) Hold data and instructions waiting to be processed by the processor
+K: b
+X: VRAM is the graphics card's memory: it buffers the image (frame) data between the processor and the display, so the screen can be refreshed while new images are drawn.
+S: VRAM = frame buffer between CPU/GPU and monitor.
+
+#172 p30 a64
+Q: Which company developed RDRAM (Rambus Dynamic RAM)?
+a) Intel Corporation
+b) AMD (Advanced Micro Devices)
+c) Microsoft Corporation
+d) Rambus Corporation
+K: d
+X: RDRAM was designed by Rambus Inc. and was used with some Intel Pentium 4 systems around 2000.
+S: RDRAM → Rambus.
+
+#173 p31 a64
+Q: Which type of RAM is considered the most expensive?
+a) SDRAM (Synchronous Dynamic RAM)
+b) RDRAM (Rambus Dynamic RAM)
+c) DDR RAM (Double Data Rate RAM)
+d) SRAM (Static RAM)
+K: d
+B: b
+X: SRAM needs about six transistors per bit against one transistor and one capacitor for DRAM, so it is the most expensive RAM per bit and is used only in small caches. RDRAM was the costliest of the DRAM module types.
+S: Most expensive RAM → SRAM (that is why cache is small).
+N: The book prints (b) RDRAM. RDRAM was the most expensive kind of DRAM module, but static RAM costs more per bit than any DRAM, so with SRAM among the options the key is (d).
+
+#174 p31 a64
+Q: Which type of RAM is preferred for high-performance personal computers?
+a) SDRAM (Synchronous Dynamic RAM)
+b) RDRAM (Rambus Dynamic RAM)
+c) DDR RAM (Double Data Rate RAM)
+d) SRAM (Static RAM)
+K: b
+X: The book's answer is RDRAM, which in the early 2000s was promoted for high-performance PCs because of its high transfer rate. It was later abandoned; today's PCs use DDR SDRAM (DDR4/DDR5).
+S: Book answer: RDRAM (historical high-end choice). Today's main memory = DDR SDRAM.
+
+#175 p31 a64
+Q: What does DDR stand for in DDR RAM?
+a) Double Dynamic RAM
+b) Dual Data Rate
+c) Dynamic Data RAM
+d) Digital Data Rate
+K: b
+X: DDR means Double Data Rate: data moves on both edges of every clock pulse. Option (b) is the only one that describes this "two transfers per clock" idea.
+S: DDR = Double Data Rate — two transfers per clock cycle.
+N: The standard expansion is "Double Data Rate"; the book's option (b) "Dual Data Rate" is the nearest choice and is keyed.
+
+#176 p31 a64
+Q: What is the purpose of VRAM in a computer system?
+a) Store video games
+b) Enhance the processing speed of the CPU
+c) Buffer transmission information in networking devices
+d) Store image data for the visual display monitor
+K: d
+X: VRAM holds the image data that is sent to the monitor, acting as a buffer between the processor and the display.
+S: V for Video → display image data.
+
+#177 p31 a64
+Q: Which type of memory is volatile in nature?
+a) Magnetic memory
+b) Optical memory
+c) Semiconductor memory
+d) Magnetic tape memory
+K: c
+X: Semiconductor RAM (both DRAM and SRAM) loses its contents without power. Magnetic and optical media are non-volatile.
+S: Magnetic and optical never forget; semiconductor RAM does.
+
+#178 p31 a64
+Q: Which type of memory is nonvolatile and retains its contents even when the power is switched off?
+a) Cache memory
+b) Virtual memory
+c) Secondary memory
+d) ROM (Read-Only Memory)
+K: d
+X: ROM keeps its contents permanently without power; it holds firmware such as the BIOS.
+S: Non-volatile semiconductor memory → ROM (PROM, EPROM, EEPROM, flash).
+N: Secondary memory (c) is also non-volatile; the book keys (d), ROM, the non-volatile member of primary memory.
+
+#179 p31 a64
+Q: What is the purpose of the cache memory in a computer system?
+a) Store frequently accessed data for faster retrieval
+b) Store operating system instructions
+c) Act as a buffer for transmission information
+d) Store image data for the visual display monitor
+K: a
+X: Cache stores frequently accessed data and instructions near the CPU so they can be retrieved faster than from main memory.
+S: Cache = fast retrieval of frequently used data.
+
+#180 p31 a64
+Q: What is the function of ROM (Read-Only Memory) in a computer system?
+a) Store data and instructions
+b) Control the flow of electricity
+c) Connect all hardware components
+d) Hold permanent instructions and data that cannot be modified
+K: d
+B: c
+X: ROM holds permanent instructions and data — such as the BIOS start-up program — that are written at manufacture and cannot be changed by normal programs.
+S: ROM = permanent, read-only, non-volatile (firmware/BIOS).
+N: The book prints (c) "Connect all hardware components", with an explanation about the motherboard that belongs to a different question. For ROM the correct answer is (d).
+
+#181 p32 a65
+Q: Which of the following is not a main type of secondary storage device?
+a) RAM
+b) Disk drives
+c) Tape drives
+d) USB flash drives
+K: a
+X: RAM is primary (main) memory; disk drives, tape drives and USB flash drives are secondary storage.
+S: RAM is never secondary storage.
+
+#182 p32 a65
+Q: What is the purpose of secondary storage devices?
+a) To store temporary data
+b) To store data permanently
+c) To process data
+d) To provide fast access to data
+K: b
+X: Secondary storage devices keep files, programs and data permanently, surviving power-off.
+S: Secondary = permanent storage.
+
+#183 p32 a65
+Q: Which secondary storage device is known for its faster performance and larger capacity?
+a) Hard disk
+b) Floppy disk
+c) CD drive
+d) Tape drive
+K: a
+X: Among the options, the hard disk offers the highest capacity and the fastest random access; floppies are tiny and slow, CDs are slower, and tape is sequential.
+S: HDD beats floppy, CD and tape on both speed and capacity.
+
+#184 p32 a65
+Q: What is the main disadvantage of floppy disks compared to hard disks?
+a) Slower performance
+b) Smaller capacity
+c) Non-removability
+d) Higher cost
+K: a
+X: The book stresses speed: floppy drives have much slower access and transfer rates than hard disks. (Their tiny capacity — 1.44 MB for a 3.5-inch disk — is the other major drawback.)
+S: Floppy: slow + small (1.44 MB) but removable.
+
+#185 p32 a65
+Q: CD-ROM stands for:
+a) Compact Disk-Read Only Memory
+b) Compact Disk-Random Access Memory
+c) Compact Disk-Recordable Only Memory
+d) Compact Disk-ReWritable Optical Memory
+K: a
+X: CD-ROM = Compact Disc Read-Only Memory: data is pressed at manufacture and can only be read.
+S: CD-ROM read-only · CD-R write once · CD-RW rewritable.
+
+#186 p32 a65
+Q: Which component of a floppy disk drive rotates the disk media?
+a) Read/write head
+b) Motor
+c) Spindle
+d) Arm
+K: b
+X: The drive motor (spindle motor) turns the disk; the spindle is only the hub that holds it, and the arm positions the read/write head.
+S: Rotates → motor; holds → spindle; positions head → arm.
+
+#187 p32 a65
+Q: The tracks on a hard disk are divided into:
+a) Sectors
+b) Cylinders
+c) Platters
+d) Tracks
+K: a
+B: d
+X: Each track (a concentric circle on a platter surface) is divided into sectors, traditionally 512 bytes each. The same-numbered tracks on all platters together form a cylinder.
+S: Platter → tracks (circles) → sectors (arcs); same track on all surfaces = cylinder.
+N: The book prints (d) Tracks, which repeats the question. Tracks are divided into sectors, so the key is (a).
+
+#188 p32 a65
+Q: The data storage capacity of a hard disk is typically measured in:
+a) Megabytes (MB)
+b) Kilobytes (KB)
+c) Gigabytes (GB)
+d) Terabytes (TB)
+K: c
+X: The book keys gigabytes; hard-disk capacities run to hundreds of gigabytes, and today's drives are often sold in terabytes.
+S: HDD capacity → GB/TB; floppy → MB (1.44 MB).
+
+#189 p32 a65
+Q: What type of memory is a CD-ROM?
+a) Read-only memory
+b) Random-access memory
+c) Read-write memory
+d) Volatile memory
+K: a
+X: A CD-ROM is read-only: the data is pressed in at manufacture and cannot be changed.
+S: ROM in the name → read-only.
+
+#190 p32 a65
+Q: Which secondary storage device provides the highest data transfer rates?
+a) Hard disk
+b) Floppy disk
+c) Tape drive
+d) USB flash drive
+K: a
+X: Of the options, the hard disk has the highest sustained transfer rate; floppies are extremely slow, tape is sequential and ordinary USB flash drives are limited by the USB link.
+S: Among HDD, floppy, tape and pen drive → HDD fastest (an SSD would beat it).
+
+#191 p32 a65
+Q: The read/write heads of a hard disk move radially across the:
+a) Platter surfaces
+b) Spindle
+c) Tracks
+d) Cylinders
+K: a
+X: The actuator arm swings the heads radially (inward and outward) across the spinning platter surfaces to reach different tracks.
+S: Heads move radially over platters; the platters spin.
+
+#192 p33 a66
+Q: What is the purpose of the metal arms in a hard disk drive?
+a) To rotate the platters
+b) To protect the platters
+c) To position the read/write heads
+d) To create magnetic marks on the platters
+K: c
+X: The actuator arms carry the read/write heads and position them over the required track (seek).
+S: Arm = head positioner (seek time); spindle motor = rotation (rotational latency).
+
+#193 p33 a66
+Q: Which of the following is a removable secondary storage medium?
+a) Hard disk
+b) Floppy disk
+c) CD-ROM
+d) USB flash drive
+K: b
+X: A floppy disk is inserted into and removed from its drive, unlike a fixed internal hard disk.
+S: Fixed → internal hard disk; removable → floppy, CD, pen drive.
+N: CD-ROMs and USB flash drives are removable as well, so (c) and (d) are also true; the book keys (b), the floppy disk.
+
+#194 p33 a66
+Q: Which secondary storage device is commonly used for backup and archival purposes?
+a) Hard disk
+b) Floppy disk
+c) CD drive
+d) Tape drive
+K: d
+X: Magnetic tape is cheap per byte, high-capacity and durable, which makes it the classic medium for backups and archives, where sequential access does not matter.
+S: Backup/archive → tape (sequential, cheapest per GB).
+
+#195 p33 a66
+Q: What is the main advantage of a hard disk over other storage devices?
+a) Faster access time
+b) Lower cost
+c) Higher portability
+d) Smaller physical size
+K: a
+X: Compared with floppies, tapes and CDs, a hard disk gives much faster access time (and larger capacity).
+S: HDD's edge = speed (and capacity).
+
+#196 p33 a66
+Q: Which secondary storage device uses magnetic tapes?
+a) Hard disk
+b) Floppy disk
+c) CD drive
+d) Tape drive
+K: d
+X: A tape drive reads and writes data sequentially on magnetic tape.
+S: Tape drive → magnetic tape → sequential access.
+
+#197 p33 a66
+Q: Which component of a floppy disk drive moves the read/write heads forward and backward?
+a) Spindle
+b) Arm
+c) Motor
+d) Platter
+K: b
+X: The head arm (driven by a stepper motor) moves the read/write heads forward and backward across the disk to reach different tracks.
+S: Head movement → arm.
+
+#198 p33 a66
+Q: The storage capacity of a floppy disk commonly used in personal computers is:
+a) 1.44 MB
+b) 512 KB
+c) 5.25 GB
+d) 1 TB
+K: a
+X: The standard 3.5-inch high-density floppy holds 1.44 MB.
+S: 3.5-inch floppy = 1.44 MB; CD ≈ 700 MB; DVD = 4.7 GB (single layer).
+
+#199 p33 a66
+Q: What technology are most drives used for secondary memory based on?
+a) Electro-mechanical
+b) Solid-state
+c) Optical
+d) Magnetic
+K: a
+X: Hard-disk, floppy, tape and CD drives all have moving parts — motors, spindles and arms — so they are electro-mechanical devices.
+S: Moving parts → electro-mechanical (SSDs are the solid-state exception).
+
+#200 p33 a66
+Q: Which secondary storage device provides better reliability of operation?
+a) Hard disk
+b) Floppy disk
+c) CD drive
+d) Tape drive
+K: a
+X: A sealed hard disk is more reliable in operation than floppies, CDs or tapes, whose media are exposed to dust, scratches and wear.
+S: Sealed HDD > exposed floppy/CD/tape.
+
+#201 p33 a66
+Q: What does CD-RW stand for?
+a) Compact Disc-Read Only Memory
+b) Compact Disc-ReWritable
+c) Compact Disc-Recordable
+d) Compact Disc-Rewindable
+K: b
+B: a
+X: CD-RW = Compact Disc-ReWritable: the disc can be written, erased and rewritten many times. CD-R is Recordable (write once) and CD-ROM is Read Only Memory.
+S: ROM read only · R record once · RW rewrite many times.
+N: The book prints (a) Compact Disc-Read Only Memory, although its own explanation says CD-RW stands for Compact Disc-ReWritable; the key is (b).
+
+#202 p34 a66
+Q: Which of the following is a feature of CD-RW discs?
+a) They can be erased and reused.
+b) Once burned, data cannot be changed.
+c) They have a larger storage capacity.
+d) They are made of synthetic resin.
+K: a
+X: CD-RW discs use a phase-change layer, so data can be erased and rewritten many times. "Cannot be changed once burned" describes CD-R.
+S: RW = rewritable = erase and reuse.
+
+#203 p34 a66
+Q: How are microscopic pits created on the surface of a CD?
+a) By a laser diode
+b) By infrared heat
+c) By a low-intensity laser beam
+d) By a reflective material
+K: b
+X: In a CD writer, a high-power infrared laser heats the recording layer; the heat creates the marks (pits) that store the bits. Reading uses a low-intensity laser.
+S: Write = high-power infrared heat; read = low-intensity laser.
+
+#204 p34 a67
+Q: What type of laser beam is used to read the bits on a CD-ROM?
+a) High-intensity laser beam
+b) Infrared laser beam
+c) Low-intensity laser beam
+d) Ultraviolet laser beam
+K: c
+X: A low-intensity laser beam is shone on the disc and the reflected light is sensed; the low power ensures reading does not alter the disc.
+S: Reading must not damage → low-intensity laser.
+
+#205 p34 a67
+Q: What determines whether a bit on a CD is a 1 or a 0?
+a) The reflective material
+b) The synthetic resin
+c) The presence of pits and bumps
+d) The sensor receiving the reflection
+K: d
+X: The book keys the sensor: the photodetector receives the reflected laser light and, from changes in that reflection as pits and lands pass, decides whether each bit is a 1 or a 0.
+S: Pits/lands encode; the sensor decodes (reflection change → 1).
+
+#206 p34 a67
+Q: What is the primary use of CDs originally?
+a) General computer storage
+b) Data backup and archival
+c) Music storage
+d) Video storage
+K: c
+X: The compact disc was introduced (1982) as a digital audio format for music; CD-ROMs for computer data came later.
+S: CD → first audio (music), then data.
+
+#207 p34 a67
+Q: What is the difference between CD-R and CD-RW?
+a) CD-RW has a larger storage capacity.
+b) CD-R can be erased and reused.
+c) CD-R can't be changed once burned.
+d) CD-RW is made of synthetic resin.
+K: c
+X: A CD-R is write-once: after it is burned, its data cannot be changed. A CD-RW can be erased and rewritten.
+S: CD-R = WORM (write once, read many); CD-RW = rewritable.
+N: The book prints option (c) as "CD-RW can't be changed once burned" and keys it, but its own explanation says the opposite. The option has been corrected to "CD-R can't be changed once burned", which is the intended true statement.
+
+#208 p34 a67
+Q: What technology is used to write data on a CD?
+a) Infrared heat
+b) Laser diode
+c) Reflective material
+d) Synthetic resin
+K: b
+X: A CD writer uses a laser diode; at high power its beam burns the data marks into the disc's recording layer.
+S: CD/DVD read and write → laser diode.
+
+#209 p34 a67
+Q: What is the purpose of pits and bumps on a CD surface?
+a) To simulate amorphous and crystalline states
+b) To reflect laser beam weakly
+c) To code information in the form of ups and downs
+d) To create a smooth area on the disc
+K: c
+X: The spiral track of pits and flat lands ("ups and downs") encodes the data; changes in reflected light at their edges are read as bits.
+S: Pits + lands = the data code.
+
+#210 p34 a67
+Q: What is the function of the sensor in CD reading?
+a) To determine whether a bit is a 1 or a 0
+b) To create microscopic pits on the CD
+c) To erase and reuse the CD-RW disc
+d) To code information on the CD surface
+K: a
+X: The photo-sensor detects the reflected laser light and converts its changes into 1s and 0s.
+S: Sensor = decoder of reflections into bits.
+
+#211 p35 a67
+Q: Which type of CD drive is commonly found in personal computers?
+a) CD-ROM drive
+b) CD-R drive
+c) CD-RW drive
+d) CD-Writer drive
+K: b
+X: The book's answer is the CD-R (recordable) drive, which can both read discs and write CD-Rs. Older PCs shipped with read-only CD-ROM drives and later PCs with CD-RW/DVD writers.
+S: Book answer: CD-R drive (reads and records).
+
+#212 p35 a67
+Q: What happens when a CD-R is "burned"?
+a) The disc becomes amorphous and non-reflective.
+b) The disc can be erased and reused.
+c) The disc's synthetic resin is coated with a reflective material.
+d) The data stored on the disc cannot be changed.
+K: d
+X: Burning a CD-R writes its data permanently; a CD-R is write-once and cannot be changed or erased.
+S: CD-R burned → permanent.
+
+#213 p35 a67
+Q: What allows a CD to store and play music?
+a) Reflective material
+b) Synthetic resin
+c) Laser diode
+d) Microscopic pits on the surface
+K: c
+X: The book keys the laser diode: its beam writes the data marks on the disc and reads them back for playback. The pits themselves are the stored code.
+S: Book answer: laser diode (writes and reads the disc).
+
+#214 p35 a67
+Q: What enables a CD to be read by a CD-ROM drive?
+a) The presence of pits and bumps
+b) The reflective material on the disc
+c) The low-intensity laser beam
+d) The synthetic resin coating
+K: a
+X: The data is physically present as pits and lands; the drive reads them through the changes they cause in the reflected laser light.
+S: Data = pits and lands.
+
+#215 p35 a67
+Q: What is the primary purpose of a CD-Recordable (CD-R) drive?
+a) To erase and reuse CD-RW discs
+b) To create CDs that cannot be changed
+c) To read both CD-R and CD-RW discs
+d) To simulate pits and flat surfaces on a CD-RW disc
+K: b
+X: A CD-R drive records (burns) discs once; the recorded CD cannot be changed afterwards.
+S: CD-R drive → burns write-once discs.
+
+#216 p35 a67
+Q: How is data written on a CD-RW?
+a) By creating pits and bumps on the surface
+b) By heating the disc to different temperatures
+c) By coating the surface with synthetic resin
+d) By using a high-intensity laser beam
+K: b
+X: A CD-RW has a phase-change layer: the laser heats spots to different temperatures, switching them between a reflective crystalline state and a dull amorphous state.
+S: CD-RW write = phase change by heating (crystalline ↔ amorphous).
+
+#217 p35 a68
+Q: What characteristic allows a CD to reflect laser beam weakly?
+a) Smooth surface
+b) Amorphous state
+c) Crystalline state
+d) Low-intensity laser beam
+K: b
+X: In rewritable discs the amorphous state reflects the laser weakly (acting like a pit), while the crystalline state reflects strongly (like a land).
+S: Amorphous = dull (weak reflection); crystalline = shiny (strong).
+
+#218 p35 a68
+Q: Which component of a CD drive reads the bits on a CD?
+a) Sensor
+b) Laser diode
+c) Reflective material
+d) Infrared heat
+K: b
+X: The book keys the laser diode, whose beam scans the track; the reflected light is then picked up by the sensor, which decides each bit.
+S: Book answer: laser diode (with the sensor as its partner).
+
+#219 p35 a68
+Q: What property of CD-RW discs allows them to be reused?
+a) Synthetic resin coating
+b) Reflective material
+c) Presence of microscopic pits
+d) Ability to change between amorphous and crystalline states
+K: d
+X: The phase-change recording layer can be switched back and forth between amorphous and crystalline states many times, so the disc can be erased and rewritten.
+S: Reusable because of reversible phase change.
+
+#220 p35 a68
+Q: What temperature change causes a CD-RW disc to become reflective?
+a) Heating to a low temperature
+b) Cooling to a high temperature
+c) Heating to a high temperature
+d) Cooling to a low temperature
+K: a
+B: c
+X: In a phase-change disc, heating a spot to a moderate (lower) temperature lets it crystallise, which makes it reflective — this is how CD-RW data is erased. Heating it to a high temperature melts it, and fast cooling leaves it amorphous and non-reflective, which is how data is written.
+S: Low heat → crystalline → reflective (erase); high heat + quench → amorphous → dull (write).
+N: The book prints (c) Heating to a high temperature. High-temperature heating followed by rapid cooling makes the layer amorphous and non-reflective; it becomes reflective (crystalline) when heated to the lower crystallisation temperature, so the key is (a).
+
+#221 p36 a68
+Q: Which component of a computer system acts as the manager of system resources?
+a) Processor
+b) Operating system
+c) Main memory
+d) I/O devices
+K: b
+X: The operating system is the resource manager: it allocates the processor, memory, files and devices among programs and users.
+S: Resource manager → OS.
+
+#222 p36 a68
+Q: What is the primary function of an operating system?
+a) To provide an interface between the user and the hardware
+b) To manage system resources and allocate them to programs
+c) To perform data processing tasks
+d) To provide security for the computer system
+K: a
+X: The book keys the OS as the interface between the user and the hardware, which hides hardware details from the user. Resource management (b) is the OS's other core role.
+S: OS = interface (user ↔ hardware) + resource manager.
+
+#223 p36 a68
+Q: Which function of an operating system involves managing the execution of programs?
+a) Process management
+b) Memory management
+c) File management
+d) Device management
+K: a
+X: Process management creates, schedules and terminates processes, deciding which program runs, when and for how long.
+S: Running programs → process management (CPU scheduling).
+
+#224 p36 a68
+Q: The process abstraction is a fundamental mechanism implemented by the operating system for the management of:
+a) Files
+b) Memory
+c) Input/output devices
+d) Program execution
+K: d
+X: A process is a program in execution; the OS manages program execution by creating and scheduling processes.
+S: Process = program in execution.
+
+#225 p36 a68
+Q: What is the responsibility of memory management in an operating system?
+a) Allocating CPU time to processes
+b) Managing user interfaces
+c) Keeping track of memory usage
+d) Controlling access to files
+K: c
+X: Memory management tracks which parts of memory are in use and by whom, allocates and frees memory, and handles virtual memory and protection.
+S: Memory manager: track, allocate, free, protect, swap/page.
+
+#226 p36 a68
+Q: Device management in an operating system involves:
+a) Managing the execution of programs
+b) Allocating memory resources
+c) Controlling and scheduling I/O operations
+d) Organizing files and directories
+K: c
+X: Device management allocates devices to processes and controls and schedules input/output through device drivers, buffering and spooling.
+S: Device management → I/O control (drivers, spooling, buffers).
+
+#227 p36 a68
+Q: Which function of an operating system is responsible for performing operations on files and organizing them?
+a) Process management
+b) Memory management
+c) File management
+d) Device management
+K: c
+X: File management creates, deletes, reads, writes and renames files and organises them into a hierarchy of directories (folders).
+S: Files and folders → file management.
+
+#228 p36 a69
+Q: What is the purpose of the file system in an operating system?
+a) To allocate memory resources
+b) To manage input/output devices
+c) To control program execution
+d) To perform operations on files
+K: d
+X: The file system organises data on storage into files and directories and supports operations on them (create, open, read, write, delete).
+S: File system = how files are stored, named and operated on (FAT, NTFS, ext4).
+
+#229 p37 a69
+Q: The kernel in an operating system is responsible for:
+a) Interacting with the hardware directly
+b) Providing a user-friendly interface
+c) Managing file operations
+d) Allocating CPU time to processes
+K: a
+X: The kernel is the core of the OS that sits directly on the hardware, managing the CPU, memory and devices; the user interface (shell/GUI) sits on top of it.
+S: Kernel = core, touches hardware; shell = outer layer, talks to the user (kernel as core of UNIX: ISS 2018, 2023).
+
+#230 p37 a69
+Q: When a computer boots up, it first goes through:
+a) File management functions
+b) Initialization functions
+c) Memory allocation functions
+d) User interface functions
+K: b
+X: At power-on the firmware runs initialisation routines (POST, hardware set-up), then loads the kernel into memory and hands control to it.
+S: Boot order: POST/initialisation → bootloader → kernel → login/UI.
+
+#231 p37 a69
+Q: The user interface of an operating system is the portion that:
+a) Manages system resources
+b) Interacts directly with the hardware
+c) Allows users to interact with the system
+d) Controls the file operations
+K: c
+X: The user interface (shell or GUI) is the outer layer of the OS through which users give commands and see results.
+S: UI/shell = user-facing; kernel = hardware-facing.
+
+#232 p37 a69
+Q: Which type of operating system interface accepts only typed-in text commands?
+a) Graphical user interface
+b) Command-line interface
+c) Web-based interface
+d) Menu-driven interface
+K: b
+X: A command-line interface (CLI) accepts only typed text commands — as in MS-DOS and early UNIX.
+S: Typed commands → CLI (MS-DOS, UNIX shell); icons and mouse → GUI.
+
+#233 p37 a69
+Q: Which operating systems provide users with a graphical user interface?
+a) MS-DOS and early versions of UNIX
+b) Linux and Solaris
+c) Mac and MS Windows
+d) Windows and Linux
+K: c
+X: Mac OS and Microsoft Windows are the classic GUI operating systems, built around windows, icons, menus and a pointer (WIMP). MS-DOS and early UNIX were command-line systems.
+S: GUI classics: Mac OS (1984), Windows; CLI classics: MS-DOS, early UNIX.
+
+#234 p37 a69
+Q: The kernel represents only a small portion of the code of the entire operating system but remains in:
+a) Secondary storage
+b) Primary storage
+c) External storage
+d) Cache memory
+K: b
+X: Because it is used constantly, the kernel stays resident in primary storage (RAM) from boot to shutdown; other OS parts are loaded from disk only when needed.
+S: Kernel = resident in RAM throughout.
+
+#235 p37 a69
+Q: Which function of an operating system involves controlling the access of programs and processes to resources?
+a) Process management
+b) Memory management
+c) File management
+d) Resource management
+K: d
+X: Resource management controls which programs and processes may use which resources (memory segments, devices, files, CPU), including protection and allocation.
+S: Access to resources → resource management (protection).
+
+#236 p37 a69
+Q: Which component of a computer system interacts directly with the hardware?
+a) User interface
+b) Kernel
+c) Main memory
+d) Secondary storage
+K: b
+X: The kernel is the part of the operating system that communicates directly with the hardware through device drivers and interrupt handling.
+S: Hardware-facing layer = kernel.
+
+#237 p37 a69
+Q: The primary purpose of an operating system is to:
+a) Execute programs
+b) Provide a user-friendly interface
+c) Manage system resources
+d) Perform data processing tasks
+K: c
+X: At its core the OS is a resource manager that shares the CPU, memory and I/O devices efficiently and safely among programs.
+S: OS primarily = resource manager.
+
+#238 p38 a70
+Q: Which function of an operating system involves organizing files hierarchically into directories?
+a) Process management
+b) Memory management
+c) File management
+d) Device management
+K: c
+X: File management organises files into a hierarchy (tree) of directories and subdirectories and performs file operations.
+S: Directories/folders → file management.
+
+#239 p38 a70
+Q: The operating system is responsible for allocating which of the following resources to processes?
+a) Memory
+b) Input/output devices
+c) Processor time
+d) All of the above
+K: d
+X: The OS allocates every system resource to processes: CPU time (scheduling), memory and I/O devices.
+S: CPU + memory + devices → "all of the above".
+
+#240 p38 a70
+Q: The kernel remains in primary storage while other portions of the operating system may be transferred in and out of:
+a) Primary storage
+b) Secondary storage
+c) Cache memory
+d) External storage
+K: b
+X: Non-resident parts of the OS are kept on secondary storage (disk) and swapped into RAM only when needed, while the kernel stays resident.
+S: Resident kernel in RAM; transient parts on disk.
+
+#241 p38 a70
+Q: Which function of an operating system involves managing the execution of multiple programs concurrently?
+a) Process management
+b) Memory management
+c) File management
+d) Device management
+K: a
+X: Process management handles multiprogramming and multitasking — scheduling several processes so they appear to run concurrently.
+S: Many programs at once → process management / scheduling.
+
+#242 p38 a70
+Q: What is the purpose of resource management in an operating system?
+a) To provide security for the computer system
+b) To manage user interfaces
+c) To allocate system resources efficiently
+d) To control access to files
+K: c
+X: Resource management allocates the CPU, memory, storage and devices efficiently and fairly among competing programs.
+S: Resource management = efficient allocation.
+
+#243 p38 a70
+Q: The file system allows users and programs to perform various operations on files, including:
+a) Creating, deleting, and modifying files
+b) Allocating memory resources
+c) Managing input/output devices
+d) Controlling program execution
+K: a
+X: File-system operations include create, open, read, write/modify, rename and delete.
+S: File ops = create, read, write, delete, rename.
+
+#244 p38 a70
+Q: Which component of an operating system is responsible for managing the execution of programs and allocating CPU time?
+a) Scheduler
+b) File system
+c) Device driver
+d) Kernel
+K: a
+X: The CPU scheduler (part of the kernel) chooses which ready process runs next and for how long.
+S: CPU time → scheduler (FCFS, SJF, Round Robin, priority).
+
+#245 p38 a70
+Q: The user interface of an operating system allows users to interact with the system through:
+a) Text commands
+b) Icons, menus, and mouse movements
+c) Graphs and charts
+d) Web-based applications
+K: b
+X: The book keys the graphical interface of modern operating systems, where users work through icons, menus, windows and the mouse. Text commands are the older command-line style.
+S: Modern OS UI = GUI (icons, menus, pointer).
+
+#246 p38 a70
+Q: Which function of an operating system involves controlling and scheduling accesses to input/output devices?
+a) Process management
+b) Memory management
+c) File management
+d) Device management
+K: d
+X: Device management controls and schedules access to input/output devices among processes.
+S: I/O scheduling → device management.
+
+#247 p39 a70
+Q: The primary storage used by the kernel of an operating system is typically:
+a) Hard disk
+b) Solid-state drive
+c) Cache memory
+d) Random access memory (RAM)
+K: d
+X: Once loaded at boot, the kernel resides in RAM, the computer's primary storage.
+S: Kernel resides in RAM.
+
+#248 p39 a70
+Q: Which function of an operating system involves allocating memory to processes and organizing memory usage?
+a) Process management
+b) Memory management
+c) File management
+d) Device management
+K: b
+X: Memory management allocates and frees memory for processes and organises its use through partitioning, paging or segmentation.
+S: Allocate memory → memory management.
+
+#249 p39 a70
+Q: What is the main purpose of the kernel in an operating system?
+a) To provide a user-friendly interface
+b) To manage system resources
+c) To control file operations
+d) To interact with the hardware directly
+K: b
+X: The kernel is the core of the OS: it manages system resources — processes, memory and devices — by working directly with the hardware.
+S: Kernel = core resource manager at the hardware level.
+
+#250 p39 a71
+Q: The user interface and way of interaction with the operating system can vary widely from one operating system to another, such as:
+a) MS-DOS and Linux
+b) Solaris and Mac
+c) MS Windows and Linux
+d) UNIX and MS-DOS
+K: c
+X: The book's example is MS Windows and Linux, whose interfaces and ways of working (desktop environments, shells, commands) differ widely.
+S: Book example pair: MS Windows vs Linux.
+
+#251 p39 a71
+Q: In some digital devices like small appliances and handheld devices, where is the operating system typically stored?
+a) ROM
+b) RAM
+c) Hard disk
+d) CD or DVD
+K: a
+X: Small embedded and handheld devices keep their OS (firmware) in ROM or flash, so it is available immediately at power-on.
+S: Appliances/handhelds → OS in ROM (firmware); PCs → OS on hard disk.
+
+#252 p39 a71
+Q: Which part of the operating system is loaded into RAM at start-up and remains present in memory?
+a) Kernel
+b) BIOS
+c) Boot loader
+d) Master Boot Record
+K: a
+X: The kernel is loaded into RAM during booting and stays resident until shutdown. The BIOS runs from ROM, and the boot loader runs only briefly.
+S: Loaded at boot and stays → kernel.
+
+#253 p39 a71
+Q: How is the operating system typically stored in a personal computer?
+a) Hard disk
+b) ROM
+c) CD or DVD
+d) RAM
+K: a
+X: A PC's operating system is large, so it is installed on the hard disk (or SSD) and loaded into RAM at boot.
+S: PC OS lives on disk, runs in RAM.
+
+#254 p39 a71
+Q: What is the general term for the process a computer follows from being turned on until the operating system is loaded?
+a) POST
+b) Bootstrap loader
+c) BIOS
+d) Booting
+K: d
+X: Booting (bootstrapping) is the whole start-up sequence: POST, locating the boot device, running the bootstrap loader and loading the OS kernel.
+S: Whole start-up = booting; POST is only its first step.
+
+#255 p39 a71
+Q: What is the purpose of the Power On Self Test (POST)?
+a) To load the operating system into memory
+b) To initialize the system components
+c) To execute the BIOS instructions
+d) To update the CMOS chip
+K: b
+X: POST, run by the BIOS at power-on, tests and initialises the basic hardware — CPU, memory, keyboard, drives — and reports errors with beep codes before booting continues.
+S: POST = hardware check at power-on (beep codes).
+
+#256 p40 a71
+Q: Where is the system configuration data obtained from POST compared with?
+a) CMOS memory chip
+b) Hard disk
+c) Master Boot Record
+d) Bootable device
+K: a
+X: The hardware found during POST is compared with the configuration saved in the battery-backed CMOS memory; mismatches are reported or updated.
+S: POST results ↔ CMOS setup data.
+
+#257 p40 a71
+Q: What is the size of the Master Boot Record?
+a) 256 bytes
+b) 512 bytes
+c) 1 KB
+d) 2 KB
+K: b
+X: The MBR is the first 512-byte sector of the disk; it holds the bootstrap code, the partition table and the boot signature 55AA.
+S: MBR = first sector = 512 bytes.
+
+#258 p40 a71
+Q: Which component of the computer receives power and initiates the boot process?
+a) ROM circuitry
+b) Hard disk
+c) CMOS chip
+d) BIOS
+K: a
+X: At power-on the processor starts executing from the ROM circuitry (the BIOS ROM), which begins the boot process.
+S: Boot starts from ROM.
+
+#259 p40 a71
+Q: What type of memory chip stores the system information and is updated when new components are added?
+a) PROM
+b) RAM
+c) ROM
+d) CMOS
+K: d
+X: CMOS memory (kept alive by a small battery) stores the system configuration — date, time, drives, boot order — and is updated when hardware changes.
+S: Configuration + battery-backed → CMOS.
+
+#260 p40 a72
+Q: What does the boot loader program do?
+a) Loads the BIOS instructions
+b) Executes the POST
+c) Initiates the loading of the operating system
+d) Updates the CMOS chip
+K: c
+X: The boot loader (bootstrap loader), found in the MBR or boot sector, loads the operating system kernel into memory and passes control to it.
+S: Boot loader → loads the OS (e.g. GRUB, Windows Boot Manager).
+
+#261 p40 a72
+Q: What are the four steps of the instruction cycle performed by the CPU for each machine language instruction?
+a) Fetch, execute, store, write
+b) Fetch, decode, execute, store
+c) Load, decode, execute, write
+d) Load, process, store, write
+K: b
+X: The machine (instruction) cycle is fetch → decode → execute → store (write-back), repeated for every instruction.
+S: F-D-E-S: Fetch, Decode, Execute, Store (ISS 2022 and 2024).
+
+#262 p40 a72
+Q: Which register keeps track of the next instruction to be executed?
+a) Program Counter (PC)
+b) Instruction Register (IR)
+c) Address Register (AR)
+d) Control Unit Register (CUR)
+K: a
+X: The program counter holds the address of the next instruction to fetch; it is incremented during each fetch or changed by jumps and branches.
+S: Next instruction → PC (ISS 2022).
+
+#263 p40 a72
+Q: What happens during the fetch step of the instruction cycle?
+a) The instruction is decoded
+b) The control signals are issued
+c) The instruction is loaded into the Instruction Register (IR)
+d) The result of the instruction is stored
+K: c
+X: In the fetch step the instruction at the address in the PC is read from memory into the instruction register, and the PC is incremented.
+S: Fetch: memory[PC] → IR, then PC + 1.
+
+#264 p40 a72
+Q: What is incremented after the instruction is fetched from main memory?
+a) Program Counter (PC)
+b) Instruction Register (IR)
+c) Address Register (AR)
+d) Control Unit Register (CUR)
+K: a
+X: After the fetch, the program counter is incremented so it points to the next instruction in sequence.
+S: Fetch then PC++.
+
+#265 p41 a72
+Q: What does the decoding of the instruction determine?
+a) The actions needed for execution
+b) The memory address of the instruction
+c) The result of the instruction
+d) The next instruction in the program
+K: a
+X: Decoding interprets the opcode and operand fields to decide which operation to perform and which operands and control signals are needed.
+S: Decode = work out what to do.
+
+#266 p41 a72
+Q: How are data needed for instruction processing fetched?
+a) From the Program Counter (PC)
+b) From the Instruction Register (IR)
+c) From the Control Unit Register (CUR)
+d) From a register or RAM through an address register
+K: d
+X: Operands are read from CPU registers or from RAM; for memory operands the address is placed in the memory address register (MAR) and the data arrives in the memory data register (MDR).
+S: Operand from memory: address → MAR, data ← MDR.
+
+#267 p41 a72
+Q: Where is the result of the instruction stored?
+a) Program Counter (PC)
+b) Instruction Register (IR)
+c) Address Register (AR)
+d) A register or a memory location
+K: d
+X: In the store (write-back) step the result goes to a CPU register (often the accumulator) or back to a memory location.
+S: Result → register (accumulator) or memory.
+
+#268 p41 a72
+Q: What triggers the continuation of the instruction cycle for the next instruction?
+a) Decoding of the current instruction
+b) Loading of the current instruction
+c) Incrementing the Program Counter (PC)
+d) Storing the result of the current instruction
+K: c
+X: Because the PC has been incremented to the next instruction's address, the next fetch can start as soon as the current instruction completes.
+S: PC++ keeps the cycle rolling.
+
+#269 p41 a73
+Q: When does the instruction cycle continue until there is no more instruction in the program?
+a) When the computer is turned off
+b) When an unrecoverable error occurs
+c) When the Program Counter (PC) reaches its maximum value
+d) When the last instruction is fetched and executed successfully
+K: d
+X: The cycle repeats instruction after instruction until the last instruction of the program has been fetched and executed (or a halt instruction is reached).
+S: Cycle repeats till the last/halt instruction.
+
+#270 p41 a73
+Q: How many steps are involved in the instruction cycle while executing a program?
+a) Two steps
+b) Three steps
+c) Four steps
+d) Five steps
+K: c
+X: The book's instruction cycle has four steps: fetch, decode, execute and store. (Some texts group it as fetch–execute, or add an operand-fetch step.)
+S: Four steps: F-D-E-S.
+
